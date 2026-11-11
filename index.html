@@ -1434,11 +1434,12 @@ function renderNav(){
   $('#tabbar').innerHTML=rutas().filter(r=>S.role==='prof'||r[0]!=='metodo').map(item).join('');
   const nombre=S.role==='alumno'&&S.perfil?S.perfil.nombre:'Profesora';
   const modo=S.isOwner?'<div class="mode"><small>Ver como</small><div class="seg" role="group" aria-label="Cambiar vista"><button data-act="modo" data-m="prof" aria-pressed="'+(S.role==='prof')+'">Profesora</button><button data-act="modo" data-m="alumno" aria-pressed="'+(S.role==='alumno')+'">Alumno</button></div>'+(S.role==='alumno'?'<button class="del" data-act="prueba-borrar">'+(S.confirmPrueba?'¿Borrar? Toca otra vez':'Borrar prueba')+'</button>':'')+'</div>':'';
-  $('#sidefoot').innerHTML='<button class="fork" data-act="fork" title="Toca un La de 440 Hz para afinar el oído">'+ic('note','sm')+'La 440</button>'+modo+'<div class="me"><span class="av">'+esc((nombre||'?').trim()[0]||'?').toUpperCase()+'</span><b>'+esc(nombre)+'</b></div>'+(S.sb&&!S.anon?'<button class="del salir" data-act="salir">Cerrar sesión</button>':'');
+  $('#sidefoot').innerHTML='<button class="fork" data-act="fork" title="Toca un La de 440 Hz para afinar el oído">'+ic('note','sm')+'La 440</button>'+modo+'<div class="me"><span class="av">'+esc((nombre||'?').trim()[0]||'?').toUpperCase()+'</span><b>'+esc(nombre)+'</b></div>'+(S.sb&&!S.anon?'<button class="del salir" data-act="salir">Cerrar sesión</button>':'')+(S.sb&&!S.isOwner?'<a class="del salir" href="#profesora">Soy la profesora</a>':'');
   $('#appbar-r').innerHTML='<button class="forkb" data-act="fork" aria-label="Tocar La 440">'+ic('note','sm')+'</button>'+(S.role==='alumno'?'<a class="forkb" href="#metodo" aria-label="Método">'+ic('book','sm')+'</a>':'')+(S.isOwner?'<button class="modeb" data-act="modo" data-m="'+(S.role==='prof'?'alumno':'prof')+'">'+(S.role==='prof'?'Ver alumno':'Ver profesora')+'</button>':'')+(S.sb&&!S.anon?'<button class="modeb" data-act="salir">Salir</button>':'');
 }
 function vista(){
   if(S.estado==='login')return vLogin();
+  if(S.sb&&!S.isOwner&&S.estado==='listo'&&location.hash==='#profesora'){S.ui.profForm=true;return '<div class="wrap page"><div class="page-head ph-brand"><div class="t"><span class="eyebrow">Acceso de la profesora</span><h1>Soy la profesora</h1><p class="muted">Con tu código verás a todos los alumnos. Tu atril de este dispositivo no se pierde.</p></div></div>'+profCodigo()+'</div>'}
   if(S.estado==='sin-anon')return estadoPantalla('x','Falta activar el acceso libre','En Supabase ve a Authentication → Sign In / Providers y activa «Allow anonymous sign-ins». Luego recarga esta página.');
   if(S.estado==='sin-db')return estadoPantalla('link','Inicia sesión para abrir tu atril','Octavia guarda tus obras y tu estudio en tu cuenta. Abre esta página con tu cuenta de Claude para continuar.');
   if(S.estado==='sin-id')return estadoPantalla('users','No pudimos identificar tu cuenta','Vuelve a abrir Octavia con tu correo de Gmail. Si el problema sigue, pide a tu profesora que revise tu invitación.');
@@ -2437,7 +2438,7 @@ const ACT={
  'res-copiar':async t=>{const R=resumenSemana(S.sesiones,S.obras,S.perfil,addDays(monday(new Date()),t.dataset.p==='1'?-7:0),S.evidencias);const txt=resumenTexto(R,S.perfil.nombre);
    try{await navigator.clipboard.writeText(txt);toast('Resumen copiado. Pégalo en WhatsApp o en un correo para tu profesora.')}catch(e){try{window.prompt('Copia tu resumen:',txt)}catch(x){toast('Tu navegador no permitió copiar el resumen.','bad')}}},
  'prof-mostrar':()=>{S.ui.profForm=true;render(true);const i=$('#p-cod');if(i)i.focus()},
- 'prof-ocultar':()=>{S.ui.profForm=false;render(true)},
+ 'prof-ocultar':()=>{S.ui.profForm=false;if(location.hash==='#profesora'){location.hash='#inicio';return}render(true)},
  'login-otro':()=>{S.ui.loginEmail=null;render(true)},
  'login-reenviar':async()=>{if(!S.ui.loginEmail||S.ui.reenvioHasta>Date.now())return;S.ui.reenvioHasta=Date.now()+60000;render(true);setTimeout(()=>render(true),60500);
    const {error}=await S.sb.auth.signInWithOtp({email:S.ui.loginEmail,options:{emailRedirectTo:location.origin+location.pathname,shouldCreateUser:true}});
@@ -2504,7 +2505,7 @@ document.addEventListener('submit',async e=>{
     const p='alumnos/'+S.tSel+'/rutinas/'+sem,pp='alumnos/'+S.tSel;
     try{await encolar(p,()=>S.db.doc(p).update({estado:dec,comentario:com,revisada:Date.now()}));await encolar(pp,()=>S.db.doc(pp).update({rutinaPendiente:null}));toast(dec==='aprobada'?'Rutina aprobada':'Pediste un ajuste')}catch(x){toast(errMsg(x),'bad')}return}
 });
-window.addEventListener('hashchange',()=>{const v=vistaDesdeHash();if(v!==S.view){S.view=v;S.calSel=null;if(S.role==='prof'&&v!=='alumnos')cerrarAlumno();render(true);window.scrollTo(0,0)}});
+window.addEventListener('hashchange',()=>{if(location.hash==='#profesora'){render(true);window.scrollTo(0,0);return}const v=vistaDesdeHash();if(v!==S.view){S.view=v;S.calSel=null;if(S.role==='prof'&&v!=='alumnos')cerrarAlumno();render(true);window.scrollTo(0,0)}});
 
 /* ───────── Conexión ───────── */
 function sub(ref,fn){return ref.onSnapshot(fn,err=>{if(err&&(err.code==='revoked'||err.code==='unavailable')){S.estado='error';render(true)}})}
