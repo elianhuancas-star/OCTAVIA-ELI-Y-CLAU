@@ -995,6 +995,8 @@ thead th{background:transparent;color:var(--suave);font:700 12px/1.2 var(--f-bod
 
 .cat.c1{background:var(--cat1-f);color:var(--cat1-t)}.cat.c6{background:var(--cat6-f);color:var(--cat6-t)}.cat.c7{background:var(--cat7-f);color:var(--cat7-t)}
 
+.prof-link{display:flex;justify-content:center;margin-top:12px}
+.prof-form{margin-top:12px;gap:12px}
 /* Acceso con correo */
 .login{max-width:440px;margin-top:8vh;gap:14px}
 .login-mark{flex-direction:row!important;gap:10px;align-items:center}
@@ -1432,11 +1434,12 @@ function renderNav(){
   $('#tabbar').innerHTML=rutas().filter(r=>S.role==='prof'||r[0]!=='metodo').map(item).join('');
   const nombre=S.role==='alumno'&&S.perfil?S.perfil.nombre:'Profesora';
   const modo=S.isOwner?'<div class="mode"><small>Ver como</small><div class="seg" role="group" aria-label="Cambiar vista"><button data-act="modo" data-m="prof" aria-pressed="'+(S.role==='prof')+'">Profesora</button><button data-act="modo" data-m="alumno" aria-pressed="'+(S.role==='alumno')+'">Alumno</button></div>'+(S.role==='alumno'?'<button class="del" data-act="prueba-borrar">'+(S.confirmPrueba?'¿Borrar? Toca otra vez':'Borrar prueba')+'</button>':'')+'</div>':'';
-  $('#sidefoot').innerHTML='<button class="fork" data-act="fork" title="Toca un La de 440 Hz para afinar el oído">'+ic('note','sm')+'La 440</button>'+modo+'<div class="me"><span class="av">'+esc((nombre||'?').trim()[0]||'?').toUpperCase()+'</span><b>'+esc(nombre)+'</b></div>'+(S.sb?'<button class="del salir" data-act="salir">Cerrar sesión</button>':'');
-  $('#appbar-r').innerHTML='<button class="forkb" data-act="fork" aria-label="Tocar La 440">'+ic('note','sm')+'</button>'+(S.role==='alumno'?'<a class="forkb" href="#metodo" aria-label="Método">'+ic('book','sm')+'</a>':'')+(S.isOwner?'<button class="modeb" data-act="modo" data-m="'+(S.role==='prof'?'alumno':'prof')+'">'+(S.role==='prof'?'Ver alumno':'Ver profesora')+'</button>':'')+(S.sb?'<button class="modeb" data-act="salir">Salir</button>':'');
+  $('#sidefoot').innerHTML='<button class="fork" data-act="fork" title="Toca un La de 440 Hz para afinar el oído">'+ic('note','sm')+'La 440</button>'+modo+'<div class="me"><span class="av">'+esc((nombre||'?').trim()[0]||'?').toUpperCase()+'</span><b>'+esc(nombre)+'</b></div>'+(S.sb&&!S.anon?'<button class="del salir" data-act="salir">Cerrar sesión</button>':'');
+  $('#appbar-r').innerHTML='<button class="forkb" data-act="fork" aria-label="Tocar La 440">'+ic('note','sm')+'</button>'+(S.role==='alumno'?'<a class="forkb" href="#metodo" aria-label="Método">'+ic('book','sm')+'</a>':'')+(S.isOwner?'<button class="modeb" data-act="modo" data-m="'+(S.role==='prof'?'alumno':'prof')+'">'+(S.role==='prof'?'Ver alumno':'Ver profesora')+'</button>':'')+(S.sb&&!S.anon?'<button class="modeb" data-act="salir">Salir</button>':'');
 }
 function vista(){
   if(S.estado==='login')return vLogin();
+  if(S.estado==='sin-anon')return estadoPantalla('x','Falta activar el acceso libre','En Supabase ve a Authentication → Sign In / Providers y activa «Allow anonymous sign-ins». Luego recarga esta página.');
   if(S.estado==='sin-db')return estadoPantalla('link','Inicia sesión para abrir tu atril','Octavia guarda tus obras y tu estudio en tu cuenta. Abre esta página con tu cuenta de Claude para continuar.');
   if(S.estado==='sin-id')return estadoPantalla('users','No pudimos identificar tu cuenta','Vuelve a abrir Octavia con tu correo de Gmail. Si el problema sigue, pide a tu profesora que revise tu invitación.');
   if(S.estado==='cargando')return document.querySelector('#main').innerHTML;
@@ -1471,9 +1474,16 @@ function vOnboarding(){
   '<label class="f s3" for="o-desc">Día de descanso fijo<select id="o-desc" name="descanso">'+[1,2,3,4,5,6,0].map(d=>'<option value="'+d+'"'+(d===0?' selected':'')+'>'+DOW_L[d][0].toUpperCase()+DOW_L[d].slice(1)+'</option>').join('')+'</select></label>'+
   '</div>'+
   '<div class="status-banner info">'+ic('flame','sm')+'<span>Tu racha cuenta los días que cumples tu mínimo de estudio. El día de descanso no la rompe: <b>6 de 7 días = semana cumplida</b>.</span></div>'+
+  (S.anon?'<div class="nota"><span class="etq">Importante</span><span>Tu atril queda guardado en <b>este celular o navegador</b>. Usa siempre el mismo para no empezar de cero.</span></div>':'')+
   '<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><button class="btn btn-primary" type="submit">Crear mi atril '+ic('right','sm')+'</button><span class="err" id="o-err" role="alert"></span></div>'+
-  '</form></div>';
+  '</form>'+(S.sb?profCodigo():'')+'</div>';
 }
+/* Acceso libre: la profesora se identifica con el código secreto que se define en Supabase (tabla «ajustes») */
+function profCodigo(){
+  if(!S.ui.profForm)return '<div class="prof-link"><button class="btn btn-ghost btn-sm" data-act="prof-mostrar">'+ic('users','sm')+' ¿Eres la profesora? Entra con tu código</button></div>';
+  return '<form class="card onb prof-form" data-form="prof-codigo" novalidate><span class="eyebrow">Profesora</span><h3>Entra con tu código</h3><p class="muted">Es el código secreto que definiste en Supabase. Lo escribes una sola vez en cada celular o computadora.</p>'+
+   '<label class="f" for="p-cod">Código de profesora<input id="p-cod" name="codigo" type="password" autocomplete="off" required></label>'+
+   '<div class="row-acts"><button class="btn btn-primary" type="submit">Entrar como profesora</button><button class="btn btn-ghost" type="button" data-act="prof-ocultar">Cancelar</button></div><span class="err" id="p-err" role="alert"></span></form>'}
 
 /* ───────── Inicio (alumno) ───────── */
 function vInicio(){
@@ -2426,6 +2436,8 @@ const ACT={
  'res-sem':t=>{S.ui.resPrev=t.dataset.p==='1';render(true)},
  'res-copiar':async t=>{const R=resumenSemana(S.sesiones,S.obras,S.perfil,addDays(monday(new Date()),t.dataset.p==='1'?-7:0),S.evidencias);const txt=resumenTexto(R,S.perfil.nombre);
    try{await navigator.clipboard.writeText(txt);toast('Resumen copiado. Pégalo en WhatsApp o en un correo para tu profesora.')}catch(e){try{window.prompt('Copia tu resumen:',txt)}catch(x){toast('Tu navegador no permitió copiar el resumen.','bad')}}},
+ 'prof-mostrar':()=>{S.ui.profForm=true;render(true);const i=$('#p-cod');if(i)i.focus()},
+ 'prof-ocultar':()=>{S.ui.profForm=false;render(true)},
  'login-otro':()=>{S.ui.loginEmail=null;render(true)},
  'login-reenviar':async()=>{if(!S.ui.loginEmail||S.ui.reenvioHasta>Date.now())return;S.ui.reenvioHasta=Date.now()+60000;render(true);setTimeout(()=>render(true),60500);
    const {error}=await S.sb.auth.signInWithOtp({email:S.ui.loginEmail,options:{emailRedirectTo:location.origin+location.pathname,shouldCreateUser:true}});
@@ -2461,6 +2473,11 @@ document.addEventListener('submit',async e=>{
     const {error}=await S.sb.auth.verifyOtp({email:S.ui.loginEmail,token,type:'email'});
     if(error){btn.disabled=false;$('#l-err').textContent='Código incorrecto o vencido. Vuelve a pedir el acceso.';return}
     location.reload();return}
+  if(k==='prof-codigo'){const codigo=String(fd.get('codigo')||'').trim();if(!codigo){$('#p-err').textContent='Escribe tu código.';return}
+    const btn=f.querySelector('button[type=submit]');btn.disabled=true;
+    let ok=false;try{const r=await S.sb.rpc('entrar_como_profesora',{codigo});ok=!!r.data;if(r.error)throw r.error}catch(x){btn.disabled=false;$('#p-err').textContent='No se pudo comprobar el código. Revisa tu conexión.';return}
+    if(!ok){btn.disabled=false;$('#p-err').textContent='Ese código no es correcto.';return}
+    ls.set('octavia.modo','prof');location.hash='#panel';location.reload();return}
   if(k==='onb'){const nombre=(fd.get('nombre')||'').trim();if(!nombre){$('#o-err').textContent='Escribe tu nombre.';return}
     const data={nombre,ciclo:+fd.get('ciclo'),descanso:+fd.get('descanso'),creado:Date.now(),dias:{},racha:0,minutosMes:0,semanasMes:0,terminadasMes:0,puntaje:0,mes:today().slice(0,7),ultimaSesion:null,obrasActivas:0,rutinaPendiente:null,ultimaEvidencia:null};
     const btn=f.querySelector('button[type=submit]');btn.disabled=true;
@@ -2630,7 +2647,12 @@ function crearLocal(){
     const cfg=window.OCTAVIA_SUPABASE;
     const sb=window.supabase.createClient(cfg.url,cfg.anonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});S.sb=sb;
     let session=null;try{session=(await sb.auth.getSession()).data.session}catch(e){}
+    const libre=(cfg.acceso||'libre')!=='correo';
+    if(!session&&libre){const r=await sb.auth.signInAnonymously();
+      if(r.error){S.estado='sin-anon';S.ui.anonErr=r.error.message;render(true);return}
+      session=r.data.session}
     if(!session){S.estado='login';render(true);return}
+    S.anon=!!session.user.is_anonymous;
     let prof=false;try{const r=await sb.rpc('es_profesora');prof=!!r.data}catch(e){}
     const sdb=crearSupabase(sb),uid=session.user.id;S.email=session.user.email;
     sb.auth.onAuthStateChange(ev=>{if(ev==='SIGNED_OUT')location.reload()});

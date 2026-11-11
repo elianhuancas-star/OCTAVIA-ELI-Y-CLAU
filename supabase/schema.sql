@@ -77,3 +77,6 @@ exception when duplicate_object then null; end $$;
 
 -- 5) PON AQUÍ EL CORREO DE LA PROFESORA (quita los dos guiones del inicio y ejecuta):
 -- insert into public.profesoras (email) values ('correo.de.la.profesora@gmail.com') on conflict do nothing;
+
+-- 6) Acceso libre (sin correo): ver supabase/02_acceso_libre.sql
+--    (crea profesoras_uid, ajustes, entrar_como_profesora y amplía es_profesora)
