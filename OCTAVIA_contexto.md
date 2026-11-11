@@ -241,3 +241,18 @@ Principios: primero leer y después analizar; los fragmentos respetan las frases
 - **Datos:** en `alumnos/<id>/sesiones/<fecha>` se guardan `tiempoDisponible`, `horaReal`, `hechos` (ids de bloque), `planObras` ({bloque: [ids de obra]}), `planMin` (minutos editados) y `objetivo`.
 - **Profesora:** en la pestaña Estudio, cada día muestra el plan elegido, los bloques hechos, la hora real y el objetivo.
 - La tipografía sigue siendo Plus Jakarta Sans (decisión de Claudia: no volver a Unbounded/Figtree/Martian).
+
+## 11. Avances del 11 nov 2026 (tarde)
+- **Acceso libre en Supabase.** El alumno entra solo con su nombre (cuenta anónima por dispositivo) y la profesora con un código secreto en «Soy la profesora» (`#profesora`). La función `entrar_como_profesora` ya está instalada. El código se guarda en `public.ajustes` y se ve con: `select valor from public.ajustes where clave = 'codigo_profesora';`
+- **Consola v8.**
+  - Metrónomo con Web Audio: ♩ = 40 a 208, número editable, compás 2/4, 3/4, 4/4 o 6/8 con el primer tiempo acentuado, y «Con sonido / Sin sonido».
+  - Botón ↺ con aviso «¿Guardar antes de reiniciar?».
+  - Se puede ocultar con una pestaña; el reloj y el metrónomo siguen corriendo.
+- **Explicación de los bloques** (desplegable en «Tiempo de hoy» y un «?» por renglón). Se hacen TODOS los bloques; solo cambian los minutos. Los textos siguen el método de Claudia:
+  - **Control sin piano:** comprender la obra (época, forma, armonía, repeticiones, ostinatos) para no partir frases.
+  - **Repertorio lento (primer bloque):** por frases completas, manos separadas, solfeando ritmo y notas.
+  - **Reto (construcción):** velocidad, resistencia y agógica, por ejemplo en las cadenzas.
+- **Cierre de la obra terminada** (pestaña Historial):
+  - 4 preguntas: en qué ayudó, qué aprendí, cómo ayudó técnicamente y qué conocí del compositor y del contexto.
+  - Fragmentos de mantenimiento (máximo 5 min al día), que aparecen en Hoy dentro de «Pasada completa».
+- **Pendiente para mañana:** subir a GitHub, publicar en Vercel (enlace para todos los alumnos) y generar el APK.

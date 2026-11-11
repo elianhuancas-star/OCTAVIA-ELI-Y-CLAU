@@ -1088,6 +1088,32 @@ thead th{background:transparent;color:var(--suave);font:700 12px/1.2 var(--f-bod
 .pp-b{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 2px}
 .pp-b i{font-style:normal;font:700 11px/1.2 var(--f-body);padding:3px 7px;border-radius:7px}
 .pp-b i.no{background:#fff;color:var(--suave);border:1px dashed var(--punteado)}
+/* Explicación de los bloques */
+.expl{border:1px solid var(--linea);border-radius:14px;overflow:hidden;background:#fff}
+.expl.open{border-color:var(--acento-suave);background:#FAFBFF}
+.expl-h,.ex-h{appearance:none;width:100%;border:0;background:transparent;font:inherit;color:var(--tinta);text-align:left;cursor:pointer;display:flex;align-items:center;gap:12px;padding:12px 14px;min-height:var(--toque)}
+.expl-h .tile-ic{background:var(--acento-suave);color:var(--acento);width:34px;height:34px;border-radius:10px}
+.expl-t,.ex-t{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+.expl-t b{font-size:15px}
+.expl-t small,.ex-t small{font-size:13px;color:var(--suave)}
+.expl-t small b{color:var(--tinta)}
+.expl .chev{transition:transform .2s;flex:none}
+.expl.open>.expl-h .chev,.ex-it.on .ex-h .chev{transform:rotate(90deg)}
+.expl-b{display:flex;flex-direction:column;padding:0 10px 10px}
+.ex-it{border-top:1px solid var(--gris-claro)}
+.ex-h{padding:10px 6px}
+.ex-t b{font-size:14px}
+.ex-d{padding:0 6px 12px 28px;display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.5}
+.ex-d .etq{color:var(--suave)}
+.ex-d ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.pq{appearance:none;width:22px;height:22px;border-radius:50%;border:1px solid var(--linea-campo);background:#fff;color:var(--suave);font:800 12px/1 var(--f-body);cursor:pointer;display:inline-grid;place-items:center;padding:0}
+.pq:hover{border-color:var(--acento);color:var(--acento)}
+/* Cierre de la obra terminada */
+.cierre-obra{border-top:1px solid var(--linea);padding-top:16px}
+.cierre-obra textarea{min-height:64px}
+.mtrow{display:grid;grid-template-columns:70px 70px minmax(0,1fr) 64px 38px;gap:8px;align-items:end;padding:10px;border-radius:14px;background:#fff}
+@media (max-width:760px){.mtrow{grid-template-columns:1fr 1fr 1fr 38px}.mtrow .mt-q{grid-column:1/-1;grid-row:2}}
+
 /* Modo concentración */
 .concentra{position:fixed;inset:0;z-index:80;background:var(--tinta);color:#fff;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(340px,1fr);padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
 .concentra[hidden]{display:none!important}
@@ -1584,6 +1610,34 @@ const DIA=[
  {id:'cierre',n:'Cierre en el diario',r:'cierre',k:3}
 ];
 const TIEMPOS=[30,45,60,90,120,180];
+/* Explicación de cada bloque del plan del día, con ejemplos prácticos (método de Claudia) */
+const EXPL={
+ control:{q:'Comprender la obra antes de estudiarla',d:'Viene después de la lectura a primera vista. No es un análisis profundo: es entender cómo está hecha la obra para estudiarla bien. Así evitas, por ejemplo, estudiar 4 compases cortando por la mitad una frase que dura 8.',
+  ej:['<b>Época y estilo:</b> ¿barroco, clásico, romántico, siglo XX? Te dice cómo funcionan los adornos (en Bach, el trino suele empezar en la nota de arriba).','<b>Forma:</b> marca las secciones A, B, A′ y dónde empieza y termina cada frase.','<b>Armonía:</b> ¿cómo se desarrolla? ¿Hay un patrón de acordes que se repite?','<b>Repeticiones y ostinatos:</b> busca secciones iguales o parecidas y bajos o ritmos que vuelven una y otra vez.']},
+ calent:{q:'Preparar las manos con técnica',d:'Unos minutos de técnica para soltar y despertar las manos antes del repertorio: escalas, arpegios o los ejercicios que te asignó tu profesora.',
+  ej:['Escala de Do mayor, 4 octavas, manos juntas a ♩ = 80.','Hanon n.º 1 a 3, lento y con sonido parejo.','Arpegios de la tonalidad de tu obra.']},
+ lectura:{q:'Leer música nueva sin parar',d:'Lectura a primera vista: tocar una pieza que no conoces, de principio a fin, sin detenerte a corregir. Entrena la lectura rápida.',
+  ej:['Una pieza corta de tu nivel, una sola vez completa.','Al terminar anota tres impresiones: qué fue difícil, qué te gustó y qué no entendiste.','En básico puedes leer con manos separadas.']},
+ objetivo:{q:'Qué vas a lograr hoy (no cuánto)',d:'Es la meta de proceso del día. No se mide en cantidad de compases, porque hay pasajes que toman una semana: se mide en lo que vas a asegurar.',
+  ej:['«Asegurar c. 9–12 con manos juntas a ♩ = 60.»','«Pasaje crítico c. 25–32: subir al escalón 3 de la escalera.»','«Enlazar la frase 2 con la 3 sin detenerme.»']},
+ lento:{q:'Sacar la obra por frases completas (primer bloque)',d:'Ya sabes hasta dónde llega cada frase, así que avanzas por frases o secciones completas, sin partirlas. Se saca de forma muy consciente: manos separadas, solfeando y leyendo a la vez el ritmo y las notas. Luego manos juntas lento y enlazar con lo anterior.',
+  ej:['Frase c. 1–8: mano derecha solfeando las notas y el ritmo.','La misma frase con la mano izquierda, igual de consciente.','Manos juntas a ♩ = 50 y enlazar con la frase anterior.']},
+ pasada:{q:'Tocar de principio a fin sin parar',d:'Une lo que ya aprendiste: tocas la obra completa o la sección que ya tienes lista, sin detenerte en los errores. Aquí también entran tus obras terminadas, con sus fragmentos de mantenimiento (máximo 5 minutos).',
+  ej:['Pasada de la Sonatina a ♩ = 96 sin parar; al final anota dónde te trabaste.','Una obra terminada: sus fragmentos de mantenimiento, 5 minutos.']},
+ reto:{q:'Construir la técnica que pide la obra',d:'Hay obras que no vas a tener en un mes: puedes tenerlas leídas, pero la técnica todavía no da, porque piden velocidad o resistencia. En la construcción eso se desarrolla poco a poco: velocidad, resistencia y agógica, por ejemplo en las cadenzas o los compases de libertad.',
+  ej:['<b>Velocidad:</b> c. 24–31 con ritmos con puntillo y subir el metrónomo de 4 en 4.','<b>Resistencia:</b> repetir el pasaje con descansos cortos y sumar una repetición por día.','<b>Agógica:</b> en la cadenza, decide dónde acelerar, dónde respirar y dónde llegar.']},
+ video:{q:'Una grabación a la semana',d:'Graba un fragmento que estés trabajando (máximo 5 minutos) en picd.in y envíaselo a tu profesora. Ella te responde con un comentario.',
+  ej:['Graba c. 1–16 de tu obra en Primer bloque.','Agrega una pregunta: «¿Se escucha clara la melodía en el c. 12?»']},
+ cierre:{q:'Anotar cómo te fue',d:'Dos o tres minutos al final: qué salió hoy y qué falta para mañana. Es lo que te ayuda a empezar rápido la próxima sesión.',
+  ej:['«Salieron los c. 9–12 manos juntas. Mañana: enlazar con el c. 13.»','«El pedal del c. 20 todavía se ensucia.»']}
+};
+function explicacionPlan(){
+  const open=!!S.ui.explOpen;
+  return '<section class="expl'+(open?' open':'')+'" id="expl"><button class="expl-h" data-act="expl-toggle" aria-expanded="'+open+'"><span class="tile-ic">'+ic('book','sm')+'</span><span class="expl-t"><b>Explicación: ¿qué es cada bloque?</b><small>Se hacen <b>todos</b> los bloques cada día. Según tu tiempo, cada uno dura más o menos, pero ninguno se salta.</small></span><span class="chev">'+ic('right','sm')+'</span></button>'+
+   (open?'<div class="expl-b">'+DIA.map(b=>{const e=EXPL[b.id];const on=S.ui.explItem===b.id;
+     return '<div class="ex-it'+(on?' on':'')+'" id="ex-'+b.id+'"><button class="ex-h" data-act="expl-item" data-b="'+b.id+'" aria-expanded="'+on+'"><span class="psw cat c'+b.k+'"></span><span class="ex-t"><b>'+b.n+'</b><small>'+e.q+'</small></span><span class="chev">'+ic('right','sm')+'</span></button>'+
+      (on?'<div class="ex-d"><p>'+e.d+'</p><span class="etq">Ejemplos prácticos</span><ul>'+e.ej.map(x=>'<li>'+x+'</li>').join('')+'</ul></div>':'')+'</div>'}).join('')+'</div>':'')+'</section>';
+}
 const fmtT=v=>v<60?v+' min':(v%60?(v/60).toString().replace('.',',')+' h':(v/60)+' h');
 function diaSel(){const k=S.ui.key;return k&&S.st.semana.d7.some(d=>d.f===k)?k:today()}
 function sesionDe(f){return S.sesiones[f]||{fecha:f,seg:0,bloques:{},entradas:[],nota:''}}
@@ -1611,12 +1665,13 @@ function desafiosObra(o){const out=[];const pas=id=>(o.fragmentos||[]).filter(f=
   (o.focos||[]).forEach(id=>{const t=TEC.find(x=>x.id===id);if(t)out.push({n:t.n,p:pas(id)})});
   if(!out.length)(o.fragmentos||[]).filter(f=>f.desafio&&f.estado!=='seguro').forEach(f=>{const t=TEC.find(x=>x.id===f.desafio);if(t&&!out.some(x=>x.n===t.n))out.push({n:t.n,p:'cc. '+f.desde+'–'+f.hasta})});
   return out}
+function mantenimiento(o){return (o.mantener||[]).filter(x=>x&&(x.desde||x.que))}
 function avanzada(o){return o.col===4&&(o.fragmentos||[]).length&&(o.fragmentos||[]).every(f=>f.estado==='seguro')}
 function obrasAuto(b){const O=S.obras;
   if(b==='control')return O.filter(o=>o.col===2);
   if(b==='lectura')return O.filter(o=>o.col===1);
   if(b==='lento')return O.filter(o=>o.col===3||o.col===4);
-  if(b==='pasada')return O.filter(o=>avanzada(o)||(o.col===5&&o.repaso));
+  if(b==='pasada')return O.filter(o=>avanzada(o)||(o.col===5&&(o.repaso||mantenimiento(o).length)));
   if(b==='reto')return O.filter(o=>(o.col===3||o.col===4)&&desafiosObra(o).length);
   return []}
 const ROW_OBRAS=['control','lectura','lento','pasada','reto'];
@@ -1628,6 +1683,7 @@ function principal(b,o){
   if(b==='lectura')return o.col===1?'Leer completa · 3 impresiones':'Lectura a primera vista';
   if(b==='lento'){if(o.col===4)return o.tempoMeta?'♩ '+(o.tempoActual||'—')+' → '+o.tempoMeta:'Define tempo actual y meta';const f=fragActual(o);
     if(!f)return (o.fragmentos||[]).length?'Todos los fragmentos seguros':'Define tus fragmentos';return 'cc. '+f.desde+'–'+f.hasta+' · '+(f.dif==='c'?'escalón '+((f.escalon||0)+1)+' de 7':f.estado==='proceso'?'manos juntas lento':'manos separadas')}
+  if(b==='pasada'&&o.col===5&&!o.repaso&&mantenimiento(o).length){const m=mantenimiento(o);const tot=m.reduce((s,x)=>s+(+x.min||0),0);return 'Mantener ('+Math.min(5,tot||5)+' min): '+m.map(x=>(x.desde?'c. '+x.desde+(x.hasta?'–'+x.hasta:''):'')+(x.que?(x.desde?' · ':'')+x.que:'')).join(' / ')}
   if(b==='pasada')return (o.repaso?'Repaso · ':'')+'pasada sin parar'+(o.tempoActual?' a ♩ '+o.tempoActual:'');
   if(b==='reto'){const ds=desafiosObra(o);return ds.length?ds.map(d=>d.n+(d.p?' · '+d.p:'')).join(' / '):'Elige un desafío en Construcción'}
   return ''}
@@ -1679,7 +1735,7 @@ function planDia(){
     const play=b.id==='video'?'<a class="pplay" href="#evidencias" aria-label="Ir a Evidencias">'+ic('play','fill sm')+'</a>':'<button class="pplay" data-act="plan-play" data-b="'+b.id+'"'+(esHoy?'':' disabled')+' aria-label="Estudiar '+b.n+' en la consola">'+ic('play','fill sm')+'</button>';
     const diario=b.id==='cierre'&&(S.ui.diario||ok)&&esHoy?'<form data-form="nota" class="pdiario"><label class="f" for="d-nota">Cierre: ¿qué salió hoy y qué falta para mañana?<textarea id="d-nota" name="nota" placeholder="Salieron los c. 1–8 manos juntas. Mañana: enlazar con el 9.">'+esc(ses.nota||'')+'</textarea></label><button class="btn btn-sm" type="submit" style="align-self:flex-start">Guardar en el diario</button></form>':'';
     return '<li class="prow'+(ok?' ok':'')+'"><label class="pcb"><input type="checkbox" data-act="plan-hecho" data-b="'+b.id+'"'+(ok?' checked':'')+' aria-label="'+b.n+' hecho"></label>'+
-     '<div class="pmain"><div class="pname"><span class="psw cat c'+b.k+'"></span><b>'+b.n+'</b>'+(b.s?'<small>'+b.s+'</small>':'')+'</div><div class="pchips">'+c.chips+'</div><div class="pline">'+c.lines+'</div>'+diario+'</div>'+
+     '<div class="pmain"><div class="pname"><span class="psw cat c'+b.k+'"></span><b>'+b.n+'</b>'+(b.s?'<small>'+b.s+'</small>':'')+'<button class="pq" data-act="expl-ir" data-b="'+b.id+'" aria-label="¿Qué es '+b.n+'?" title="¿Qué es este bloque?">?</button></div><div class="pchips">'+c.chips+'</div><div class="pline">'+c.lines+'</div>'+diario+'</div>'+
      '<label class="pmin'+(ed?' ed':'')+'" title="Sugerido: '+sg[b.id]+' min"><input type="number" min="0" max="300" step="5" data-plan-min="'+b.id+'" value="'+m[b.id]+'" aria-label="Minutos de '+b.n+'"><span>min</span></label>'+play+'</li>'}).join('');
   const titulo=esHoy?'Tiempo de hoy':'Plan del '+fmtDia(f);
   return '<section class="card plan"><div class="plan-h"><div><span class="etq">'+ic('clock','sm')+titulo+'</span><h3>¿Cuánto tiempo tienes'+(esHoy?' hoy':' ese día')+'?</h3></div><div class="chips tsel" role="group" aria-label="Tiempo disponible">'+tsel+'</div></div>'+
@@ -1687,7 +1743,7 @@ function planDia(){
    '<div class="plan-sum"><span><b class="mono">'+hechos.size+'</b> de 9 bloques</span><span class="'+(plan>T?'over':'')+'">Planificado <b class="mono">'+plan+'</b> de '+T+' min</span>'+
    '<label class="hreal">Hora real<input data-plan-hr="1" value="'+esc(hr)+'" placeholder="'+(fut?'—':'se anota al cerrar')+'"'+(fut?' disabled':'')+' aria-label="Hora real estudiada, por ejemplo 1 h 20"></label></div>'+
    (timerMin||ses.horaReal?'<p class="hint">Cuenta el mayor: temporizador '+timerMin+' min'+(ses.horaReal?' · hora real '+hm(+ses.horaReal).trim():'')+' → <b>'+dayMin(ses)+' min</b> para tu racha.</p>':'')+
-   (esHoy?estado:'')+'<ol class="plist">'+filas+'</ol></section>';
+   (esHoy?estado:'')+explicacionPlan()+'<ol class="plist">'+filas+'</ol></section>';
 }
 /* «En tu atril» en una tarjeta plegable (conserva compases, «Marcar compás como seguro» y la escalera) */
 function atrilPlegable(){
@@ -2362,7 +2418,7 @@ function renderModal(){
     const h=o.historial||[];const mins=minutosObra(o.id,S.role==='prof'?S.t.sesiones:S.sesiones);
     b='<div class="summary"><div class="k"><b class="mono">'+(o.creado?fmtCorto(ymd(new Date(o.creado))):'—')+'</b><small>inicio</small></div><div class="k"><b class="mono">'+(o.terminadaEn?fmtCorto(o.terminadaEn):'—')+'</b><small>terminada</small></div><div class="k"><b class="mono" style="color:var(--brand)">'+hm(mins)+'</b><small>dedicados con el temporizador</small></div></div>'+
      (h.length?'<div class="log">'+h.map((x,i)=>{const fin=h[i+1]?parseD(h[i+1].fecha):new Date();const dd=Math.max(0,Math.round((fin-parseD(x.fecha))/864e5));return '<div><span class="mono">'+fmtCorto(x.fecha)+'</span><span>'+COLS[x.col].n+' <span class="muted">· '+(h[i+1]?dd+(dd===1?' día':' días'):'actual')+'</span></span></div>'}).join('')+'</div>':'<p class="hint">El recorrido de la obra por las columnas aparecerá aquí.</p>')+
-     (o.col===5?'<label style="display:flex;gap:10px;align-items:center;font-weight:600"><input type="checkbox" data-bind="repaso"'+(o.repaso?' checked':'')+'> Reactivar como repaso (por ejemplo, antes de un recital)</label>':'');
+     (o.col===5?'<label style="display:flex;gap:10px;align-items:center;font-weight:600"><input type="checkbox" data-bind="repaso"'+(o.repaso?' checked':'')+'> Reactivar como repaso (por ejemplo, antes de un recital)</label>'+cierreObra(o):'');
   }
   const cur=o.col;
   box.innerHTML='<div class="modal-bg" data-act="m-fondo"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">'+
@@ -2372,6 +2428,19 @@ function renderModal(){
    '<div class="modal-f"><div>'+(M.nueva?'':(M.confirm?'<span class="inline-confirm">¿Borrar la obra? <button class="btn btn-sm btn-coral" data-act="m-borrar-si">Sí, borrar</button><button class="btn btn-sm btn-ghost" data-act="m-borrar-no">Cancelar</button></span>':'<button class="btn btn-ghost btn-sm" data-act="m-borrar">'+ic('trash','sm')+' Borrar obra</button>'))+'</div>'+
    '<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="err" role="alert">'+esc(M.err)+'</span><button class="btn" data-act="m-cerrar">Cancelar</button><button class="btn btn-primary" data-act="m-guardar">'+ic('check','sm')+(M.nueva?' Agregar al atril':' Guardar')+'</button></div></div></div></div>';
   const first=box.querySelector('.modal-b input, .modal-b select');if(M.nueva&&first&&!M.focused){first.focus();M.focused=true}
+}
+/* Obra terminada: reflexión y fragmentos de mantenimiento (máximo 5 min al día en la rutina) */
+const REFLEX=[['ayudo','¿En qué te ayudó esta obra?','Me enseñó a escuchar la melodía por encima del acompañamiento.'],['aprendi','¿Qué aprendiste de la obra?','A organizar el estudio por frases y no por compases sueltos.'],['tecnica','¿Cómo te ayudó técnicamente?','Mejoré la independencia de manos y los saltos de la mano izquierda.'],['contexto','¿Qué conociste del compositor y del contexto en que la creó?','Bach la escribió como ejercicio para sus alumnos; por eso cada voz tiene la misma importancia.']];
+function cierreObra(o){
+  const r=o.reflexion||{},m=o.mantener||[];const tot=m.reduce((s,x)=>s+(+x.min||0),0);
+  return '<section class="plain cierre-obra"><div class="sec-h"><h3>'+ic('star')+'Cierre de la obra</h3><span class="chip green">Terminada</span></div>'+
+   '<div class="guide"><b>Para que la obra no se pierda</b><span>Responde con calma: lo que aprendiste también es parte de terminarla. Después anota los fragmentos que vas a mantener; aparecerán solos en tu plan de Hoy, dentro de «Pasada completa», sin ocupar más de 5 minutos al día.</span></div>'+
+   '<div class="fgrid">'+REFLEX.map(([k,t,ph])=>'<label class="f s6" for="rf-'+k+'">'+t+'<textarea id="rf-'+k+'" data-bind="reflexion.'+k+'" rows="2" placeholder="Por ejemplo: '+esc(ph)+'">'+esc(r[k]||'')+'</textarea></label>').join('')+'</div>'+
+   '<div class="sec-h"><h3>'+ic('clock')+'Fragmentos de mantenimiento</h3><span class="chip mono'+(tot>5?' coral':'')+'">'+tot+' de 5 min al día</span></div>'+
+   (m.length?'<div class="rows">'+m.map((x,i)=>'<div class="mtrow"><label class="f" for="mt-d'+i+'">Desde<input id="mt-d'+i+'" type="number" min="1" data-bind="mantener.'+i+'.desde" value="'+esc(x.desde)+'"></label><label class="f" for="mt-h'+i+'">Hasta<input id="mt-h'+i+'" type="number" min="1" data-bind="mantener.'+i+'.hasta" value="'+esc(x.hasta)+'"></label><label class="f mt-q" for="mt-q'+i+'">Qué practicar<input id="mt-q'+i+'" data-bind="mantener.'+i+'.que" value="'+esc(x.que)+'" placeholder="Pasaje de octavas, manos juntas a ♩ = 100"></label><label class="f" for="mt-m'+i+'">Min<input id="mt-m'+i+'" type="number" min="1" max="5" data-bind="mantener.'+i+'.min" value="'+esc(x.min)+'"></label><button class="icon-btn rm" data-act="m-quitar" data-k="mantener" data-i="'+i+'" aria-label="Quitar fragmento">'+ic('x','sm')+'</button></div>').join('')+'</div>'
+     :'<p class="hint">Ejemplos: «c. 24–31, el pasaje de octavas» o «la cadenza del c. 40, solo la mano derecha». Elige lo que más se olvida o lo más difícil.</p>')+
+   (tot>5?'<p class="err">Pasas de 5 minutos al día: deja solo lo esencial.</p>':'')+
+   '<button class="btn btn-sm" data-act="m-agregar" data-k="mantener" style="align-self:flex-start">'+ic('plus','sm')+' Fragmento de mantenimiento</button></section>';
 }
 function setPath(o,p,v){const k=p.split('.');let x=o;for(let i=0;i<k.length-1;i++){const n=k[i+1];if(x[k[i]]==null)x[k[i]]=/^\d+$/.test(n)&&k[i]!=='armonia'?[]:{};x=x[k[i]]}x[k[k.length-1]]=v}
 function obraBase(){return S.role==='prof'?'alumnos/'+S.tSel+'/obras':'alumnos/'+S.uid+'/obras'}
@@ -2460,7 +2529,7 @@ const ACT={
  'm-fondo':(t,e)=>{if(e.target===t){S.modal=null;renderModal()}},
  'm-tab':t=>{S.modal.tab=t.dataset.t;S.modal.err='';renderModal();const mb=$('.modal-b');if(mb)mb.scrollTop=0},
  'm-guardar':()=>guardarObra(),
- 'm-agregar':t=>{const k=t.dataset.k,o=S.modal.d;o[k]=o[k]||[];if(k==='mapa'){const last=o.mapa[o.mapa.length-1];const d=last&&last.hasta?(+last.hasta+1):1;o.mapa.push({letra:String.fromCharCode(65+o.mapa.length%26),desde:d,hasta:'',tipo:'nueva',nota:''})}else{const last=o.fragmentos[o.fragmentos.length-1];const d=last&&last.hasta?(+last.hasta+1):1;o.fragmentos.push({desde:d,hasta:'',dif:'a',estado:'sin',desafio:'',escalon:0})}renderModal()},
+ 'm-agregar':t=>{const k=t.dataset.k,o=S.modal.d;o[k]=o[k]||[];if(k==='mantener'){o.mantener.push({desde:'',hasta:'',que:'',min:2})}else if(k==='mapa'){const last=o.mapa[o.mapa.length-1];const d=last&&last.hasta?(+last.hasta+1):1;o.mapa.push({letra:String.fromCharCode(65+o.mapa.length%26),desde:d,hasta:'',tipo:'nueva',nota:''})}else{const last=o.fragmentos[o.fragmentos.length-1];const d=last&&last.hasta?(+last.hasta+1):1;o.fragmentos.push({desde:d,hasta:'',dif:'a',estado:'sin',desafio:'',escalon:0})}renderModal()},
  'm-quitar':t=>{S.modal.d[t.dataset.k].splice(+t.dataset.i,1);renderModal()},
  'm-proponer':()=>{const o=S.modal.d,a=analisisObra(o),tam=fragTam(ctxCiclo())[1];const fr=[];let ini=null;
    for(let cc=1;cc<=a.total+1;cc++){const ok=cc<=a.total&&!a.rep.has(cc);if(ok&&ini===null)ini=cc;if((!ok||cc-ini+1>tam)&&ini!==null){const fin=ok?cc-1:cc-1;fr.push({desde:ini,hasta:fin,dif:'a',estado:'sin',desafio:'',escalon:0});ini=ok?cc:null}}
@@ -2540,6 +2609,9 @@ const ACT={
    else if(b.id==='calent'){const lib=((S.recursos||{}).biblioteca||[]);meta=(S.perfil.tecnica||[]).map(id=>lib.find(x=>x.id===id)).filter(Boolean).map(x=>x.n).join(', ')}
    S.work.obraId=o?o.id:'';S.work.frag=frag;S.work.meta=meta?b.n+': '+meta:b.n;S.work.elegido=true;if(o&&+o.tempoActual)S.work.bpm=+o.tempoActual;ls.set('octavia.work',S.work);
    S.timer.bloque=rb;if(!S.timer.run){S.timer.run=true;S.timer.start=Date.now()}guardarTimer();render(true);toast('En la consola: '+b.n+(o?' · '+o.titulo:''))},
+ 'expl-toggle':()=>{S.ui.explOpen=!S.ui.explOpen;render(true)},
+ 'expl-item':t=>{S.ui.explItem=S.ui.explItem===t.dataset.b?null:t.dataset.b;render(true)},
+ 'expl-ir':t=>{S.ui.explOpen=true;S.ui.explItem=t.dataset.b;render(true);const el=document.getElementById('ex-'+t.dataset.b);if(el)el.scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})},
  'focus':()=>focusAbrir(),
  'focus-salir':()=>focusCerrar(),
  'res-sem':t=>{S.ui.resPrev=t.dataset.p==='1';render(true)},
@@ -2571,7 +2643,7 @@ document.addEventListener('change',e=>{const t=e.target;
     if(raw==='')delete pm[k];else{const v=Math.max(0,Math.min(300,Math.round(+raw)||0));if(v===minsPlan(ses,f).sg[k])delete pm[k];else pm[k]=v}guardarPlan(f,{planMin:pm});return}
   if(t.dataset.planHr){const v=parseHM(t.value);if(v===null){guardarPlan(diaSel(),{horaReal:null});return}if(isNaN(v)||v<0||v>720){toast('Escribe la hora real así: 1 h 20, 1:20 u 80.','bad');return}guardarPlan(diaSel(),{horaReal:v},'Hora real guardada: '+hm(v).trim());return}
   if(t.dataset.planObj){guardarPlan(diaSel(),{objetivo:t.value.trim()},'Objetivo del día guardado');return}
-  if(t.dataset.planAdd){const b=t.dataset.planAdd;if(!t.value)return;const f=diaSel(),ses=sesionDe(f);const ids=obrasDe(b,ses).map(o=>o.id);ids.push(t.value);S.ui.addRow=null;guardarPlan(f,{planObras:{...(ses.planObras||{}),[b]:ids}});return}if(t.dataset.actChange==='bloque-sel'){if(S.timer.acc>0&&S.timer.bloque!==t.value){toast('Guarda o descarta el bloque actual antes de cambiar.','bad');t.value=S.timer.bloque;return}S.timer.bloque=t.value;guardarTimer();return}if(t.dataset.bind&&S.modal&&(t.dataset.rerender||t.type==='checkbox'))renderModal();if(t.dataset.bind&&S.modal&&(t.dataset.bind.startsWith('mapa')&&t.dataset.bind.endsWith('tipo')))renderModal()});
+  if(t.dataset.planAdd){const b=t.dataset.planAdd;if(!t.value)return;const f=diaSel(),ses=sesionDe(f);const ids=obrasDe(b,ses).map(o=>o.id);ids.push(t.value);S.ui.addRow=null;guardarPlan(f,{planObras:{...(ses.planObras||{}),[b]:ids}});return}if(t.dataset.actChange==='bloque-sel'){if(S.timer.acc>0&&S.timer.bloque!==t.value){toast('Guarda o descarta el bloque actual antes de cambiar.','bad');t.value=S.timer.bloque;return}S.timer.bloque=t.value;guardarTimer();return}if(t.dataset.bind&&S.modal&&(t.dataset.rerender||t.type==='checkbox'||/^mantener\.\d+\.min$/.test(t.dataset.bind)))renderModal();if(t.dataset.bind&&S.modal&&(t.dataset.bind.startsWith('mapa')&&t.dataset.bind.endsWith('tipo')))renderModal()});
 document.addEventListener('submit',async e=>{
   const f=e.target;const k=f.dataset.form;if(!k)return;e.preventDefault();const fd=new FormData(f);
   if(k==='login'){const email=String(fd.get('email')||'').trim().toLowerCase();if(!/^\S+@\S+\.\S+$/.test(email)){$('#l-err').textContent='Escribe un correo válido.';return}
