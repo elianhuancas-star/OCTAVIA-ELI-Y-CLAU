@@ -1196,6 +1196,65 @@ thead th{background:transparent;color:var(--suave);font:700 12px/1.2 var(--f-bod
   .modal{border-radius:18px 18px 0 0}
   .tabs{padding-left:16px;padding-right:16px}
 }
+/* ═════ Consola de práctica v8: metrónomo real, reiniciar y ocultar ═════ */
+.console{transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.console.oculta{transform:translateY(calc(100% + 28px));pointer-events:none}
+.console .metro{display:flex!important;flex-wrap:nowrap;gap:6px;padding:6px 8px}
+.console .metro button{min-width:30px}
+.bpm-in{display:inline-flex;align-items:center;gap:4px;white-space:nowrap;font:700 13px/1 var(--f-body);color:#C9D0DC}
+.bpm-in input{width:56px;min-height:32px!important;padding:0 6px!important;border-radius:8px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;font:800 15px/1 var(--f-body);font-variant-numeric:tabular-nums;text-align:center;-moz-appearance:textfield}
+.bpm-in input::-webkit-inner-spin-button,.bpm-in input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.bpm-in input:focus-visible{outline:2px solid #fff!important;outline-offset:1px}
+.console select.compas{min-height:32px!important;width:auto;padding:0 6px!important;border-radius:8px;background:rgba(255,255,255,.1);color:#fff;font:700 13px/1 var(--f-body)}
+.console select.compas option{color:var(--tinta);background:#fff}
+.pulsos{display:inline-flex;gap:4px;align-items:center;padding:0 2px}
+.pulsos i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);transition:background .06s,transform .06s}
+.pulsos i.f{width:11px;height:11px}
+.pulsos i.m{width:9px;height:9px}
+.pulsos i.on{background:#fff;transform:scale(1.25)}
+.pulsos i.f.on{background:#AEBBF0}
+.metro.mudo .pulsos i.on{background:rgba(255,255,255,.55)}
+.console .metro .tog{white-space:nowrap}
+.console .metro .tog[aria-pressed="false"]{background:transparent;border:1px dashed rgba(255,255,255,.4);color:#C9D0DC}
+.console .rbtn{font:800 18px/1 var(--f-body);padding:0 12px;min-width:40px}
+.console .hbtn{padding:0 10px;display:inline-grid;place-items:center}
+.console .right{flex-wrap:nowrap}
+/* Aviso «¿Guardar antes de reiniciar?» dentro de la página */
+.c-confirm{position:absolute;left:12px;right:12px;bottom:calc(100% + 10px);background:#fff;color:var(--tinta);border-radius:16px;padding:14px 16px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;box-shadow:0 18px 40px -12px rgba(24,32,46,.45);font-size:14px}
+.c-confirm>div{display:flex;flex-wrap:wrap;gap:8px}
+.c-btn{appearance:none;min-height:40px;padding:0 14px;border-radius:12px;border:1px solid var(--linea-campo);background:#fff;color:var(--tinta);font:700 13px/1 var(--f-body);cursor:pointer}
+.c-btn.pri{background:var(--acento);border-color:var(--acento);color:#fff}
+.c-btn.ghost{border-color:transparent;color:var(--suave)}
+/* Pestaña redonda para volver a mostrar la consola */
+.ctab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:36;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 16px 0 14px;border-radius:999px;border:0;background:var(--tinta);color:#fff;font:700 14px/1 var(--f-body);box-shadow:0 10px 28px -8px rgba(24,32,46,.55);cursor:pointer}
+.ctab[hidden]{display:none!important}
+.ctab .ic{width:16px;height:16px}
+.ctab .ctm{font:700 12px/1 var(--f-body);color:#AEBBF0}
+.ctab:focus-visible{outline:2px solid var(--acento)!important;outline-offset:3px}
+body.consola-oculta main{padding-bottom:96px!important}
+@media (min-width:761px){.ctab{right:auto;left:calc(var(--rail) + (100vw - var(--rail)) / 2);transform:translateX(-50%)}}
+/* Pantallas medianas: el metrónomo baja a una segunda fila */
+@media (max-width:1440px) and (min-width:761px){
+  :root{--console-h:122px}
+  .console{grid-template-columns:minmax(0,1fr) auto!important;row-gap:8px}
+  .console .metro{grid-column:1/-1;grid-row:2;justify-self:start}
+}
+/* Celular: la consola sigue flotando abajo, en filas */
+@media (max-width:760px){
+  :root{--console-h:150px}
+  .console{grid-template-columns:minmax(0,1fr)!important;row-gap:8px;padding:10px!important}
+  .console .now{grid-row:1}
+  .console .metro{grid-row:2;overflow-x:auto;max-width:100%;scrollbar-width:none}
+  .console .metro svg{display:none}
+  .console .right{grid-row:3;justify-content:space-between;gap:6px}
+  .console .right .clock{margin-right:auto}
+  .console .save{padding:0 10px;min-height:38px}
+  .console a.ev{display:inline-flex!important;font-size:0!important;padding:0 12px;min-height:38px}
+  .console a.ev .ic{width:18px;height:18px}
+  .ctab{bottom:calc(84px + env(safe-area-inset-bottom,0px));right:12px}
+  body.consola-oculta main{padding-bottom:150px!important}
+  .c-confirm{left:0;right:0}
+}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 <div class="app">
@@ -1331,12 +1390,12 @@ const I={
 const ic=(n,c='')=>'<svg class="ic '+c+'" viewBox="0 0 24 24" aria-hidden="true">'+I[n]+'</svg>';
 
 /* ───────── Estado ───────── */
-const S={ui:{},role:null,db:null,user:null,uid:null,perfil:null,perfilListo:false,
+const S={ui:{consolaOculta:!!ls.get('octavia.consolaOculta',false)},role:null,db:null,user:null,uid:null,perfil:null,perfilListo:false,
  obras:[],sesiones:{},rutinas:[],evidencias:[],eventos:[],alumnos:[],
  view:null,cal:null,calSel:null,tSel:null,tTab:'atril',t:{obras:[],rutinas:[],evidencias:[],sesiones:{}},tUnsub:[],
  timer:ls.get('octavia.timer',{run:false,start:0,acc:0,bloque:null}),
  work:ls.get('octavia.work',{obraId:'',frag:'',meta:''}),
- modal:null,pending:false,estado:'cargando',rutEdit:null,confirm:null,marcados:new Set()};
+ modal:null,pending:false,estado:'cargando',consolaPend:false,rutEdit:null,confirm:null,marcados:new Set()};
 
 /* ───────── Escrituras en orden ───────── */
 const colas={};
@@ -1420,7 +1479,8 @@ function render(force){
   if(force!=='keep')window.scrollTo(0,y);
   despues();renderConsole();
 }
-document.addEventListener('focusout',()=>setTimeout(()=>{if(S.pending&&!bloqueado())render()},0));
+document.addEventListener('focusout',()=>setTimeout(()=>{if(S.pending&&!bloqueado())render();if(S.consolaPend&&!($('#console')||document.body).contains(document.activeElement))renderConsole()},0));
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.bpm){e.preventDefault();e.target.blur()}});
 
 function rutas(){return S.role==='prof'?[['panel','Panel','home'],['alumnos','Alumnos','users'],['recursos','Recursos','layers'],['metodo','Método','book']]:[['inicio','Hoy','home'],['atril','Atril','board'],['estudiar','Estudiar','clock'],['progreso','Progreso','trophy'],['evidencias','Evidencias','mic'],['metodo','Método','book']]}
 function vistaDesdeHash(){const h=location.hash.replace('#','');const ok=rutas().map(r=>r[0]);if(ok.includes(h))return h;return S.role==='prof'?'panel':'inicio'}
@@ -1789,9 +1849,24 @@ let actx=null;
 function audio(){try{if(!actx){const A=window.AudioContext||window.webkitAudioContext;if(!A)return null;actx=new A()}if(actx.state==='suspended')actx.resume();return actx}catch(e){return null}}
 function tono(freq,dur,type,vol,when){const a=audio();if(!a)return;const t=when||a.currentTime;const o=a.createOscillator(),g=a.createGain();o.type=type||'triangle';o.frequency.setValueAtTime(freq,t);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(vol||.15,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+(dur||.25));o.connect(g);g.connect(a.destination);o.start(t);o.stop(t+(dur||.25)+.02)}
 const METRO={on:false,next:0,beat:0,timer:null};
-function metroStart(){const a=audio();if(!a)return toast('Este navegador no permite sonido.','bad');METRO.on=true;METRO.beat=0;METRO.next=a.currentTime+.06;clearInterval(METRO.timer);
-  METRO.timer=setInterval(()=>{const bpm=S.work.bpm||60;while(METRO.next<a.currentTime+.12){tono(METRO.beat%4===0?1568:1046,.05,'square',METRO.beat%4===0?.12:.07,METRO.next);METRO.next+=60/bpm;METRO.beat++}},25)}
-function metroStop(){METRO.on=false;clearInterval(METRO.timer)}
+const BPM_MIN=40,BPM_MAX=208;
+/* Compases: «f» = tiempo fuerte (más alto), «m» = apoyo secundario (6/8), «d» = débil */
+const COMPASES={'2/4':['f','d'],'3/4':['f','d','d'],'4/4':['f','d','d','d'],'6/8':['f','d','d','m','d','d']};
+const clampBpm=v=>Math.max(BPM_MIN,Math.min(BPM_MAX,Math.round(+v||60)));
+function compasActual(){const c=S.work.compas;return COMPASES[c]?c:'4/4'}
+function sonidoOn(){return S.work.sonido!==false}
+function clic(tipo,when){const a=audio();if(!a)return;const f=tipo==='f'?1760:tipo==='m'?1320:1046,v=tipo==='f'?.22:tipo==='m'?.14:.09;
+  const o=a.createOscillator(),g=a.createGain();o.type='square';o.frequency.setValueAtTime(f,when);g.gain.setValueAtTime(.0001,when);g.gain.exponentialRampToValueAtTime(v,when+.002);g.gain.exponentialRampToValueAtTime(.0001,when+.045);o.connect(g);g.connect(a.destination);o.start(when);o.stop(when+.06)}
+function marcarPulso(k){document.querySelectorAll('.pulsos').forEach(box=>{const is=box.children;for(let i=0;i<is.length;i++)is[i].classList.toggle('on',i===k)})}
+function metroStart(){const a=audio();if(!a){toast('Este navegador no permite sonido.','bad');return}
+  METRO.on=true;METRO.beat=0;METRO.next=a.currentTime+.08;clearInterval(METRO.timer);
+  METRO.timer=setInterval(()=>{const bpm=clampBpm(S.work.bpm),pat=COMPASES[compasActual()];
+    while(METRO.next<a.currentTime+.12){const k=METRO.beat%pat.length;clic(pat[k],METRO.next);
+      const ms=Math.max(0,(METRO.next-a.currentTime)*1000);setTimeout(()=>marcarPulso(k),ms);
+      METRO.next+=60/bpm;METRO.beat++}},25)}
+function metroStop(){METRO.on=false;clearInterval(METRO.timer);marcarPulso(-1)}
+/* El metrónomo suena mientras el temporizador corre y el sonido está activado; el tiempo se cuenta igual sin sonido */
+function syncMetro(){const quiere=S.role==='alumno'&&S.timer.run&&sonidoOn();if(quiere&&!METRO.on)metroStart();else if(!quiere&&METRO.on)metroStop()}
 function renderConsole(){
   const el=$('#console');if(!el)return;
   if(S.role!=='alumno'||S.estado!=='listo'||!S.perfil){el.hidden=true;return}
@@ -1801,11 +1876,37 @@ function renderConsole(){
   if(!S.work.bpm)S.work.bpm=(ea&&+ea.o.tempoActual)||60;
   const t=elapsed();const hoy=S.st.hoyMin;
   const pieza=ea?esc(ea.o.titulo)+(ea.f&&ea.f.desde?' · c. '+ea.f.desde+'–'+ea.f.hasta:''):'Sin obra en el atril';
-  el.innerHTML='<div class="now"><button class="play" data-act="'+(S.timer.run?'t-pausa':'c-play')+'" aria-label="'+(S.timer.run?'Pausar':'Empezar')+' el temporizador">'+ic(S.timer.run?'pause':'play','fill')+'</button><div class="t"><span>Consola de práctica</span><b>'+pieza+'</b><select aria-label="Bloque de la rutina" data-act-change="bloque-sel"'+(S.timer.run?' disabled':'')+'>'+bl.map(b=>'<option value="'+b.id+'"'+(b.id===S.timer.bloque?' selected':'')+'>'+esc(b.n)+'</option>').join('')+'</select></div></div>'+
-   '<div class="metro'+(METRO.on?' on':'')+'" style="--beat:'+(60/(S.work.bpm||60)).toFixed(3)+'s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 21h10L14.5 4h-5z"/><line class="arm" x1="12" y1="19" x2="12" y2="7" stroke="#FFFFFF" stroke-width="2"/></svg><button data-act="bpm" data-d="-2" aria-label="Bajar tempo">−</button><span class="bpm">♩ = '+S.work.bpm+'</span><button data-act="bpm" data-d="2" aria-label="Subir tempo">+</button><button class="tog" data-act="metro" aria-pressed="'+METRO.on+'">'+(METRO.on?'PULSO ON':'PULSO OFF')+'</button></div>'+
-   '<div class="right"><span class="clock mono'+(S.timer.run?' run':'')+'" id="cclock">'+mmss(t)+' <small>· hoy '+hoy+'/'+S.st.min+'</small></span><button class="save" data-act="t-guardar"'+(t>=5?'':' disabled')+'>Guardar</button><button class="save fbtn" data-act="focus" aria-label="Modo concentración" title="Modo concentración">'+ic('focus','sm')+'</button><a class="ev" href="#evidencias">'+ic('mic','sm')+' Evidencia</a></div>';
+  S.work.bpm=clampBpm(S.work.bpm);
+  /* Si se está escribiendo el tempo, no se repinta la consola (se perdería lo escrito) */
+  const act=document.activeElement;if(act&&el.contains(act)&&act.tagName==='INPUT'){S.consolaPend=true;syncMetro();renderFocus();return}
+  S.consolaPend=false;
+  const oculta=!!S.ui.consolaOculta,cp=compasActual(),pat=COMPASES[cp];
+  el.classList.toggle('oculta',oculta);el.setAttribute('aria-hidden',oculta?'true':'false');
+  const confirmar=S.ui.resetAsk?'<div class="c-confirm" role="alertdialog" aria-label="Reiniciar el reloj"><span><b>¿Guardar antes de reiniciar?</b> Tienes '+mmss(t)+' sin guardar.</span><div><button class="c-btn pri" data-act="reset-guardar">Guardar y reiniciar</button><button class="c-btn" data-act="reset-si">Reiniciar sin guardar</button><button class="c-btn ghost" data-act="reset-no">Cancelar</button></div></div>':'';
+  el.innerHTML=confirmar+'<div class="now"><button class="play" data-act="'+(S.timer.run?'t-pausa':'c-play')+'" aria-label="'+(S.timer.run?'Pausar':'Empezar')+' el temporizador y el metrónomo">'+ic(S.timer.run?'pause':'play','fill')+'</button><div class="t"><span>Consola de práctica</span><b>'+pieza+'</b><select aria-label="Bloque de la rutina" data-act-change="bloque-sel"'+(S.timer.run?' disabled':'')+'>'+bl.map(b=>'<option value="'+b.id+'"'+(b.id===S.timer.bloque?' selected':'')+'>'+esc(b.n)+'</option>').join('')+'</select></div></div>'+
+   '<div class="metro'+(METRO.on?' on':'')+(sonidoOn()?'':' mudo')+'" style="--beat:'+(60/S.work.bpm).toFixed(3)+'s" role="group" aria-label="Metrónomo">'+
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 21h10L14.5 4h-5z"/><line class="arm" x1="12" y1="19" x2="12" y2="7" stroke="#FFFFFF" stroke-width="2"/></svg>'+
+    '<button data-act="bpm" data-d="-1" aria-label="Bajar el tempo">−</button>'+
+    '<label class="bpm-in"><span>♩ =</span><input type="number" inputmode="numeric" min="'+BPM_MIN+'" max="'+BPM_MAX+'" step="1" value="'+S.work.bpm+'" data-bpm="1" aria-label="Tempo, negras por minuto ('+BPM_MIN+' a '+BPM_MAX+')"></label>'+
+    '<button data-act="bpm" data-d="1" aria-label="Subir el tempo">+</button>'+
+    '<select class="compas" data-compas="1" aria-label="Compás del metrónomo">'+Object.keys(COMPASES).map(k=>'<option'+(k===cp?' selected':'')+'>'+k+'</option>').join('')+'</select>'+
+    '<span class="pulsos" aria-hidden="true">'+pat.map(x=>'<i class="'+x+'"></i>').join('')+'</span>'+
+    '<button class="tog" data-act="sonido" aria-pressed="'+sonidoOn()+'" title="'+(sonidoOn()?'Estudiar sin sonido de metrónomo':'Estudiar con sonido de metrónomo')+'">'+(sonidoOn()?'Con sonido':'Sin sonido')+'</button></div>'+
+   '<div class="right"><span class="clock mono'+(S.timer.run?' run':'')+'" id="cclock">'+mmss(t)+' <small>· hoy '+hoy+'/'+S.st.min+'</small></span>'+
+    '<button class="save rbtn" data-act="t-reset" aria-label="Reiniciar el reloj a 00:00" title="Reiniciar el reloj"'+(t>0?'':' disabled')+'>↺</button>'+
+    '<button class="save" data-act="t-guardar"'+(t>=5?'':' disabled')+'>Guardar</button>'+
+    '<button class="save fbtn" data-act="focus" aria-label="Modo concentración" title="Modo concentración">'+ic('focus','sm')+'</button>'+
+    '<a class="ev" href="#evidencias">'+ic('mic','sm')+' Evidencia</a>'+
+    '<button class="save hbtn" data-act="consola-ocultar" aria-label="Ocultar la consola" title="Ocultar la consola"><svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>';
+  /* Pestaña redonda para volver a mostrarla (el reloj y el metrónomo siguen corriendo) */
+  let tab=$('#ctab');if(!tab){tab=document.createElement('button');tab.id='ctab';tab.className='ctab';tab.dataset.act='consola-mostrar';document.body.appendChild(tab)}
+  tab.hidden=!oculta;tab.setAttribute('aria-label','Mostrar la consola de práctica');
+  tab.innerHTML=(S.timer.run?ic('pause','fill sm'):ic('play','fill sm'))+'<span class="mono" id="ctclock">'+mmss(t)+'</span>'+(METRO.on?'<span class="ctm">♩ '+S.work.bpm+'</span>':'')+'<svg class="ic sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>';
+  document.body.classList.toggle('consola-oculta',oculta);
+  syncMetro();
   renderFocus();
 }
+function reiniciarReloj(){S.timer={run:false,start:0,acc:0,bloque:S.timer.bloque};S.ui.resetAsk=false;guardarTimer();metroStop();render(true);toast('Reloj en 00:00')}
 
 /* ───────── Modo concentración: pantalla completa con temporizador, metrónomo y partitura ───────── */
 function driveEmbed(u){u=String(u||'');const m=u.match(/\/d\/([\w-]{10,})/)||u.match(/[?&]id=([\w-]{10,})/);return m?'https://drive.google.com/file/d/'+m[1]+'/preview':''}
@@ -1847,7 +1948,7 @@ function renderFocus(){
    '<div class="fc-clock mono'+(S.timer.run?' run':'')+'" id="fclock">'+mmss(t)+'</div>'+
    '<div class="fc-acts">'+(S.timer.run?'<button class="btn fc-go" data-act="t-pausa">'+ic('pause','fill sm')+' Pausar</button>':'<button class="btn fc-go" data-act="c-play"'+(S.timer.bloque?'':' disabled')+'>'+ic('play','fill sm')+(t>0?' Continuar':' Empezar')+'</button>')+
     '<button class="btn fc-sec-btn" data-act="t-guardar"'+(t>=5?'':' disabled')+'>'+ic('check','sm')+' Guardar bloque</button></div>'+
-   '<div class="fc-metro'+(METRO.on?' on':'')+'"><button data-act="bpm" data-d="-4" aria-label="Bajar 4">−4</button><button data-act="bpm" data-d="-1" aria-label="Bajar 1">−</button><span class="mono">♩ = '+S.work.bpm+'</span><button data-act="bpm" data-d="1" aria-label="Subir 1">+</button><button data-act="bpm" data-d="4" aria-label="Subir 4">+4</button><button class="tog" data-act="metro" aria-pressed="'+METRO.on+'">'+(METRO.on?'Pulso ON':'Pulso OFF')+'</button></div>'+
+   '<div class="fc-metro'+(METRO.on?' on':'')+'"><button data-act="bpm" data-d="-4" aria-label="Bajar 4">−4</button><button data-act="bpm" data-d="-1" aria-label="Bajar 1">−</button><span class="mono">♩ = '+S.work.bpm+'</span><button data-act="bpm" data-d="1" aria-label="Subir 1">+</button><button data-act="bpm" data-d="4" aria-label="Subir 4">+4</button><button class="tog" data-act="sonido" aria-pressed="'+sonidoOn()+'">'+(sonidoOn()?'Con sonido':'Sin sonido')+'</button></div>'+
    comps+
    '<div class="fc-foot"><span class="mono">Hoy '+S.st.hoyMin+' de '+S.st.min+' min</span><span style="display:flex;gap:8px">'+(ob&&ob.enlace?'<a class="btn btn-sm fc-sec-btn" href="'+esc(ob.enlace)+'" target="_blank" rel="noopener">'+ic('link','sm')+' Abrir en Drive</a>':'')+'<button class="btn btn-sm fc-sec-btn" data-act="fork">'+ic('note','sm')+' La 440</button></span></div>';
 }
@@ -2311,7 +2412,7 @@ async function compasSeguro(cc){
 /* ───────── Temporizador ───────── */
 function elapsed(){return S.timer.acc+(S.timer.run?(Date.now()-S.timer.start)/1000:0)}
 function guardarTimer(){ls.set('octavia.timer',S.timer)}
-setInterval(()=>{if(S.timer.run){const el=$('#clock');if(el)el.textContent=mmss(elapsed());const c=$('#cclock');if(c)c.firstChild.textContent=mmss(elapsed())+' ';const fc=$('#fclock');if(fc)fc.textContent=mmss(elapsed())}},500);
+setInterval(()=>{if(S.timer.run){const el=$('#clock');if(el)el.textContent=mmss(elapsed());const c=$('#cclock');if(c)c.firstChild.textContent=mmss(elapsed())+' ';const fc=$('#fclock');if(fc)fc.textContent=mmss(elapsed());const tc=$('#ctclock');if(tc)tc.textContent=mmss(elapsed())}},500);
 async function guardarBloque(){
   const secs=Math.round(elapsed());if(secs<5)return;
   const f=today(),path='alumnos/'+S.uid+'/sesiones/'+f;
@@ -2390,8 +2491,15 @@ const ACT={
  'compas-seguro':t=>compasSeguro(+t.dataset.c),
  'stand':t=>{const o=S.obras.find(x=>x.id===t.dataset.id);if(!o)return;S.work.obraId=o.id;S.work.frag='';S.work.elegido=true;S.work.bpm=+o.tempoActual||S.work.bpm||60;S.ui.compas=null;ls.set('octavia.work',S.work);render(true);window.scrollTo({top:0,behavior:'smooth'});toast(o.titulo+' está en tu atril')},
  'drawer':()=>{S.ui.drawer=!S.ui.drawer;render(true)},
- 'bpm':t=>{S.work.bpm=Math.max(30,Math.min(240,(S.work.bpm||60)+ +t.dataset.d));ls.set('octavia.work',S.work);renderConsole();const ms=document.querySelector('.stand-foot .mono');if(ms)ms.textContent=ms.textContent.replace(/♩ = \d+/,'♩ = '+S.work.bpm)},
- 'metro':()=>{METRO.on?metroStop():metroStart();renderConsole()},
+ 'bpm':t=>{S.work.bpm=clampBpm((S.work.bpm||60)+ +t.dataset.d);ls.set('octavia.work',S.work);renderConsole();const ms=document.querySelector('.stand-foot .mono');if(ms)ms.textContent=ms.textContent.replace(/♩ = \d+/,'♩ = '+S.work.bpm)},
+ 'metro':()=>{S.work.sonido=!sonidoOn();ls.set('octavia.work',S.work);renderConsole()},
+ 'sonido':()=>{S.work.sonido=!sonidoOn();ls.set('octavia.work',S.work);if(S.work.sonido&&S.timer.run)audio();renderConsole();toast(S.work.sonido?'Metrónomo con sonido':'Metrónomo sin sonido: el tiempo se sigue contando')},
+ 't-reset':()=>{if(elapsed()>=5){S.ui.resetAsk=true;renderConsole();const b=document.querySelector('.c-confirm .pri');if(b)b.focus();return}reiniciarReloj()},
+ 'reset-no':()=>{S.ui.resetAsk=false;renderConsole()},
+ 'reset-si':()=>reiniciarReloj(),
+ 'reset-guardar':async()=>{S.ui.resetAsk=false;if(S.timer.run){S.timer.acc=elapsed();S.timer.run=false}await guardarBloque();metroStop();render(true)},
+ 'consola-ocultar':()=>{S.ui.consolaOculta=true;ls.set('octavia.consolaOculta',true);renderConsole();const t=$('#ctab');if(t)t.focus()},
+ 'consola-mostrar':()=>{S.ui.consolaOculta=false;ls.set('octavia.consolaOculta',false);renderConsole();const b=document.querySelector('#console .play');if(b)b.focus()},
  'fork':()=>{tono(440,1.8,'sine',.22);toast('La 440 Hz')},
  'c-play':()=>{if(!S.timer.bloque)return;S.timer.run=true;S.timer.start=Date.now();guardarTimer();render(true)},
  'estudiar-pasaje':()=>{const ea=obraEnAtril();if(ea){S.work.obraId=ea.o.id;S.work.frag=ea.f&&ea.f.desde?ea.f.desde+'–'+ea.f.hasta:'';if(!S.work.meta&&ea.f)S.work.meta='c. '+ea.f.desde+'–'+ea.f.hasta+': '+(ea.f.dif==='c'?'escalón '+((ea.f.escalon||0)+1):'manos juntas lento');ls.set('octavia.work',S.work)}const {r}=rutinaSemana(S.rutinas,+S.perfil.ciclo);const lento=(r.bloques||[]).find(b=>b.id==='lento');if(lento&&S.timer.acc===0)S.timer.bloque='lento';S.timer.run=true;S.timer.start=Date.now();guardarTimer();render(true);toast('Temporizador en marcha · '+((r.bloques||[]).find(b=>b.id===S.timer.bloque)||{}).n)},
@@ -2456,6 +2564,8 @@ document.addEventListener('input',e=>{
   if(t.dataset.rb&&S.rutEdit){const [i,k]=t.dataset.rb.split('.');if(i==='meta')S.rutEdit.meta=t.value;else{S.rutEdit.bloques[+i][k]=k==='min'?(+t.value||0):t.value;const tt=$('#r-total');if(tt)tt.textContent='Total: '+S.rutEdit.bloques.reduce((s,b)=>s+(+b.min||0),0)+' min al día'}}
 });
 document.addEventListener('change',e=>{const t=e.target;
+  if(t.dataset.bpm){S.work.bpm=clampBpm(t.value);ls.set('octavia.work',S.work);t.blur();renderConsole();return}
+  if(t.dataset.compas){S.work.compas=COMPASES[t.value]?t.value:'4/4';ls.set('octavia.work',S.work);if(METRO.on){metroStop();syncMetro()}renderConsole();return}
   if(t.dataset.planT){const v=Math.round(+t.value);if(v>=10&&v<=600){S.ui.tOtro=false;guardarPlan(diaSel(),{tiempoDisponible:v})}else toast('Escribe entre 10 y 600 minutos.','bad');return}
   if(t.dataset.planMin){const f=diaSel(),ses=sesionDe(f),k=t.dataset.planMin;const pm={...(ses.planMin||{})};const raw=String(t.value).trim();
     if(raw==='')delete pm[k];else{const v=Math.max(0,Math.min(300,Math.round(+raw)||0));if(v===minsPlan(ses,f).sg[k])delete pm[k];else pm[k]=v}guardarPlan(f,{planMin:pm});return}
@@ -2476,8 +2586,12 @@ document.addEventListener('submit',async e=>{
     location.reload();return}
   if(k==='prof-codigo'){const codigo=String(fd.get('codigo')||'').trim();if(!codigo){$('#p-err').textContent='Escribe tu código.';return}
     const btn=f.querySelector('button[type=submit]');btn.disabled=true;
-    let ok=false;try{const r=await S.sb.rpc('entrar_como_profesora',{codigo});ok=!!r.data;if(r.error)throw r.error}catch(x){btn.disabled=false;$('#p-err').textContent='No se pudo comprobar el código. Revisa tu conexión.';return}
-    if(!ok){btn.disabled=false;$('#p-err').textContent='Ese código no es correcto.';return}
+    /* Distingue: sin conexión · falta instalar el acceso en Supabase · código incorrecto */
+    let r;if(!navigator.onLine){btn.disabled=false;$('#p-err').textContent='Sin conexión a internet. Conéctate e inténtalo otra vez.';return}
+    try{r=await S.sb.rpc('entrar_como_profesora',{codigo})}catch(x){r={error:{message:String((x&&x.message)||x)}}}
+    if(r.error){btn.disabled=false;const m=(r.error.code||'')+' '+(r.error.message||'');
+      $('#p-err').textContent=/PGRST202|schema cache|Could not find the function|does not exist/i.test(m)?'Falta instalar el acceso de profesora en Supabase (archivo supabase/02_acceso_libre.sql).':/fetch|network|Failed|timeout|ERR_/i.test(m)?'Sin conexión con el servidor de Octavia. Revisa tu internet e inténtalo otra vez.':'No se pudo comprobar el código: '+(r.error.message||'error desconocido');return}
+    if(!r.data){btn.disabled=false;$('#p-err').textContent='Código incorrecto. Revisa mayúsculas, guiones y espacios.';return}
     ls.set('octavia.modo','prof');location.hash='#panel';location.reload();return}
   if(k==='onb'){const nombre=(fd.get('nombre')||'').trim();if(!nombre){$('#o-err').textContent='Escribe tu nombre.';return}
     const data={nombre,ciclo:+fd.get('ciclo'),descanso:+fd.get('descanso'),creado:Date.now(),dias:{},racha:0,minutosMes:0,semanasMes:0,terminadasMes:0,puntaje:0,mes:today().slice(0,7),ultimaSesion:null,obrasActivas:0,rutinaPendiente:null,ultimaEvidencia:null};
