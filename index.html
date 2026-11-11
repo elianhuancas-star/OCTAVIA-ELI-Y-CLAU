@@ -1136,8 +1136,17 @@ thead th{background:transparent;color:var(--suave);font:700 12px/1.2 var(--f-bod
 .go{border:1px solid var(--linea);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
 .go-h{display:flex;align-items:center;gap:8px}.go-h b{font-size:15px}
 .bcol-r{display:inline-flex;align-items:center;gap:6px}
-.bq{appearance:none;width:22px;height:22px;border-radius:50%;border:0;background:rgba(255,255,255,.75);color:inherit;font:800 12px/1 var(--f-body);cursor:pointer;display:inline-grid;place-items:center;padding:0}
+.bq{appearance:none;width:26px;height:26px;border-radius:50%;border:1.5px solid currentColor;background:rgba(255,255,255,.75);color:inherit;font:800 12px/1 var(--f-body);cursor:pointer;display:inline-grid;place-items:center;padding:0}
 .bq:hover{background:#fff}
+.bq.on{background:var(--tinta);border-color:var(--tinta);color:#fff}
+.ckeys{margin-top:6px;background:#fff;color:var(--tinta);border-radius:12px;padding:10px 10px 8px;display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.35}
+.ckeys ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.ckeys li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:6px;align-items:start}
+.ckeys li .ic{width:14px;height:14px;margin-top:1px;color:var(--exito)}
+.ck-foot{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--gris-claro);padding-top:8px}
+.ck-tag{display:grid;grid-template-columns:16px minmax(0,1fr);gap:6px;align-items:start;font-size:12px;color:var(--suave)}
+.ck-tag .ic{width:14px;height:14px;margin-top:1px;color:var(--acento)}
+.ck-tag b{color:var(--tinta)}
 @media (max-width:900px){
   .guia-pasos{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:128px;overflow-x:auto;padding-bottom:4px}
   .guia-cols,.guia-otros{grid-template-columns:minmax(0,1fr)}
@@ -2144,6 +2153,21 @@ const ETAPAS=[
   ej:['Responde el Cierre de la obra (pestaña Historial): en qué te ayudó, qué aprendiste, cómo te ayudó técnicamente y qué conociste del compositor y de su contexto.','Anota fragmentos de mantenimiento, máximo 5 minutos al día: «c. 9–16, ornamentos de la mano derecha».','Antes de un recital puedes reactivarla como repaso.'],diario:'Pasada completa (mantenimiento)'}
 ];
 const OTROS_BLOQUES=['calent','objetivo','video','cierre'];
+/* Explicación rápida de cada columna: puntos clave, no párrafos */
+const CLAVES=[
+ {p:['Título, compositor y catálogo','Total de compases, tonalidad y compás','Partitura en Drive (enlace de lector)','Motivo: quién la asignó o para qué'],hoy:null},
+ {p:['Lee la obra completa','Sin parar ni corregir','Básico: manos separadas','3 impresiones: difícil · me gustó · no entendí','Escucha 2 versiones grabadas'],hoy:'Lectura B'},
+ {p:['Época → cómo van los adornos','Forma: secciones A · B · A′','Dónde empieza y termina cada frase','Armonía: ¿hay un patrón?','Repeticiones y ostinatos'],hoy:'Control sin piano'},
+ {p:['Por frases completas, sin cortarlas','Manos separadas','Solfeando ritmo y notas a la vez','Manos juntas lento → enlazar','Pasaje crítico: escalera de 7 escalones'],hoy:'Repertorio lento'},
+ {p:['Velocidad: ritmos y metrónomo de 4 en 4','Resistencia: repetir con descansos cortos','Agógica: cadenzas y compases libres','Tempo actual → tempo meta'],hoy:'Reto · Pasada completa'},
+ {p:['¿En qué te ayudó la obra?','¿Qué aprendiste? ¿Qué técnica ganaste?','Compositor y contexto de la obra','Mantenimiento: máximo 5 min al día','Antes de un recital: reactivar como repaso'],hoy:'Pasada completa'}
+];
+function clavesCol(i){
+  const k=CLAVES[i],c=COLS[i];
+  return '<div class="ckeys" id="ckeys-'+i+'"><ul>'+k.p.map(x=>'<li>'+ic('check','sm')+'<span>'+x+'</span></li>').join('')+'</ul>'+
+   '<div class="ck-foot">'+(c.sal?'<span class="ck-tag">'+ic('right','sm')+'<span><b>Avanza cuando:</b> '+c.sal.replace(/\.$/,'')+'</span></span>':'<span class="ck-tag">'+ic('star','sm')+'<span><b>Última etapa:</b> queda con todo su historial</span></span>')+
+   (k.hoy?'<span class="ck-tag">'+ic('home','sm')+'<span><b>En Hoy:</b> '+k.hoy+'</span></span>':'')+'</div></div>';
+}
 function guiaMetodo(){
   const open=!!S.ui.guiaOpen,et=S.ui.guiaEtapa==null?0:S.ui.guiaEtapa,otros=et==='otros';
   const head='<button class="guia-h" data-act="guia-toggle" aria-expanded="'+open+'"><span class="tile-ic">'+ic('map','sm')+'</span><span class="guia-t"><b>Guía del método</b><small>Las 6 etapas de una obra: qué hacer en cada una, con ejemplos.</small></span><span class="chev">'+ic('right','sm')+'</span></button>';
@@ -2162,12 +2186,12 @@ function guiaMetodo(){
 }
 function vAtril(){
   return '<div class="wrap page"><div class="page-head ph-brand"><div class="t"><span class="eyebrow">Repertorio personal · Ciclo '+ROMAN[S.perfil.ciclo-1]+'</span><h1>Mi atril</h1><p class="muted" style="max-width:60ch">Cada obra avanza por seis columnas. Toca una obra para trabajarla; usa las flechas para moverla cuando cumplas el paso.</p></div><button class="btn btn-primary" data-act="nueva-obra">'+ic('plus','sm')+' Agregar obra</button></div>'+
-   guiaMetodo()+tablero(S.obras,+S.perfil.ciclo)+'</div>';
+   tablero(S.obras,+S.perfil.ciclo)+'</div>';
 }
 function tablero(obras,ciclo){
   return '<div class="board-wrap"><div class="board">'+COLS.map((c,i)=>{
    const list=obras.filter(o=>o.col===i);const lim=i===3&&limPB(ciclo)<99?' · máx. '+limPB(ciclo):'';
-   return '<section class="bcol col-'+i+'" aria-label="'+c.n+'"><div class="bcol-h"><div class="row"><h4>'+c.n+'</h4><span class="bcol-r"><span class="num">'+list.length+lim+'</span>'+(S.role==='alumno'?'<button class="bq" data-act="guia-ir" data-e="'+i+'" aria-label="¿Qué se hace en '+c.n+'?" title="¿Qué se hace aquí?">?</button>':'')+'</span></div><small>'+c.d+'</small></div>'+
+   return '<section class="bcol col-'+i+'" aria-label="'+c.n+'"><div class="bcol-h"><div class="row"><h4>'+c.n+'</h4><span class="bcol-r"><span class="num">'+list.length+lim+'</span><button class="bq'+(S.ui.colExpl===i?' on':'')+'" data-act="col-expl" data-e="'+i+'" aria-expanded="'+(S.ui.colExpl===i)+'" aria-controls="ckeys-'+i+'" aria-label="Explicación de '+c.n+'" title="Explicación">E</button></span></div><small>'+c.d+'</small>'+(S.ui.colExpl===i?clavesCol(i):'')+'</div>'+
     (list.length?list.map(o=>tarjeta(o,i)).join(''):'<div class="empty-col">'+(i===0?'Las obras nuevas llegan aquí.':'Sin obras en esta columna.')+'</div>')+'</section>'}).join('')+'</div></div>';
 }
 function tarjeta(o,i){
@@ -2674,6 +2698,7 @@ const ACT={
  'expl-toggle':()=>{S.ui.explOpen=!S.ui.explOpen;render(true)},
  'expl-item':t=>{S.ui.explItem=S.ui.explItem===t.dataset.b?null:t.dataset.b;render(true)},
  'expl-ir':t=>{S.ui.explOpen=true;S.ui.explItem=t.dataset.b;render(true);const el=document.getElementById('ex-'+t.dataset.b);if(el)el.scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})},
+ 'col-expl':t=>{const e=+t.dataset.e;S.ui.colExpl=S.ui.colExpl===e?null:e;render(true)},
  'guia-toggle':()=>{S.ui.guiaOpen=!S.ui.guiaOpen;render(true)},
  'guia-etapa':t=>{const e=t.dataset.e;S.ui.guiaEtapa=e==='otros'?'otros':+e;render(true)},
  'guia-ir':t=>{S.ui.guiaOpen=true;S.ui.guiaEtapa=+t.dataset.e;render(true);const g=$('#guia');if(g)g.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})},
