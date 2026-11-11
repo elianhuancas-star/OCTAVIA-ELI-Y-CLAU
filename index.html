@@ -1108,6 +1108,40 @@ thead th{background:transparent;color:var(--suave);font:700 12px/1.2 var(--f-bod
 .ex-d ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
 .pq{appearance:none;width:22px;height:22px;border-radius:50%;border:1px solid var(--linea-campo);background:#fff;color:var(--suave);font:800 12px/1 var(--f-body);cursor:pointer;display:inline-grid;place-items:center;padding:0}
 .pq:hover{border-color:var(--acento);color:var(--acento)}
+/* Guía del método (Atril) */
+.guia{background:#fff;border-radius:18px;overflow:hidden}
+.guia-h{appearance:none;width:100%;border:0;background:transparent;font:inherit;color:var(--tinta);text-align:left;cursor:pointer;display:flex;align-items:center;gap:12px;padding:14px 18px;min-height:var(--toque)}
+.guia-h .tile-ic{background:var(--acento-suave);color:var(--acento);width:36px;height:36px;border-radius:10px}
+.guia-t{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+.guia-t b{font-size:15px}.guia-t small{font-size:13px;color:var(--suave)}
+.guia .chev{transition:transform .2s;flex:none}
+.guia.open>.guia-h .chev{transform:rotate(90deg)}
+.guia-b{padding:0 18px 18px;display:flex;flex-direction:column;gap:16px}
+.guia-pasos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;counter-reset:none}
+.gp{appearance:none;width:100%;height:100%;min-height:58px;border:0;border-radius:12px;padding:8px 10px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;cursor:pointer;font:700 12px/1.25 var(--f-body);opacity:.62;transition:opacity .15s,box-shadow .15s}
+.gp .gn{font:800 15px/1 var(--f-body)}
+.gp.otros{background:var(--gris-claro);color:var(--tinta)}
+.gp:hover{opacity:.9}
+.gp[aria-selected="true"]{opacity:1;box-shadow:0 0 0 2px var(--tinta)}
+.guia-d{display:flex;flex-direction:column;gap:12px;font-size:14px;line-height:1.55}
+.guia-dh{display:flex;flex-direction:column;gap:4px}
+.guia-dh h3{font-size:18px;font-weight:800}
+.gbadge{align-self:flex-start;font:800 11px/1 var(--f-body);letter-spacing:.8px;text-transform:uppercase;padding:5px 8px;border-radius:8px}
+.guia-cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px;align-items:start}
+.guia-cols ul,.go ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.guia-cols .etq,.gbox .etq{color:var(--suave)}
+.guia-side{display:flex;flex-direction:column;gap:10px}
+.gbox{background:var(--gris-claro);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.guia-otros{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.go{border:1px solid var(--linea);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.go-h{display:flex;align-items:center;gap:8px}.go-h b{font-size:15px}
+.bcol-r{display:inline-flex;align-items:center;gap:6px}
+.bq{appearance:none;width:22px;height:22px;border-radius:50%;border:0;background:rgba(255,255,255,.75);color:inherit;font:800 12px/1 var(--f-body);cursor:pointer;display:inline-grid;place-items:center;padding:0}
+.bq:hover{background:#fff}
+@media (max-width:900px){
+  .guia-pasos{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:128px;overflow-x:auto;padding-bottom:4px}
+  .guia-cols,.guia-otros{grid-template-columns:minmax(0,1fr)}
+}
 /* Cierre de la obra terminada */
 .cierre-obra{border-top:1px solid var(--linea);padding-top:16px}
 .cierre-obra textarea{min-height:64px}
@@ -1735,7 +1769,7 @@ function planDia(){
     const play=b.id==='video'?'<a class="pplay" href="#evidencias" aria-label="Ir a Evidencias">'+ic('play','fill sm')+'</a>':'<button class="pplay" data-act="plan-play" data-b="'+b.id+'"'+(esHoy?'':' disabled')+' aria-label="Estudiar '+b.n+' en la consola">'+ic('play','fill sm')+'</button>';
     const diario=b.id==='cierre'&&(S.ui.diario||ok)&&esHoy?'<form data-form="nota" class="pdiario"><label class="f" for="d-nota">Cierre: ¿qué salió hoy y qué falta para mañana?<textarea id="d-nota" name="nota" placeholder="Salieron los c. 1–8 manos juntas. Mañana: enlazar con el 9.">'+esc(ses.nota||'')+'</textarea></label><button class="btn btn-sm" type="submit" style="align-self:flex-start">Guardar en el diario</button></form>':'';
     return '<li class="prow'+(ok?' ok':'')+'"><label class="pcb"><input type="checkbox" data-act="plan-hecho" data-b="'+b.id+'"'+(ok?' checked':'')+' aria-label="'+b.n+' hecho"></label>'+
-     '<div class="pmain"><div class="pname"><span class="psw cat c'+b.k+'"></span><b>'+b.n+'</b>'+(b.s?'<small>'+b.s+'</small>':'')+'<button class="pq" data-act="expl-ir" data-b="'+b.id+'" aria-label="¿Qué es '+b.n+'?" title="¿Qué es este bloque?">?</button></div><div class="pchips">'+c.chips+'</div><div class="pline">'+c.lines+'</div>'+diario+'</div>'+
+     '<div class="pmain"><div class="pname"><span class="psw cat c'+b.k+'"></span><b>'+b.n+'</b>'+(b.s?'<small>'+b.s+'</small>':'')+'</div><div class="pchips">'+c.chips+'</div><div class="pline">'+c.lines+'</div>'+diario+'</div>'+
      '<label class="pmin'+(ed?' ed':'')+'" title="Sugerido: '+sg[b.id]+' min"><input type="number" min="0" max="300" step="5" data-plan-min="'+b.id+'" value="'+m[b.id]+'" aria-label="Minutos de '+b.n+'"><span>min</span></label>'+play+'</li>'}).join('');
   const titulo=esHoy?'Tiempo de hoy':'Plan del '+fmtDia(f);
   return '<section class="card plan"><div class="plan-h"><div><span class="etq">'+ic('clock','sm')+titulo+'</span><h3>¿Cuánto tiempo tienes'+(esHoy?' hoy':' ese día')+'?</h3></div><div class="chips tsel" role="group" aria-label="Tiempo disponible">'+tsel+'</div></div>'+
@@ -1743,7 +1777,7 @@ function planDia(){
    '<div class="plan-sum"><span><b class="mono">'+hechos.size+'</b> de 9 bloques</span><span class="'+(plan>T?'over':'')+'">Planificado <b class="mono">'+plan+'</b> de '+T+' min</span>'+
    '<label class="hreal">Hora real<input data-plan-hr="1" value="'+esc(hr)+'" placeholder="'+(fut?'—':'se anota al cerrar')+'"'+(fut?' disabled':'')+' aria-label="Hora real estudiada, por ejemplo 1 h 20"></label></div>'+
    (timerMin||ses.horaReal?'<p class="hint">Cuenta el mayor: temporizador '+timerMin+' min'+(ses.horaReal?' · hora real '+hm(+ses.horaReal).trim():'')+' → <b>'+dayMin(ses)+' min</b> para tu racha.</p>':'')+
-   (esHoy?estado:'')+explicacionPlan()+'<ol class="plist">'+filas+'</ol></section>';
+   (esHoy?estado:'')+'<ol class="plist">'+filas+'</ol></section>';
 }
 /* «En tu atril» en una tarjeta plegable (conserva compases, «Marcar compás como seguro» y la escalera) */
 function atrilPlegable(){
@@ -2098,14 +2132,42 @@ function calendario(o){
 }
 
 /* ───────── Atril ───────── */
+/* Guía del método: las 6 etapas de una obra (columnas del tablero) + los otros bloques de la rutina */
+const ETAPAS=[
+ {q:'Registrar la obra',d:'Agregas la obra a tu atril con sus datos. Así queda lista para organizarla y para que tu profesora la vea.',
+  ej:['Título, compositor y catálogo: «Invención n.º 1, J. S. Bach, BWV 772».','Total de compases, tonalidad y compás: sirven para el análisis y para proponer los fragmentos.','El enlace de la partitura en Google Drive («Cualquier persona con el enlace · Lector»).','El motivo: quién la asignó o para qué (por ejemplo, la audición de diciembre).'],diario:null},
+ {q:'Conocer la obra completa',d:EXPL.lectura.d+' En básico puedes leerla con manos separadas.',ej:['Toca la obra entera una vez, sin detenerte a corregir.','Anota tres impresiones: qué fue difícil, qué te gustó y qué no entendiste.','Escucha dos versiones grabadas de la obra.'],diario:'Lectura B'},
+ {q:'Comprender cómo está hecha',d:EXPL.control.d,ej:EXPL.control.ej,diario:'Control sin piano'},
+ {q:'Sacar la obra por frases completas',d:EXPL.lento.d,ej:EXPL.lento.ej.concat(['Si un pasaje es crítico (polirritmia, coordinación compleja), sigue la escalera de 7 escalones: un escalón por sesión ya es avance.']),diario:'Repertorio lento'},
+ {q:'Construir la técnica que pide la obra',d:EXPL.reto.d,ej:EXPL.reto.ej.concat(['Anota el tempo actual y el tempo meta, y súbelo poco a poco.']),diario:'Reto y Pasada completa'},
+ {q:'Cerrar el proceso y mantenerla',d:'Cuando la obra ya tiene la velocidad, los matices y todo lo que pide, pasa a Terminada. Aquí cierras el proceso: escribes lo que te dejó la obra y eliges fragmentos para no olvidarla.',
+  ej:['Responde el Cierre de la obra (pestaña Historial): en qué te ayudó, qué aprendiste, cómo te ayudó técnicamente y qué conociste del compositor y de su contexto.','Anota fragmentos de mantenimiento, máximo 5 minutos al día: «c. 9–16, ornamentos de la mano derecha».','Antes de un recital puedes reactivarla como repaso.'],diario:'Pasada completa (mantenimiento)'}
+];
+const OTROS_BLOQUES=['calent','objetivo','video','cierre'];
+function guiaMetodo(){
+  const open=!!S.ui.guiaOpen,et=S.ui.guiaEtapa==null?0:S.ui.guiaEtapa,otros=et==='otros';
+  const head='<button class="guia-h" data-act="guia-toggle" aria-expanded="'+open+'"><span class="tile-ic">'+ic('map','sm')+'</span><span class="guia-t"><b>Guía del método</b><small>Las 6 etapas de una obra: qué hacer en cada una, con ejemplos.</small></span><span class="chev">'+ic('right','sm')+'</span></button>';
+  if(!open)return '<section class="guia" id="guia">'+head+'</section>';
+  const pasos='<ol class="guia-pasos" role="tablist" aria-label="Etapas">'+COLS.map((c,i)=>'<li><button role="tab" class="gp b'+i+'" aria-selected="'+(et===i)+'" data-act="guia-etapa" data-e="'+i+'"><span class="gn">'+(i+1)+'</span><span>'+c.n+'</span></button></li>').join('')+
+   '<li><button role="tab" class="gp otros" aria-selected="'+otros+'" data-act="guia-etapa" data-e="otros"><span class="gn">+</span><span>Otros bloques del día</span></button></li></ol>';
+  let det;
+  if(otros){det='<div class="guia-d"><h3>Otros bloques de tu rutina</h3><p class="muted">No dependen de una etapa: se hacen todos los días, con todas tus obras.</p><div class="guia-otros">'+OTROS_BLOQUES.map(id=>{const b=DIA.find(x=>x.id===id),e=EXPL[id];
+     return '<div class="go"><div class="go-h"><span class="psw cat c'+b.k+'"></span><b>'+b.n+'</b></div><small class="muted">'+e.q+'</small><p>'+e.d+'</p><ul>'+e.ej.map(x=>'<li>'+x+'</li>').join('')+'</ul></div>'}).join('')+'</div></div>'}
+  else{const E=ETAPAS[et],C=COLS[et];
+   det='<div class="guia-d"><div class="guia-dh"><span class="gbadge b'+et+'">Etapa '+(et+1)+' de 6</span><h3>'+C.n+'</h3><span class="muted">'+E.q+'</span></div><p>'+E.d+'</p>'+
+    '<div class="guia-cols"><div><span class="etq">Ejemplos prácticos</span><ul>'+E.ej.map(x=>'<li>'+x+'</li>').join('')+'</ul></div><div class="guia-side">'+
+    (C.sal?'<div class="gbox"><span class="etq">Pasa a la siguiente cuando…</span><p>'+C.sal+'</p></div>':'<div class="gbox"><span class="etq">Última etapa</span><p>La obra queda registrada con todo su historial.</p></div>')+
+    (E.diario?'<div class="gbox"><span class="etq">En tu práctica diaria</span><p>Se trabaja en el bloque <b>'+E.diario+'</b> de tu plan de Hoy.</p></div>':'')+'</div></div></div>'}
+  return '<section class="guia open" id="guia">'+head+'<div class="guia-b">'+pasos+det+'</div></section>';
+}
 function vAtril(){
   return '<div class="wrap page"><div class="page-head ph-brand"><div class="t"><span class="eyebrow">Repertorio personal · Ciclo '+ROMAN[S.perfil.ciclo-1]+'</span><h1>Mi atril</h1><p class="muted" style="max-width:60ch">Cada obra avanza por seis columnas. Toca una obra para trabajarla; usa las flechas para moverla cuando cumplas el paso.</p></div><button class="btn btn-primary" data-act="nueva-obra">'+ic('plus','sm')+' Agregar obra</button></div>'+
-   tablero(S.obras,+S.perfil.ciclo)+'</div>';
+   guiaMetodo()+tablero(S.obras,+S.perfil.ciclo)+'</div>';
 }
 function tablero(obras,ciclo){
   return '<div class="board-wrap"><div class="board">'+COLS.map((c,i)=>{
    const list=obras.filter(o=>o.col===i);const lim=i===3&&limPB(ciclo)<99?' · máx. '+limPB(ciclo):'';
-   return '<section class="bcol col-'+i+'" aria-label="'+c.n+'"><div class="bcol-h"><div class="row"><h4>'+c.n+'</h4><span class="num">'+list.length+lim+'</span></div><small>'+c.d+'</small></div>'+
+   return '<section class="bcol col-'+i+'" aria-label="'+c.n+'"><div class="bcol-h"><div class="row"><h4>'+c.n+'</h4><span class="bcol-r"><span class="num">'+list.length+lim+'</span>'+(S.role==='alumno'?'<button class="bq" data-act="guia-ir" data-e="'+i+'" aria-label="¿Qué se hace en '+c.n+'?" title="¿Qué se hace aquí?">?</button>':'')+'</span></div><small>'+c.d+'</small></div>'+
     (list.length?list.map(o=>tarjeta(o,i)).join(''):'<div class="empty-col">'+(i===0?'Las obras nuevas llegan aquí.':'Sin obras en esta columna.')+'</div>')+'</section>'}).join('')+'</div></div>';
 }
 function tarjeta(o,i){
@@ -2612,6 +2674,9 @@ const ACT={
  'expl-toggle':()=>{S.ui.explOpen=!S.ui.explOpen;render(true)},
  'expl-item':t=>{S.ui.explItem=S.ui.explItem===t.dataset.b?null:t.dataset.b;render(true)},
  'expl-ir':t=>{S.ui.explOpen=true;S.ui.explItem=t.dataset.b;render(true);const el=document.getElementById('ex-'+t.dataset.b);if(el)el.scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})},
+ 'guia-toggle':()=>{S.ui.guiaOpen=!S.ui.guiaOpen;render(true)},
+ 'guia-etapa':t=>{const e=t.dataset.e;S.ui.guiaEtapa=e==='otros'?'otros':+e;render(true)},
+ 'guia-ir':t=>{S.ui.guiaOpen=true;S.ui.guiaEtapa=+t.dataset.e;render(true);const g=$('#guia');if(g)g.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})},
  'focus':()=>focusAbrir(),
  'focus-salir':()=>focusCerrar(),
  'res-sem':t=>{S.ui.resPrev=t.dataset.p==='1';render(true)},
