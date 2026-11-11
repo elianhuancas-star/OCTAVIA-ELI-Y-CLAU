@@ -1,0 +1,6 @@
+{
+  "appId": "pe.octavia.app",
+  "appName": "Octavia",
+  "webDir": "www",
+  "server": { "androidScheme": "https" }
+}

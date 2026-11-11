@@ -1,0 +1,12 @@
+android
+www
+node_modules
+scripts
+supabase
+capturas
+ref
+.github
+*.md
+package.json
+package-lock.json
+capacitor.config.json

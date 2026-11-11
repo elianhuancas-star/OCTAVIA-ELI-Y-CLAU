@@ -1,0 +1,17 @@
+{
+  "name": "octavia",
+  "version": "7.0.0",
+  "private": true,
+  "description": "Octavia: acompañamiento de estudio para pianistas (ciclos I a X)",
+  "scripts": {
+    "www": "node scripts/preparar-www.js",
+    "android": "node scripts/preparar-www.js && npx cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "6.1.2",
+    "@capacitor/core": "6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "6.1.2"
+  }
+}
