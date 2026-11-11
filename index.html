@@ -1454,7 +1454,8 @@ function vLogin(){const e=S.ui.loginEmail;
    '<span class="eyebrow">Acompañamiento para pianistas · Ciclos I a X</span><h2>'+(e?'Revisa tu correo':'Entra a tu atril')+'</h2>'+
    (e?'<p class="muted">Enviamos un correo a <b>'+esc(e)+'</b>. Abre el enlace en este mismo dispositivo o escribe aquí el código que trae.</p>'+
      '<form data-form="login-codigo" class="fgrid" novalidate><label class="f s6" for="l-cod">Código del correo<input id="l-cod" name="codigo" inputmode="numeric" autocomplete="one-time-code" maxlength="10" required placeholder="123456"></label>'+
-     '<div class="s6 row-acts"><button class="btn btn-primary" type="submit">Entrar '+ic('right','sm')+'</button><button class="btn btn-ghost" type="button" data-act="login-otro">Usar otro correo</button></div><span class="err s6" id="l-err" role="alert"></span></form>'
+     '<div class="s6 row-acts"><button class="btn btn-primary" type="submit">Entrar '+ic('right','sm')+'</button><button class="btn btn-ghost" type="button" data-act="login-otro">Usar otro correo</button></div><span class="err s6" id="l-err" role="alert"></span></form>'+
+     '<div class="nota"><span class="etq">¿No llegó?</span><span>Revisa la carpeta <b>Spam</b> o <b>Promociones</b>. El correo llega de Octavia y puede tardar un minuto.</span><button class="btn btn-sm" type="button" data-act="login-reenviar" style="align-self:flex-start"'+(S.ui.reenvioHasta>Date.now()?' disabled':'')+'>'+(S.ui.reenvioHasta>Date.now()?'Podrás reenviar en un minuto':'Reenviar código')+'</button></div>'
    :'<p class="muted">Escribe tu correo de Gmail. Te llega un enlace y un código para entrar, sin contraseña.</p>'+
      '<form data-form="login" class="fgrid" novalidate><label class="f s6" for="l-mail">Tu correo<input id="l-mail" name="email" type="email" autocomplete="email" required placeholder="nombre@gmail.com"></label>'+
      '<div class="s6 row-acts"><button class="btn btn-primary" type="submit">Enviarme el acceso</button></div><span class="err s6" id="l-err" role="alert"></span></form>')+
@@ -2426,6 +2427,9 @@ const ACT={
  'res-copiar':async t=>{const R=resumenSemana(S.sesiones,S.obras,S.perfil,addDays(monday(new Date()),t.dataset.p==='1'?-7:0),S.evidencias);const txt=resumenTexto(R,S.perfil.nombre);
    try{await navigator.clipboard.writeText(txt);toast('Resumen copiado. Pégalo en WhatsApp o en un correo para tu profesora.')}catch(e){try{window.prompt('Copia tu resumen:',txt)}catch(x){toast('Tu navegador no permitió copiar el resumen.','bad')}}},
  'login-otro':()=>{S.ui.loginEmail=null;render(true)},
+ 'login-reenviar':async()=>{if(!S.ui.loginEmail||S.ui.reenvioHasta>Date.now())return;S.ui.reenvioHasta=Date.now()+60000;render(true);setTimeout(()=>render(true),60500);
+   const {error}=await S.sb.auth.signInWithOtp({email:S.ui.loginEmail,options:{emailRedirectTo:location.origin+location.pathname,shouldCreateUser:true}});
+   if(error)toast(/rate|second|too many/i.test(error.message)?'Se enviaron demasiados correos. Espera unos minutos.':'No se pudo reenviar: '+error.message,'bad');else toast('Te enviamos un código nuevo')},
  'salir':async()=>{try{await S.sb.auth.signOut()}catch(e){}ls.del('octavia.modo');location.hash='';location.reload()},
  'ir':(t,e)=>{e.preventDefault();const el=document.getElementById(t.dataset.to);if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
 };
@@ -2451,7 +2455,7 @@ document.addEventListener('submit',async e=>{
     const btn=f.querySelector('button[type=submit]');btn.disabled=true;
     const {error}=await S.sb.auth.signInWithOtp({email,options:{emailRedirectTo:location.origin+location.pathname,shouldCreateUser:true}});
     if(error){btn.disabled=false;$('#l-err').textContent=/rate|second|too many/i.test(error.message)?'Se enviaron demasiados correos. Espera unos minutos e inténtalo otra vez.':/fetch|network/i.test(error.message)?'No hay conexión con el servidor de Octavia. Revisa tu internet e inténtalo otra vez.':'No se pudo enviar el correo: '+error.message;return}
-    S.ui.loginEmail=email;render(true);const i=$('#l-cod');if(i)i.focus();return}
+    S.ui.loginEmail=email;S.ui.reenvioHasta=Date.now()+60000;setTimeout(()=>render(true),60500);render(true);const i=$('#l-cod');if(i)i.focus();return}
   if(k==='login-codigo'){const token=String(fd.get('codigo')||'').replace(/\s/g,'');if(!/^\d{6,10}$/.test(token)){$('#l-err').textContent='Escribe el código numérico del correo.';return}
     const btn=f.querySelector('button[type=submit]');btn.disabled=true;
     const {error}=await S.sb.auth.verifyOtp({email:S.ui.loginEmail,token,type:'email'});
