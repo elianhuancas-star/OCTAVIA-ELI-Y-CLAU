@@ -1017,7 +1017,7 @@ thead th{background:transparent;color:var(--suave);font:700 12px/1.2 var(--f-bod
 .bib-tabs{max-width:420px}
 .bib-tabs button{display:inline-flex;align-items:center;justify-content:center;gap:6px}
 .bib-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
-.bib-vista{max-width:320px}
+.bib-vista{max-width:440px}
 .bib-q{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--linea-campo);border-radius:12px;padding:0 12px;flex:1 1 260px;max-width:420px;color:var(--suave)}
 .bib-q input{border:0!important;outline:none;min-height:42px!important;padding:0!important;background:transparent}
 .bib-grupo{display:flex;flex-direction:column;gap:10px}
@@ -2481,9 +2481,10 @@ function vBiblioteca(){
     cuerpo=AREAS.map(ar=>{const it=L.filter(x=>(x.area||'Otro')===ar);if(!it.length)return '';return '<section class="bib-grupo"><h3>'+esc(ar)+' <span class="chip">'+it.length+'</span></h3><div class="bib-lista">'+it.map(bibFila).join('')+'</div></section>'}).join('');
   }else{
     const vista=S.ui.bibVista||'nivel';
-    const tog='<div class="segmento bib-vista" role="tablist" aria-label="Ordenar"><button role="tab" aria-selected="'+(vista==='nivel')+'" data-act="bib-vista" data-v="nivel">Por nivel</button><button role="tab" aria-selected="'+(vista==='compositor')+'" data-act="bib-vista" data-v="compositor">Por compositor</button></div>';
+    const tog='<div class="segmento bib-vista" role="tablist" aria-label="Ordenar"><button role="tab" aria-selected="'+(vista==='nivel')+'" data-act="bib-vista" data-v="nivel">Por nivel</button><button role="tab" aria-selected="'+(vista==='compositor')+'" data-act="bib-vista" data-v="compositor">Por compositor</button><button role="tab" aria-selected="'+(vista==='epoca')+'" data-act="bib-vista" data-v="epoca">Por época</button></div>';
     let grupos;
     if(vista==='nivel')grupos=NIV_BIB.map(([k,n,c])=>{const it=L.filter(x=>(x.nivel||'todos')===k);if(!it.length)return '';return '<section class="bib-grupo"><h3>'+n+(c?' <small class="muted">'+c+'</small>':'')+' <span class="chip">'+it.length+'</span></h3><div class="bib-lista">'+it.sort((a,b)=>apellido(a.autor).localeCompare(apellido(b.autor))).map(bibFila).join('')+'</div></section>'}).join('');
+    else if(vista==='epoca')grupos=EPOCAS.concat(['Sin época']).map(ep=>{const it=L.filter(x=>(x.epoca||'Sin época')===ep);if(!it.length)return '';return '<section class="bib-grupo"><h3>'+esc(ep)+' <span class="chip">'+it.length+'</span></h3><div class="bib-lista">'+it.sort((a,b)=>apellido(a.autor).localeCompare(apellido(b.autor))).map(bibFila).join('')+'</div></section>'}).join('');
     else{const por={};L.forEach(x=>{const k=(x.autor||'').trim()||'Sin compositor';(por[k]=por[k]||[]).push(x)});
       grupos=Object.keys(por).sort((a,b)=>apellido(a).localeCompare(apellido(b))).map(k=>'<section class="bib-grupo"><h3>'+esc(k)+' <span class="chip">'+por[k].length+'</span></h3><div class="bib-lista">'+por[k].map(bibFila).join('')+'</div></section>').join('')}
     cuerpo='<div class="bib-barra">'+tog+'<label class="bib-q"><span class="sr-only">Buscar</span>'+ic('search','sm')+'<input id="bib-q" type="search" placeholder="Buscar obra, compositor o catálogo" autocomplete="off"></label></div>'+grupos;
