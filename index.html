@@ -1608,7 +1608,7 @@ function renderNav(){
   $('#tabbar').innerHTML=rutas().filter(r=>S.role==='prof'||r[0]!=='metodo').map(item).join('');
   const nombre=S.role==='alumno'&&S.perfil?S.perfil.nombre:'Profesora';
   const modo=S.isOwner?'<div class="mode"><small>Ver como</small><div class="seg" role="group" aria-label="Cambiar vista"><button data-act="modo" data-m="prof" aria-pressed="'+(S.role==='prof')+'">Profesora</button><button data-act="modo" data-m="alumno" aria-pressed="'+(S.role==='alumno')+'">Alumno</button></div>'+(S.role==='alumno'?'<button class="del" data-act="prueba-borrar">'+(S.confirmPrueba?'¿Borrar? Toca otra vez':'Borrar prueba')+'</button>':'')+'</div>':'';
-  $('#sidefoot').innerHTML='<button class="fork" data-act="fork" title="Toca un La de 440 Hz para afinar el oído">'+ic('note','sm')+'La 440</button>'+modo+'<div class="me"><span class="av">'+esc((nombre||'?').trim()[0]||'?').toUpperCase()+'</span><b>'+esc(nombre)+'</b>'+(S.role==='alumno'&&S.perfil?'<button class="lapiz claro" data-act="nombre-editar" data-id="'+S.uid+'" aria-label="Editar mi nombre" title="Editar mi nombre">'+ic('pen','sm')+'</button>':'')+'</div>'+(S.sb&&!S.anon?'<button class="del salir" data-act="salir">Cerrar sesión</button>':'')+(S.sb&&S.anon&&S.role==='alumno'?'<button class="del salir asegurar-l" data-act="asegurar-abrir">Agregar correo y contraseña</button>':'')+(S.sb&&!S.isOwner?'<a class="del salir" href="#profesora">Soy la profesora</a>':'');
+  $('#sidefoot').innerHTML='<button class="fork" data-act="fork" title="Toca un La de 440 Hz para afinar el oído">'+ic('note','sm')+'La 440</button>'+modo+'<div class="me"><span class="av">'+esc((nombre||'?').trim()[0]||'?').toUpperCase()+'</span><b>'+esc(nombre)+'</b>'+(S.role==='alumno'&&S.perfil?'<button class="lapiz claro" data-act="nombre-editar" data-id="'+S.uid+'" aria-label="Editar mi nombre" title="Editar mi nombre">'+ic('pen','sm')+'</button>':'')+'</div>'+(S.sb&&!S.anon?'<button class="del salir" data-act="salir">Cerrar sesión</button>':'')+(S.sb&&S.anon&&S.role==='alumno'?'<button class="del salir asegurar-l" data-act="asegurar-abrir">Agregar correo y contraseña</button>':'')+(S.sb&&!S.anon?'<button class="del salir" data-act="clave-cambiar">Cambiar mi contraseña</button>':'')+(S.sb&&!S.isOwner?'<a class="del salir" href="#profesora">Soy la profesora</a>':'');
   $('#appbar-r').innerHTML='<button class="forkb" data-act="fork" aria-label="Tocar La 440">'+ic('note','sm')+'</button>'+(S.role==='alumno'?'<a class="forkb" href="#metodo" aria-label="Método">'+ic('book','sm')+'</a>':'')+(S.isOwner?'<button class="modeb" data-act="modo" data-m="'+(S.role==='prof'?'alumno':'prof')+'">'+(S.role==='prof'?'Ver alumno':'Ver profesora')+'</button>':'')+(S.sb&&!S.anon?'<button class="modeb" data-act="salir">Salir</button>':'');
 }
 function vista(){
@@ -1702,7 +1702,8 @@ function vInicio(){
   const pct=Math.min(100,Math.round(hoy/min*100));
   const hoyD=new Date();
   const asegurar=S.sb&&S.anon?'<section class="aviso asegurar"><span class="etq">'+ic('users','sm')+' Asegura tu cuenta</span><div class="riesgo-b"><div><b>Agrega tu correo y una contraseña</b><p>Hoy tu atril solo está guardado en este celular. Con correo y contraseña podrás entrar desde cualquier dispositivo y no perderás nada.</p></div><button class="btn btn-primary" data-act="asegurar-abrir">'+ic('check','sm')+' Agregar correo y contraseña</button></div></section>':'';
-  return '<div class="page hoy">'+demo+asegurar+
+  const temporal=S.sb&&!S.anon&&S.perfil&&S.perfil.claveTemporal?'<section class="aviso asegurar"><span class="etq">'+ic('bolt','sm')+' Contraseña temporal</span><div class="riesgo-b"><div><b>Cambia tu contraseña</b><p>Tu profesora te dio una contraseña temporal. Elige una que solo tú conozcas.</p></div><button class="btn btn-primary" data-act="clave-cambiar">'+ic('check','sm')+' Cambiar mi contraseña</button></div></section>':'';
+  return '<div class="page hoy">'+demo+temporal+asegurar+
    '<header class="hello"><div class="t"><span class="eyebrow">Hoy · '+DOW_L[hoyD.getDay()]+' '+hoyD.getDate()+' '+hoyD.toLocaleDateString('es-PE',{month:'short'}).replace('.','')+' · Ciclo '+R+'</span><h1>Tu plan del día</h1><p class="muted">'+esc(msg)+'</p></div>'+
    '<div class="stats-pills">'+
     '<span class="sp"><span class="dot" style="background:var(--coral);color:var(--on-coral)">'+ic('clock')+'</span><span class="bar"><i style="width:'+pct+'%"></i></span><b>'+hoy+'/'+min+' min</b></span>'+
@@ -2004,7 +2005,7 @@ function vProgreso(){
   const dias=diasDe(S.sesiones),min=st.min,hoy=new Date();const bars=[];let mx=min;
   for(let i=13;i>=0;i--){mx=Math.max(mx,dias[ymd(addDays(hoy,-i))]||0)}
   for(let i=13;i>=0;i--){const f=ymd(addDays(hoy,-i)),v=dias[f]||0;bars.push('<i class="'+(i===0?'today':v>=min?'met':'')+'" style="height:'+Math.max(5,Math.round(v/mx*100))+'%" title="'+fmtCorto(f)+': '+v+' min"></i>')}
-  return '<div class="page"><div class="page-head ph-green"><div class="t"><span class="eyebrow">Ciclo '+R+' · '+nivelDe(c)+'</span><h1>Tu progreso</h1><button class="btn btn-sm btn-ghost mi-nombre" data-act="nombre-editar" data-id="'+S.uid+'">'+ic('pen','sm')+' Editar mi nombre</button><p class="muted">Racha, minutos, logros y el recorrido de tus obras.</p></div></div>'+
+  return '<div class="page"><div class="page-head ph-green"><div class="t"><span class="eyebrow">Ciclo '+R+' · '+nivelDe(c)+'</span><h1>Tu progreso</h1><span class="row-acts"><button class="btn btn-sm btn-ghost mi-nombre" data-act="nombre-editar" data-id="'+S.uid+'">'+ic('pen','sm')+' Editar mi nombre</button>'+(S.sb&&!S.anon?'<button class="btn btn-sm btn-ghost mi-nombre" data-act="clave-cambiar">'+ic('bolt','sm')+' Cambiar mi contraseña</button>':'')+'</span><p class="muted">Racha, minutos, logros y el recorrido de tus obras.</p></div></div>'+
    '<div class="prog"><div class="col">'+
     resumenCard(resumenSemana(S.sesiones,S.obras,p,addDays(monday(hoy),S.ui.resPrev?-7:0),S.evidencias),{toggle:true,copiar:true,titulo:'Tu resumen semanal'})+
     '<section class="card"><div class="sec-h"><h3>'+ic('bolt')+'Minutos de '+hoy.toLocaleDateString('es-PE',{month:'long'})+'</h3><span class="chip brand">'+st.semanasMes+(st.semanasMes===1?' semana cumplida':' semanas cumplidas')+'</span></div><div class="bignum">'+st.minMes+'<small>min</small></div><div class="spark" aria-label="Minutos de los últimos 14 días">'+bars.join('')+'</div><div class="legend"><span><i style="background:var(--brand)"></i>Mínimo cumplido</span><span><i style="background:var(--tinta)"></i>Hoy</span></div></section>'+
@@ -2462,7 +2463,7 @@ function vAlumnoDetalle(){
     body='<div class="grid2">'+resumenCard(resumenSemana(S.t.sesiones,S.t.obras,a,lun,S.t.evidencias),{titulo:'Esta semana'})+resumenCard(resumenSemana(S.t.sesiones,S.t.obras,a,addDays(lun,-7),S.t.evidencias),{titulo:'Semana pasada'})+'</div><div class="grid2"><section class="card">'+calendario({dias,min:minDia(+a.ciclo),descanso:+a.descanso,eventos:S.eventos,evid:S.t.evidencias,sesiones:S.t.sesiones})+'</section><section class="plain"><h3>Sesiones recientes</h3>'+(list.length?'<div class="log">'+list.map(f=>{const s=S.t.sesiones[f];return '<div><span class="mono">'+dayMin(s)+' min</span><span><b>'+fmtDia(f)+'</b>'+planProf(s)+((s.entradas||[]).length?'<br><span class="muted">'+(s.entradas||[]).slice(-3).map(e=>esc(e.obraTitulo||'')+(e.frag?' c. '+esc(e.frag):'')+(e.meta?' — '+esc(e.meta):'')).join('<br>')+'</span>':'')+(s.nota?'<br>Diario: '+esc(s.nota):'')+'</span></div>'}).join('')+'</div>':'<p class="muted">Sin sesiones registradas.</p>')+'</section></div>'}
   return '<div class="wrap page"><div class="page-head ph-green"><div class="t"><button class="btn btn-ghost btn-sm" data-act="volver-al" style="align-self:flex-start">'+ic('left','sm')+' Alumnos</button><span class="eyebrow">Ciclo '+ROMAN[(+a.ciclo||1)-1]+' · '+nivelDe(+a.ciclo)+' · descansa el '+DOW_L[+a.descanso]+(S.sb?' · '+(a.email?esc(a.email):'sin correo (acceso libre)'):'')+'</span><h1 class="nombre-ed">'+esc(a.nombre)+'<button class="lapiz" data-act="nombre-editar" data-id="'+a.id+'" aria-label="Editar el nombre de '+esc(a.nombre)+'" title="Editar nombre">'+ic('pen','sm')+'</button></h1></div>'+
    '<div class="person" style="cursor:default;flex-direction:row;gap:22px;padding:14px 18px"><div class="nums"><div><b class="mono">'+r.racha+'</b><small>racha</small></div><div><b class="mono">'+r.minMes+'</b><small>min del mes</small></div><div><b class="mono">'+r.semanas+'</b><small>sem. cumplidas</small></div><div><b class="mono">'+r.puntaje+'</b><small>puntaje</small></div></div></div></div>'+
-   '<div class="al-acts"><button class="btn btn-sm btn-ghost peligro-t" data-act="al-papelera" data-id="'+a.id+'">'+ic('trash','sm')+' Mover a la papelera</button></div>'+dlgClave()+'<div class="subnav" role="tablist">'+tabs.map(x=>'<button class="chip" role="tab" aria-pressed="'+(t===x[0])+'" data-act="t-tab" data-t="'+x[0]+'">'+x[1]+'</button>').join('')+'</div>'+body+'</div>';
+   '<div class="al-acts">'+(S.sb&&a.email?'<button class="btn btn-sm btn-ghost" data-act="clave-reset" data-id="'+a.id+'">'+ic('bolt','sm')+' Restablecer contraseña</button>':'')+'<button class="btn btn-sm btn-ghost peligro-t" data-act="al-papelera" data-id="'+a.id+'">'+ic('trash','sm')+' Mover a la papelera</button></div>'+dlgClave()+'<div class="subnav" role="tablist">'+tabs.map(x=>'<button class="chip" role="tab" aria-pressed="'+(t===x[0])+'" data-act="t-tab" data-t="'+x[0]+'">'+x[1]+'</button>').join('')+'</div>'+body+'</div>';
 }
 /* Plan del día visto por la profesora (pestaña Estudio): tiempo elegido, bloques hechos, hora real y objetivo */
 function planProf(s){if(!s||(!s.tiempoDisponible&&!(s.hechos||[]).length&&!s.horaReal&&!s.objetivo))return '';
@@ -2673,6 +2674,24 @@ async function duplicarObra(){
 /* Editar el nombre: la profesora el de cualquier alumno; cada alumno el suyo */
 function renderDlgNombre(){
   const box=$('#dlg');if(!box)return;
+  if(S.ui.claveReset){if(box.querySelector('[data-form="clave-reset"]'))return;
+    const a=[...(S.alumnos||[]),...(S.papelera||[])].find(x=>x.id===S.ui.claveReset)||{nombre:'tu alumno'};
+    box.innerHTML='<div class="modal-bg" data-act="clave-fondo"><form class="modal dlg" data-form="clave-reset" role="dialog" aria-modal="true" aria-labelledby="cr-t" novalidate>'+
+     '<div class="dlg-b"><span class="tile-ic" style="background:var(--acento-suave);color:var(--acento)">'+ic('bolt')+'</span><h2 id="cr-t">Restablecer la contraseña de '+esc(a.nombre)+'</h2>'+
+     '<p class="muted">Nadie puede ver la contraseña actual. Aquí pones una <b>nueva temporal</b>, se la dices y, al entrar, Octavia le pedirá cambiarla por una suya.</p>'+
+     '<label class="f" for="cr-nueva">Contraseña temporal para '+esc(a.nombre)+'<input id="cr-nueva" name="nueva" type="text" autocomplete="off" minlength="6" required placeholder="Mínimo 6 caracteres, por ejemplo piano2026"></label>'+
+     '<label class="f" for="cr-mia">Tu contraseña de profesora, para confirmar<input id="cr-mia" name="mia" type="password" autocomplete="current-password" required></label>'+
+     '<span class="err" id="cr-err" role="alert"></span></div>'+
+     '<div class="modal-f"><span></span><div class="row-acts"><button type="button" class="btn" data-act="clave-cerrar">Cancelar</button><button type="submit" class="btn btn-primary">'+ic('check','sm')+' Poner contraseña temporal</button></div></div></form></div>';
+    const i=$('#cr-nueva');if(i)i.focus();return}
+  if(S.ui.claveCambiar){if(box.querySelector('[data-form="clave-cambiar"]'))return;
+    box.innerHTML='<div class="modal-bg" data-act="clave-fondo"><form class="modal dlg" data-form="clave-cambiar" role="dialog" aria-modal="true" aria-labelledby="cc-t" novalidate>'+
+     '<div class="dlg-b"><span class="tile-ic" style="background:var(--acento-suave);color:var(--acento)">'+ic('bolt')+'</span><h2 id="cc-t">Cambiar mi contraseña</h2><p class="muted">Elige una contraseña que solo tú conozcas. La próxima vez entras con ella.</p>'+
+     '<label class="f" for="cc-1">Contraseña nueva<input id="cc-1" name="clave" type="password" autocomplete="new-password" minlength="6" required placeholder="Mínimo 6 caracteres"></label>'+
+     '<label class="f" for="cc-2">Repite la contraseña nueva<input id="cc-2" name="clave2" type="password" autocomplete="new-password" minlength="6" required></label>'+
+     '<span class="err" id="cc-err" role="alert"></span></div>'+
+     '<div class="modal-f"><span></span><div class="row-acts"><button type="button" class="btn" data-act="clave-cerrar">Cancelar</button><button type="submit" class="btn btn-primary">'+ic('check','sm')+' Guardar contraseña</button></div></div></form></div>';
+    const i=$('#cc-1');if(i)i.focus();return}
   if(S.ui.asegurar){if(box.querySelector('[data-form="asegurar"]'))return;
     box.innerHTML='<div class="modal-bg" data-act="asegurar-fondo"><form class="modal dlg" data-form="asegurar" role="dialog" aria-modal="true" aria-labelledby="as-t" novalidate>'+
      '<div class="dlg-b"><span class="tile-ic" style="background:var(--acento-suave);color:var(--acento)">'+ic('users')+'</span><h2 id="as-t">Agrega tu correo y contraseña</h2><p class="muted">Tu atril, tus obras, sesiones y racha se quedan igual. Después entras con este correo y contraseña desde cualquier celular o computadora.</p>'+
@@ -2883,6 +2902,10 @@ const ACT={
  'asegurar-abrir':()=>{S.ui.asegurar=true;renderDlgNombre()},
  'asegurar-cerrar':()=>{S.ui.asegurar=false;renderDlgNombre()},
  'asegurar-fondo':(t,e)=>{if(e.target===t){S.ui.asegurar=false;renderDlgNombre()}},
+ 'clave-reset':t=>{S.ui.claveReset=t.dataset.id;renderDlgNombre()},
+ 'clave-cambiar':()=>{S.ui.claveCambiar=true;renderDlgNombre()},
+ 'clave-cerrar':()=>{S.ui.claveReset=null;S.ui.claveCambiar=false;renderDlgNombre()},
+ 'clave-fondo':(t,e)=>{if(e.target===t){S.ui.claveReset=null;S.ui.claveCambiar=false;renderDlgNombre()}},
  'nombre-editar':t=>{const id=t.dataset.id;const a=id===S.uid?S.perfil:[...(S.alumnos||[]),...(S.papelera||[]),...(S.solicitudes||[])].find(x=>x.id===id);S.ui.nombreEd={id,nombre:(a&&a.nombre)||''};renderDlgNombre()},
  'nombre-cerrar':()=>{S.ui.nombreEd=null;renderDlgNombre()},
  'nombre-fondo':(t,e)=>{if(e.target===t){S.ui.nombreEd=null;renderDlgNombre()}},
@@ -2909,7 +2932,7 @@ const ACT={
  'ir':(t,e)=>{e.preventDefault();const el=document.getElementById(t.dataset.to);if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
 };
 document.addEventListener('click',e=>{const t=e.target.closest('[data-act]');if(!t)return;if(t.tagName==='INPUT'&&t.type==='checkbox'){ACT[t.dataset.act]&&ACT[t.dataset.act](t,e);return}const f=ACT[t.dataset.act];if(f){if(t.tagName==='A'&&t.dataset.act!=='ir'){}f(t,e)}});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&S.ui.asegurar){S.ui.asegurar=false;renderDlgNombre();return}if(e.key==='Escape'&&S.ui.nombreEd){S.ui.nombreEd=null;renderDlgNombre();return}if(e.key==='Escape'&&S.ui.borrar){S.ui.borrar=null;render(true);return}if(e.key==='Escape'&&S.ui.focus&&!S.modal){focusCerrar();return}if(e.key==='Escape'&&S.modal){S.modal=null;renderModal()}if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('oc')&&e.target===document.activeElement){e.preventDefault();abrirObra(e.target.dataset.id)}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&(S.ui.claveReset||S.ui.claveCambiar)){S.ui.claveReset=null;S.ui.claveCambiar=false;renderDlgNombre();return}if(e.key==='Escape'&&S.ui.asegurar){S.ui.asegurar=false;renderDlgNombre();return}if(e.key==='Escape'&&S.ui.nombreEd){S.ui.nombreEd=null;renderDlgNombre();return}if(e.key==='Escape'&&S.ui.borrar){S.ui.borrar=null;render(true);return}if(e.key==='Escape'&&S.ui.focus&&!S.modal){focusCerrar();return}if(e.key==='Escape'&&S.modal){S.modal=null;renderModal()}if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('oc')&&e.target===document.activeElement){e.preventDefault();abrirObra(e.target.dataset.id)}});
 document.addEventListener('input',e=>{
   const t=e.target;
   if(t.dataset.bind&&S.modal){const v=t.type==='checkbox'?t.checked:t.value;setPath(S.modal.d,t.dataset.bind,v);if(t.dataset.bind==='titulo'){const h=$('#m-title');if(h)h.textContent=v||'Nueva obra'}}
@@ -2928,6 +2951,26 @@ document.addEventListener('change',e=>{const t=e.target;
   if(t.dataset.planAdd){const b=t.dataset.planAdd;if(!t.value)return;const f=diaSel(),ses=sesionDe(f);const ids=obrasDe(b,ses).map(o=>o.id);ids.push(t.value);S.ui.addRow=null;guardarPlan(f,{planObras:{...(ses.planObras||{}),[b]:ids}});return}if(t.dataset.actChange==='bloque-sel'){if(S.timer.acc>0&&S.timer.bloque!==t.value){toast('Guarda o descarta el bloque actual antes de cambiar.','bad');t.value=S.timer.bloque;return}S.timer.bloque=t.value;guardarTimer();return}if(t.dataset.bind&&S.modal&&(t.dataset.rerender||t.type==='checkbox'||/^mantener\.\d+\.min$/.test(t.dataset.bind)))renderModal();if(t.dataset.bind&&S.modal&&(t.dataset.bind.startsWith('mapa')&&t.dataset.bind.endsWith('tipo')))renderModal()});
 document.addEventListener('submit',async e=>{
   const f=e.target;const k=f.dataset.form;if(!k)return;e.preventDefault();const fd=new FormData(f);
+  if(k==='clave-reset'){const err=t=>{$('#cr-err').textContent=t};const id=S.ui.claveReset;
+    const nueva=String(fd.get('nueva')||'').trim(),mia=String(fd.get('mia')||'');
+    if(nueva.length<6)return err('La contraseña temporal debe tener al menos 6 caracteres.');
+    if(!mia)return err('Escribe tu contraseña de profesora.');
+    const btn=f.querySelector('button[type=submit]');btn.disabled=true;
+    let r;try{r=await S.sb.auth.signInWithPassword({email:S.email,password:mia})}catch(x){r={error:x}}
+    if(r.error){btn.disabled=false;return err(/invalid login/i.test(r.error.message||'')?'Tu contraseña de profesora no es correcta.':errCuenta(r.error.message))}
+    try{r=await S.sb.rpc('restablecer_clave',{alumno:id,nueva})}catch(x){r={error:x}}
+    if(r.error){btn.disabled=false;const m=(r.error.code||'')+' '+(r.error.message||'');return err(/PGRST202|schema cache|Could not find/i.test(m)?'Falta instalar en Supabase el archivo supabase/05_restablecer_clave.sql.':(r.error.message||'No se pudo.'))}
+    const a=(S.alumnos||[]).find(x=>x.id===id);S.ui.claveReset=null;renderDlgNombre();
+    toast('Listo. Dile a '+(a?a.nombre:'tu alumno')+' que entre con «'+nueva+'» y luego la cambie.');return}
+  if(k==='clave-cambiar'){const err=t=>{$('#cc-err').textContent=t};
+    const c1=String(fd.get('clave')||''),c2=String(fd.get('clave2')||'');
+    if(c1.length<6)return err('La contraseña debe tener al menos 6 caracteres.');
+    if(c1!==c2)return err('Las dos contraseñas no coinciden.');
+    const btn=f.querySelector('button[type=submit]');btn.disabled=true;
+    let r;try{r=await S.sb.auth.updateUser({password:c1})}catch(x){r={error:x}}
+    if(r.error){btn.disabled=false;return err(/different from the old|same as/i.test(r.error.message||'')?'Debe ser distinta de la contraseña anterior.':errCuenta(r.error.message))}
+    if(S.role==='alumno'&&S.perfil&&S.perfil.claveTemporal){try{const pth='alumnos/'+S.uid;await encolar(pth,()=>S.db.doc(pth).update({claveTemporal:false}))}catch(x){}S.perfil.claveTemporal=false}
+    S.ui.claveCambiar=false;renderDlgNombre();render(true);toast('Contraseña cambiada. La próxima vez entra con la nueva.');return}
   if(k==='asegurar'){const err=t=>{$('#as-err').textContent=t};
     const email=String(fd.get('email')||'').trim().toLowerCase(),c1=String(fd.get('clave')||''),c2=String(fd.get('clave2')||'');
     if(!/^\S+@\S+\.\S+$/.test(email))return err('Escribe un correo válido.');
