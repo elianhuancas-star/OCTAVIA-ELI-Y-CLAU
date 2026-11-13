@@ -2641,6 +2641,25 @@ function bibListaDlg(){
    '<div class="modal-f"><span></span><div class="row-acts"><button class="btn" data-act="bib-lista-cerrar">Listo</button></div></div></div></div>';
 }
 /* Importar una base JSON (lista de elementos o {items:[…]}); cada elemento trae id para no duplicar */
+/* Bases de Octavia: se cargan solas la primera vez y se actualizan cuando sube su versión (sin duplicar ni borrar favoritas) */
+const BASES=[['piano','biblioteca/repertorio_piano.json','repertorio de piano y métodos'],['lirico','biblioteca/repertorio_lirico.json','repertorio de acompañamiento']];
+async function bibAutoCargar(){
+  if(S.role!=='prof'||!S.db)return;
+  const ref='biblioteca/base-octavia';
+  for(const [k,url,nom] of BASES){
+    try{
+      if(S.bibImportando)return;
+      const r=await fetch(url,{cache:'no-store'});if(!r.ok)continue;const txt=await r.text();const ver=+(JSON.parse(txt).version)||1;
+      const base=(S.biblio||[]).find(x=>x.id==='base-octavia')||{};
+      if((+base[k]||0)>=ver)continue;
+      S.ui.bibImp='Cargando tu '+nom+'…';if(S.view==='biblioteca')render(true);
+      await bibImportar(null,txt);
+      const ya=(S.biblio||[]).find(x=>x.id==='base-octavia')||{};
+      const d={tipo:'base',creado:ya.creado||Date.now(),piano:+ya.piano||0,lirico:+ya.lirico||0};d[k]=ver;
+      await encolar(ref,()=>S.db.doc(ref).set(d));
+    }catch(e){console.warn('Base '+k,e)}
+  }
+}
 async function bibImportar(file,texto){
   let data;try{data=JSON.parse(texto||await file.text())}catch(e){toast('El archivo no es un JSON válido','bad');return}
   const L=Array.isArray(data)?data:(data.items||[]);if(!L.length){toast('El archivo no trae elementos','bad');return}
@@ -3397,7 +3416,7 @@ function iniciarProf(){
   sub(S.db.collection('alumnos'),snap=>{const all=snap.docs.map(d=>({id:d.id,...d.data()}));S.pruebaAl=all.find(a=>a.id===S.ownerId&&a.prueba)||null;const reales=all.filter(a=>a.nombre&&a.id!==S.ownerId&&!a.prueba);S.solicitudes=reales.filter(a=>a.estado==='pendiente').sort((x,y)=>(x.creado||0)-(y.creado||0));S.rechazados=reales.filter(a=>a.estado==='rechazado');S.papelera=reales.filter(a=>a.estado==='papelera').sort((x,y)=>(y.papeleraEn||0)-(x.papeleraEn||0));S.alumnos=reales.filter(a=>a.estado!=='pendiente'&&a.estado!=='rechazado'&&a.estado!=='papelera').sort((x,y)=>String(x.nombre).localeCompare(String(y.nombre)));render()});
   sub(S.db.collection('eventos').orderBy('fecha','asc'),snap=>{S.eventos=snap.docs.map(d=>({id:d.id,...d.data()})).filter(e=>!e.cfg&&e.fecha);render()});
   sub(S.db.doc(REC_PATH),snap=>{S.recursos=snap.exists?snap.data():{};render()});
-  sub(S.db.collection('biblioteca').orderBy('creado','asc'),snap=>{S.biblio=snap.docs.map(d=>({id:d.id,...d.data()}));if(S.view==='biblioteca'&&!S.bibImportando)render()});
+  sub(S.db.collection('biblioteca').orderBy('creado','asc'),snap=>{S.biblio=snap.docs.map(d=>({id:d.id,...d.data()}));if(S.view==='biblioteca'&&!S.bibImportando)render();if(!S.bibAutoHecho){S.bibAutoHecho=true;setTimeout(bibAutoCargar,300)}});
 }
 function abrirAlumno(id,tab){
   cerrarAlumno();S.tSel=id;S.tTab=tab||'atril';S.t={obras:[],rutinas:[],evidencias:[],sesiones:{}};S.calSel=null;
