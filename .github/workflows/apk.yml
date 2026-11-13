@@ -1,6 +1,7 @@
 # Construye el APK de Android en la nube de GitHub (no hace falta Android Studio).
-# Para usarlo: GitHub → Actions → «APK de Android» → Run workflow.
-# Al terminar, descarga «octavia-apk» en la sección Artifacts de esa ejecución.
+# Se ejecuta solo al cambiar esta configuración, o a mano: GitHub → Actions → «APK de Android» → Run workflow.
+# Al terminar, el APK queda en la web: https://octavia-eli-y-clau.vercel.app/descargas/octavia.apk
+# (y también en «Artifacts» de la ejecución).
 name: APK de Android
 
 on:
@@ -10,8 +11,11 @@ on:
     paths:
       - 'capacitor.config.json'
       - 'package.json'
-      - 'scripts/**'
+      - 'scripts/preparar-www.js'
       - '.github/workflows/apk.yml'
+
+permissions:
+  contents: write
 
 jobs:
   apk:
@@ -34,7 +38,8 @@ jobs:
       - name: Preparar la web del APK
         run: node scripts/preparar-www.js
         env:
-          OCTAVIA_URL: ${{ vars.OCTAVIA_URL }}
+          # El APK abre la web publicada: siempre muestra la última versión sin reinstalar.
+          OCTAVIA_URL: ${{ vars.OCTAVIA_URL || 'https://octavia-eli-y-clau.vercel.app' }}
 
       - name: Crear el proyecto Android
         run: |
@@ -47,9 +52,21 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
 
-      - name: Guardar el APK
+      - name: Guardar el APK (Artifacts)
         uses: actions/upload-artifact@v4
         with:
           name: octavia-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 30
+
+      - name: Publicar el APK en la web (descargas/octavia.apk)
+        run: |
+          mkdir -p descargas
+          cp android/app/build/outputs/apk/debug/app-debug.apk descargas/octavia.apk
+          git checkout -- capacitor.config.json
+          git config user.name "octavia-bot"
+          git config user.email "octavia-bot@users.noreply.github.com"
+          git add descargas/octavia.apk
+          git commit -m "APK de Android actualizado" || echo "Sin cambios en el APK"
+          git pull --rebase origin main
+          git push origin HEAD:main
