@@ -1013,6 +1013,22 @@ thead th{background:transparent;color:var(--suave);font:700 12px/1.2 var(--f-bod
 .dup-op b{display:block;font-size:14px}
 .dup-op small{font-size:13px;color:var(--suave)}
 .dlg{width:min(460px,100%)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.bib-tabs{max-width:420px}
+.bib-tabs button{display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.bib-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.bib-vista{max-width:320px}
+.bib-q{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--linea-campo);border-radius:12px;padding:0 12px;flex:1 1 260px;max-width:420px;color:var(--suave)}
+.bib-q input{border:0!important;outline:none;min-height:42px!important;padding:0!important;background:transparent}
+.bib-grupo{display:flex;flex-direction:column;gap:10px}
+.bib-grupo h3{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:800}
+.bib-lista{display:flex;flex-direction:column;gap:8px}
+.bib-item{background:#fff;border-radius:14px;padding:14px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
+.bib-t{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1 1 260px}
+.bib-t b{font-size:15px}
+.bib-n{font-size:13px}
+.bib-acts{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.bib-form h3{font-size:16px;font-weight:800}
 .asegurar{background:var(--acento-suave);color:var(--tinta)}
 .asegurar>.etq{color:var(--acento-oscuro)}
 .side-foot .asegurar-l{color:#AEBBF0;font-weight:700}
@@ -1499,6 +1515,7 @@ const I={
  bolt:'<path d="M13 3L5 14h6l-1 7 8-11h-6z"/>',
  layers:'<path d="M12 3.5l8.5 4.5-8.5 4.5L3.5 8z"/><path d="M3.5 12.5l8.5 4.5 8.5-4.5"/><path d="M3.5 16.5l8.5 4.5 8.5-4.5"/>',
  focus:'<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>',
+ shelf:'<path d="M4.5 4.5h4v15h-4zM10 4.5h4v15h-4z"/><path d="M16.2 5.2l3.6 1-3.4 13.6-3.6-.9z"/>',
  copy:'<rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/>'
 };
 const ic=(n,c='')=>'<svg class="ic '+c+'" viewBox="0 0 24 24" aria-hidden="true">'+I[n]+'</svg>';
@@ -1596,7 +1613,7 @@ function render(force){
 document.addEventListener('focusout',()=>setTimeout(()=>{if(S.pending&&!bloqueado())render();if(S.consolaPend&&!($('#console')||document.body).contains(document.activeElement))renderConsole()},0));
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.bpm){e.preventDefault();e.target.blur()}});
 
-function rutas(){return S.role==='prof'?[['panel','Panel','home'],['alumnos','Alumnos','users'],['recursos','Recursos','layers'],['metodo','Método','book']]:[['inicio','Hoy','home'],['atril','Atril','board'],['estudiar','Estudiar','clock'],['progreso','Progreso','trophy'],['evidencias','Evidencias','mic'],['metodo','Método','book']]}
+function rutas(){return S.role==='prof'?[['panel','Panel','home'],['alumnos','Alumnos','users'],['biblioteca','Biblioteca','shelf'],['recursos','Recursos','layers'],['metodo','Método','book']]:[['inicio','Hoy','home'],['atril','Atril','board'],['estudiar','Estudiar','clock'],['progreso','Progreso','trophy'],['evidencias','Evidencias','mic'],['metodo','Método','book']]}
 function vistaDesdeHash(){const h=location.hash.replace('#','');const ok=rutas().map(r=>r[0]);if(ok.includes(h))return h;return S.role==='prof'?'panel':'inicio'}
 function renderNav(){
   if(!S.role||S.estado!=='listo'){$('#nav').innerHTML='';$('#tabbar').innerHTML='';renderConsole();return}
@@ -1624,7 +1641,7 @@ function vista(){
   if(S.estado==='sembrando')return estadoPantalla('note','Preparando tu atril de prueba','Estamos llenándolo con obras, sesiones y una evidencia de ejemplo para que veas la vista de alumno completa.');
   if(S.estado==='onboarding')return vOnboarding();
   if(S.estado==='error')return estadoPantalla('x','Se perdió la conexión','Recarga la página para volver a conectar con tu atril.');
-  if(S.role==='prof'){if(S.view==='alumnos')return S.tSel?vAlumnoDetalle():vAlumnos();if(S.view==='metodo')return vMetodo();if(S.view==='recursos')return vRecursos();return vPanel()}
+  if(S.role==='prof'){if(S.view==='alumnos')return S.tSel?vAlumnoDetalle():vAlumnos();if(S.view==='metodo')return vMetodo();if(S.view==='recursos')return vRecursos();if(S.view==='biblioteca')return vBiblioteca();return vPanel()}
   switch(S.view){case 'atril':return vAtril();case 'estudiar':return vEstudiar();case 'evidencias':return vEvidencias();case 'progreso':return vProgreso();case 'metodo':return vMetodo();default:return vInicio()}
 }
 function estadoPantalla(i,t,d,extra=''){return '<div class="wrap"><div class="state"><div class="art">'+ic(i)+'</div><h2>'+esc(t)+'</h2><p class="muted">'+esc(d)+'</p>'+extra+'</div></div>'}
@@ -2447,6 +2464,83 @@ function dlgClave(){
    '<span class="err" id="dlg-err" role="alert"></span></div>'+
    '<div class="modal-f"><span></span><div class="row-acts"><button type="button" class="btn" data-act="dlg-cerrar">Cancelar</button><button type="submit" class="btn '+(def?'btn-coral':'btn-primary')+'">'+(def?'Eliminar para siempre':'Mover a la papelera')+'</button></div></div></form></div>';
 }
+/* ───────── Biblioteca de la profesora: Métodos y Repertorio ───────── */
+const AREAS=['Técnica','Estudios','Lectura a primera vista','Teoría y análisis','Otro'];
+const EPOCAS=['Barroco','Clásico','Romántico','Impresionismo','Siglos XX y XXI','Peruana y latinoamericana'];
+const NIV_BIB=[['basico','Básico','Ciclos I–III'],['intermedio','Intermedio','Ciclos IV–VI'],['avanzado','Avanzado','Ciclos VII–X'],['todos','Todos los niveles','']];
+const nivNom=k=>(NIV_BIB.find(x=>x[0]===k)||NIV_BIB[3])[1];
+const apellido=n=>{const t=String(n||'').replace(/^[A-Z]\.\s*/g,'').trim().split(/\s+/);return (t[t.length-1]||'Sin compositor')};
+function vBiblioteca(){
+  const tab=S.ui.bibTab||'repertorio',L=(S.biblio||[]).filter(x=>x.tipo===(tab==='metodos'?'metodo':'obra'));
+  const seg='<div class="segmento bib-tabs" role="tablist"><button role="tab" aria-selected="'+(tab==='repertorio')+'" data-act="bib-tab" data-t="repertorio">'+ic('note','sm')+' Repertorio</button><button role="tab" aria-selected="'+(tab==='metodos')+'" data-act="bib-tab" data-t="metodos">'+ic('book','sm')+' Métodos</button></div>';
+  const head='<div class="page-head ph-brand"><div class="t"><span class="eyebrow">Solo tú la ves</span><h1>Biblioteca</h1><p class="muted">Tus libros de método y tu repertorio, ordenados. Desde aquí puedes asignar una obra al atril de tus alumnos.</p></div><button class="btn btn-primary" data-act="bib-nuevo">'+ic('plus','sm')+(tab==='metodos'?' Agregar libro':' Agregar obra')+'</button></div>';
+  const form=S.ui.bibForm?bibForm(tab):'';
+  let cuerpo;
+  if(!L.length)cuerpo='<div class="card"><p class="vacio">'+(tab==='metodos'?'Aún no hay libros. Agrega el primero, por ejemplo «Hanon: El pianista virtuoso» con su enlace de Google Drive.':'Aún no hay obras. Agrega la primera con «Agregar obra».')+'</p></div>';
+  else if(tab==='metodos'){
+    cuerpo=AREAS.map(ar=>{const it=L.filter(x=>(x.area||'Otro')===ar);if(!it.length)return '';return '<section class="bib-grupo"><h3>'+esc(ar)+' <span class="chip">'+it.length+'</span></h3><div class="bib-lista">'+it.map(bibFila).join('')+'</div></section>'}).join('');
+  }else{
+    const vista=S.ui.bibVista||'nivel';
+    const tog='<div class="segmento bib-vista" role="tablist" aria-label="Ordenar"><button role="tab" aria-selected="'+(vista==='nivel')+'" data-act="bib-vista" data-v="nivel">Por nivel</button><button role="tab" aria-selected="'+(vista==='compositor')+'" data-act="bib-vista" data-v="compositor">Por compositor</button></div>';
+    let grupos;
+    if(vista==='nivel')grupos=NIV_BIB.map(([k,n,c])=>{const it=L.filter(x=>(x.nivel||'todos')===k);if(!it.length)return '';return '<section class="bib-grupo"><h3>'+n+(c?' <small class="muted">'+c+'</small>':'')+' <span class="chip">'+it.length+'</span></h3><div class="bib-lista">'+it.sort((a,b)=>apellido(a.autor).localeCompare(apellido(b.autor))).map(bibFila).join('')+'</div></section>'}).join('');
+    else{const por={};L.forEach(x=>{const k=(x.autor||'').trim()||'Sin compositor';(por[k]=por[k]||[]).push(x)});
+      grupos=Object.keys(por).sort((a,b)=>apellido(a).localeCompare(apellido(b))).map(k=>'<section class="bib-grupo"><h3>'+esc(k)+' <span class="chip">'+por[k].length+'</span></h3><div class="bib-lista">'+por[k].map(bibFila).join('')+'</div></section>').join('')}
+    cuerpo='<div class="bib-barra">'+tog+'<label class="bib-q"><span class="sr-only">Buscar</span>'+ic('search','sm')+'<input id="bib-q" type="search" placeholder="Buscar obra, compositor o catálogo" autocomplete="off"></label></div>'+grupos;
+  }
+  return '<div class="wrap page biblio">'+head+seg+form+cuerpo+bibAsignarDlg()+'</div>';
+}
+function bibFila(x){
+  const obra=x.tipo==='obra';const q=[x.titulo,x.autor,x.catalogo,x.epoca,x.area].join(' ').toLowerCase();
+  const del=S.ui.bibDel===x.id?'<span class="inline-confirm">¿Quitar? <button class="btn btn-sm btn-coral" data-act="bib-borrar-si" data-id="'+x.id+'">Sí, quitar</button><button class="btn btn-sm btn-ghost" data-act="bib-borrar-no">No</button></span>':'<button class="icon-btn" data-act="bib-borrar" data-id="'+x.id+'" aria-label="Quitar '+esc(x.titulo)+'">'+ic('trash','sm')+'</button>';
+  return '<article class="bib-item" data-q="'+esc(q)+'"><div class="bib-t"><b>'+esc(x.titulo)+'</b><small class="muted">'+esc([x.autor,x.catalogo].filter(Boolean).join(' · '))+'</small>'+
+   '<span class="lib-tags">'+(obra?'<span class="pill">'+nivNom(x.nivel)+'</span>'+(x.epoca?'<span class="cat c8">'+esc(x.epoca)+'</span>':'')+(x.compases?'<span class="cat c3">'+x.compases+' compases</span>':'')+(x.tonalidad?'<span class="cat c3">'+esc(x.tonalidad)+'</span>':''):'<span class="pill">'+nivNom(x.nivel)+'</span>')+'</span>'+
+   (x.notas?'<p class="muted bib-n">'+esc(x.notas)+'</p>':'')+'</div>'+
+   '<div class="bib-acts">'+(x.enlace?'<a class="btn btn-sm" href="'+esc(x.enlace)+'" target="_blank" rel="noopener">'+ic('link','sm')+(obra?' Partitura':' Abrir libro')+'</a>':'')+
+   (obra?'<button class="btn btn-sm btn-primary" data-act="bib-asignar" data-id="'+x.id+'">'+ic('users','sm')+' Asignar</button>':'')+
+   '<button class="icon-btn" data-act="bib-editar" data-id="'+x.id+'" aria-label="Editar '+esc(x.titulo)+'">'+ic('pen','sm')+'</button>'+del+'</div></article>';
+}
+function bibForm(tab){
+  const ed=S.ui.bibForm!=='nuevo'?(S.biblio||[]).find(x=>x.id===S.ui.bibForm):null;const x=ed||{};const obra=tab!=='metodos';
+  const opt=(arr,v)=>arr.map(a=>'<option'+(a===v?' selected':'')+'>'+esc(a)+'</option>').join('');
+  return '<form class="card bib-form" data-form="bib-item" novalidate><h3>'+(ed?'Editar ':'Agregar ')+(obra?'obra':'libro')+'</h3><div class="fgrid">'+
+   '<label class="f s4" for="bf-t">'+(obra?'Título de la obra':'Título del libro')+'<input id="bf-t" name="titulo" required value="'+esc(x.titulo||'')+'" placeholder="'+(obra?'Invención n.º 1 en Do mayor':'El pianista virtuoso')+'"></label>'+
+   '<label class="f s2" for="bf-a">'+(obra?'Compositor':'Autor')+'<input id="bf-a" name="autor" value="'+esc(x.autor||'')+'" placeholder="'+(obra?'J. S. Bach':'C.-L. Hanon')+'"></label>'+
+   (obra?'<label class="f s2" for="bf-c">Catálogo u opus<input id="bf-c" name="catalogo" value="'+esc(x.catalogo||'')+'" placeholder="BWV 772"></label>'+
+     '<label class="f s2" for="bf-e">Época<select id="bf-e" name="epoca"><option value="">—</option>'+opt(EPOCAS,x.epoca)+'</select></label>'+
+     '<label class="f s2" for="bf-n">Nivel<select id="bf-n" name="nivel">'+NIV_BIB.map(([k,n,c])=>'<option value="'+k+'"'+((x.nivel||'basico')===k?' selected':'')+'>'+n+(c?' ('+c+')':'')+'</option>').join('')+'</select></label>'+
+     '<label class="f s2" for="bf-cp">Compases<input id="bf-cp" name="compases" type="number" min="1" value="'+esc(x.compases||'')+'"></label>'+
+     '<label class="f s2" for="bf-to">Tonalidad<input id="bf-to" name="tonalidad" value="'+esc(x.tonalidad||'')+'" placeholder="Do mayor"></label>'+
+     '<label class="f s2" for="bf-cm">Compás<input id="bf-cm" name="compas" value="'+esc(x.compas||'')+'" placeholder="4/4"></label>'
+    :'<label class="f s3" for="bf-ar">Área<select id="bf-ar" name="area">'+opt(AREAS,x.area||'Técnica')+'</select></label>'+
+     '<label class="f s3" for="bf-n">Nivel<select id="bf-n" name="nivel">'+NIV_BIB.map(([k,n,c])=>'<option value="'+k+'"'+((x.nivel||'todos')===k?' selected':'')+'>'+n+(c?' ('+c+')':'')+'</option>').join('')+'</select></label>')+
+   '<label class="f s6" for="bf-l">'+(obra?'Enlace de la partitura (Google Drive)':'Enlace del libro (Google Drive)')+'<input id="bf-l" name="enlace" type="url" value="'+esc(x.enlace||'')+'" placeholder="https://drive.google.com/file/d/…"></label>'+
+   '<label class="f s6" for="bf-no">Notas<input id="bf-no" name="notas" value="'+esc(x.notas||'')+'" placeholder="'+(obra?'Buena para trabajar independencia de manos':'Ejercicios 1 a 20 para calentamiento')+'"></label>'+
+   '</div><div class="row-acts"><button class="btn btn-primary" type="submit">'+ic('check','sm')+(ed?' Guardar cambios':' Agregar')+'</button><button class="btn btn-ghost" type="button" data-act="bib-cancelar">Cancelar</button><span class="err" id="bf-err" role="alert"></span></div></form>';
+}
+/* Asignar una obra de la biblioteca al atril de alumnos (empieza en «Sin empezar») */
+function bibAsignarDlg(){
+  const id=S.ui.bibAsignar;if(!id)return '';const x=(S.biblio||[]).find(y=>y.id===id);if(!x)return '';
+  const sel=S.ui.bibSel||[];const L=S.alumnos||[];
+  return '<div class="modal-bg" data-act="bib-asig-fondo"><div class="modal dlg" role="dialog" aria-modal="true" aria-labelledby="ba-t"><div class="dlg-b"><span class="tile-ic" style="background:var(--acento-suave);color:var(--acento)">'+ic('users')+'</span><h2 id="ba-t">Asignar «'+esc(x.titulo)+'»</h2><p class="muted">Aparecerá en su atril, en «Sin empezar», con todos los datos de la ficha. Si un alumno ya la tiene, no se duplica.</p>'+
+   (S.ui.bibRes?'<div class="status-banner ok">'+ic('check','sm')+'<span>'+S.ui.bibRes+'</span></div>':'')+
+   (L.length?'<div class="chips">'+L.map(a=>'<button class="chip" data-act="bib-sel" data-id="'+a.id+'" aria-pressed="'+sel.includes(a.id)+'">'+esc(a.nombre)+' · '+ROMAN[(+a.ciclo||1)-1]+'</button>').join('')+'</div>':'<p class="vacio">Todavía no tienes alumnos aprobados.</p>')+'</div>'+
+   '<div class="modal-f"><span></span><div class="row-acts"><button class="btn" data-act="bib-asig-cerrar">Cerrar</button><button class="btn btn-primary" data-act="bib-asig-hacer"'+(sel.length&&!S.ui.bibBusy?'':' disabled')+'>'+ic('check','sm')+(S.ui.bibBusy?' Asignando…':' Asignar a '+sel.length+(sel.length===1?' alumno':' alumnos'))+'</button></div></div></div></div>';
+}
+async function bibAsignar(){
+  const x=(S.biblio||[]).find(y=>y.id===S.ui.bibAsignar);if(!x)return;S.ui.bibBusy=true;S.ui.bibRes=null;render(true);
+  const ok=[],ya=[],mal=[];
+  for(const id of (S.ui.bibSel||[])){const a=(S.alumnos||[]).find(z=>z.id===id);const nom=a?a.nombre:id;
+    try{const snap=await S.db.collection('alumnos/'+id+'/obras').get();
+      if(snap.docs.some(d=>normTit(d.data().titulo)===normTit(x.titulo))){ya.push(nom);continue}
+      const nid=uidGen(),path='alumnos/'+id+'/obras/'+nid;
+      await encolar(path,()=>S.db.doc(path).set({titulo:x.titulo||'',compositor:x.autor||'',catalogo:x.catalogo||'',compases:x.compases||'',tonalidad:x.tonalidad||'',compas:x.compas||'',enlace:x.enlace||'',motivo:'Asignada por tu profesora',
+        col:0,creado:Date.now(),historial:[{col:0,fecha:today()}],fragmentos:[],mapa:[],armonia:{},desafios:[],focos:[],deBiblioteca:x.id}));ok.push(nom)}
+    catch(e){mal.push(nom)}}
+  S.ui.bibBusy=false;S.ui.bibSel=[];
+  const t=[];if(ok.length)t.push('Asignada a <b>'+ok.map(esc).join(', ')+'</b>.');if(ya.length)t.push('Ya la tenía'+(ya.length>1?'n':'')+': '+ya.map(esc).join(', ')+'.');if(mal.length)t.push('No se pudo con: '+mal.map(esc).join(', ')+'.');
+  S.ui.bibRes=t.join(' ');render(true);
+}
 function vAlumnos(){
   return '<div class="wrap page"><div class="page-head ph-coral"><div class="t"><span class="eyebrow">'+S.alumnos.length+' pianistas</span><h1>Alumnos</h1></div></div>'+
    (S.alumnos.length?'<div class="people">'+S.alumnos.map(a=>{const r=resumenAl(a);return '<button class="person" data-act="abrir-al" data-id="'+a.id+'"><div class="top2"><span class="avatar">'+esc((a.nombre||'?').trim()[0]||'?').toUpperCase()+'</span><span class="chip brand">Ciclo '+ROMAN[(+a.ciclo||1)-1]+'</span></div><div><h3>'+esc(a.nombre)+'</h3><small class="muted">'+(a.ultimaSesion?'Última sesión: '+fmtCorto(a.ultimaSesion):'Sin sesiones aún')+'</small></div><div class="nums"><div><b class="mono">'+r.racha+'</b><small>racha</small></div><div><b class="mono">'+r.minMes+'</b><small>min del mes</small></div><div><b class="mono">'+(a.obrasActivas||0)+'</b><small>obras activas</small></div></div></button>'}).join('')+'</div>':'<div class="card" style="align-items:flex-start"><p class="muted">Cuando tus alumnos entren con su Gmail y creen su atril, aparecerán aquí.</p></div>')+papeleraCard()+dlgClave()+'</div>';
@@ -2902,6 +2996,19 @@ const ACT={
  'asegurar-abrir':()=>{S.ui.asegurar=true;renderDlgNombre()},
  'asegurar-cerrar':()=>{S.ui.asegurar=false;renderDlgNombre()},
  'asegurar-fondo':(t,e)=>{if(e.target===t){S.ui.asegurar=false;renderDlgNombre()}},
+ 'bib-tab':t=>{S.ui.bibTab=t.dataset.t;S.ui.bibForm=null;render(true)},
+ 'bib-vista':t=>{S.ui.bibVista=t.dataset.v;render(true)},
+ 'bib-nuevo':()=>{S.ui.bibForm='nuevo';render(true);const i=$('#bf-t');if(i)i.focus()},
+ 'bib-editar':t=>{const x=(S.biblio||[]).find(y=>y.id===t.dataset.id);if(!x)return;S.ui.bibTab=x.tipo==='metodo'?'metodos':'repertorio';S.ui.bibForm=x.id;render(true);window.scrollTo({top:0,behavior:'smooth'})},
+ 'bib-cancelar':()=>{S.ui.bibForm=null;render(true)},
+ 'bib-borrar':t=>{S.ui.bibDel=t.dataset.id;render(true)},
+ 'bib-borrar-no':()=>{S.ui.bibDel=null;render(true)},
+ 'bib-borrar-si':async t=>{const p='biblioteca/'+t.dataset.id;S.ui.bibDel=null;try{await encolar(p,()=>S.db.doc(p).delete());toast('Quitado de la biblioteca')}catch(x){toast(errMsg(x),'bad')}},
+ 'bib-asignar':t=>{S.ui.bibAsignar=t.dataset.id;S.ui.bibSel=[];S.ui.bibRes=null;render(true)},
+ 'bib-sel':t=>{const id=t.dataset.id,sel=S.ui.bibSel||[];S.ui.bibRes=null;S.ui.bibSel=sel.includes(id)?sel.filter(x=>x!==id):sel.concat([id]);render(true)},
+ 'bib-asig-cerrar':()=>{S.ui.bibAsignar=null;render(true)},
+ 'bib-asig-fondo':(t,e)=>{if(e.target===t){S.ui.bibAsignar=null;render(true)}},
+ 'bib-asig-hacer':()=>bibAsignar(),
  'clave-reset':t=>{S.ui.claveReset=t.dataset.id;renderDlgNombre()},
  'clave-cambiar':()=>{S.ui.claveCambiar=true;renderDlgNombre()},
  'clave-cerrar':()=>{S.ui.claveReset=null;S.ui.claveCambiar=false;renderDlgNombre()},
@@ -2935,6 +3042,7 @@ document.addEventListener('click',e=>{const t=e.target.closest('[data-act]');if(
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&(S.ui.claveReset||S.ui.claveCambiar)){S.ui.claveReset=null;S.ui.claveCambiar=false;renderDlgNombre();return}if(e.key==='Escape'&&S.ui.asegurar){S.ui.asegurar=false;renderDlgNombre();return}if(e.key==='Escape'&&S.ui.nombreEd){S.ui.nombreEd=null;renderDlgNombre();return}if(e.key==='Escape'&&S.ui.borrar){S.ui.borrar=null;render(true);return}if(e.key==='Escape'&&S.ui.focus&&!S.modal){focusCerrar();return}if(e.key==='Escape'&&S.modal){S.modal=null;renderModal()}if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('oc')&&e.target===document.activeElement){e.preventDefault();abrirObra(e.target.dataset.id)}});
 document.addEventListener('input',e=>{
   const t=e.target;
+  if(t.id==='bib-q'){const q=t.value.trim().toLowerCase();document.querySelectorAll('.bib-item').forEach(el=>{el.hidden=!!q&&!el.dataset.q.includes(q)});document.querySelectorAll('.bib-grupo').forEach(g=>{g.hidden=![...g.querySelectorAll('.bib-item')].some(el=>!el.hidden)});return}
   if(t.dataset.bind&&S.modal){const v=t.type==='checkbox'?t.checked:t.value;setPath(S.modal.d,t.dataset.bind,v);if(t.dataset.bind==='titulo'){const h=$('#m-title');if(h)h.textContent=v||'Nueva obra'}}
   if(t.dataset.w){S.work[t.dataset.w]=t.value;S.work.elegido=true;if(t.dataset.w==='obraId')S.work.frag='';ls.set('octavia.work',S.work);if(t.dataset.w==='obraId')render(true)}
   if(t.dataset.pl&&S.plEdit){const [i,k]=t.dataset.pl.split('.');S.plEdit.bloques[+i][k]=k==='min'?(+t.value||0):t.value;const tt=$('#pl-total');if(tt)tt.textContent='Total: '+S.plEdit.bloques.reduce((s,b)=>s+(+b.min||0),0)+' min al día'}
@@ -2951,6 +3059,17 @@ document.addEventListener('change',e=>{const t=e.target;
   if(t.dataset.planAdd){const b=t.dataset.planAdd;if(!t.value)return;const f=diaSel(),ses=sesionDe(f);const ids=obrasDe(b,ses).map(o=>o.id);ids.push(t.value);S.ui.addRow=null;guardarPlan(f,{planObras:{...(ses.planObras||{}),[b]:ids}});return}if(t.dataset.actChange==='bloque-sel'){if(S.timer.acc>0&&S.timer.bloque!==t.value){toast('Guarda o descarta el bloque actual antes de cambiar.','bad');t.value=S.timer.bloque;return}S.timer.bloque=t.value;guardarTimer();return}if(t.dataset.bind&&S.modal&&(t.dataset.rerender||t.type==='checkbox'||/^mantener\.\d+\.min$/.test(t.dataset.bind)))renderModal();if(t.dataset.bind&&S.modal&&(t.dataset.bind.startsWith('mapa')&&t.dataset.bind.endsWith('tipo')))renderModal()});
 document.addEventListener('submit',async e=>{
   const f=e.target;const k=f.dataset.form;if(!k)return;e.preventDefault();const fd=new FormData(f);
+  if(k==='bib-item'){const tab=S.ui.bibTab||'repertorio',obra=tab!=='metodos';const titulo=String(fd.get('titulo')||'').trim();
+    if(!titulo){$('#bf-err').textContent='Escribe el título.';return}
+    const enlace=String(fd.get('enlace')||'').trim();if(enlace&&!/^https?:\/\//.test(enlace)){$('#bf-err').textContent='El enlace debe empezar con https://';return}
+    const d={tipo:obra?'obra':'metodo',titulo,autor:String(fd.get('autor')||'').trim(),nivel:String(fd.get('nivel')||'todos'),enlace,notas:String(fd.get('notas')||'').trim()};
+    if(obra){d.catalogo=String(fd.get('catalogo')||'').trim();d.epoca=String(fd.get('epoca')||'');d.compases=+fd.get('compases')||'';d.tonalidad=String(fd.get('tonalidad')||'').trim();d.compas=String(fd.get('compas')||'').trim()}
+    else d.area=String(fd.get('area')||'Otro');
+    const ed=S.ui.bibForm!=='nuevo'?(S.biblio||[]).find(x=>x.id===S.ui.bibForm):null;
+    const id=ed?ed.id:uidGen(),p='biblioteca/'+id;d.creado=ed?(ed.creado||Date.now()):Date.now();
+    const btn=f.querySelector('button[type=submit]');btn.disabled=true;
+    try{await encolar(p,()=>S.db.doc(p).set(d));S.ui.bibForm=null;render(true);toast(ed?'Cambios guardados':(obra?'Obra agregada a tu repertorio':'Libro agregado a tus métodos'))}
+    catch(x){btn.disabled=false;$('#bf-err').textContent=errMsg(x)}return}
   if(k==='clave-reset'){const err=t=>{$('#cr-err').textContent=t};const id=S.ui.claveReset;
     const nueva=String(fd.get('nueva')||'').trim(),mia=String(fd.get('mia')||'');
     if(nueva.length<6)return err('La contraseña temporal debe tener al menos 6 caracteres.');
@@ -3088,6 +3207,7 @@ function iniciarProf(){
   sub(S.db.collection('alumnos'),snap=>{const all=snap.docs.map(d=>({id:d.id,...d.data()}));S.pruebaAl=all.find(a=>a.id===S.ownerId&&a.prueba)||null;const reales=all.filter(a=>a.nombre&&a.id!==S.ownerId&&!a.prueba);S.solicitudes=reales.filter(a=>a.estado==='pendiente').sort((x,y)=>(x.creado||0)-(y.creado||0));S.rechazados=reales.filter(a=>a.estado==='rechazado');S.papelera=reales.filter(a=>a.estado==='papelera').sort((x,y)=>(y.papeleraEn||0)-(x.papeleraEn||0));S.alumnos=reales.filter(a=>a.estado!=='pendiente'&&a.estado!=='rechazado'&&a.estado!=='papelera').sort((x,y)=>String(x.nombre).localeCompare(String(y.nombre)));render()});
   sub(S.db.collection('eventos').orderBy('fecha','asc'),snap=>{S.eventos=snap.docs.map(d=>({id:d.id,...d.data()})).filter(e=>!e.cfg&&e.fecha);render()});
   sub(S.db.doc(REC_PATH),snap=>{S.recursos=snap.exists?snap.data():{};render()});
+  sub(S.db.collection('biblioteca').orderBy('creado','asc'),snap=>{S.biblio=snap.docs.map(d=>({id:d.id,...d.data()}));if(S.view==='biblioteca')render()});
 }
 function abrirAlumno(id,tab){
   cerrarAlumno();S.tSel=id;S.tTab=tab||'atril';S.t={obras:[],rutinas:[],evidencias:[],sesiones:{}};S.calSel=null;
