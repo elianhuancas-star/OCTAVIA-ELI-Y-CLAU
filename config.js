@@ -6,7 +6,8 @@
 window.OCTAVIA_SUPABASE = {
   url: 'https://soeplzwgznwhzixswjsj.supabase.co',
   anonKey: 'sb_publishable_o7fUwSRQG6GIvOC3n_zITQ_JAd61rnM',
+  // 'cuenta': nombre, correo y contraseña; la profesora aprueba cada cuenta (recomendado).
   // 'libre': el alumno entra solo con su nombre (cuenta anónima en su celular).
   // 'correo': entra con un código que llega a su Gmail.
-  acceso: 'libre'
+  acceso: 'cuenta'
 };
