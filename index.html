@@ -2520,13 +2520,13 @@ function vBiblioteca(){
   else{
     const vista=met?'nivel':(S.ui.bibVista||'nivel');
     const tog=met?'':'<div class="segmento bib-vista" role="tablist" aria-label="Ordenar"><button role="tab" aria-selected="'+(vista==='nivel')+'" data-act="bib-vista" data-v="nivel">Por nivel</button><button role="tab" aria-selected="'+(vista==='epoca')+'" data-act="bib-vista" data-v="epoca">Por época</button><button role="tab" aria-selected="'+(vista==='compositor')+'" data-act="bib-vista" data-v="compositor">Por compositor</button></div>';
-    const ord=(a,b)=>(a.sub||9)-(b.sub||9)||apellido(a.autor).localeCompare(apellido(b.autor));
+    const dp=x=>x.canto&&x.canto.difPiano||0;const ord=(a,b)=>(a.sub||9)-(b.sub||9)||dp(a)-dp(b)||apellido(a.autor).localeCompare(apellido(b.autor));
     const activos=Object.keys(fk).filter(k=>fk[k]).length,buscando=!!q||activos>0,ab=S.ui.bibAb=S.ui.bibAb||{};
     const acc=(key,titulo,it,extra,inner)=>'<details class="bib-acc" data-g="'+esc(key)+'"'+(buscando||ab[key]?' open':'')+'><summary><span class="bib-acc-t">'+titulo+'</span>'+(extra||'')+'<span class="chip">'+it.length+'</span></summary><div class="bib-acc-c">'+(inner||'')+'<div class="bib-lista">'+it.map(bibFila).join('')+'</div></div></details>';
     const epocasDe=it=>{const c={};it.forEach(x=>{if(x.epoca)c[x.epoca]=(c[x.epoca]||0)+1});return '<span class="bib-acc-ep">'+Object.keys(c).map(e=>esc(e)).join(' · ')+'</span>'};
     const subs=it=>{const ks=[...new Set(it.map(x=>x.sub||0))].sort();return ks};
     const nivelBloque=(k,n,c,it,pref)=>{if(!it.length)return '';const ks=subs(it);
-      const cont=ks.length>1||ks[0]?ks.map(sb=>{const g=it.filter(x=>(x.sub||0)===sb).sort(ord);return acc(pref+k+sb,sb?n+' '+sb:n+' (sin subnivel)',g,met?'':epocasDe(g),tab==='repertorio'&&sb?bibPrograma(g,k,sb):'')}).join(''):acc(pref+k,n,it.sort(ord),aco?'':epocasDe(it));
+      const cont=ks.length>1||ks[0]?ks.map(sb=>{const g=it.filter(x=>(x.sub||0)===sb).sort(ord);return acc(pref+k+sb,sb?n+' '+sb+(aco?' <small class="muted">· piano '+(k==='avanzado'?sb+3:sb)+'/5</small>':''):n+' (sin subnivel)',g,met?'':epocasDe(g),tab==='repertorio'&&sb?bibPrograma(g,k,sb):'')}).join(''):acc(pref+k,n+(aco&&k==='intermedio'?' <small class="muted">· piano 3/5</small>':''),it.sort(ord),aco?'':epocasDe(it));
       return '<section class="bib-grupo"><h3>'+n+(c?' <small class="muted">'+c+'</small>':'')+' <span class="chip">'+it.length+'</span></h3>'+cont+'</section>'};
     let grupos;
     if(vista==='nivel')grupos=NIV_BIB.map(([k,n,c])=>nivelBloque(k,n,c,L.filter(x=>(x.nivel||'todos')===k),tab+':')).join('');
@@ -2599,7 +2599,7 @@ function bibFila(x){
    '<button class="icon-btn" data-act="bib-editar" data-id="'+x.id+'" aria-label="Editar '+esc(x.titulo)+'">'+ic('pen','sm')+'</button>'+del+'</div></article>';
 }
 const CUERDAS=['soprano','mezzosoprano','contralto','tenor','barítono','bajo'];
-const GENEROS={arias_antiguas:'Aria antigua',opera:'Ópera',oratorio:'Oratorio y sacro',lied:'Lied',melodie:'Mélodie',espanola:'Canción española',zarzuela:'Zarzuela',latinoamericana:'Latinoamericana',ingles:'Canción inglesa',metodo:'Método vocal'};
+const GENEROS={arias_antiguas:'Aria antigua',camara_italiana:'Canción de cámara italiana',opera:'Ópera',oratorio:'Oratorio y sacro',lied:'Lied',melodie:'Mélodie',espanola:'Canción española',zarzuela:'Zarzuela',latinoamericana:'Latinoamericana',ingles:'Canción inglesa',metodo:'Método vocal'};
 const PV='por verificar';
 function bibCantoTags(k){
   return (k.genero?'<span class="cat c5">'+esc(GENEROS[k.genero]||k.genero)+'</span>':'')+(k.idioma?'<span class="cat c6">'+esc(k.idioma)+'</span>':'')+
