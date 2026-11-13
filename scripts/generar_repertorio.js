@@ -43,13 +43,13 @@ for(const o of OBRAS){
   if(!comp.muere||(comp.muere>=1926&&comp.muere<=1955))pv.push(marca('derechos','derechos según país'));
   pv.push(marca('texto','enlace de texto y traducción'));
   const rango=/–/.test(o.rango)?o.rango+' (aprox., '+PV+')':(o.rango?'Ámbito aprox.: '+o.rango+' ('+PV+')':PV);
-  items.push({id:'lir-'+slug(o.t+'-'+o.cw),tipo:'obra',titulo:o.t,autor:o.c,nivel:o.niv,enlace:enl,notas:o.just,
+  items.push({id:'lir-'+slug(o.t+'-'+o.cw),tipo:'obra',titulo:o.t,autor:o.c,nivel:o.dp<=2?'basico':o.dp===3?'intermedio':'avanzado',enlace:enl,notas:'Para el pianista: '+o.reto,
     catalogo:catalogo(o),epoca:epoca(o,comp),tonalidad:'',compases:'',compas:'',
-    canto:{primerVerso:o.v,obraOrigen:o.o,vidaCompositor:vida,idioma:o.lang,genero:o.gen,justificacion:o.just,cuerdas:o.cue,
+    canto:{nivelVocal:o.niv,primerVerso:o.v,obraOrigen:o.o,vidaCompositor:vida,idioma:o.lang,genero:o.gen,justificacion:o.just,cuerdas:o.cue,
       rango,tonalidadOriginal:o.ton?o.ton+' ('+PV+')':PV,duracion:o.dur+' (aprox.)',difVocal:o.dv,difPiano:o.dp,retoPiano:o.reto,objetivos:o.obj,
       enlacePartitura:enl,enlaceTexto:'',derechos:der.txt,fuentes:[comp.url,enl].filter(Boolean),porVerificar:pv}});
 }
-for(const m of METODOS){
+for(const m of (process.env.CON_METODOS_CANTO?METODOS:[])){
   const comp=cache.comp[m.cw]||{};const vida=comp.ok&&comp.nace?comp.nace+'–'+(comp.muere||''):'';
   const der=derechos(comp.muere,false);const enl=partitura(m,comp,der.libre);const pv=[];
   if(!vida)pv.push(marca('años del compositor','años del autor'));
@@ -58,7 +58,7 @@ for(const m of METODOS){
   items.push({id:'lir-met-'+slug(m.t+'-'+m.c),tipo:'metodo',titulo:m.t,autor:m.c,nivel:m.niv,enlace:enl,notas:m.trabaja,area:'Técnica',
     canto:{genero:'metodo',vidaCompositor:vida,cuerdas:m.cue,trabaja:m.trabaja,enlacePartitura:enl,derechos:der.txt,fuentes:[comp.url,enl].filter(Boolean),porVerificar:pv}});
 }
-const out={nombre:'Octavia · Repertorio de canto lírico',version:1,generado:new Date().toISOString().slice(0,10),
+const out={nombre:'Octavia · Acompañamiento de canto lírico (para pianistas)',version:1,generado:new Date().toISOString().slice(0,10),
   nota:'Rango, tonalidad y duración son aproximaciones pedagógicas marcadas «por verificar». Los años de los compositores vienen de Wikidata y los enlaces de partitura de IMSLP (solo obras en dominio público).',items};
 fs.writeFileSync(path.join(__dirname,'../biblioteca/repertorio_lirico.json'),JSON.stringify(out,null,1));
 const cnt=(f)=>items.reduce((a,x)=>{const k=f(x);[].concat(k).forEach(z=>a[z]=(a[z]||0)+1);return a},{});

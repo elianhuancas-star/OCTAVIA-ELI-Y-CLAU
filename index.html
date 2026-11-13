@@ -2480,14 +2480,14 @@ const nivNom=k=>(NIV_BIB.find(x=>x[0]===k)||NIV_BIB[3])[1];
 const apellido=n=>{const t=String(n||'').replace(/^[A-Z]\.\s*/g,'').trim().split(/\s+/);return (t[t.length-1]||'Sin compositor')};
 function vBiblioteca(){
   const hayCanto=(S.biblio||[]).some(x=>x.canto);
-  const tab=S.ui.bibTab||'repertorio',voz=S.ui.bibVoz||'',L=(S.biblio||[]).filter(x=>x.tipo===(tab==='metodos'?'metodo':'obra')&&(!voz||(x.canto&&(x.canto.cuerdas||[]).includes(voz))));
-  const fVoz=hayCanto?'<label class="bib-voz"><span class="sr-only">Tipo de voz</span><select id="bib-voz"><option value="">Todas las voces</option>'+CUERDAS.map(c=>'<option value="'+c+'"'+(voz===c?' selected':'')+'>'+c[0].toUpperCase()+c.slice(1)+'</option>').join('')+'</select></label>':'';
-  const seg='<div class="segmento bib-tabs" role="tablist"><button role="tab" aria-selected="'+(tab==='repertorio')+'" data-act="bib-tab" data-t="repertorio">'+ic('note','sm')+' Repertorio</button><button role="tab" aria-selected="'+(tab==='metodos')+'" data-act="bib-tab" data-t="metodos">'+ic('book','sm')+' Métodos</button></div>';
-  const head='<div class="page-head ph-brand"><div class="t"><span class="eyebrow">Solo tú la ves</span><h1>Biblioteca</h1><p class="muted">Tus libros de método y tu repertorio, ordenados. Desde aquí puedes asignar una obra al atril de tus alumnos.</p></div><span class="row-acts">'+(!hayCanto?'<button class="btn" data-act="bib-lirico">'+ic('note','sm')+' Cargar repertorio lírico</button>':'')+'<label class="btn" title="Importar una base en formato JSON">'+ic('plus','sm')+' Importar JSON<input id="bib-import" type="file" accept=".json,application/json" hidden></label><button class="btn btn-primary" data-act="bib-nuevo">'+ic('plus','sm')+(tab==='metodos'?' Agregar libro':' Agregar obra')+'</button></span></div>'+(S.ui.bibImp?'<div class="status-banner ok">'+ic('check','sm')+'<span>'+esc(S.ui.bibImp)+'</span></div>':'');
+  const tab=S.ui.bibTab||'repertorio',voz=S.ui.bibVoz||'',aco=tab==='acompanamiento',L=(S.biblio||[]).filter(x=>x.tipo===(tab==='metodos'?'metodo':'obra')&&(tab==='metodos'||!!x.canto===aco)&&(!aco||!voz||(x.canto&&(x.canto.cuerdas||[]).includes(voz))));
+  const fVoz=aco&&hayCanto?'<label class="bib-voz"><span class="sr-only">Tipo de voz</span><select id="bib-voz"><option value="">Todas las voces</option>'+CUERDAS.map(c=>'<option value="'+c+'"'+(voz===c?' selected':'')+'>'+c[0].toUpperCase()+c.slice(1)+'</option>').join('')+'</select></label>':'';
+  const seg='<div class="segmento bib-tabs" role="tablist"><button role="tab" aria-selected="'+(tab==='repertorio')+'" data-act="bib-tab" data-t="repertorio">'+ic('note','sm')+' Repertorio</button><button role="tab" aria-selected="'+(tab==='acompanamiento')+'" data-act="bib-tab" data-t="acompanamiento">'+ic('users','sm')+' Acompañamiento</button><button role="tab" aria-selected="'+(tab==='metodos')+'" data-act="bib-tab" data-t="metodos">'+ic('book','sm')+' Métodos</button></div>';
+  const head='<div class="page-head ph-brand"><div class="t"><span class="eyebrow">Solo tú la ves</span><h1>Biblioteca</h1><p class="muted">'+(aco?'Obras para acompañar a cantantes líricos, con lo que exige el piano en cada una.':'Tus libros de método y tu repertorio, ordenados.')+' '+(aco?'':' Desde aquí puedes asignar una obra al atril de tus alumnos.')+'</p></div><span class="row-acts">'+(aco&&!hayCanto?'<button class="btn" data-act="bib-lirico">'+ic('note','sm')+' Cargar repertorio lírico</button>':'')+'<label class="btn" title="Importar una base en formato JSON">'+ic('plus','sm')+' Importar JSON<input id="bib-import" type="file" accept=".json,application/json" hidden></label><button class="btn btn-primary" data-act="bib-nuevo">'+ic('plus','sm')+(tab==='metodos'?' Agregar libro':' Agregar obra')+'</button></span></div>'+(S.ui.bibImp?'<div class="status-banner ok">'+ic('check','sm')+'<span>'+esc(S.ui.bibImp)+'</span></div>':'');
   const form=S.ui.bibForm?bibForm(tab):'';
   let cuerpo;
   if(!L.length&&voz)cuerpo='<div class="bib-barra">'+fVoz+'</div><div class="card"><p class="vacio">No hay nada para esa voz.</p></div>';
-  else if(!L.length)cuerpo='<div class="card"><p class="vacio">'+(tab==='metodos'?'Aún no hay libros. Agrega el primero, por ejemplo «Hanon: El pianista virtuoso» con su enlace de Google Drive.':'Aún no hay obras. Agrega la primera con «Agregar obra».')+'</p></div>';
+  else if(!L.length)cuerpo='<div class="card"><p class="vacio">'+(aco?'Aún no hay obras de acompañamiento. Pulsa «Cargar repertorio lírico» para traer 151 arias, lieder y canciones con la ficha para el pianista.':tab==='metodos'?'Aún no hay libros. Agrega el primero, por ejemplo «Hanon: El pianista virtuoso» con su enlace de Google Drive.':'Aún no hay obras. Agrega la primera con «Agregar obra».')+'</p></div>';
   else if(tab==='metodos'){
     cuerpo=(fVoz?'<div class="bib-barra">'+fVoz+'</div>':'')+AREAS.map(ar=>{const it=L.filter(x=>(x.area||'Otro')===ar);if(!it.length)return '';return '<section class="bib-grupo"><h3>'+esc(ar)+' <span class="chip">'+it.length+'</span></h3><div class="bib-lista">'+it.map(bibFila).join('')+'</div></section>'}).join('');
   }else{
@@ -2517,17 +2517,17 @@ const GENEROS={arias_antiguas:'Aria antigua',opera:'Ópera',oratorio:'Oratorio y
 const PV='por verificar';
 function bibCantoTags(k){
   return (k.genero?'<span class="cat c5">'+esc(GENEROS[k.genero]||k.genero)+'</span>':'')+(k.idioma?'<span class="cat c6">'+esc(k.idioma)+'</span>':'')+
-   ((k.cuerdas||[]).length?'<span class="cat c2">'+esc(k.cuerdas.length===6?'Todas las voces':k.cuerdas.join(', '))+'</span>':'')+
-   (k.difVocal?'<span class="cat c1" title="Dificultad vocal">Voz '+k.difVocal+'/5</span>':'')+(k.difPiano?'<span class="cat c4" title="Dificultad del piano">Piano '+k.difPiano+'/5</span>':'');
+   ((k.cuerdas||[]).length?'<span class="cat c2">'+esc(k.cuerdas.length===6?'Cualquier voz':k.cuerdas.join(', '))+'</span>':'')+
+   (k.difPiano?'<span class="cat c4" title="Dificultad del piano">Piano '+k.difPiano+'/5</span>':'')+(k.difVocal?'<span class="cat c1" title="Dificultad para el cantante">Voz '+k.difVocal+'/5</span>':'');
 }
 function bibFicha(x){const k=x.canto;
   const fila=(n,v)=>v?'<dt>'+n+'</dt><dd'+(String(v).indexOf(PV)>=0?' class="pv"':'')+'>'+esc(v)+'</dd>':'';
   const link=(n,u)=>u?'<a href="'+esc(u)+'" target="_blank" rel="noopener">'+n+'</a>':'';
   const pv=(k.porVerificar||[]);
-  return '<details class="bib-ficha"><summary>Ficha de canto'+(pv.length?' <span class="pill pv-p">'+pv.length+' por verificar</span>':'')+'</summary><dl>'+
-   fila('Primer verso',k.primerVerso)+fila('Obra de origen',k.obraOrigen)+fila('Compositor',[x.autor,k.vidaCompositor].filter(Boolean).join(' · '))+
-   fila('Por qué este nivel',k.justificacion)+fila('Rango',k.rango)+fila('Tonalidad original',k.tonalidadOriginal)+fila('Duración',k.duracion)+
-   fila('Reto del correpetidor',k.retoPiano)+fila('Objetivos',k.objetivos)+fila('Trabaja',k.trabaja)+fila('Derechos',k.derechos)+
+  return '<details class="bib-ficha"><summary>Ficha para el pianista'+(pv.length?' <span class="pill pv-p">'+pv.length+' por verificar</span>':'')+'</summary><dl>'+
+   fila('Reto para el pianista',k.retoPiano)+fila('Primer verso',k.primerVerso)+fila('Obra de origen',k.obraOrigen)+fila('Compositor',[x.autor,k.vidaCompositor].filter(Boolean).join(' · '))+
+   fila('Sobre la parte vocal',k.justificacion)+fila('Rango',k.rango)+fila('Tonalidad original',k.tonalidadOriginal)+fila('Duración',k.duracion)+
+   fila('Qué trabaja el cantante',k.objetivos)+fila('Nivel del cantante',k.nivelVocal?nivNom(k.nivelVocal):'')+fila('Trabaja',k.trabaja)+fila('Derechos',k.derechos)+
    (pv.length?fila('Falta verificar',pv.join(', ')):'')+'</dl>'+
    '<p class="bib-links">'+[link('Partitura (IMSLP)',k.enlacePartitura),link('Texto y traducción',k.enlaceTexto),...(k.fuentes||[]).map((u,i)=>link('Fuente '+(i+1),u))].filter(Boolean).join(' · ')+'</p></details>';
 }
@@ -3049,7 +3049,7 @@ const ACT={
  'bib-tab':t=>{S.ui.bibTab=t.dataset.t;S.ui.bibForm=null;render(true)},
  'bib-vista':t=>{S.ui.bibVista=t.dataset.v;render(true)},
  'bib-nuevo':()=>{S.ui.bibForm='nuevo';render(true);const i=$('#bf-t');if(i)i.focus()},
- 'bib-editar':t=>{const x=(S.biblio||[]).find(y=>y.id===t.dataset.id);if(!x)return;S.ui.bibTab=x.tipo==='metodo'?'metodos':'repertorio';S.ui.bibForm=x.id;render(true);window.scrollTo({top:0,behavior:'smooth'})},
+ 'bib-editar':t=>{const x=(S.biblio||[]).find(y=>y.id===t.dataset.id);if(!x)return;S.ui.bibTab=x.tipo==='metodo'?'metodos':x.canto?'acompanamiento':'repertorio';S.ui.bibForm=x.id;render(true);window.scrollTo({top:0,behavior:'smooth'})},
  'bib-cancelar':()=>{S.ui.bibForm=null;render(true)},
  'bib-borrar':t=>{S.ui.bibDel=t.dataset.id;render(true)},
  'bib-borrar-no':()=>{S.ui.bibDel=null;render(true)},
@@ -3118,7 +3118,7 @@ document.addEventListener('submit',async e=>{
     if(obra){d.catalogo=String(fd.get('catalogo')||'').trim();d.epoca=String(fd.get('epoca')||'');d.compases=+fd.get('compases')||'';d.tonalidad=String(fd.get('tonalidad')||'').trim();d.compas=String(fd.get('compas')||'').trim()}
     else d.area=String(fd.get('area')||'Otro');
     const ed=S.ui.bibForm!=='nuevo'?(S.biblio||[]).find(x=>x.id===S.ui.bibForm):null;
-    const id=ed?ed.id:uidGen(),p='biblioteca/'+id;d.creado=ed?(ed.creado||Date.now()):Date.now();if(ed&&ed.canto)d.canto=ed.canto;
+    const id=ed?ed.id:uidGen(),p='biblioteca/'+id;d.creado=ed?(ed.creado||Date.now()):Date.now();if(ed&&ed.canto)d.canto=ed.canto;else if(!ed&&tab==='acompanamiento')d.canto={};
     const btn=f.querySelector('button[type=submit]');btn.disabled=true;
     try{await encolar(p,()=>S.db.doc(p).set(d));S.ui.bibForm=null;render(true);toast(ed?'Cambios guardados':(obra?'Obra agregada a tu repertorio':'Libro agregado a tus métodos'))}
     catch(x){btn.disabled=false;$('#bf-err').textContent=errMsg(x)}return}
