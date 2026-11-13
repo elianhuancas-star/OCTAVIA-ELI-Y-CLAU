@@ -1005,6 +1005,20 @@ thead th{background:transparent;color:var(--suave);font:700 12px/1.2 var(--f-bod
 .sol-link{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--linea);padding-top:12px}
 .sol-link .etq{color:var(--suave)}
 .sol-link code{background:var(--gris-claro);border-radius:8px;padding:8px 10px;font-size:13px;overflow-wrap:anywhere}
+.dlg{width:min(460px,100%)}
+.dlg-b{padding:22px;display:flex;flex-direction:column;gap:12px;background:#fff}
+.dlg-b .tile-ic{width:44px;height:44px;border-radius:12px;background:var(--aviso-suave);color:var(--aviso)}
+.dlg-b .tile-ic.peligro{background:#FDE2E1;color:var(--rojo)}
+.dlg-b h2{font-size:19px}
+.al-acts{display:flex;justify-content:flex-end;margin-top:-6px}
+.peligro-t{color:var(--rojo)!important}
+.peligro-t:hover{background:#FDE2E1!important}
+.pap-h{appearance:none;width:100%;border:0;background:transparent;font:inherit;color:var(--tinta);text-align:left;cursor:pointer;display:flex;align-items:center;gap:12px;padding:0;min-height:var(--toque)}
+.pap-h .tile-ic{background:var(--gris-claro);color:var(--suave);width:36px;height:36px;border-radius:10px}
+.pap-t{display:flex;flex-direction:column;gap:2px;flex:1}
+.pap-t small{font-size:13px;color:var(--suave)}
+.papelera .chev{transition:transform .2s}
+.pap-h[aria-expanded="true"] .chev{transform:rotate(90deg)}
 .sol-rech summary{cursor:pointer;font-size:13px;color:var(--suave);font-weight:600}
 .sol-rech .sol{margin-top:8px}
 .prof-link{display:flex;justify-content:center;margin-top:12px}
@@ -1581,6 +1595,7 @@ function renderNav(){
 function vista(){
   if(S.estado==='login')return vLogin();
   if(S.estado==='pendiente')return estadoPantalla('clock','Esperando la aprobación de tu profesora','Tu solicitud ya le llegó. En cuanto la apruebe, esta pantalla se abrirá sola con tu atril. Puedes cerrar la app y volver más tarde: entras con tu correo y contraseña.','<button class="btn btn-ghost btn-sm" data-act="salir">Cerrar sesión</button>');
+  if(S.estado==='papelera')return estadoPantalla('x','Tu cuenta está desactivada','Tu profesora desactivó tu acceso a Octavia. Si crees que es un error, habla con ella para que lo restaure.','<button class="btn btn-ghost btn-sm" data-act="salir">Cerrar sesión</button>');
   if(S.estado==='rechazado')return estadoPantalla('x','Tu solicitud no fue aprobada','Si crees que es un error, habla con tu profesora para que revise tu cuenta.','<button class="btn btn-ghost btn-sm" data-act="salir">Cerrar sesión</button>');
   if(S.sb&&!S.isOwner&&S.estado==='listo'&&location.hash==='#profesora'){S.ui.profForm=true;return '<div class="wrap page"><div class="page-head ph-brand"><div class="t"><span class="eyebrow">Acceso de la profesora</span><h1>Soy la profesora</h1><p class="muted">Con tu código verás a todos los alumnos. Tu atril de este dispositivo no se pierde.</p></div></div>'+profCodigo()+'</div>'}
   if(S.estado==='sin-anon')return estadoPantalla('x','Falta activar el acceso libre','En Supabase ve a Authentication → Sign In / Providers y activa «Allow anonymous sign-ins». Luego recarga esta página.');
@@ -2391,9 +2406,29 @@ function vPanel(){
 function formEvento(){
   return '<form data-form="evento" class="fgrid" novalidate style="border-top:1px solid var(--line);padding-top:16px"><label class="f s2" for="ev-f">Fecha<input id="ev-f" name="fecha" type="date" value="'+(S.calSel||today())+'" required></label><label class="f s2" for="ev-t">Tipo<select id="ev-t" name="tipo"><option>Clase</option><option>Audición</option><option>Recital</option><option>Entrega</option></select></label><label class="f s2" for="ev-n">Título<input id="ev-n" name="titulo" placeholder="Audición interna" required></label><div class="s6" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn btn-primary btn-sm" type="submit">'+ic('plus','sm')+' Agregar al calendario del grupo</button><span class="err" id="ev-err" role="alert"></span></div></form>';
 }
+/* Papelera: alumnos desactivados que se pueden restaurar o eliminar definitivamente */
+function papeleraCard(){
+  const L=S.papelera||[];if(!L.length)return '';
+  const open=!!S.ui.papeleraOpen;
+  return '<section class="card papelera"><button class="pap-h" data-act="papelera-toggle" aria-expanded="'+open+'"><span class="tile-ic">'+ic('trash','sm')+'</span><span class="pap-t"><b>Papelera</b><small>'+L.length+(L.length===1?' alumno desactivado':' alumnos desactivados')+': no pueden entrar, pero sus datos se guardan.</small></span><span class="chev">'+ic('right','sm')+'</span></button>'+
+   (open?'<div class="sols">'+L.map(a=>'<div class="sol"><span class="avatar">'+esc((a.nombre||'?').trim()[0]||'?').toUpperCase()+'</span><span class="sol-t"><b>'+esc(a.nombre)+'</b><small class="muted">'+esc(a.email||'')+(a.papeleraEn?' · en la papelera desde el '+fmtCorto(ymd(new Date(a.papeleraEn))):'')+'</small></span>'+
+     '<span class="row-acts"><button class="btn btn-sm" data-act="al-restaurar" data-id="'+a.id+'">'+ic('left','sm')+' Restaurar</button><button class="btn btn-sm btn-coral" data-act="al-eliminar" data-id="'+a.id+'">'+ic('trash','sm')+' Eliminar definitivamente</button></span></div>').join('')+'</div>':'')+'</section>';
+}
+/* Diálogo que pide la contraseña de la profesora antes de mover a la papelera o eliminar */
+function dlgClave(){
+  const D=S.ui.borrar;if(!D)return '';
+  const a=[...S.alumnos,...(S.papelera||[]),...(S.solicitudes||[]),...(S.rechazados||[])].find(x=>x.id===D.id)||{nombre:'este alumno'};
+  const def=D.accion==='eliminar';
+  const txt=def?'Se borrarán para siempre su atril, sus obras, sesiones, rutinas, evidencias y su cuenta. <b>No se puede deshacer.</b>':'No podrá entrar a Octavia, pero sus datos se guardan. Puedes restaurarlo cuando quieras desde la papelera, al final de esta página.';
+  return '<div class="modal-bg" data-act="dlg-fondo"><form class="modal dlg" data-form="clave-prof" role="dialog" aria-modal="true" aria-labelledby="dlg-t" novalidate>'+
+   '<div class="dlg-b"><span class="tile-ic'+(def?' peligro':'')+'">'+ic('trash')+'</span><h2 id="dlg-t">'+(def?'Eliminar definitivamente a ':'Mover a la papelera a ')+esc(a.nombre)+'</h2><p class="muted">'+txt+'</p>'+
+   (S.sb?'<label class="f" for="dlg-clave">Escribe tu contraseña de profesora para confirmar<input id="dlg-clave" name="clave" type="password" autocomplete="current-password" required></label>':'<p class="hint">Modo de prueba: no se pide contraseña.</p>')+
+   '<span class="err" id="dlg-err" role="alert"></span></div>'+
+   '<div class="modal-f"><span></span><div class="row-acts"><button type="button" class="btn" data-act="dlg-cerrar">Cancelar</button><button type="submit" class="btn '+(def?'btn-coral':'btn-primary')+'">'+(def?'Eliminar para siempre':'Mover a la papelera')+'</button></div></div></form></div>';
+}
 function vAlumnos(){
   return '<div class="wrap page"><div class="page-head ph-coral"><div class="t"><span class="eyebrow">'+S.alumnos.length+' pianistas</span><h1>Alumnos</h1></div></div>'+
-   (S.alumnos.length?'<div class="people">'+S.alumnos.map(a=>{const r=resumenAl(a);return '<button class="person" data-act="abrir-al" data-id="'+a.id+'"><div class="top2"><span class="avatar">'+esc((a.nombre||'?').trim()[0]||'?').toUpperCase()+'</span><span class="chip brand">Ciclo '+ROMAN[(+a.ciclo||1)-1]+'</span></div><div><h3>'+esc(a.nombre)+'</h3><small class="muted">'+(a.ultimaSesion?'Última sesión: '+fmtCorto(a.ultimaSesion):'Sin sesiones aún')+'</small></div><div class="nums"><div><b class="mono">'+r.racha+'</b><small>racha</small></div><div><b class="mono">'+r.minMes+'</b><small>min del mes</small></div><div><b class="mono">'+(a.obrasActivas||0)+'</b><small>obras activas</small></div></div></button>'}).join('')+'</div>':'<div class="card" style="align-items:flex-start"><p class="muted">Cuando tus alumnos entren con su Gmail y creen su atril, aparecerán aquí.</p></div>')+'</div>';
+   (S.alumnos.length?'<div class="people">'+S.alumnos.map(a=>{const r=resumenAl(a);return '<button class="person" data-act="abrir-al" data-id="'+a.id+'"><div class="top2"><span class="avatar">'+esc((a.nombre||'?').trim()[0]||'?').toUpperCase()+'</span><span class="chip brand">Ciclo '+ROMAN[(+a.ciclo||1)-1]+'</span></div><div><h3>'+esc(a.nombre)+'</h3><small class="muted">'+(a.ultimaSesion?'Última sesión: '+fmtCorto(a.ultimaSesion):'Sin sesiones aún')+'</small></div><div class="nums"><div><b class="mono">'+r.racha+'</b><small>racha</small></div><div><b class="mono">'+r.minMes+'</b><small>min del mes</small></div><div><b class="mono">'+(a.obrasActivas||0)+'</b><small>obras activas</small></div></div></button>'}).join('')+'</div>':'<div class="card" style="align-items:flex-start"><p class="muted">Cuando tus alumnos entren con su Gmail y creen su atril, aparecerán aquí.</p></div>')+papeleraCard()+dlgClave()+'</div>';
 }
 function vAlumnoDetalle(){
   const a=S.alumnos.find(x=>x.id===S.tSel);if(!a){S.tSel=null;return vAlumnos()}
@@ -2407,7 +2442,7 @@ function vAlumnoDetalle(){
     body='<div class="grid2">'+resumenCard(resumenSemana(S.t.sesiones,S.t.obras,a,lun,S.t.evidencias),{titulo:'Esta semana'})+resumenCard(resumenSemana(S.t.sesiones,S.t.obras,a,addDays(lun,-7),S.t.evidencias),{titulo:'Semana pasada'})+'</div><div class="grid2"><section class="card">'+calendario({dias,min:minDia(+a.ciclo),descanso:+a.descanso,eventos:S.eventos,evid:S.t.evidencias,sesiones:S.t.sesiones})+'</section><section class="plain"><h3>Sesiones recientes</h3>'+(list.length?'<div class="log">'+list.map(f=>{const s=S.t.sesiones[f];return '<div><span class="mono">'+dayMin(s)+' min</span><span><b>'+fmtDia(f)+'</b>'+planProf(s)+((s.entradas||[]).length?'<br><span class="muted">'+(s.entradas||[]).slice(-3).map(e=>esc(e.obraTitulo||'')+(e.frag?' c. '+esc(e.frag):'')+(e.meta?' — '+esc(e.meta):'')).join('<br>')+'</span>':'')+(s.nota?'<br>Diario: '+esc(s.nota):'')+'</span></div>'}).join('')+'</div>':'<p class="muted">Sin sesiones registradas.</p>')+'</section></div>'}
   return '<div class="wrap page"><div class="page-head ph-green"><div class="t"><button class="btn btn-ghost btn-sm" data-act="volver-al" style="align-self:flex-start">'+ic('left','sm')+' Alumnos</button><span class="eyebrow">Ciclo '+ROMAN[(+a.ciclo||1)-1]+' · '+nivelDe(+a.ciclo)+' · descansa el '+DOW_L[+a.descanso]+'</span><h1>'+esc(a.nombre)+'</h1></div>'+
    '<div class="person" style="cursor:default;flex-direction:row;gap:22px;padding:14px 18px"><div class="nums"><div><b class="mono">'+r.racha+'</b><small>racha</small></div><div><b class="mono">'+r.minMes+'</b><small>min del mes</small></div><div><b class="mono">'+r.semanas+'</b><small>sem. cumplidas</small></div><div><b class="mono">'+r.puntaje+'</b><small>puntaje</small></div></div></div></div>'+
-   '<div class="subnav" role="tablist">'+tabs.map(x=>'<button class="chip" role="tab" aria-pressed="'+(t===x[0])+'" data-act="t-tab" data-t="'+x[0]+'">'+x[1]+'</button>').join('')+'</div>'+body+'</div>';
+   '<div class="al-acts"><button class="btn btn-sm btn-ghost peligro-t" data-act="al-papelera" data-id="'+a.id+'">'+ic('trash','sm')+' Mover a la papelera</button></div>'+dlgClave()+'<div class="subnav" role="tablist">'+tabs.map(x=>'<button class="chip" role="tab" aria-pressed="'+(t===x[0])+'" data-act="t-tab" data-t="'+x[0]+'">'+x[1]+'</button>').join('')+'</div>'+body+'</div>';
 }
 /* Plan del día visto por la profesora (pestaña Estudio): tiempo elegido, bloques hechos, hora real y objetivo */
 function planProf(s){if(!s||(!s.tiempoDisponible&&!(s.hechos||[]).length&&!s.horaReal&&!s.objetivo))return '';
@@ -2759,6 +2794,13 @@ const ACT={
    try{await navigator.clipboard.writeText(txt);toast('Resumen copiado. Pégalo en WhatsApp o en un correo para tu profesora.')}catch(e){try{window.prompt('Copia tu resumen:',txt)}catch(x){toast('Tu navegador no permitió copiar el resumen.','bad')}}},
  'prof-mostrar':()=>{S.ui.profForm=true;render(true);const i=$('#p-cod');if(i)i.focus()},
  'prof-ocultar':()=>{S.ui.profForm=false;if(location.hash==='#profesora'){location.hash='#inicio';return}render(true)},
+ 'al-papelera':t=>{S.ui.borrar={id:t.dataset.id,accion:'papelera'};render(true);const i=$('#dlg-clave');if(i)i.focus()},
+ 'al-eliminar':t=>{S.ui.borrar={id:t.dataset.id,accion:'eliminar'};render(true);const i=$('#dlg-clave');if(i)i.focus()},
+ 'al-restaurar':async t=>{const id=t.dataset.id;const a=(S.papelera||[]).find(x=>x.id===id);const p='alumnos/'+id;
+   try{await encolar(p,()=>S.db.doc(p).update({estado:'aprobado',papeleraEn:null}));toast((a?a.nombre:'El alumno')+' volvió a tus alumnos')}catch(x){toast(errMsg(x),'bad')}},
+ 'papelera-toggle':()=>{S.ui.papeleraOpen=!S.ui.papeleraOpen;render(true)},
+ 'dlg-cerrar':()=>{S.ui.borrar=null;render(true)},
+ 'dlg-fondo':(t,e)=>{if(e.target===t){S.ui.borrar=null;render(true)}},
  'sol-aprobar':async t=>{const id=t.dataset.id;const a=[...(S.solicitudes||[]),...(S.rechazados||[])].find(x=>x.id===id);const p='alumnos/'+id;
    try{await encolar(p,()=>S.db.doc(p).update({estado:'aprobado',aprobadoEn:Date.now()}));toast((a?a.nombre:'Alumno')+' ya puede entrar a Octavia')}catch(x){toast(errMsg(x),'bad')}},
  'sol-rechazar':t=>{S.ui.rechazar=t.dataset.id;render(true)},
@@ -2775,7 +2817,7 @@ const ACT={
  'ir':(t,e)=>{e.preventDefault();const el=document.getElementById(t.dataset.to);if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
 };
 document.addEventListener('click',e=>{const t=e.target.closest('[data-act]');if(!t)return;if(t.tagName==='INPUT'&&t.type==='checkbox'){ACT[t.dataset.act]&&ACT[t.dataset.act](t,e);return}const f=ACT[t.dataset.act];if(f){if(t.tagName==='A'&&t.dataset.act!=='ir'){}f(t,e)}});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&S.ui.focus&&!S.modal){focusCerrar();return}if(e.key==='Escape'&&S.modal){S.modal=null;renderModal()}if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('oc')&&e.target===document.activeElement){e.preventDefault();abrirObra(e.target.dataset.id)}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&S.ui.borrar){S.ui.borrar=null;render(true);return}if(e.key==='Escape'&&S.ui.focus&&!S.modal){focusCerrar();return}if(e.key==='Escape'&&S.modal){S.modal=null;renderModal()}if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('oc')&&e.target===document.activeElement){e.preventDefault();abrirObra(e.target.dataset.id)}});
 document.addEventListener('input',e=>{
   const t=e.target;
   if(t.dataset.bind&&S.modal){const v=t.type==='checkbox'?t.checked:t.value;setPath(S.modal.d,t.dataset.bind,v);if(t.dataset.bind==='titulo'){const h=$('#m-title');if(h)h.textContent=v||'Nueva obra'}}
@@ -2794,6 +2836,20 @@ document.addEventListener('change',e=>{const t=e.target;
   if(t.dataset.planAdd){const b=t.dataset.planAdd;if(!t.value)return;const f=diaSel(),ses=sesionDe(f);const ids=obrasDe(b,ses).map(o=>o.id);ids.push(t.value);S.ui.addRow=null;guardarPlan(f,{planObras:{...(ses.planObras||{}),[b]:ids}});return}if(t.dataset.actChange==='bloque-sel'){if(S.timer.acc>0&&S.timer.bloque!==t.value){toast('Guarda o descarta el bloque actual antes de cambiar.','bad');t.value=S.timer.bloque;return}S.timer.bloque=t.value;guardarTimer();return}if(t.dataset.bind&&S.modal&&(t.dataset.rerender||t.type==='checkbox'||/^mantener\.\d+\.min$/.test(t.dataset.bind)))renderModal();if(t.dataset.bind&&S.modal&&(t.dataset.bind.startsWith('mapa')&&t.dataset.bind.endsWith('tipo')))renderModal()});
 document.addEventListener('submit',async e=>{
   const f=e.target;const k=f.dataset.form;if(!k)return;e.preventDefault();const fd=new FormData(f);
+  if(k==='clave-prof'){const D=S.ui.borrar;if(!D)return;const err=t=>{$('#dlg-err').textContent=t};const btn=f.querySelector('button[type=submit]');
+    if(S.sb){const clave=String(fd.get('clave')||'');if(!clave)return err('Escribe tu contraseña.');btn.disabled=true;
+      let r;try{r=await S.sb.auth.signInWithPassword({email:S.email,password:clave})}catch(x){r={error:x}}
+      if(r.error){btn.disabled=false;return err(/invalid login/i.test(r.error.message||'')?'Contraseña incorrecta.':errCuenta(r.error.message))}}
+    const a=[...S.alumnos,...(S.papelera||[]),...(S.solicitudes||[]),...(S.rechazados||[])].find(x=>x.id===D.id);const nom=a?a.nombre:'El alumno';
+    if(D.accion==='papelera'){const p='alumnos/'+D.id;
+      try{await encolar(p,()=>S.db.doc(p).update({estado:'papelera',papeleraEn:Date.now()}));S.ui.borrar=null;S.ui.papeleraOpen=true;if(S.tSel===D.id){cerrarAlumno();location.hash='#alumnos'}render(true);toast(nom+' está en la papelera')}
+      catch(x){btn.disabled=false;err(errMsg(x))}return}
+    if(D.accion==='eliminar'){
+      if(!S.sb){btn.disabled=false;return err('En el modo de prueba no se eliminan cuentas.')}
+      let r;try{r=await S.sb.rpc('borrar_alumno',{alumno:D.id})}catch(x){r={error:x}}
+      if(r.error){btn.disabled=false;const m=(r.error.code||'')+' '+(r.error.message||'');return err(/PGRST202|schema cache|Could not find/i.test(m)?'Falta instalar en Supabase el archivo supabase/04_papelera.sql.':'No se pudo eliminar: '+(r.error.message||'error'))}
+      S.ui.borrar=null;render(true);toast(nom+' fue eliminado definitivamente');return}
+    return}
   if(k==='cuenta-entrar'||k==='cuenta-crear'){
     const email=String(fd.get('email')||'').trim().toLowerCase(),clave=String(fd.get('clave')||''),nombre=String(fd.get('nombre')||'').trim();
     const err=t=>{$('#c-err').textContent=t};
@@ -2860,7 +2916,7 @@ function iniciarAlumno(){
     if(!snap.exists){S.perfil=null;if(S.isOwner){if(!S.sembrando){S.sembrando=true;S.estado='sembrando';render(true);sembrarPrueba().catch(e=>{S.estado='error';render(true)})}return}S.estado='onboarding';render(true);return}
     const nuevo=!S.perfil;S.perfil=snap.data();recalcular();
     /* Cuenta nueva: espera a que la profesora la apruebe (las cuentas antiguas sin estado siguen igual) */
-    if(S.sb&&!S.isOwner&&(S.perfil.estado==='pendiente'||S.perfil.estado==='rechazado')){S.estado=S.perfil.estado;render(true);return}
+    if(S.sb&&!S.isOwner&&(S.perfil.estado==='pendiente'||S.perfil.estado==='rechazado'||S.perfil.estado==='papelera')){S.estado=S.perfil.estado;render(true);return}
     if(S.estado!=='listo'){const venia=S.estado==='pendiente';S.estado='listo';S.view=vistaDesdeHash();if(venia){celebrar();toast('¡Tu profesora aprobó tu cuenta! Bienvenido a Octavia.')}}
     render(nuevo?true:false);
     if(nuevo)sincronizar();
@@ -2874,7 +2930,7 @@ function iniciarAlumno(){
 }
 function iniciarProf(){
   S.estado='listo';S.view=vistaDesdeHash();render(true);
-  sub(S.db.collection('alumnos'),snap=>{const all=snap.docs.map(d=>({id:d.id,...d.data()}));S.pruebaAl=all.find(a=>a.id===S.ownerId&&a.prueba)||null;const reales=all.filter(a=>a.nombre&&a.id!==S.ownerId&&!a.prueba);S.solicitudes=reales.filter(a=>a.estado==='pendiente').sort((x,y)=>(x.creado||0)-(y.creado||0));S.rechazados=reales.filter(a=>a.estado==='rechazado');S.alumnos=reales.filter(a=>a.estado!=='pendiente'&&a.estado!=='rechazado').sort((x,y)=>String(x.nombre).localeCompare(String(y.nombre)));render()});
+  sub(S.db.collection('alumnos'),snap=>{const all=snap.docs.map(d=>({id:d.id,...d.data()}));S.pruebaAl=all.find(a=>a.id===S.ownerId&&a.prueba)||null;const reales=all.filter(a=>a.nombre&&a.id!==S.ownerId&&!a.prueba);S.solicitudes=reales.filter(a=>a.estado==='pendiente').sort((x,y)=>(x.creado||0)-(y.creado||0));S.rechazados=reales.filter(a=>a.estado==='rechazado');S.papelera=reales.filter(a=>a.estado==='papelera').sort((x,y)=>(y.papeleraEn||0)-(x.papeleraEn||0));S.alumnos=reales.filter(a=>a.estado!=='pendiente'&&a.estado!=='rechazado'&&a.estado!=='papelera').sort((x,y)=>String(x.nombre).localeCompare(String(y.nombre)));render()});
   sub(S.db.collection('eventos').orderBy('fecha','asc'),snap=>{S.eventos=snap.docs.map(d=>({id:d.id,...d.data()})).filter(e=>!e.cfg&&e.fecha);render()});
   sub(S.db.doc(REC_PATH),snap=>{S.recursos=snap.exists?snap.data():{};render()});
 }
