@@ -27,9 +27,10 @@ function partitura(o,comp,libre){
   const h=hits.find(t=>sinAcento(t).includes(ap));
   return h?'https://imslp.org/wiki/'+encodeURIComponent(h.replace(/ /g,'_')).replace(/%2C/g,',').replace(/%28/g,'(').replace(/%29/g,')'):'';
 }
+const CARS='RRRRMZZARAMAHMMRMRASRAAZZMARRZMRMRRMRAHRRMMRRZMZSSRHRRRRHSMZMMRRHMRRZMSSEZSSSZRARDZHZRRMZRRADAZAARZZHHRHAHDERHSDARHDRDDMMREADRDEDDMRHADEASMDDDRRZRRRAMZ',CN={A:'alegre',M:'melancólica',D:'dramática',R:'romántica',H:'humorística',S:'sacra',Z:'serena',E:'heroica'};const CAR=i=>CN[CARS[i]]||'';
 const items=[];const pend={};
 const marca=(k,v)=>{pend[k]=(pend[k]||0)+1;return v};
-for(const o of OBRAS){
+for(const [oi,o] of OBRAS.entries()){
   const comp=cache.comp[o.cw]||{};const vida=comp.ok&&comp.nace?comp.nace+'–'+(comp.muere||''):'';
   const arreglo=/arreglo/i.test(o.c);const der=derechos(comp.muere,arreglo);
   const enl=partitura(o,comp,der.libre);
@@ -41,11 +42,12 @@ for(const o of OBRAS){
   pv.push(marca('duración','duración'));
   if(der.libre&&!enl)pv.push(marca('partitura','enlace de partitura'));
   if(!comp.muere||(comp.muere>=1926&&comp.muere<=1955))pv.push(marca('derechos','derechos según país'));
-  pv.push(marca('texto','enlace de texto y traducción'));
+  const vid=(cache.yt||{})[o.t.replace(/\(.*?\)|«|»/g,'')+' '+(o.cw||'').split(' ').pop()]||null;
+  pv.push(marca('texto','enlace de texto y traducción'));if(!vid)pv.push(marca('video','video de referencia'));
   const rango=/–/.test(o.rango)?o.rango+' (aprox., '+PV+')':(o.rango?'Ámbito aprox.: '+o.rango+' ('+PV+')':PV);
   items.push({id:'lir-'+slug(o.t+'-'+o.cw),tipo:'obra',titulo:o.t,autor:o.c,nivel:o.dp<=2?'basico':o.dp===3?'intermedio':'avanzado',enlace:enl,notas:'Para el pianista: '+o.reto,
-    catalogo:catalogo(o),epoca:epoca(o,comp),tonalidad:'',compases:'',compas:'',
-    canto:{nivelVocal:o.niv,primerVerso:o.v,obraOrigen:o.o,vidaCompositor:vida,idioma:o.lang,genero:o.gen,justificacion:o.just,cuerdas:o.cue,
+    catalogo:catalogo(o),epoca:epoca(o,comp),tonalidad:'',compases:'',compas:'',caracter:CAR(oi),durMin:(()=>{const n=String(o.dur).match(/\d+/g);return n?Math.round(n.map(Number).reduce((x,y)=>x+y,0)/n.length):0})(),video:vid?{id:vid.id,titulo:vid.titulo,canal:vid.canal}:null,
+    canto:{caracter:CAR(oi),nivelVocal:o.niv,primerVerso:o.v,obraOrigen:o.o,vidaCompositor:vida,idioma:o.lang,genero:o.gen,justificacion:o.just,cuerdas:o.cue,
       rango,tonalidadOriginal:o.ton?o.ton+' ('+PV+')':PV,duracion:o.dur+' (aprox.)',difVocal:o.dv,difPiano:o.dp,retoPiano:o.reto,objetivos:o.obj,
       enlacePartitura:enl,enlaceTexto:'',derechos:der.txt,fuentes:[comp.url,enl].filter(Boolean),porVerificar:pv}});
 }

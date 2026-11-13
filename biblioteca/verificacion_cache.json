@@ -707,6 +707,408 @@
    "qid": "Q364983",
    "nace": 1848,
    "muere": 1933
+  },
+  "Christian Petzold": {
+   "ok": false
+  },
+  "Notebook for Anna Magdalena Bach": {
+   "ok": true,
+   "titulo": "Notebook for Anna Magdalena Bach",
+   "desc": "Manuscripts by Johann Sebastian Bach",
+   "url": "https://en.wikipedia.org/wiki/Notebook_for_Anna_Magdalena_Bach",
+   "qid": "Q1341631",
+   "nace": null,
+   "muere": null
+  },
+  "Carl Philipp Emanuel Bach": {
+   "ok": true,
+   "titulo": "Carl Philipp Emanuel Bach",
+   "desc": "German composer (1714–1788)",
+   "url": "https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach",
+   "qid": "Q76428",
+   "nace": 1714,
+   "muere": 1788
+  },
+  "Leopold Mozart": {
+   "ok": true,
+   "titulo": "Leopold Mozart",
+   "desc": "German musician (1719–1787), W. A. Mozart's father",
+   "url": "https://en.wikipedia.org/wiki/Leopold_Mozart",
+   "qid": "Q156280",
+   "nace": 1719,
+   "muere": 1787
+  },
+  "Daniel Gottlob Türk": {
+   "ok": true,
+   "titulo": "Daniel Gottlob Türk",
+   "desc": "German composer",
+   "url": "https://en.wikipedia.org/wiki/Daniel_Gottlob_T%C3%BCrk",
+   "qid": "Q216090",
+   "nace": 1750,
+   "muere": 1813
+  },
+  "Cornelius Gurlitt": {
+   "ok": false
+  },
+  "Béla Bartók": {
+   "ok": true,
+   "titulo": "Béla Bartók",
+   "desc": "Hungarian composer (1881–1945)",
+   "url": "https://en.wikipedia.org/wiki/B%C3%A9la_Bart%C3%B3k",
+   "qid": "Q83326",
+   "nace": 1881,
+   "muere": 1945
+  },
+  "Dmitry Kabalevsky": {
+   "ok": true,
+   "titulo": "Dmitry Kabalevsky",
+   "desc": "Russian composer (1904–1987)",
+   "url": "https://en.wikipedia.org/wiki/Dmitry_Kabalevsky",
+   "qid": "Q153776",
+   "nace": 1904,
+   "muere": 1986
+  },
+  "Alexander Gretchaninov": {
+   "ok": true,
+   "titulo": "Alexander Gretchaninov",
+   "desc": "Russian Romantic composer (1864–1956)",
+   "url": "https://en.wikipedia.org/wiki/Alexander_Gretchaninov",
+   "qid": "Q508270",
+   "nace": 1864,
+   "muere": 1956
+  },
+  "Edvard Grieg": {
+   "ok": true,
+   "titulo": "Edvard Grieg",
+   "desc": "Norwegian composer and pianist (1843–1907)",
+   "url": "https://en.wikipedia.org/wiki/Edvard_Grieg",
+   "qid": "Q80621",
+   "nace": 1843,
+   "muere": 1907
+  },
+  "Frédéric Chopin": {
+   "ok": true,
+   "titulo": "Frédéric Chopin",
+   "desc": "Polish composer and pianist (1810–1849)",
+   "url": "https://en.wikipedia.org/wiki/Fr%C3%A9d%C3%A9ric_Chopin",
+   "qid": "Q1268",
+   "nace": 1810,
+   "muere": 1849
+  },
+  "Erik Satie": {
+   "ok": true,
+   "titulo": "Erik Satie",
+   "desc": "French composer and pianist (1866–1925)",
+   "url": "https://en.wikipedia.org/wiki/Erik_Satie",
+   "qid": "Q187192",
+   "nace": 1866,
+   "muere": 1925
+  },
+  "Sergei Prokofiev": {
+   "ok": true,
+   "titulo": "Sergei Prokofiev",
+   "desc": "Russian composer and pianist (1891–1953)",
+   "url": "https://en.wikipedia.org/wiki/Sergei_Prokofiev",
+   "qid": "Q49481",
+   "nace": 1891,
+   "muere": 1953
+  },
+  "Dmitri Shostakovich": {
+   "ok": true,
+   "titulo": "Dmitri Shostakovich",
+   "desc": "Soviet composer and pianist (1906–1975)",
+   "url": "https://en.wikipedia.org/wiki/Dmitri_Shostakovich",
+   "qid": "Q80135",
+   "nace": 1906,
+   "muere": 1975
+  },
+  "Aram Khachaturian": {
+   "ok": true,
+   "titulo": "Aram Khachaturian",
+   "desc": "Soviet Armenian composer (1903–1978)",
+   "url": "https://en.wikipedia.org/wiki/Aram_Khachaturian",
+   "qid": "Q152293",
+   "nace": 1903,
+   "muere": 1978
+  },
+  "Muzio Clementi": {
+   "ok": true,
+   "titulo": "Muzio Clementi",
+   "desc": "Italian composer and pianist (1752–1832)",
+   "url": "https://en.wikipedia.org/wiki/Muzio_Clementi",
+   "qid": "Q193673",
+   "nace": 1752,
+   "muere": 1832
+  },
+  "Friedrich Kuhlau": {
+   "ok": true,
+   "titulo": "Friedrich Kuhlau",
+   "desc": "Danish composer",
+   "url": "https://en.wikipedia.org/wiki/Friedrich_Kuhlau",
+   "qid": "Q157865",
+   "nace": 1786,
+   "muere": 1832
+  },
+  "Anton Diabelli": {
+   "ok": true,
+   "titulo": "Anton Diabelli",
+   "desc": "Austrian music publisher, editor and composer",
+   "url": "https://en.wikipedia.org/wiki/Anton_Diabelli",
+   "qid": "Q160061",
+   "nace": 1781,
+   "muere": 1858
+  },
+  "Joseph Haydn": {
+   "ok": true,
+   "titulo": "Joseph Haydn",
+   "desc": "Austrian composer (1732–1809)",
+   "url": "https://en.wikipedia.org/wiki/Joseph_Haydn",
+   "qid": "Q7349",
+   "nace": 1732,
+   "muere": 1809
+  },
+  "Scott Joplin": {
+   "ok": true,
+   "titulo": "Scott Joplin",
+   "desc": "American composer and pianist (1868–1917)",
+   "url": "https://en.wikipedia.org/wiki/Scott_Joplin",
+   "qid": "Q191499",
+   "nace": 1868,
+   "muere": 1917
+  },
+  "Joaquín Turina": {
+   "ok": true,
+   "titulo": "Joaquín Turina",
+   "desc": "Spanish composer (1882–1949)",
+   "url": "https://en.wikipedia.org/wiki/Joaqu%C3%ADn_Turina",
+   "qid": "Q318077",
+   "nace": 1882,
+   "muere": 1949
+  },
+  "John Field": {
+   "ok": false
+  },
+  "Isaac Albéniz": {
+   "ok": true,
+   "titulo": "Isaac Albéniz",
+   "desc": "Spanish composer (1860–1909)",
+   "url": "https://en.wikipedia.org/wiki/Isaac_Alb%C3%A9niz",
+   "qid": "Q185812",
+   "nace": 1860,
+   "muere": 1909
+  },
+  "Federico Mompou": {
+   "ok": true,
+   "titulo": "Federico Mompou",
+   "desc": "Catalan composer and pianist (1893–1987)",
+   "url": "https://en.wikipedia.org/wiki/Federico_Mompou",
+   "qid": "Q457178",
+   "nace": 1893,
+   "muere": 1987
+  },
+  "Ernesto Nazareth": {
+   "ok": true,
+   "titulo": "Ernesto Nazareth",
+   "desc": "Musical artist",
+   "url": "https://en.wikipedia.org/wiki/Ernesto_Nazareth",
+   "qid": "Q1356808",
+   "nace": 1863,
+   "muere": 1934
+  },
+  "Ernesto Lecuona": {
+   "ok": true,
+   "titulo": "Ernesto Lecuona",
+   "desc": "Cuban composer and pianist (1895–1963)",
+   "url": "https://en.wikipedia.org/wiki/Ernesto_Lecuona",
+   "qid": "Q345446",
+   "nace": 1896,
+   "muere": 1963
+  },
+  "Domenico Scarlatti": {
+   "ok": true,
+   "titulo": "Domenico Scarlatti",
+   "desc": "Italian composer (1685–1757)",
+   "url": "https://en.wikipedia.org/wiki/Domenico_Scarlatti",
+   "qid": "Q167837",
+   "nace": 1685,
+   "muere": 1757
+  },
+  "Franz Liszt": {
+   "ok": true,
+   "titulo": "Franz Liszt",
+   "desc": "Hungarian composer and pianist (1811–1886)",
+   "url": "https://en.wikipedia.org/wiki/Franz_Liszt",
+   "qid": "Q41309",
+   "nace": 1811,
+   "muere": 1886
+  },
+  "Maurice Ravel": {
+   "ok": true,
+   "titulo": "Maurice Ravel",
+   "desc": "French composer (1875–1937)",
+   "url": "https://en.wikipedia.org/wiki/Maurice_Ravel",
+   "qid": "Q1178",
+   "nace": 1875,
+   "muere": 1937
+  },
+  "Alexander Scriabin": {
+   "ok": true,
+   "titulo": "Alexander Scriabin",
+   "desc": "Russian composer and pianist (1872–1915)",
+   "url": "https://en.wikipedia.org/wiki/Alexander_Scriabin",
+   "qid": "Q185647",
+   "nace": 1872,
+   "muere": 1915
+  },
+  "Sergei Rachmaninoff": {
+   "ok": true,
+   "titulo": "Sergei Rachmaninoff",
+   "desc": "Russian composer and pianist (1873–1943)",
+   "url": "https://en.wikipedia.org/wiki/Sergei_Rachmaninoff",
+   "qid": "Q131861",
+   "nace": 1873,
+   "muere": 1943
+  },
+  "George Gershwin": {
+   "ok": true,
+   "titulo": "George Gershwin",
+   "desc": "American composer and pianist (1898–1937)",
+   "url": "https://en.wikipedia.org/wiki/George_Gershwin",
+   "qid": "Q123829",
+   "nace": 1898,
+   "muere": 1937
+  },
+  "Suzuki method": {
+   "ok": true,
+   "titulo": "Suzuki method",
+   "desc": "Music teaching method",
+   "url": "https://en.wikipedia.org/wiki/Suzuki_method",
+   "qid": "Q675475",
+   "nace": null,
+   "muere": null
+  },
+  "Fritz Emonts": {
+   "ok": false
+  },
+  "Nancy Faber": {
+   "ok": false
+  },
+  "Ferdinand Beyer": {
+   "ok": true,
+   "titulo": "Ferdinand Beyer",
+   "desc": "German composer and pianist",
+   "url": "https://en.wikipedia.org/wiki/Ferdinand_Beyer",
+   "qid": "Q66223",
+   "nace": 1806,
+   "muere": 1863
+  },
+  "Jean-Baptiste Duvernoy": {
+   "ok": true,
+   "titulo": "Jean-Baptiste Duvernoy",
+   "desc": "French pianist and composer",
+   "url": "https://en.wikipedia.org/wiki/Jean-Baptiste_Duvernoy",
+   "qid": "Q554437",
+   "nace": 1801,
+   "muere": 1880
+  },
+  "Henry Lemoine": {
+   "ok": true,
+   "titulo": "Henry Lemoine",
+   "desc": "French composer and music publisher",
+   "url": "https://en.wikipedia.org/wiki/Henry_Lemoine",
+   "qid": "Q1606982",
+   "nace": 1786,
+   "muere": 1854
+  },
+  "Carl Czerny": {
+   "ok": true,
+   "titulo": "Carl Czerny",
+   "desc": "Austrian composer, teacher and pianist (1791–1857)",
+   "url": "https://en.wikipedia.org/wiki/Carl_Czerny",
+   "qid": "Q215333",
+   "nace": 1791,
+   "muere": 1857
+  },
+  "Friedrich Burgmüller": {
+   "ok": true,
+   "titulo": "Friedrich Burgmüller",
+   "desc": "German pianist and composer",
+   "url": "https://en.wikipedia.org/wiki/Friedrich_Burgm%C3%BCller",
+   "qid": "Q62075",
+   "nace": 1806,
+   "muere": 1874
+  },
+  "Charles-Louis Hanon": {
+   "ok": true,
+   "titulo": "Charles-Louis Hanon",
+   "desc": "French piano teacher and composer (1819–1900)",
+   "url": "https://en.wikipedia.org/wiki/Charles-Louis_Hanon",
+   "qid": "Q651972",
+   "nace": 1819,
+   "muere": 1900
+  },
+  "Stephen Heller": {
+   "ok": true,
+   "titulo": "Stephen Heller",
+   "desc": "Hungarian pianist, teacher, and composer",
+   "url": "https://en.wikipedia.org/wiki/Stephen_Heller",
+   "qid": "Q710199",
+   "nace": 1813,
+   "muere": 1888
+  },
+  "Henri Bertini": {
+   "ok": true,
+   "titulo": "Henri Bertini",
+   "desc": "French composer and pianist",
+   "url": "https://en.wikipedia.org/wiki/Henri_Bertini",
+   "qid": "Q1337541",
+   "nace": 1798,
+   "muere": 1876
+  },
+  "Johann Baptist Cramer": {
+   "ok": true,
+   "titulo": "Johann Baptist Cramer",
+   "desc": "British pianist and composer (1771–1858)",
+   "url": "https://en.wikipedia.org/wiki/Johann_Baptist_Cramer",
+   "qid": "Q455212",
+   "nace": 1771,
+   "muere": 1858
+  },
+  "Moritz Moszkowski": {
+   "ok": true,
+   "titulo": "Moritz Moszkowski",
+   "desc": "German composer, pianist and teacher (1854–1925)",
+   "url": "https://en.wikipedia.org/wiki/Moritz_Moszkowski",
+   "qid": "Q322427",
+   "nace": 1854,
+   "muere": 1925
+  },
+  "Christian Petzold (composer)": {
+   "ok": true,
+   "titulo": "Christian Petzold (composer)",
+   "desc": "German composer and organist (1677–1733)",
+   "url": "https://en.wikipedia.org/wiki/Christian_Petzold_(composer)",
+   "qid": "Q537804",
+   "nace": 1677,
+   "muere": 1733
+  },
+  "Cornelius Gurlitt (composer)": {
+   "ok": true,
+   "titulo": "Cornelius Gurlitt (composer)",
+   "desc": "German composer (1820–1901)",
+   "url": "https://en.wikipedia.org/wiki/Cornelius_Gurlitt_(composer)",
+   "qid": "Q688544",
+   "nace": 1820,
+   "muere": 1901
+  },
+  "John Field (composer)": {
+   "ok": true,
+   "titulo": "John Field (composer)",
+   "desc": "Irish composer (1782–1837)",
+   "url": "https://en.wikipedia.org/wiki/John_Field_(composer)",
+   "qid": "Q209684",
+   "nace": 1782,
+   "muere": 1837
   }
  },
  "imslp": {
@@ -1198,6 +1600,1969 @@
   "Traité complet de l'art du chant Garcia": [
    "Ecole de Garcia: traité complet de l'art du chant (Garcia Jr., Manuel)",
    "Ecole de Garcia: traité complet de l'art du chant (Garcia, Manuel)"
-  ]
+  ],
+  "Notebook for Anna Magdalena Bach": [
+   "Notebook for Anna Magdalena Bach (Bach, Johann Sebastian)"
+  ],
+  "Minuet in G major K.1 Mozart": [
+   "Minuet in G major, K.1/1e (Mozart, Wolfgang Amadeus)"
+  ],
+  "Minuet in F major K.2 Mozart": [
+   "Minuet in F major, K.2 (Mozart, Wolfgang Amadeus)"
+  ],
+  "Allegro in B-flat major K.3 Mozart": [
+   "Allegro in B-flat major, K.3 (Mozart, Wolfgang Amadeus)"
+  ],
+  "Notenbuch für Nannerl Mozart": [],
+  "Handstücke für angehende Klavierspieler Türk": [
+   "120 Handstücke für angehende Klavierspieler (Türk, Daniel Gottlob)",
+   "Kleine Handstücke für angehende Klavierspieler (Türk, Daniel Gottlob)"
+  ],
+  "Album für die Jugend Op.68 Schumann": [
+   "Album für die Jugend, Op.68 (Schumann, Robert)"
+  ],
+  "Album für die Jugend Op.140 Gurlitt": [],
+  "Children's Album Op.39 Tchaikovsky": [
+   "Children's Album, Op.39 (Tchaikovsky, Pyotr Ilyich)",
+   "Children's Album, Op.39 (Tchaikovsky, Pyotr)"
+  ],
+  "For Children Sz.42 Bartók": [
+   "For Children, Sz.42 (Bartók, Béla)",
+   "For Children Sz.42 (Bartók, Béla)"
+  ],
+  "Ecossaise WoO 23 Beethoven": [
+   "Ecossaise for Military Band, WoO 23 (Beethoven, Ludwig van)",
+   "Ecossaise, WoO 23 (Beethoven, Ludwig van)",
+   "Ecossaise for Wind Band, WoO 23 (Beethoven, Ludwig van)"
+  ],
+  "2 Sonatinas Anh.5 Beethoven": [
+   "2 Sonatinas for Piano, Anh.5 (Beethoven, Ludwig van)"
+  ],
+  "Lyric Pieces Op.12 Grieg": [
+   "Lyric Pieces, Op.12 (Grieg, Edvard)"
+  ],
+  "Preludes Op.28 Chopin": [
+   "Preludes, Op.28 (Chopin, Frédéric)",
+   "Preludes Op.28 (Chopin, Frederic)",
+   "Preludes, Op.28 (Chopin, Frederic)"
+  ],
+  "3 Gymnopédies Satie": [
+   "3 Gymnopédies (Satie, Erik)"
+  ],
+  "Music for Children Op.65 Prokofiev": [
+   "Music for Children, Op.65 (Prokofiev, Sergey)",
+   "12 Easy Pieces for Piano 'Music for Children', Op.65 (Prokofiev, Sergei)",
+   "Twelve Easy Pieces for Piano 'Music for Children', Op.65 (Prokofiev, Sergei)",
+   "Music for Children, Op.65 (Prokofiev, Sergei)"
+  ],
+  "Cuentos de la juventud Op.1 Granados": [
+   "Cuentos de la juventud, Op.1 (Granados, Enrique)"
+  ],
+  "Für Elise WoO 59 Beethoven": [
+   "Für Elise, WoO 59 (Beethoven, Ludwig van)"
+  ],
+  "6 Sonatinas Op.36 Clementi": [
+   "6 Piano Sonatinas, Op.36 (Clementi, Muzio)",
+   "6 Sonatinas, Op.36 (Clementi, Muzio)"
+  ],
+  "Waltz in A minor B.150 Chopin": [
+   "Waltz in A minor, B.150 (Chopin, Frédéric)"
+  ],
+  "6 Sonatinas Op.55 Kuhlau": [
+   "6 Sonatinas, Op.55 (Kuhlau, Friedrich)"
+  ],
+  "7 Sonatinas Op.168 Diabelli": [
+   "7 Piano Sonatinas, Op.168 (Diabelli, Anton)",
+   "7 Sonatinas, Op.168 (Diabelli, Anton)"
+  ],
+  "Keyboard Sonata in G major Hob.XVI:G1 Haydn": [
+   "Keyboard Sonata in G major, Hob.XVI:G1 (Haydn, Joseph)"
+  ],
+  "Prelude and Fugue in C major BWV 846 Bach": [
+   "Prelude and Fugue in C major, BWV 846 (Bach, Johann Sebastian)"
+  ],
+  "Kinderszenen Op.15 Schumann": [
+   "Kinderszenen, Op.15 (Schumann, Robert)"
+  ],
+  "Gnossiennes Satie": [
+   "Gnossiennes (Satie, Erik)",
+   "Gnossiennes (Satie, Erik Alfred Leslie)",
+   "Gnossiennes (4-6) (Satie, Erik)"
+  ],
+  "Piano Sonata No.20 Op.49 No.2 Beethoven": [
+   "Piano Sonata No.20, Op.49 No.2 (Beethoven, Ludwig van)"
+  ],
+  "11 Bagatelles Op.119 Beethoven": [
+   "11 Bagatelles, Op.119 (Beethoven, Ludwig van)",
+   "11 New Bagatelles, Op.119 (Beethoven, Ludwig van)"
+  ],
+  "The Entertainer Joplin": [
+   "The Entertainer (Joplin, Scott)"
+  ],
+  "Niñerías Op.21 Turina": [
+   "Niñerías, Series 1, Op.21 (Turina, Joaquín)"
+  ],
+  "Inventions BWV 772-786 Bach": [
+   "15 Inventions, BWV 772-786 (Bach, Johann Sebastian)",
+   "Inventions and Sinfonias, BWV 772-801 (Bach, Johann Sebastian)",
+   "Inventions BWV 772-786 (Bach, Johann Sebastian)",
+   "Inventions, BWV 772-786 (Bach, Johann Sebastian)"
+  ],
+  "Piano Sonata No.16 K.545 Mozart": [
+   "Piano Sonata No.16 in C major, K.545 (Mozart, Wolfgang Amadeus)",
+   "Piano Sonata No.16, K.545 (Mozart, Wolfgang Amadeus)"
+  ],
+  "2 Waltzes Op.69 Chopin": [],
+  "4 Mazurkas Op.68 Chopin": [],
+  "6 Moments musicaux D.780 Schubert": [
+   "6 Moments musicaux, D.780 (Op.94) (Schubert, Franz)"
+  ],
+  "Lieder ohne Worte Op.30 Mendelssohn": [
+   "Lieder ohne Worte, Op.30 (Mendelssohn, Felix)"
+  ],
+  "Children's Corner Debussy": [
+   "Children's Corner, CD 119 (Debussy, Claude)",
+   "Children's Corner (Debussy, Claude)"
+  ],
+  "2 Arabesques Debussy": [
+   "2 Arabesques, CD 74 (Debussy, Claude)",
+   "2 Arabesques (Debussy, Claude)"
+  ],
+  "Fantasia in D minor K.397 Mozart": [
+   "Fantasia in D minor, K.397/385g (Mozart, Wolfgang Amadeus)"
+  ],
+  "Keyboard Sonata in C major Hob.XVI:35 Haydn": [
+   "Keyboard Sonata in C major, Hob.XVI:35 (Haydn, Joseph)"
+  ],
+  "Lieder ohne Worte Op.62 Mendelssohn": [
+   "Lieder ohne Worte, Op.62 (Mendelssohn, Felix)"
+  ],
+  "The Seasons Op.37a Tchaikovsky": [
+   "The Seasons, Op.37a (Tchaikovsky, Pyotr)",
+   "The Seasons, Op.37a (Tchaikovsky, Pyotr Ilyich)"
+  ],
+  "Lyric Pieces Op.54 Grieg": [
+   "Lyric Pieces, Op.54 (Grieg, Edvard)"
+  ],
+  "Nocturne in C-sharp minor B.49 Chopin": [
+   "Nocturne in C-sharp minor, B.49 (Chopin, Frédéric)"
+  ],
+  "3 Nocturnes Op.9 Chopin": [
+   "3 Nocturnes after Chopin Op.9 (Green, Anthony)"
+  ],
+  "Nocturne No.5 Field": [],
+  "Préludes Book 1 Debussy": [
+   "Préludes (Book 1) (Debussy, Claude)"
+  ],
+  "Romanian Folk Dances Sz.56 Bartók": [
+   "Romanian Folk Dances, Sz.56 (Bartók, Béla)"
+  ],
+  "España Op.165 Albéniz": [
+   "España, Op.165 (Albéniz, Isaac)"
+  ],
+  "Odeon Nazareth": [
+   "Odeon (Nazareth, Ernesto)"
+  ],
+  "Intermezzo Ponce": [
+   "Intermezzo No.1 (Ponce, Manuel)",
+   "Manuel M Ponce Intermezzo (Ponce Cuellar, Munuel M)",
+   "Intermezzo (Ponce Cuellar, Manuel Maria)",
+   "Intermezzo No.3 (Ponce, Manuel)",
+   "Intermezzo no. 3 (Ponce, Manuel)"
+  ],
+  "Sinfonias BWV 787-801 Bach": [
+   "15 Sinfonias, BWV 787-801 (Bach, Johann Sebastian)",
+   "Sinfonias BWV 787-801 (Bach, Johann Sebastian)",
+   "Sinfonias, BWV 787-801 (Bach, Johann Sebastian)"
+  ],
+  "Prelude and Fugue in C minor BWV 847 Bach": [
+   "Prelude and Fugue in C minor, BWV 847 (Bach, Johann Sebastian)"
+  ],
+  "French Suite No.5 BWV 816 Bach": [
+   "French Suite No.5 in G major, BWV 816 (Bach, Johann Sebastian)"
+  ],
+  "Keyboard Sonata in E major K.380 Scarlatti": [
+   "Keyboard Sonata in E major, K.380 (Scarlatti, Domenico)"
+  ],
+  "4 Impromptus D.899 Schubert": [
+   "4 Impromptus, D.899 (Schubert, Franz)",
+   "4 Impromptus, Op.90/D.899 (Schubert, Franz)",
+   "4 Impromptus, D.899 (Op.90) (Schubert, Franz)"
+  ],
+  "4 Impromptus D.935 Schubert": [
+   "4 Impromptus, D.935 (Schubert, Franz)",
+   "4 Impromptus, D.935 (Op.142) (Schubert, Franz)",
+   "4 Impromptus, D.935/Op.142 (Schubert, Franz)"
+  ],
+  "3 Waltzes Op.64 Chopin": [],
+  "Arabeske Op.18 Schumann": [
+   "Arabeske, Op.18 (Schumann, Robert)"
+  ],
+  "Consolations S.172 Liszt": [
+   "Consolations, S.172 (Liszt, Franz)"
+  ],
+  "6 Pieces Op.118 Brahms": [],
+  "Lyric Pieces Op.65 Grieg": [
+   "Lyric Pieces, Op.65 (Grieg, Edvard)"
+  ],
+  "Suite bergamasque Debussy": [
+   "Suite bergamasque, CD 82 (Debussy, Claude)",
+   "Suite Bergamasque (Debussy, Claude)",
+   "Debussy Suite Bergamasque for obor and piano (Nakano, Yukio)",
+   "Suite bergamasque (Debussy, Claude)"
+  ],
+  "Pavane pour une infante défunte Ravel": [
+   "Pavane pour une infante défunte, M.19 (Ravel, Maurice)",
+   "Pavane pour une Infante défunte (Ravel, Maurice)",
+   "Pavane pour une infante défunte (Ravel, Maurice)"
+  ],
+  "12 Danzas españolas Op.37 Granados": [],
+  "Visions fugitives Op.22 Prokofiev": [
+   "Visions fugitives, Op.22 (Prokofiev, Sergey)",
+   "Visions Fugitives Op.22 (Prokofiev, Sergei)",
+   "Visions Fugitives, Op.22 (Prokofiev, Sergei)",
+   "Visions Fugitives, Op.22 (Prokofiev, Sergey)"
+  ],
+  "3 Pieces Op.2 Scriabin": [
+   "3 Pieces, Op.2 (Scriabin, Aleksandr)",
+   "3 Pieces, Op.2 (Scriabin, Alexander)"
+  ],
+  "Maple Leaf Rag Joplin": [
+   "Maple Leaf Rag (Joplin, Scott)"
+  ],
+  "Piano Sonata No.11 K.331 Mozart": [
+   "Piano Sonata No.11 in A major, K.331/300i (Mozart, Wolfgang Amadeus)",
+   "Piano Sonata No.11, K.331 (Mozart, Wolfgang Amadeus)"
+  ],
+  "Piano Sonata No.8 Op.13 Beethoven": [
+   "Piano Sonata No.8, Op.13 (Beethoven, Ludwig van)"
+  ],
+  "Piano Sonata No.14 Op.27 No.2 Beethoven": [
+   "Piano Sonata No.14, Op.27 No.2 (Beethoven, Ludwig van)",
+   "Piano Sonata No.14, Op.27 No.2 (Beethoven, Ludwig van) (López Villanueva, Antonio)"
+  ],
+  "Rondo capriccioso Op.14 Mendelssohn": [
+   "Rondo capriccioso, Op.14 (Mendelssohn, Felix)",
+   "Rondo capriccioso Op.14 (Mendelssohn, Felix)",
+   "Rondo Capriccioso, Op.14 (Mendelssohn, Felix)"
+  ],
+  "Papillons Op.2 Schumann": [
+   "Papillons, Op.2 (Schumann, Robert)"
+  ],
+  "2 Nocturnes Op.48 Chopin": [],
+  "Fantaisie-Impromptu Op.66 Chopin": [
+   "Fantaisie-impromptu, Op.66 (Chopin, Frédéric)",
+   "Fantaisie-Impromptu Op.66 (Chopin, Frederic)",
+   "Fantaisie-Impromptu, Op.66 (Chopin, Frederic)",
+   "Fantaisie-Impromptu, Op.66 (Chopin, Frédéric)"
+  ],
+  "Etudes Op.10 Chopin": [
+   "Etudes Op.10 (Chopin, Frederic)",
+   "Etudes, Op.10 (Chopin, Frederic)",
+   "Etudes, Op.10 (Chopin, Frédéric)"
+  ],
+  "Liebesträume S.541 Liszt": [
+   "Liebesträume, S.541 (Liszt, Franz)"
+  ],
+  "2 Rhapsodies Op.79 Brahms": [
+   "2 Rhapsodies, Op.79 (Brahms, Johannes)"
+  ],
+  "Morceaux de fantaisie Op.3 Rachmaninoff": [
+   "Morceaux de fantaisie, Op.3 (Rachmaninoff, Sergei)",
+   "Morceaux de Fantaisie, Op.3 (Rachmaninoff, Sergei)"
+  ],
+  "Sonatine Ravel": [
+   "Sonatine, M.40 (Ravel, Maurice)",
+   "Sonatine (Ravel, Maurice)"
+  ],
+  "Suite española No.1 Op.47 Albéniz": [
+   "Suite española No.1, Op.47 (Albéniz, Isaac)",
+   "Suite Española No.1, Op.47 (Albéniz, Isaac)"
+  ],
+  "El amor brujo Falla": [
+   "El amor brujo (Falla, Manuel de)",
+   "El amor brujo (De Falla, Manuel)",
+   "El Amor Brujo (De Falla, Manuel)",
+   "El Amor Brujo (Falla, Manuel de)"
+  ],
+  "Allegro barbaro Sz.49 Bartók": [
+   "Allegro barbaro, Sz.49 (Bartók, Béla)",
+   "Allegro Barbaro Sz.49 (Bartók, Béla)",
+   "Allegro Barbaro, Sz.49 (Bartók, Béla)"
+  ],
+  "3 Preludes Gershwin": [
+   "3 Preludes (Gershwin, George)"
+  ],
+  "Italian Concerto BWV 971 Bach": [
+   "Italian Concerto BWV 971 (Bach, Johann Sebastian)",
+   "Italian Concerto, BWV 971 (Bach, Johann Sebastian)"
+  ],
+  "Partita No.2 BWV 826 Bach": [],
+  "Piano Sonata No.8 K.310 Mozart": [
+   "Piano Sonata No.8 in A minor, K.310/300d (Mozart, Wolfgang Amadeus)",
+   "Piano Sonata No.8, K.310 (Mozart, Wolfgang Amadeus)"
+  ],
+  "Keyboard Sonata in E-flat major Hob.XVI:52 Haydn": [
+   "Keyboard Sonata in E-flat major, Hob.XVI:52 (Haydn, Joseph)"
+  ],
+  "Piano Sonata No.21 Op.53 Beethoven": [
+   "Piano Sonata No.21, Op.53 (Beethoven, Ludwig van)"
+  ],
+  "Ballade No.1 Op.23 Chopin": [
+   "Ballade No.1, Op.23 (Chopin, Frédéric)",
+   "Ballade No.1, Op.23 (Chopin, Frederic)"
+  ],
+  "Scherzo No.2 Op.31 Chopin": [
+   "Scherzo No.2, Op.31 (Chopin, Frédéric)",
+   "Scherzo No.2, Op.31 (Chopin, Frederic)"
+  ],
+  "Polonaise Op.53 Chopin": [
+   "Polonaise in A-flat major, Op.53 (Chopin, Frédéric)",
+   "Polonaise Op.53 (Chopin, Frederic)",
+   "Polonaise, Op.53 (Chopin, Frederic)",
+   "Polonaise, Op.53 (Chopin, Frédéric)"
+  ],
+  "Hungarian Rhapsody No.2 S.244 Liszt": [
+   "Hungarian Rhapsody No.2, S.244/2 (Liszt, Franz)"
+  ],
+  "Estampes Debussy": [
+   "Estampes, CD 108 (Debussy, Claude)",
+   "Estampes (Debussy, Claude)"
+  ],
+  "Jeux d'eau Ravel": [
+   "Jeux d'eau, M.30 (Ravel, Maurice)",
+   "Jeux d'Eau (Ravel, Maurice)",
+   "Jeux d'eau (Ravel, Maurice)",
+   "Jeux d'eau, M 30 (Ravel, Maurice)"
+  ],
+  "Goyescas Granados": [
+   "Goyescas (piano suite) (Granados, Enrique)",
+   "Goyescas (Granados, Enrique)",
+   "Goyescas (opera) (Granados, Enrique)",
+   "Goyescas (Opera) (Granados, Enrique)",
+   "Goyescas (Piano Suite) (Granados, Enrique)"
+  ],
+  "Vorschule im Klavierspiel Op.101 Beyer": [
+   "Vorschule im Klavierspiel, Op.101 (Beyer, Ferdinand)"
+  ],
+  "École primaire Op.176 Duvernoy": [
+   "École primaire, Op.176 (Duvernoy, Jean-Baptiste)"
+  ],
+  "Études enfantines Op.37 Lemoine": [
+   "Études enfantines, Op.37 (Lemoine, Henry)"
+  ],
+  "Practical Method for Beginners Op.599 Czerny": [],
+  "25 Études faciles et progressives Op.100 Burgmüller": [
+   "25 Études faciles et progressives, Op.100 (Burgmüller, Friedrich)"
+  ],
+  "12 Little Preludes Bach": [],
+  "6 Little Preludes BWV 933-938 Bach": [],
+  "18 Études caractéristiques Op.109 Burgmüller": [],
+  "12 Études brillantes Op.105 Burgmüller": [],
+  "30 Études de mécanisme Op.849 Czerny": [
+   "30 Études de mécanisme, Op.849 (Czerny, Carl)"
+  ],
+  "Le pianiste virtuose Hanon": [],
+  "25 Études Op.47 Heller": [
+   "25 études Op.47 (Heller, Stephen)"
+  ],
+  "25 Études Op.100 Bertini": [],
+  "School of Velocity Op.299 Czerny": [
+   "The School of Velocity, Op.299 (Czerny, Carl)"
+  ],
+  "Art of Finger Dexterity Op.740 Czerny": [
+   "The Art of Finger Dexterity, Op.740 (Czerny, Carl)"
+  ],
+  "Studio per il pianoforte Cramer": [
+   "Studio per il pianoforte (Cramer, Johann Baptist)",
+   "Studio per il pianoforte, Op.50 (Cramer, Johann Baptist)"
+  ],
+  "Gradus ad Parnassum Op.44 Clementi": [
+   "Gradus ad Parnassum, Op.44 (Clementi, Muzio)"
+  ],
+  "15 Études de virtuosité Op.72 Moszkowski": []
+ },
+ "yt": {
+  "Minuet in G major BWV Anh 114 Petzold piano": null,
+  "Musette in D major BWV Anh 126 piano": {
+   "id": "yl8emo0hP8E",
+   "titulo": "J.S. Bach: Musette in D Major, BWV Anh. 126 (Notebook for Anna Magdalena Bach, 1725)",
+   "canal": "Daniil Trifonov - Topic",
+   "dur": "0:57"
+  },
+  "Mozart Minuet in G major K. 1 piano": null,
+  "Mozart Minuet in F major K. 2 piano": null,
+  "Leopold Mozart Bourree in E minor piano": null,
+  "Türk Handstücke piano": null,
+  "Schumann Melodie Op. 68 No. 1 Album for the Young": {
+   "id": "-9sH7ZnLFLk",
+   "titulo": "Album für die Jugend, Op. 68: No. 1, Melodie",
+   "canal": "Alexis Weissenberg - Topic",
+   "dur": "0:56"
+  },
+  "Schumann Soldatenmarsch Op. 68 No. 2": {
+   "id": "P0crOP10z3w",
+   "titulo": "Album für die Jugend, Op. 68: No. 2, Soldatenmarsch",
+   "canal": "Alexis Weissenberg - Topic",
+   "dur": "0:43"
+  },
+  "Schumann Stückchen Op. 68 No. 5": {
+   "id": "cwf9VjJW1s8",
+   "titulo": "No. 5. Stuckchen (Little Piece)",
+   "canal": "Michael Endres - Topic",
+   "dur": "0:49"
+  },
+  "Gurlitt Album for the Young Op. 140 piano": null,
+  "Tchaikovsky Morning Prayer Op. 39 No. 1": {
+   "id": "H736JP30XNU",
+   "titulo": "Tchaikovsky: Children's Album, Op. 39, TH 141: 1. Morning Prayer",
+   "canal": "Valentina Lisitsa - Topic",
+   "dur": "1:43"
+  },
+  "Bartok For Children Sz. 42 piano": null,
+  "Kabalevsky 24 Pieces for Children Op. 39": null,
+  "Minuet in D minor BWV Anh 132 piano": null,
+  "Polonaise in G minor BWV Anh 119 piano": null,
+  "Beethoven Ecossaise in G major WoO 23 piano": null,
+  "Beethoven Sonatina in G major Anh. 5 No. 1": {
+   "id": "zYlbYUV1LQo",
+   "titulo": "Sonatina in G Major, Anh. 5, No. 1: I. Moderato",
+   "canal": "Diane Hidy - Topic",
+   "dur": "1:41"
+  },
+  "Schumann Armes Waisenkind Op. 68 No. 6": {
+   "id": "YiGqCz_XU3k",
+   "titulo": "Album für die Jugend, Op. 68: No. 6, Armes Waisenkind",
+   "canal": "Alexis Weissenberg - Topic",
+   "dur": "1:42"
+  },
+  "Schumann Jägerliedchen Op. 68 No. 7": {
+   "id": "ccAsqXXPVKU",
+   "titulo": "Album für die Jugend, op. 68: VII. Jägerliedchen",
+   "canal": "Gernot Oertel - Topic",
+   "dur": "1:07"
+  },
+  "Schumann Fröhlicher Landmann Op. 68 No. 10": {
+   "id": "nnbTza7vxpY",
+   "titulo": "Album für die Jugend, Op. 68: No. 10, Fröhlicher Landmann",
+   "canal": "Alexis Weissenberg - Topic",
+   "dur": "0:41"
+  },
+  "Tchaikovsky March of the Wooden Soldiers Op. 39": null,
+  "Minuet in G minor BWV Anh 115 piano": {
+   "id": "35zbDdK-kwk",
+   "titulo": "Lang Lang - Petzold: Minuet No. 2 in G Minor (Formerly Attrib. J.S. Bach as BWV Anh. 115)",
+   "canal": "LangLangVEVO",
+   "dur": "1:59"
+  },
+  "March in D major BWV Anh 122 piano": {
+   "id": "9SzL1tWcOX8",
+   "titulo": "Clavierbüchlein für Anna Magdalena Bach: March, BWV Anh. 122 in D Major",
+   "canal": "Caroline Almonte - Topic",
+   "dur": "0:38"
+  },
+  "Mozart Allegro in B flat major K. 3 piano": null,
+  "Schumann Wilder Reiter Op. 68 No. 8": {
+   "id": "6zbOERQ8j08",
+   "titulo": "Album für die Jugend, Op. 68: No. 8, Wilder Reiter",
+   "canal": "Norman Shetler - Topic",
+   "dur": "0:39"
+  },
+  "Tchaikovsky The Sick Doll Op. 39": {
+   "id": "4r1CDqUIEmY",
+   "titulo": "Tchaikovsky: Children's Album, Op. 39: No. 6, The Sick Doll",
+   "canal": "Daniil Trifonov - Topic",
+   "dur": "1:54"
+  },
+  "Tchaikovsky Italian Song Op. 39": {
+   "id": "uWR3mez3oP8",
+   "titulo": "Tchaikovsky: Children's Album, Op. 39, TH 141: 15. Italian Song",
+   "canal": "Valentina Lisitsa - Topic",
+   "dur": "1:11"
+  },
+  "Tchaikovsky Old French Song Op. 39": {
+   "id": "JYQR-W8C71c",
+   "titulo": "Tchaikovsky: Children's Album, Op. 39, TH 141: 16. Old French Song",
+   "canal": "Valentina Lisitsa - Topic",
+   "dur": "1:21"
+  },
+  "Gretchaninov Children's Album Op. 98 piano": null,
+  "Villa-Lobos Guia Pratico piano": null,
+  "Schumann Sicilianisch Op. 68 No. 11": {
+   "id": "zCfRw0xLRN4",
+   "titulo": "Album for the Young, Op. 68: No. 11. Sizilianisch (Siciliana)",
+   "canal": "Florian Uhlig - Topic",
+   "dur": "1:36"
+  },
+  "Schumann Erster Verlust Op. 68 No. 16": {
+   "id": "Jt9H9IRQchU",
+   "titulo": "Album für die Jugend, op. 68: XVI. Erster Verlust",
+   "canal": "Gernot Oertel - Topic",
+   "dur": "1:35"
+  },
+  "Tchaikovsky Waltz Op. 39 No. 8": {
+   "id": "e8uDUQcEhTw",
+   "titulo": "Tchaikovsky: Children's Album, Op. 39: No. 8, Waltz",
+   "canal": "Daniil Trifonov - Topic",
+   "dur": "1:03"
+  },
+  "Grieg Arietta Op. 12 No. 1": {
+   "id": "9PFGpPzu_7s",
+   "titulo": "Lyric Pieces, Book I, Op. 12: No. 1, Arietta",
+   "canal": "Håkon Austbö - Topic",
+   "dur": "1:31"
+  },
+  "Grieg Waltz Op. 12 No. 2": {
+   "id": "v8YvDCsaz6k",
+   "titulo": "Grieg: Lyric Pieces, Book 1, Op. 12: No. 2, Waltz",
+   "canal": "Nelson Freire - Topic",
+   "dur": "1:39"
+  },
+  "Chopin Prelude in E minor Op. 28 No. 4": {
+   "id": "90wBhBZjAUQ",
+   "titulo": "Eric Lu – Prelude in E minor Op. 28 No. 4 (third stage)",
+   "canal": "Chopin Institute",
+   "dur": "2:14"
+  },
+  "Chopin Prelude in A major Op. 28 No. 7": {
+   "id": "ZiE4D6qyjYk",
+   "titulo": "Chopin: 24 Preludes, Op. 28: No. 7 in A Major. Andantino",
+   "canal": "Andrés Segovia - Topic",
+   "dur": "1:01"
+  },
+  "Satie Gymnopédie No. 1": {
+   "id": "EaTjt_iIs2s",
+   "titulo": "Gymnopédie No. 1",
+   "canal": "Erik Satie - Topic",
+   "dur": "3:21"
+  },
+  "Bartok For Children Volume 2 piano": {
+   "id": "PPO3kNk18Zw",
+   "titulo": "Bartók: For Children - Vol.2: 28. Andante, molto rubato",
+   "canal": "Andor Foldes - Topic",
+   "dur": "0:52"
+  },
+  "Prokofiev Music for Children Op. 65": null,
+  "Granados Cuentos de la juventud Op. 1": {
+   "id": "t21Ipi3YmcQ",
+   "titulo": "Cuentos de la juventud, Op. 1: I. Dedicatoria. Andantino",
+   "canal": "Alicia de Larrocha - Topic",
+   "dur": "0:54"
+  },
+  "Shostakovich Dances of the Dolls piano": {
+   "id": "7jiA5-B8eis",
+   "titulo": "Shostakovich : Romance (Dances of the Dolls No. 3)",
+   "canal": "Zoe Augusto Pook, DipABRSM",
+   "dur": "2:10"
+  },
+  "Khachaturian Children's Album Andantino piano": {
+   "id": "2FP6OSjoUu8",
+   "titulo": "Khachaturian: Children's Album for Piano, Book 1 - No. 1, Andantino \"Ivan Sings\"",
+   "canal": "LangLangVEVO",
+   "dur": "1:36"
+  },
+  "Ginastera Rondo sobre temas infantiles argentinos": {
+   "id": "U94gWjYfFTc",
+   "titulo": "Rondó sobre temas infantiles argentinos, Op. 19",
+   "canal": "Horacio Lavandera - Topic",
+   "dur": "3:01"
+  },
+  "Beethoven Für Elise WoO 59": {
+   "id": "-bnNnZF6NX8",
+   "titulo": "Nelly Kokinos - Für Elise, WoO 59 (Official Audio)",
+   "canal": "SonyClassicalVEVO",
+   "dur": "3:10"
+  },
+  "Clementi Sonatina Op. 36 No. 1": {
+   "id": "ZCdK5mIxrpg",
+   "titulo": "Clementi: Sonatina No. 1 in C Major, Op. 36: I. Spiritoso",
+   "canal": "Lang Lang - Topic",
+   "dur": "1:27"
+  },
+  "Chopin Waltz in A minor B. 150": {
+   "id": "J7R4M5HTxP0",
+   "titulo": "Waltz in A Minor, Op. Posth., B. 150",
+   "canal": "Vittorio Forte - Topic",
+   "dur": "2:29"
+  },
+  "Clementi Sonatina Op. 36 No. 2": null,
+  "Clementi Sonatina Op. 36 No. 3": null,
+  "Kuhlau Sonatina Op. 55 No. 1": {
+   "id": "ep6rzB1Kx3U",
+   "titulo": "Sonatina in C Major, Op. 55, No. 1: I. Allegro",
+   "canal": "Nelita True - Topic",
+   "dur": "1:22"
+  },
+  "Diabelli Sonatina Op. 168 No. 1": null,
+  "Haydn Sonata in G major Hob. XVI:G1": {
+   "id": "rAlNMKwhPbA",
+   "titulo": "Haydn: Piano Sonata in G major, Hob.XVI:G1: 1. Allegro",
+   "canal": "John McCabe - Topic",
+   "dur": "3:35"
+  },
+  "Bach Prelude in C major BWV 846": {
+   "id": "gVah1cr3pU0",
+   "titulo": "Lang Lang – Bach: The Well-Tempered Clavier: Book 1, 1.Prelude C Major, BWV 846",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "2:49"
+  },
+  "Schumann Von fremden Ländern und Menschen Op. 15": {
+   "id": "M1_Yjqj9xSY",
+   "titulo": "Schumann: Von fremden Ländern und Menschen / Argerich",
+   "canal": "Berliner Philharmoniker",
+   "dur": "2:01"
+  },
+  "Grieg Norwegian Melody Op. 12 No. 6": {
+   "id": "yFrFagMBvI0",
+   "titulo": "Grieg: Lyric Pieces, Op. 12: 6. Norwegian melody",
+   "canal": "Zoltán Kocsis - Topic",
+   "dur": "1:01"
+  },
+  "Satie Gnossienne No. 1": null,
+  "Beethoven Sonata Op. 49 No. 2": {
+   "id": "EwVuHNWyl6c",
+   "titulo": "Beethoven: Piano Sonata No. 20 in G Major, Op. 49 No. 2: I. Allegro ma non troppo",
+   "canal": "Maurizio Pollini - Topic",
+   "dur": "4:06"
+  },
+  "Beethoven Bagatelle Op. 119 No. 1": {
+   "id": "nTED1-jj810",
+   "titulo": "Beethoven, Bagatelle op.119 no.1 - Paul Lewis (live)",
+   "canal": "harmonia mundi music",
+   "dur": "2:33"
+  },
+  "Scott Joplin The Entertainer piano": {
+   "id": "EQlPq4z2gBc",
+   "titulo": "The Entertainer",
+   "canal": "Scott Joplin - Topic",
+   "dur": "3:33"
+  },
+  "Turina Niñerías Op. 21": {
+   "id": "oe57lBXG1n4",
+   "titulo": "Ninerias (Petite Suite) , Series 1, Op. 21: IV. Berceuse (Lullaby)",
+   "canal": "Jordi Masó - Topic",
+   "dur": "2:49"
+  },
+  "Guastavino Bailecito piano": {
+   "id": "u1frtImUDQw",
+   "titulo": "Bailecito",
+   "canal": "Lilia Salsano - Topic",
+   "dur": "2:59"
+  },
+  "Ginastera Milonga piano": {
+   "id": "7rBDT0jeNl4",
+   "titulo": "Daniil Trifonov - Ginastera: Milonga, Op. 3  No. 1",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "3:04"
+  },
+  "Bach Invention No. 1 BWV 772": {
+   "id": "bLef505GQm8",
+   "titulo": "J.S. Bach: Inventions & Sinfonias",
+   "canal": "Brilliant Classics",
+   "dur": "1:08:21"
+  },
+  "Bach Invention No. 4 BWV 775": {
+   "id": "vg4ytXm1Tbc",
+   "titulo": "Bach - Invention No. 4 in D minor BWV 775 - Kanji Daito | Netherlands Bach Society",
+   "canal": "Netherlands Bach Society",
+   "dur": "1:17"
+  },
+  "Bach Invention No. 8 BWV 779": {
+   "id": "whbFffxr2q4",
+   "titulo": "Bach - Invention No. 8 in F major BWV 779 - Frank Monster | Netherlands Bach Society",
+   "canal": "Netherlands Bach Society",
+   "dur": "1:18"
+  },
+  "Mozart Sonata in C major K. 545": {
+   "id": "JIn8xA0tbNY",
+   "titulo": "András Schiff plays Mozart: Piano Sonata in C major No. 16 K 545, Allegro at Verbier Festival 2016",
+   "canal": "Verbier Festival",
+   "dur": "2:59"
+  },
+  "Clementi Sonatina Op. 36 No. 6": {
+   "id": "bvEOBG_rAvI",
+   "titulo": "Sonatina in D Major, Op. 36, No. 6: I. Allegro Con Spirito",
+   "canal": "Diane Hidy - Topic",
+   "dur": "6:05"
+  },
+  "Schumann Träumerei Op. 15 No. 7": {
+   "id": "9zVQk0YviAA",
+   "titulo": "Lang Lang -- Träumerei (Kinderszenen, Op. 15 No. 7), Schumann",
+   "canal": "medici.tv",
+   "dur": "2:51"
+  },
+  "Grieg Elfin Dance Op. 12 No. 4": {
+   "id": "mR09aO64-U8",
+   "titulo": "Lyric Pieces, Op. 68: Elfin Dance, Op. 12, No. 4",
+   "canal": "Arthur Rubinstein - Topic",
+   "dur": "0:41"
+  },
+  "Chopin Waltz Op. 69 No. 1": {
+   "id": "ZDN4xSKBUnA",
+   "titulo": "Chopin Valse op 69 No 1 in A flat major. Valentina Lisitsa",
+   "canal": "Valentina Lisitsa QOR Records Official channel",
+   "dur": "3:36"
+  },
+  "Chopin Waltz Op. 69 No. 2": {
+   "id": "hPMx8V0LADU",
+   "titulo": "Waltz No. 10 in B Minor, Op. 69: No. 2",
+   "canal": "Arthur Rubinstein - Topic",
+   "dur": "3:32"
+  },
+  "Chopin Mazurka Op. 68 No. 3": {
+   "id": "BU7nL0MiBOg",
+   "titulo": "Mazurkas, Op. 68: No. 3 in F Major",
+   "canal": "Arthur Rubinstein - Topic",
+   "dur": "1:27"
+  },
+  "Schubert Moment Musical No. 3 D. 780": {
+   "id": "Wq5Ks3_r6f0",
+   "titulo": "David Fray, Schubert: Moment Musicaux N°3",
+   "canal": "Warner Classics",
+   "dur": "2:12"
+  },
+  "Mendelssohn Venetian Boat Song Op. 30 No. 6": null,
+  "Debussy The Little Shepherd Children's Corner": {
+   "id": "F1SWz_ERfUQ",
+   "titulo": "Debussy: Children's Corner, CD 119: V. The Little Shepherd",
+   "canal": "Seong-Jin Cho - Topic",
+   "dur": "2:54"
+  },
+  "Kabalevsky Sonatina Op. 13 No. 1": null,
+  "Debussy Arabesque No. 1": {
+   "id": "Ind6GMuIEeA",
+   "titulo": "2 Arabesques, L. 66: No. 1 in E Major",
+   "canal": "Noriko Ogawa - Topic",
+   "dur": "5:05"
+  },
+  "Bach Invention No. 13 BWV 784": {
+   "id": "ttwo-QYqDNo",
+   "titulo": "Bach - Invention No. 13 in A minor BWV 784 - Anna Kuvshinov | Netherlands Bach Society",
+   "canal": "Netherlands Bach Society",
+   "dur": "1:39"
+  },
+  "Mozart Fantasia in D minor K. 397": {
+   "id": "1V0rGf9PjzI",
+   "titulo": "Fazıl Say plays Mozart: Fantasia No. 3 in D minor, K. 397",
+   "canal": "Warner Classics",
+   "dur": "5:39"
+  },
+  "Haydn Sonata in C major Hob. XVI:35": {
+   "id": "9SGR4eb2zas",
+   "titulo": "Haydn: Piano Sonata in C Major, Hob. XVI:35: I. Allegro con brio",
+   "canal": "Marc-André Hamelin - Topic",
+   "dur": "7:49"
+  },
+  "Mendelssohn Spring Song Op. 62 No. 6": {
+   "id": "ERnYbXRXceg",
+   "titulo": "Lieder ohne Worte: Spring Song, Op. 62, No. 6",
+   "canal": "Vladimir Horowitz - Topic",
+   "dur": "2:17"
+  },
+  "Tchaikovsky June Barcarolle The Seasons": {
+   "id": "pDisuAu2UvM",
+   "titulo": "Bruce Liu - Tchaikovsky: The Seasons, Op. 37a: VI. June. Barcarolle (Official Music Video)",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "2:57"
+  },
+  "Tchaikovsky October Autumn Song The Seasons": {
+   "id": "FnQgBOvgg6I",
+   "titulo": "Bruce Liu - Tchaikovsky: The Seasons, Op. 37a: X. October. Autumn Song (Official Music Video)",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "5:54"
+  },
+  "Grieg Notturno Op. 54 No. 4": {
+   "id": "xCHHRQ7t9yQ",
+   "titulo": "Grieg: Lyric Pieces Book V, Op. 54: 4. Notturno",
+   "canal": "Alicia de Larrocha - Topic",
+   "dur": "4:10"
+  },
+  "Chopin Nocturne in C sharp minor posthumous": {
+   "id": "s_ST3hzMsVE",
+   "titulo": "Bruce Liu – Chopin: Nocturne in C Sharp Minor, KK IVa/16 (Live Performance)",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "4:40"
+  },
+  "Chopin Nocturne Op. 9 No. 2": {
+   "id": "EvNsPyp5O2I",
+   "titulo": "Lang Lang - Chopin: Nocturne No. 2 in E-Flat Major, Op. 9 No. 2",
+   "canal": "LangLangVEVO",
+   "dur": "4:43"
+  },
+  "Chopin Raindrop Prelude Op. 28 No. 15": {
+   "id": "igc5ul4_0Pg",
+   "titulo": "Chopin: 24 Preludes, Op. 28: No. 15 in D-Flat Major \"Raindrop Prelude\"",
+   "canal": "Maurizio Pollini - Topic",
+   "dur": "5:00"
+  },
+  "John Field Nocturne No. 5 in B flat major": {
+   "id": "ozHFlVuiZNo",
+   "titulo": "Field: Nocturne No. 5 in B-Flat Major, H. 37",
+   "canal": "Elizabeth Joy Roe - Topic",
+   "dur": "3:17"
+  },
+  "Debussy La fille aux cheveux de lin": {
+   "id": "jGSZPRk6aXA",
+   "titulo": "Lang Lang - Claude Debussy, La Fille aux cheveux de lin",
+   "canal": "medici.tv",
+   "dur": "2:43"
+  },
+  "Bartok Romanian Folk Dances Sz. 56 piano": null,
+  "Shostakovich Three Fantastic Dances Op. 5": {
+   "id": "npB3494m7c0",
+   "titulo": "Shostakovich: 3 Fantastic Dances, Op. 5: No. 1, March. Allegretto",
+   "canal": "Nelson Freire - Topic",
+   "dur": "1:03"
+  },
+  "Albeniz Tango Op. 165 No. 2": {
+   "id": "bnhD0lbPu48",
+   "titulo": "Albéniz: Tango, Op. 165, No. 2",
+   "canal": "Pepe Romero - Topic",
+   "dur": "2:14"
+  },
+  "Mompou Cancion y Danza No. 6": {
+   "id": "BnV7xO7pswY",
+   "titulo": "Mompou: Cançons i dansas: No. 6",
+   "canal": "Alicia de Larrocha - Topic",
+   "dur": "3:48"
+  },
+  "Ginastera 12 American Preludes Op. 12": null,
+  "Ernesto Nazareth Odeon piano": null,
+  "Manuel Ponce Intermezzo No. 1 piano": {
+   "id": "MB_vLRJhT2g",
+   "titulo": "Lang Lang, Manuel María Ponce - Intermezzo No. 1 in E Minor",
+   "canal": "LangLangVEVO",
+   "dur": "4:17"
+  },
+  "Lecuona La Comparsa piano": {
+   "id": "HBvP7x0qQA0",
+   "titulo": "La Comparsa",
+   "canal": "Ernesto Lecuona - Topic",
+   "dur": "1:59"
+  },
+  "Bach Sinfonia No. 11 BWV 797": {
+   "id": "fKU-CJ_P8BY",
+   "titulo": "Sinfonia No. 11 in G Minor, BWV 797",
+   "canal": "Tatiana Nikolayeva - Topic",
+   "dur": "3:10"
+  },
+  "Bach Prelude and Fugue in C minor BWV 847": {
+   "id": "CGVL5j6BEKs",
+   "titulo": "Víkingur Ólafsson – Bach: Prelude & Fugue in C minor, BWV 847",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "3:15"
+  },
+  "Bach French Suite No. 5 BWV 816": {
+   "id": "lG8v_BA0Hhs",
+   "titulo": "Bach - French Suite no. 5 in G major BWV 816 - Corti | Netherlands Bach Society",
+   "canal": "Netherlands Bach Society",
+   "dur": "16:53"
+  },
+  "Scarlatti Sonata K. 380": {
+   "id": "EcmFCpoTKXc",
+   "titulo": "Scarlatti Sonata in E Major, K.380 | Tiffany Poon",
+   "canal": "Tiffany Poon",
+   "dur": "7:01"
+  },
+  "Schubert Impromptu D. 899 No. 3": {
+   "id": "LUp2u9wI1fY",
+   "titulo": "Khatia Buniatishvili - Schubert: Impromptu No. 3 in G-Flat Major, Op. 90, D. 899",
+   "canal": "KhatiaBuniatishVEVO",
+   "dur": "6:38"
+  },
+  "Schubert Impromptu D. 935 No. 2": {
+   "id": "pJXDc6-0EmU",
+   "titulo": "Schubert: Impromptu Op. 142 No. 2 in A-Flat Major | Eric Lu",
+   "canal": "Warner Classics",
+   "dur": "8:45"
+  },
+  "Chopin Waltz Op. 64 No. 2": {
+   "id": "WRMI5VsbI64",
+   "titulo": "Rafał Blechacz - Chopin: Waltz No. 7 in C-Sharp Minor, Op. 64 No. 2",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "3:37"
+  },
+  "Schumann Arabeske Op. 18": {
+   "id": "Pdk0CKUZeW4",
+   "titulo": "Arabeske, Op. 18",
+   "canal": "Arthur Rubinstein - Topic",
+   "dur": "8:11"
+  },
+  "Liszt Consolation No. 3 S. 172": {
+   "id": "tSqGEmbzAJo",
+   "titulo": "Seong-Jin Cho - Liszt: Consolations, S. 172: No. 3 Lento placido in D Flat Major (World Piano Day)",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "4:25"
+  },
+  "Brahms Intermezzo Op. 118 No. 2": {
+   "id": "LtFxpnBhLLg",
+   "titulo": "Brahms: 6 Piano Pieces, Op. 118: No. 2, Intermezzo in A Major",
+   "canal": "Radu Lupu - Topic",
+   "dur": "5:56"
+  },
+  "Grieg Wedding Day at Troldhaugen Op. 65": {
+   "id": "T1a732wa2bY",
+   "titulo": "Lang Lang - Grieg: Lyric Pieces, Book 8, Op. 65: No. 6, Wedding Day at Troldhaugen - Visualizer",
+   "canal": "LangLangVEVO",
+   "dur": "6:28"
+  },
+  "Debussy Clair de lune": null,
+  "Debussy Golliwogg's Cakewalk": {
+   "id": "p5Rhv1E3tEM",
+   "titulo": "Seong-Jin Cho – Debussy: Golliwog's Cakewalk (Children's Corner, L. 113)",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "2:58"
+  },
+  "Ravel Pavane pour une infante défunte piano": {
+   "id": "UIXe7H52UkA",
+   "titulo": "Seong-Jin Cho - Ravel: Pavane Pour Une Infante Défunte",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "6:47"
+  },
+  "Granados Spanish Dance No. 5 Andaluza": {
+   "id": "zGmNvj0BtR8",
+   "titulo": "Granados: 12 Danzas españolas, Op. 37: 5. Andaluza",
+   "canal": "Alicia de Larrocha - Topic",
+   "dur": "4:24"
+  },
+  "Prokofiev Visions fugitives Op. 22": {
+   "id": "DornbxLz8aM",
+   "titulo": "Prokófiev: Visiones fugitivas Op. 22 | Alexander Melnikov",
+   "canal": "Fundación Juan March",
+   "dur": "20:34"
+  },
+  "Scriabin Etude Op. 2 No. 1": null,
+  "Scott Joplin Maple Leaf Rag piano": {
+   "id": "s_nBSSXiG9w",
+   "titulo": "Maple Leaf Rag",
+   "canal": "Scott Joplin - Topic",
+   "dur": "3:31"
+  },
+  "Mozart Sonata in A major K. 331": {
+   "id": "n2Tru4Qa3pc",
+   "titulo": "YUNDI plays Mozart: Piano Sonata No. 11 in A Major, K. 331 \"Alla Turca\": III. Rondo alla Turca",
+   "canal": "Warner Classics",
+   "dur": "3:24"
+  },
+  "Beethoven Sonata Pathetique Op. 13": {
+   "id": "qO8yfBLNVjU",
+   "titulo": "Beethoven Sonata No. 8 in C minor Op. 13 \"Pathétique\" Live - Lisitsa",
+   "canal": "Valentina Lisitsa QOR Records Official channel",
+   "dur": "17:06"
+  },
+  "Beethoven Moonlight Sonata Op. 27 No. 2": {
+   "id": "ITidiBe-0T0",
+   "titulo": "Beethoven Sonata # 14 \"Moonlight\" Op. 27 No. 2 Valentina Lisitsa",
+   "canal": "Valentina Lisitsa QOR Records Official channel",
+   "dur": "14:26"
+  },
+  "Schubert Impromptu D. 899 No. 2": {
+   "id": "VmcqScvd1n8",
+   "titulo": "Grigory Sokolov – Schubert: Impromptus D'899, Nr. 2 in Es major",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "5:45"
+  },
+  "Mendelssohn Rondo Capriccioso Op. 14": {
+   "id": "r9u7ougq7VE",
+   "titulo": "Tiffany Poon - Mendelssohn Rondo Capriccioso",
+   "canal": "Tiffany Poon",
+   "dur": "6:55"
+  },
+  "Schumann Papillons Op. 2": {
+   "id": "kE_8GBnXNVw",
+   "titulo": "Schumann: Papillons, Op. 2",
+   "canal": "Vladimir Ashkenazy - Topic",
+   "dur": "15:13"
+  },
+  "Chopin Nocturne Op. 48 No. 1": {
+   "id": "tSAwZP8e-zQ",
+   "titulo": "Seong-Jin Cho – Nocturne in C minor Op. 48 No. 1 (first stage)",
+   "canal": "Chopin Institute",
+   "dur": "6:01"
+  },
+  "Chopin Fantaisie Impromptu Op. 66": {
+   "id": "Gy5UHK4EeM8",
+   "titulo": "Daniil Trifonov – Chopin: Fantaisie-Impromptu In C-Sharp Minor, Op. 66",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "6:23"
+  },
+  "Chopin Etude Op. 10 No. 3": {
+   "id": "mpiJbQvBP8A",
+   "titulo": "Chopin Etude Op 10 No.3 Valentina Lisitsa",
+   "canal": "Valentina Lisitsa QOR Records Official channel",
+   "dur": "4:21"
+  },
+  "Liszt Liebestraum No. 3": null,
+  "Brahms Rhapsody Op. 79 No. 2": {
+   "id": "iF_AMX4MuMI",
+   "titulo": "Brahms: 2 Rhapsodies, Op. 79: No. 2 in G Minor. Molto passionato, ma non troppo allegro",
+   "canal": "Martha Argerich - Topic",
+   "dur": "6:32"
+  },
+  "Rachmaninoff Prelude in C sharp minor Op. 3 No. 2": {
+   "id": "JBg2pB9uuik",
+   "titulo": "Prelude, Op. 3: No. 2 in C-Sharp Minor",
+   "canal": "Arthur Rubinstein - Topic",
+   "dur": "4:15"
+  },
+  "Debussy La cathédrale engloutie": {
+   "id": "b7vYNSlp_bo",
+   "titulo": "Préludes, Book 1, L. 117: No. 10: La cathedrale engloutie",
+   "canal": "François-Joël Thiollier - Topic",
+   "dur": "5:53"
+  },
+  "Ravel Sonatine piano": {
+   "id": "jJjDBuxhJsI",
+   "titulo": "Seong-Jin Cho - Ravel: Sonatine, M. 40: I. Modéré (Official Music Video)",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "4:55"
+  },
+  "Albeniz Asturias Leyenda piano": {
+   "id": "CQruHcDza9c",
+   "titulo": "Albéniz: Suite española No. 1, Op. 47: Asturias (Leyenda)",
+   "canal": "Alicia de Larrocha - Topic",
+   "dur": "5:59"
+  },
+  "Falla Ritual Fire Dance piano": null,
+  "Ginastera Danzas Argentinas Op. 2": {
+   "id": "LMNRVBn6oSg",
+   "titulo": "Lang Lang - Ginastera: Danzas Argentinas, Op. 2: II. Danza de la moza donosa",
+   "canal": "LangLangVEVO",
+   "dur": "3:55"
+  },
+  "Villa-Lobos O Polichinelo piano": null,
+  "Bartok Allegro barbaro": {
+   "id": "iNXlkInOlPQ",
+   "titulo": "Dénes Várjon - Bartók: Allegro barbaro, Sz. 49",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "2:31"
+  },
+  "Khachaturian Toccata piano": null,
+  "Gershwin Three Preludes piano": {
+   "id": "Inf5x6vB5Jg",
+   "titulo": "Preludes No. 1, 2, & 3",
+   "canal": "George Gershwin - Topic",
+   "dur": "4:57"
+  },
+  "Lecuona Malagueña piano": {
+   "id": "bM1J82ryTtg",
+   "titulo": "Malagueña (from Andalucia [Suite Española]) (1997 Remastered)",
+   "canal": "Ernesto Lecuona - Topic",
+   "dur": "3:12"
+  },
+  "Bach Italian Concerto BWV 971": {
+   "id": "wWge3Yr6_0I",
+   "titulo": "Justus Eichhorn - Bach: Italian Concerto, BWV 971: I. Allegro",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "4:17"
+  },
+  "Bach Partita No. 2 BWV 826": {
+   "id": "BFjgA9t2bU4",
+   "titulo": "Bach - Partita no. 2 in C minor BWV 826 - Edwards | Netherlands Bach Society",
+   "canal": "Netherlands Bach Society",
+   "dur": "25:28"
+  },
+  "Mozart Sonata in A minor K. 310": {
+   "id": "5ffHnJ6wbqc",
+   "titulo": "Mozart: Piano Sonata No. 8 in A minor, K. 310: III. Presto",
+   "canal": "Warner Classics",
+   "dur": "3:15"
+  },
+  "Haydn Sonata in E flat major Hob. XVI:52": {
+   "id": "Tug4GfiN3II",
+   "titulo": "Haydn Piano Sonata E flat major Hob XVI:52 No. 62 Valentina Lisitsa",
+   "canal": "Valentina Lisitsa QOR Records Official channel",
+   "dur": "17:13"
+  },
+  "Beethoven Waldstein Sonata Op. 53": {
+   "id": "QuvqXi4xlw0",
+   "titulo": "Beethoven Sonata #21 \"Waldstein\" Op.53  Valentina Lisitsa",
+   "canal": "Valentina Lisitsa QOR Records Official channel",
+   "dur": "25:07"
+  },
+  "Chopin Ballade No. 1 Op. 23": {
+   "id": "mxx_WcjV5U8",
+   "titulo": "Chopin: Ballade No. 1 in G Minor, Op. 23",
+   "canal": "Krystian Zimerman - Topic",
+   "dur": "9:36"
+  },
+  "Chopin Scherzo No. 2 Op. 31": {
+   "id": "RQn34klqSQI",
+   "titulo": "Krystian Zimerman - Chopin: Scherzo No. 2 in B-Flat Minor Op. 31",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "11:01"
+  },
+  "Chopin Polonaise Op. 53 Heroic": {
+   "id": "aZYYoDDmg8M",
+   "titulo": "Seong-Jin Cho – Polonaise in A flat major Op. 53 (Prize-winners' Concert)",
+   "canal": "Chopin Institute",
+   "dur": "7:29"
+  },
+  "Chopin Revolutionary Etude Op. 10 No. 12": {
+   "id": "Gi5VTBdKbFM",
+   "titulo": "Chopin Etude Op 10 No.12 Valentina Lisitsa",
+   "canal": "Valentina Lisitsa QOR Records Official channel",
+   "dur": "2:45"
+  },
+  "Liszt Hungarian Rhapsody No. 2": {
+   "id": "lmfaARxYFVo",
+   "titulo": "Hungarian Rhapsody, S. 244, R.106, No. 2 in C-Sharp Minor",
+   "canal": "Alfred Brendel - Topic",
+   "dur": "10:36"
+  },
+  "Debussy Jardins sous la pluie": {
+   "id": "w_vdn7tl-nU",
+   "titulo": "Debussy: Estampes, L. 100: III. Jardins sous la pluie",
+   "canal": "Víkingur Ólafsson - Topic",
+   "dur": "3:56"
+  },
+  "Ravel Jeux d'eau": {
+   "id": "Z1QrFd7lNcU",
+   "titulo": "Seong-Jin Cho - Ravel: Jeux D'Eau, M.30",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "5:44"
+  },
+  "Granados Quejas o la maja y el ruiseñor": {
+   "id": "NjTi23owzZ0",
+   "titulo": "Granados: Goyescas (Suite): 4. Quejas ó la maja y el ruiseñor",
+   "canal": "Alicia de Larrocha - Topic",
+   "dur": "6:38"
+  },
+  "Caro mio ben Giordani": {
+   "id": "1Gu8oi8eJSg",
+   "titulo": "T. Giordani: Caro mio ben",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "2:44"
+  },
+  "Nel cor più non mi sento Paisiello": {
+   "id": "7u-s-47f-ec",
+   "titulo": "Paisiello: Nel cor più non mi sento",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "2:57"
+  },
+  "Amarilli, mia bella Caccini": {
+   "id": "OjlsOFt5BJY",
+   "titulo": "Caccini: Amarilli mia bella",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "3:09"
+  },
+  "Alma del core Caldara": {
+   "id": "X2-3NDcQr24",
+   "titulo": "Caldara: Alma del core",
+   "canal": "Kathleen Kim - Topic",
+   "dur": "3:14"
+  },
+  "Sebben, crudele Caldara": {
+   "id": "ovGLZC1gNLc",
+   "titulo": "Caldara: Sebben crudele mi fai languir'",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "3:01"
+  },
+  "Come raggio di sol Caldara": {
+   "id": "iYhqHiPAjj4",
+   "titulo": "Come raggio di sol",
+   "canal": "Ramon Vargas - Topic",
+   "dur": "2:43"
+  },
+  "Selve amiche Caldara": {
+   "id": "Y1vV4EUBpqY",
+   "titulo": "Caldara: Selve amiche",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "3:08"
+  },
+  "Vittoria, mio core! Carissimi": {
+   "id": "jA4mOHOjq0c",
+   "titulo": "Carissimi: Vittoria, mio core!",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "2:33"
+  },
+  "Per la gloria d'adorarvi Bononcini": {
+   "id": "rdvi_bvovgA",
+   "titulo": "Per la gloria d'adorarvi",
+   "canal": "Ramon Vargas - Topic",
+   "dur": "3:13"
+  },
+  "Già il sole dal Gange Scarlatti": {
+   "id": "7XlRplcM3X8",
+   "titulo": "A. Scarlatti: Gia il sole dal gange",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "1:51"
+  },
+  "O cessate di piagarmi Scarlatti": {
+   "id": "5uSwiZj0NfE",
+   "titulo": "A. Scarlatti: O cessate di piagarmi (from Il Pompeo)",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "2:17"
+  },
+  "Le violette Scarlatti": {
+   "id": "h4hpzv665D8",
+   "titulo": "Le violette",
+   "canal": "Sua Jo - Topic",
+   "dur": "2:32"
+  },
+  "Se tu m'ami Parisotti": {
+   "id": "QQOwogCNW8Q",
+   "titulo": "Parisotti: Se tu m'ami (Prev. Attrib. Pergolesi)",
+   "canal": "Teresa Berganza - Topic",
+   "dur": "2:50"
+  },
+  "Tre giorni son che Nina Ciampi": {
+   "id": "D7yAs0jgbGs",
+   "titulo": "Tre giorni son che Nina (Formerly Attributed to Pergolesi)",
+   "canal": "Tito Gobbi - Topic",
+   "dur": "1:50"
+  },
+  "Tu lo sai Torelli": {
+   "id": "DWOSCw9QKv4",
+   "titulo": "Tu lo sai",
+   "canal": "Holly Bewlay - Topic",
+   "dur": "2:45"
+  },
+  "Star vicino Rosa": {
+   "id": "eMgUtRhOhNg",
+   "titulo": "Star vicino",
+   "canal": "Rosa Ponselle - Topic",
+   "dur": "1:49"
+  },
+  "Lasciatemi morire Monteverdi": {
+   "id": "FPfKRmrgSBg",
+   "titulo": "Lasciatemi morire!",
+   "canal": "Holly Bewlay - Topic",
+   "dur": "1:25"
+  },
+  "O del mio dolce ardor Gluck": {
+   "id": "0Euvbnhrq40",
+   "titulo": "Gluck: Paride ed Elena, Wq. 39 / Act 1 / Scene 1: \"O del mio dolce ardor\"",
+   "canal": "Teresa Berganza - Topic",
+   "dur": "4:09"
+  },
+  "Danza, danza, fanciulla gentile Durante": {
+   "id": "c_HDOU-19I0",
+   "titulo": "Danza, danza, fanciulla gentile",
+   "canal": "Holly Bewlay - Topic",
+   "dur": "1:39"
+  },
+  "Vergin, tutto amor Durante": null,
+  "Pur dicesti, o bocca bella Lotti": {
+   "id": "7eOepwQyVYU",
+   "titulo": "Lotti: Pur dicesti, o bocca bella",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "5:05"
+  },
+  "Bella porta di rubini Falconieri": null,
+  "Heidenröslein Schubert": {
+   "id": "rY_8xkYGDeE",
+   "titulo": "Heidenroslein, Op. 3, No. 3, D. 257",
+   "canal": "Arleen Augér - Topic",
+   "dur": "2:04"
+  },
+  "An die Musik Schubert": {
+   "id": "bZZqZTKoFcM",
+   "titulo": "An die Musik - Schubert - Dietrich Fischer-Dieskau",
+   "canal": "medici.tv",
+   "dur": "2:29"
+  },
+  "Wiegenlied, op. 49 n.º 4 Brahms": {
+   "id": "quvgpEeQXos",
+   "titulo": "5 Lieder, Op. 49: No. 4, Wiegenlied",
+   "canal": "Ingeborg Danz - Topic",
+   "dur": "1:50"
+  },
+  "Das Veilchen Mozart": {
+   "id": "KjxICdLyJMs",
+   "titulo": "Mozart: Das Veilchen, K. 476",
+   "canal": "Katharina Konradi - Topic",
+   "dur": "2:29"
+  },
+  "Sehnsucht nach dem Frühlinge Mozart": {
+   "id": "ANUveKkuzU4",
+   "titulo": "Sehnsucht nach dem Frühlinge KV 596 (Album Version)",
+   "canal": "Sumi Jo - Topic",
+   "dur": "1:18"
+  },
+  "Ich liebe dich Beethoven": {
+   "id": "fwPRfdgwoZA",
+   "titulo": "Beethoven: Zärtliche Liebe, WoO 123 \"Ich liebe dich\"",
+   "canal": "Dietrich Fischer-Dieskau - Topic",
+   "dur": "2:17"
+  },
+  "Auf Flügeln des Gesanges Mendelssohn": {
+   "id": "bp-jJ1KmP6c",
+   "titulo": "Auf Flügeln des Gesanges, Op. 34, No. 2",
+   "canal": "Jonas Kaufmann - Topic",
+   "dur": "2:45"
+  },
+  "Bist du bei mir Stölzel": {
+   "id": "JUze6kWTze0",
+   "titulo": "Albrecht Mayer - Stölzel: Bist du bei mir (Formerly Attrib. J.S. Bach as BWV 508)",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "3:24"
+  },
+  "Plaisir d'amour Martini": {
+   "id": "g2dHmNuCNRg",
+   "titulo": "Plaisir d'amour",
+   "canal": "Claire Lefilliâtre - Topic",
+   "dur": "2:34"
+  },
+  "Lydia Fauré": {
+   "id": "5kfPUflaJXw",
+   "titulo": "2 Mélodies, Op. 4: No. 2, Lydia",
+   "canal": "Véronique Gens - Topic",
+   "dur": "2:26"
+  },
+  "Ici-bas! Fauré": {
+   "id": "Ghb_zZarV6I",
+   "titulo": "Fauré: Ici-bas!, Op. 8 No. 3",
+   "canal": "Geraldine McGreevy - Topic",
+   "dur": "1:36"
+  },
+  "Nell Fauré": {
+   "id": "GFwfbdmrhWA",
+   "titulo": "Fauré: Nell, Op. 18, No. 1",
+   "canal": "Renée Fleming - Topic",
+   "dur": "2:13"
+  },
+  "Si mes vers avaient des ailes Hahn": {
+   "id": "y-l8XVsfYD4",
+   "titulo": "Si mes vers avaient des ailes",
+   "canal": "Susan Graham - Topic",
+   "dur": "2:20"
+  },
+  "Romance  Debussy": {
+   "id": "otO-amZjsKQ",
+   "titulo": "2 Romances, CD 65, L. 79: No. 1, L'âme évaporée et souffrante",
+   "canal": "Sabine Devieilhe - Topic",
+   "dur": "1:56"
+  },
+  "Del cabello más sutil Obradors": {
+   "id": "NRbEWQyJmlQ",
+   "titulo": "SongStudio 2019: Piotr Beczała Master Class: Obradors’s \"Del cabello mas sutil\"",
+   "canal": "Carnegie Hall",
+   "dur": "8:25"
+  },
+  "Al amor Obradors": {
+   "id": "1rJuYsJNEiA",
+   "titulo": "Obradors: Canciones clásicas españolas - No.2 Al amor",
+   "canal": "Kiri Te Kanawa - Topic",
+   "dur": "1:06"
+  },
+  "El majo discreto Granados": {
+   "id": "jstUrJWd7A4",
+   "titulo": "El Majo Discreto",
+   "canal": "Teresa Berganza - Topic",
+   "dur": "1:29"
+  },
+  "Estrellita Ponce": null,
+  "A la orilla de un palmar Ponce": {
+   "id": "kKmwHhOdFpI",
+   "titulo": "A la Orilla de un Palmar",
+   "canal": "Encarnación Vázquez - Topic",
+   "dur": "3:08"
+  },
+  "La rosa y el sauce Guastavino": {
+   "id": "HdV3jWnvdAI",
+   "titulo": "La Rosa y el Sauce",
+   "canal": "Teresa Berganza - Topic",
+   "dur": "2:40"
+  },
+  "Se equivocó la paloma Guastavino": {
+   "id": "SwviwEemifE",
+   "titulo": "Se Equivocó la Paloma",
+   "canal": "Teresa Berganza - Topic",
+   "dur": "2:32"
+  },
+  "Come again, sweet love doth now invite Dowland": {
+   "id": "mxAm03zlBNs",
+   "titulo": "Come again, sweet love doth now invite",
+   "canal": "Ruby Hughes - Topic",
+   "dur": "4:19"
+  },
+  "Since first I saw your face (composer)": {
+   "id": "G2QRhzYMT1E",
+   "titulo": "The Arnold Book of Old Songs: No. 15, Since First I Saw Your Face (After Thomas Ford)",
+   "canal": "Mark Stone - Topic",
+   "dur": "1:54"
+  },
+  "Linden Lea Williams": {
+   "id": "F4at6E0488M",
+   "titulo": "Vaughan Williams: Linden Lea",
+   "canal": "Bryn Terfel - Topic",
+   "dur": "2:19"
+  },
+  "The Salley Gardens Britten": {
+   "id": "mcZAUS7MzdI",
+   "titulo": "The Sally Gardens - Arr. by Britten",
+   "canal": "Bryn Terfel - Topic",
+   "dur": "2:16"
+  },
+  "Simple Gifts Copland": {
+   "id": "ESrUyN0OsM4",
+   "titulo": "Copland: Simple Gifts (Arr. J. S. Pilafian)",
+   "canal": "Empire Brass - Topic",
+   "dur": "3:58"
+  },
+  "Panis angelicus Franck": null,
+  "Pie Jesu Fauré": {
+   "id": "xTf14maKtT8",
+   "titulo": "Requiem, Pie Jesu (Fauré) Philippe Jaroussky & Paavo Järvi",
+   "canal": "Warner Classics",
+   "dur": "3:31"
+  },
+  "Voi che sapete Mozart": {
+   "id": "fEqAXXD98hQ",
+   "titulo": "Voi Che Sapete, from Mozart Marriage of Figaro, by Teresa Berganza",
+   "canal": "medici.tv",
+   "dur": "2:54"
+  },
+  "Non più andrai Mozart": null,
+  "Batti, batti, o bel Masetto Mozart": {
+   "id": "OO-LGMiqnKk",
+   "titulo": "Mozart: Don Giovanni, K. 527, Act I: No. 12, Batti, batti, o bel Masetto",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "3:49"
+  },
+  "Deh vieni alla finestra Mozart": {
+   "id": "n6dXiybqMpo",
+   "titulo": "Don Giovanni: ‘Deh, vieni alla finestra’ (‘Oh, come to the window’) – Glyndebourne",
+   "canal": "Glyndebourne",
+   "dur": "2:37"
+  },
+  "Un'aura amorosa Mozart": {
+   "id": "dKZXK9smflc",
+   "titulo": "Così fan tutte, K. 588, Act I Scene 12: Un'aura amorosa",
+   "canal": "Juan Diego Flórez - Topic",
+   "dur": "4:27"
+  },
+  "Dies Bildnis ist bezaubernd schön Mozart": {
+   "id": "V_r8ywTUICY",
+   "titulo": "Dies Bildnis ist bezaubernd schön (from Die Zauberflöte)",
+   "canal": "Fritz Wunderlich - Topic",
+   "dur": "4:06"
+  },
+  "Ein Mädchen oder Weibchen Mozart": {
+   "id": "yOR_P-LovKQ",
+   "titulo": "Björn Bürger: ‘Ein Mädchen oder Weibchen’ from The Magic Flute (The Organ Room Sessions)",
+   "canal": "Glyndebourne",
+   "dur": "3:56"
+  },
+  "O Isis und Osiris Mozart": {
+   "id": "FtgaathqIu4",
+   "titulo": "Mozart: Die Zauberflöte, K. 620, Act II: No. 10, O Isis und Osiris",
+   "canal": "Martti Talvela - Topic",
+   "dur": "3:25"
+  },
+  "Lascia ch'io pianga Handel": {
+   "id": "exlyq70RGwQ",
+   "titulo": "Handel: Rinaldo, HWV 7a: Lascia ch'io pianga",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "4:51"
+  },
+  "Ombra mai fù Handel": {
+   "id": "FD8eL-1a0As",
+   "titulo": "Franco Fagioli - Handel: Ombra mai fu",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "3:27"
+  },
+  "When I am laid in earth Purcell": {
+   "id": "jq1K_cnVo6Q",
+   "titulo": "Lea Desandre, Thomas Dunford & Jupiter - Purcell “When I am laid in earth” (Dido's Lament)",
+   "canal": "Warner Classics",
+   "dur": "4:43"
+  },
+  "Che farò senza Euridice Gluck": {
+   "id": "D2EoqOcIuuM",
+   "titulo": "Jakub Józef Orliński sings \"Che farò senza Euridice\" (Gluck: Orfeo ed Euridice, Act 3)",
+   "canal": "Warner Classics",
+   "dur": "4:20"
+  },
+  "Una furtiva lagrima Donizetti": {
+   "id": "WMyf4M-UEOs",
+   "titulo": "Pene Pati sings \"Una furtiva lagrima\" from Donizetti's L’Elisir d’amore",
+   "canal": "Warner Classics",
+   "dur": "4:23"
+  },
+  "O mio babbino caro Puccini": {
+   "id": "l1C8NFDdFYg",
+   "titulo": "Maria Callas - Puccini - O mio babbino caro",
+   "canal": "medici.tv",
+   "dur": "2:01"
+  },
+  "Quando m'en vo Puccini": {
+   "id": "IDvE8uKWznc",
+   "titulo": "Anna Netrebko - Puccini - La Bohème Quando m'en vo' soletta",
+   "canal": "medici.tv",
+   "dur": "2:40"
+  },
+  "Vecchia zimarra, senti Puccini": null,
+  "L'amour est un oiseau rebelle  Bizet": {
+   "id": "K2snTkaD64U",
+   "titulo": "Carmen: \"L'amour est un oiseau rebelle\" (Elina Garanca)",
+   "canal": "Metropolitan Opera",
+   "dur": "4:36"
+  },
+  "Mon cœur s'ouvre à ta voix Saint-Saëns": {
+   "id": "zxY3gYX6mVs",
+   "titulo": "Samson et Dalila: “Mon cœur s’ouvre à ta voix”",
+   "canal": "Metropolitan Opera",
+   "dur": "2:43"
+  },
+  "O du, mein holder Abendstern Wagner": {
+   "id": "WQ8qSImgSCw",
+   "titulo": "Eunwon Park | «O du, mein holder Abendstern», Wolfram | Tannhäuser, Richard Wagner",
+   "canal": "argovia philharmonic",
+   "dur": "4:30"
+  },
+  "He was despised Handel": {
+   "id": "Cy4hq4_n7oM",
+   "titulo": "Jakub Józef Orliński - He Was Despised (From Handel's Messiah)",
+   "canal": "Warner Classics",
+   "dur": "8:23"
+  },
+  "I know that my Redeemer liveth Handel": {
+   "id": "Kg7aXEvCeXY",
+   "titulo": "I Know That My Redeemer Liveth",
+   "canal": "SylviaMcNairVEVO",
+   "dur": "5:22"
+  },
+  "Comfort ye… Ev'ry valley Handel": {
+   "id": "3qCD4ONWXYQ",
+   "titulo": "Handel: Messiah / Part 1: Comfort ye, My People...Ev'ry Valley Shall Be Exalted",
+   "canal": "Juan Diego Flórez - Topic",
+   "dur": "6:16"
+  },
+  "The trumpet shall sound Handel": {
+   "id": "0FC0Y2cJhdM",
+   "titulo": "The Trumpet Shall Sound! (Excerpt)",
+   "canal": "New York Philharmonic",
+   "dur": "0:31"
+  },
+  "Where'er you walk Handel": {
+   "id": "xMs6SEcViQ8",
+   "titulo": "\"Where'er You Walk\" (Semele) , HWV 58",
+   "canal": "Elin Manahan Thomas - Topic",
+   "dur": "5:12"
+  },
+  "Erbarme dich Bach": {
+   "id": "Zry9dpM1_n4",
+   "titulo": "Bach - Erbarme dich, mein Gott from St Matthew Passion BWV 244 | Netherlands Bach Society",
+   "canal": "Netherlands Bach Society",
+   "dur": "6:24"
+  },
+  "Laudamus te Vivaldi": null,
+  "If with all your hearts Mendelssohn": {
+   "id": "nlsvHZcVSGA",
+   "titulo": "Mendelssohn: Elijah, Op. 70, MWV A25 / Part 1: \"If with all your hearts ye truly seek Me\"",
+   "canal": "John Mark Ainsley - Topic",
+   "dur": "2:26"
+  },
+  "Du bist die Ruh Schubert": {
+   "id": "HvbXjtIxtIY",
+   "titulo": "Schubert: Du bist die Ruh, D. 776",
+   "canal": "Dietrich Fischer-Dieskau - Topic",
+   "dur": "4:13"
+  },
+  "Ständchen  Schubert": null,
+  "Die Forelle Schubert": {
+   "id": "ZNHHeGwwC3Y",
+   "titulo": "Die Forelle, Op. 32, D. 550",
+   "canal": "Barbara Bonney - Topic",
+   "dur": "2:22"
+  },
+  "Widmung Schumann": {
+   "id": "IUbR5vfKQ10",
+   "titulo": "Fatma Said sings Schumann: Myrthen, Op. 25: No. 1, Widmung",
+   "canal": "Warner Classics",
+   "dur": "2:28"
+  },
+  "Ich grolle nicht Schumann": {
+   "id": "-60SFoMuHiA",
+   "titulo": "Schumann: Dichterliebe, Op. 48: No. 7, Ich grolle nicht",
+   "canal": "Dietrich Fischer-Dieskau - Topic",
+   "dur": "1:37"
+  },
+  "Mondnacht Schumann": {
+   "id": "5hY6beh4Zlw",
+   "titulo": "Schumann: Liederkreis, Op. 39: Mondnacht",
+   "canal": "Jessye Norman - Topic",
+   "dur": "4:21"
+  },
+  "Vergebliches Ständchen Brahms": {
+   "id": "G3PcgmR5euw",
+   "titulo": "Brahms: 5 Romanzen und Gesänge, Op. 84: No. 4, Vergebliches Ständchen",
+   "canal": "Elly Ameling - Topic",
+   "dur": "1:49"
+  },
+  "Morgen! Strauss": {
+   "id": "M1wy65OUD-I",
+   "titulo": "R. Strauss: Morgen, Op. 27, No. 4",
+   "canal": "Barbara Bonney - Topic",
+   "dur": "4:02"
+  },
+  "Zueignung Strauss": {
+   "id": "1ihy_OR8KQk",
+   "titulo": "Richard Strauss: Zueignung",
+   "canal": "Diana Damrau",
+   "dur": "1:45"
+  },
+  "Après un rêve Fauré": {
+   "id": "Crwzlon979I",
+   "titulo": "Sabine Devieilhe, Alexandre Tharaud – Fauré: \"Après un rêve\"",
+   "canal": "Warner Classics",
+   "dur": "2:44"
+  },
+  "Clair de lune Fauré": {
+   "id": "n82LgO42Lhg",
+   "titulo": "Fauré: Clair de lune, Op. 46, No. 2",
+   "canal": "Renée Fleming - Topic",
+   "dur": "2:59"
+  },
+  "Beau soir Debussy": {
+   "id": "0qnaPMx377g",
+   "titulo": "Beau soir, CD 84, L. 6",
+   "canal": "Véronique Gens - Topic",
+   "dur": "2:18"
+  },
+  "À Chloris Hahn": {
+   "id": "mZfOpVe4ib8",
+   "titulo": "À Chloris",
+   "canal": "Susan Graham - Topic",
+   "dur": "3:03"
+  },
+  "Les chemins de l'amour Poulenc": {
+   "id": "29ApVWJfRT8",
+   "titulo": "Sabine Devieilhe, Alexandre Tharaud – Poulenc: \"Les Chemins de l'amour\"",
+   "canal": "Warner Classics",
+   "dur": "3:14"
+  },
+  "Siete canciones populares españolas Falla": null,
+  "La maja dolorosa Granados": {
+   "id": "IS0YCfK1PDM",
+   "titulo": "Tonadillas: La Maja Dolorosa No. 2",
+   "canal": "Monsterrat Caballé; Franco Bonisolli; Julia Hamari - Topic",
+   "dur": "2:22"
+  },
+  "El vito Obradors": {
+   "id": "rxWuWsCTfpI",
+   "titulo": "Obradors: El vito",
+   "canal": "Elly Ameling - Topic",
+   "dur": "2:59"
+  },
+  "Canción de cuna para dormir a un negrito Montsalvatge": {
+   "id": "5ayPYt8oUL0",
+   "titulo": "Canción de cuna para dormir a un negrito | Jasmin White - Queen Elisabeth Competition 2023",
+   "canal": "Queen Elisabeth Competition",
+   "dur": "3:22"
+  },
+  "De España vengo Luna": {
+   "id": "FIrJH9lVj6k",
+   "titulo": "El niño judío: \"De España vengo\"",
+   "canal": "Lisette Oropesa - Topic",
+   "dur": "5:52"
+  },
+  "Cinco canciones populares argentinas, op. 10 Ginastera": {
+   "id": "4LXcB6thCPM",
+   "titulo": "Ginastera: 5 Canciones populares argentinas, Op. 10: No. 1, Chacarera",
+   "canal": "Bernarda Fink - Topic",
+   "dur": "1:02"
+  },
+  "Melodia sentimental Villa-Lobos": {
+   "id": "eaZuti6fpTA",
+   "titulo": "Villa-Lobos: Floresta do Amazonas, W551 - 4. Melodia Sentimental (Live at Borchardt, Be...",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "4:13"
+  },
+  "Music for a while Purcell": {
+   "id": "sdSA0jcnBNo",
+   "titulo": "Purcell: Oedipus: Music for a While",
+   "canal": "Helen Watts - Topic",
+   "dur": "4:09"
+  },
+  "Sure on this shining night Barber": {
+   "id": "JKg4bqYBZlY",
+   "titulo": "Barber: 4 Songs, Op. 13: No. 4, Sure On This Shining Night",
+   "canal": "Elly Ameling - Topic",
+   "dur": "2:27"
+  },
+  "Una voce poco fa Rossini": {
+   "id": "9bbrVLyrlm8",
+   "titulo": "Maria Callas sings Rossini: Il barbiere di Siviglia: \"Una voce poco fa\" (Hamburg, 1959)",
+   "canal": "Warner Classics",
+   "dur": "7:20"
+  },
+  "Largo al factotum Rossini": {
+   "id": "-ipb9xbXSAY",
+   "titulo": "Il Barbiere di Siviglia: \"Largo al factotum\" (Peter Mattei)",
+   "canal": "Metropolitan Opera",
+   "dur": "4:25"
+  },
+  "Ecco, ridente in cielo Rossini": {
+   "id": "6AfxGi_T6Ww",
+   "titulo": "Il Barbiere di Siviglia: \"Ecco ridente in cielo... \"",
+   "canal": "Ramon Vargas - Topic",
+   "dur": "4:39"
+  },
+  "La calunnia è un venticello Rossini": {
+   "id": "RSreEB9P6S4",
+   "titulo": "Rossini, Il barbiere di Siviglia, La calunnia (Ferruccio Furlanetto)",
+   "canal": "Teatro La Fenice",
+   "dur": "4:41"
+  },
+  "Non più mesta Rossini": {
+   "id": "X-kRgs3H7so",
+   "titulo": "Cecilia Bartoli - \"Non più mesta\" - Rossini (The Cenerentola)",
+   "canal": "medici.tv",
+   "dur": "3:29"
+  },
+  "Cruda sorte! Amor tiranno! Rossini": {
+   "id": "sNP9MVutmq0",
+   "titulo": "Rossini: L'italiana in Algeri / Act 1: \"Cruda sorte! Amor tiranno!\"",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "4:58"
+  },
+  "Der Hölle Rache Mozart": {
+   "id": "D1-CbocY21E",
+   "titulo": "Mozart: Die Zauberflöte, K. 620, Act II: \"Der Hölle Rache\" (Queen of the Night Aria) – Jodie Devos",
+   "canal": "Warner Classics",
+   "dur": "1:24"
+  },
+  "Come scoglio Mozart": {
+   "id": "d4Nzo4AA-Wk",
+   "titulo": "Mozart: Così fan tutte, K. 588, Act I: Recit. Temerari – No. 14, Aria. Come scoglio",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "5:51"
+  },
+  "Il mio tesoro Mozart": {
+   "id": "OGoNdNl-rys",
+   "titulo": "Don Giovanni, K. 527, Act II Scene 10: Il mio tesoro intanto",
+   "canal": "Juan Diego Flórez - Topic",
+   "dur": "4:15"
+  },
+  "Madamina, il catalogo è questo Mozart": {
+   "id": "jRJFKpUSpYw",
+   "titulo": "Don Giovanni, K. 527: Madamina, il catalogo è questo",
+   "canal": "José van Dam - Topic",
+   "dur": "5:44"
+  },
+  "Casta diva Bellini": {
+   "id": "s-TwMfgaDC8",
+   "titulo": "Maria Callas sings \"Casta Diva\" (Bellini: Norma, Act 1)",
+   "canal": "Warner Classics",
+   "dur": "7:14"
+  },
+  "Regnava nel silenzio Donizetti": {
+   "id": "xF_5AJqxgM0",
+   "titulo": "Nadine Sierra & Ivan Repušić – Donizetti: Regnava nel silenzio 'Lucia di Lammermoor'",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "9:26"
+  },
+  "Ah! mes amis… Pour mon âme Donizetti": {
+   "id": "jeM2ICpkVBM",
+   "titulo": "Donizetti’s La Fille du Régiment: “Ah, mes amis ... Pour mon âme” (Lawrence Brownlee)",
+   "canal": "Metropolitan Opera",
+   "dur": "1:07"
+  },
+  "Caro nome Verdi": {
+   "id": "Yyt346bG4S8",
+   "titulo": "Giuseppe Verdi, Rigoletto - Caro nome (Nadine Sierra)",
+   "canal": "Teatro La Fenice",
+   "dur": "6:34"
+  },
+  "La donna è mobile Verdi": {
+   "id": "a8-vZJNY10k",
+   "titulo": "The Three Tenors in Concert 1994: \"La donna è mobile\" from Rigoletto",
+   "canal": "Warner Classics",
+   "dur": "2:07"
+  },
+  "Cortigiani, vil razza dannata Verdi": {
+   "id": "lMm9GFmoEwU",
+   "titulo": "Rigoletto, Act III: Cortigiani, vil razza dannata",
+   "canal": "Ettore Bastianini - Topic",
+   "dur": "4:15"
+  },
+  "È strano… Ah, fors'è lui… Sempre libera Verdi": {
+   "id": "Xe8idzmeg6Q",
+   "titulo": "Verdi È strano - Ah, fors'è lui - Sempre libera | Julia Muzychenko-Greenhalgh",
+   "canal": "Queen Elisabeth Competition",
+   "dur": "9:47"
+  },
+  "Stride la vampa Verdi": {
+   "id": "4eGlFme5SvU",
+   "titulo": "Il Trovatore: “Stride la vampa”",
+   "canal": "Metropolitan Opera",
+   "dur": "3:02"
+  },
+  "O don fatale Verdi": {
+   "id": "4L7BIRl_sc8",
+   "titulo": "Maria Callas sings Verdi: Don Carlo, Act 3: \"O Don Fatale\" (Hamburg, 1962)",
+   "canal": "Warner Classics",
+   "dur": "5:46"
+  },
+  "Ella giammai m'amò Verdi": {
+   "id": "ZLlpoR_qMDs",
+   "titulo": "Don Carlo: \"Ella giammai m'amò\" (Ferruccio Furlanetto)",
+   "canal": "Metropolitan Opera",
+   "dur": "8:11"
+  },
+  "Il lacerato spirito Verdi": {
+   "id": "-vDgMXXmGrE",
+   "titulo": "Philip Skinner - Il lacerato spirito from Simon Boccanegra (CSOTW, 24th July 1983)",
+   "canal": "BBC Cardiff Singer Of The World",
+   "dur": "4:25"
+  },
+  "Celeste Aida Verdi": {
+   "id": "IY8k9FsGQpA",
+   "titulo": "Luciano Pavarotti sings Celeste Aida (Verdi)",
+   "canal": "Warner Classics",
+   "dur": "3:18"
+  },
+  "Avant de quitter ces lieux Gounod": null,
+  "Ah! je veux vivre Gounod": {
+   "id": "l_eBx4IMZEs",
+   "titulo": "Nadine Sierra & Ivan Repušić – Gounod: Je veux vivre from 'Roméo et Juliette, CG 9'",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "4:34"
+  },
+  "Où va la jeune Indoue?  Delibes": {
+   "id": "_CHMUWnZqfo",
+   "titulo": "LAKME', Ah! Où va la Jeune Indoue (Restored Audio, 1960) - Opera",
+   "canal": "ClassicalCityVEVO",
+   "dur": "7:51"
+  },
+  "Che gelida manina Puccini": {
+   "id": "o7Sw_YiX114",
+   "titulo": "Puccini: La bohème, SC 67 / Act 1: \"Che gelida manina\"",
+   "canal": "Jonas Kaufmann - Topic",
+   "dur": "5:07"
+  },
+  "Vissi d'arte Puccini": {
+   "id": "KAh8sVNJA1w",
+   "titulo": "Elsa Dreisig sings \"Vissi d'arte\" (Puccini: Tosca)",
+   "canal": "Warner Classics",
+   "dur": "3:28"
+  },
+  "Nessun dorma Puccini": {
+   "id": "cWc7vYjgnTs",
+   "titulo": "Luciano Pavarotti sings \"Nessun dorma\" from Turandot (The Three Tenors in Concert 1994)",
+   "canal": "Warner Classics",
+   "dur": "3:16"
+  },
+  "Vesti la giubba Leoncavallo": {
+   "id": "9Ug8OdslZg4",
+   "titulo": "Jonas Kaufmann - \"Vesti la giubba\" from Verismo Arias - Pagliacci, Leoncavallo",
+   "canal": "Decca Classics",
+   "dur": "2:33"
+  },
+  "Weiche, Wotan, weiche! Wagner": {
+   "id": "s4Jr7mWDOcw",
+   "titulo": "Wagner Weiche, Wotan! Weiche! | Jasmin White - Queen Elisabeth Competition 2023",
+   "canal": "Queen Elisabeth Competition",
+   "dur": "4:34"
+  },
+  "Kuda, kuda  Tchaikovsky": {
+   "id": "SxZEctqrDIU",
+   "titulo": "Benjamin Bernheim – Tchaikovsky: Eugene Onegin, Op. 24, TH 5: “Kuda, kuda, kuda vi udalilis”",
+   "canal": "Deutsche Grammophon - DG",
+   "dur": "8:21"
+  },
+  "Canción a la luna  Dvořák": null,
+  "Glitter and be gay Bernstein": {
+   "id": "ZyDOBnUQvUI",
+   "titulo": "Bernstein: Candide - 'Glitter and be Gay' - BBC Proms",
+   "canal": "BBC",
+   "dur": "6:04"
+  },
+  "Rejoice greatly Handel": {
+   "id": "bHQpeGzio4k",
+   "titulo": "BBC Proms: Handel's Messiah - 'Rejoice greatly'",
+   "canal": "BBC Music",
+   "dur": "4:33"
+  },
+  "Why do the nations Handel": {
+   "id": "PIz8_UWdo7k",
+   "titulo": "Handel: Messiah, HWV 56, Pt. 2: No. 40, Aria. Why Do the Nations So Furiously Rage Together? (Bass)",
+   "canal": "Bryn Terfel - Topic",
+   "dur": "4:54"
+  },
+  "Let the bright Seraphim Handel": {
+   "id": "ktmZb_jIARI",
+   "titulo": "Handel: Samson HWV 57 / Act 3: Let the bright seraphim",
+   "canal": "Renée Fleming - Topic",
+   "dur": "5:35"
+  },
+  "Exsultate, jubilate Mozart": {
+   "id": "rn67bIaA3rY",
+   "titulo": "Mozart: Exsultate, jubilate, K. 165",
+   "canal": "Cecilia Bartoli - Topic",
+   "dur": "14:38"
+  },
+  "Cujus animam Rossini": {
+   "id": "ESHAxzfZ0vc",
+   "titulo": "Stabat Mater, IGR 67: II. Cujus animam",
+   "canal": "Orchestra sinfonica di Roma della RAI - Topic",
+   "dur": "6:21"
+  },
+  "It is enough Mendelssohn": {
+   "id": "7McOLSCDMtI",
+   "titulo": "Mendelssohn: Elijah, Op. 70, MWV A25 / Part 2: \"It is enough! O Lord, now take away my life\"",
+   "canal": "Bryn Terfel - Topic",
+   "dur": "5:29"
+  },
+  "Erlkönig Schubert": null,
+  "Gretchen am Spinnrade Schubert": {
+   "id": "HOAg01lmVGs",
+   "titulo": "Schubert: Gretchen am Spinnrade, D. 118",
+   "canal": "Renée Fleming - Topic",
+   "dur": "3:23"
+  },
+  "Die junge Nonne Schubert": {
+   "id": "5ifFaFb9yQ0",
+   "titulo": "Schubert: Die junge Nonne, D. 828",
+   "canal": "Renée Fleming - Topic",
+   "dur": "4:37"
+  },
+  "Cäcilie Strauss": {
+   "id": "DegXjhCDUB8",
+   "titulo": "4 Lieder, Op. 27: No. 2, Cäcilie",
+   "canal": "Diana Damrau - Topic",
+   "dur": "2:30"
+  },
+  "Kennst du das Land Wolf": {
+   "id": "bME6xJF7L18",
+   "titulo": "Goethe-Lieder (Excerpts) : No. 9, Mignon. Kennst du das Land? (Live)",
+   "canal": "ELISABETH SCHWARZKOPF - Topic",
+   "dur": "6:52"
+  },
+  "Ich bin der Welt abhanden gekommen Mahler": {
+   "id": "ECGTCoxhjCM",
+   "titulo": "Mahler: Rückert Lieder: Ich bin der Welt abhanden gekommen",
+   "canal": "Dietrich Fischer-Dieskau - Topic",
+   "dur": "6:57"
+  },
+  "L'invitation au voyage (composer)": null,
+  "Phidylé (composer)": {
+   "id": "vEyRjbys6kI",
+   "titulo": "Duparc: Phidylé",
+   "canal": "Léopold Simoneau - Topic",
+   "dur": "5:39"
+  },
+  "No puede ser Sorozábal": {
+   "id": "SDpqQYYW71g",
+   "titulo": "Sorozábal: La tabernera del puerto, Act II: No puede ser (Live)",
+   "canal": "Plácido Domingo - Topic",
+   "dur": "2:46"
+  },
+  "Canción del ruiseñor Vives": null,
+  "Bachianas Brasileiras n.º 5: Aria  Villa-Lobos": {
+   "id": "r-YPHPCm-6c",
+   "titulo": "Villa-Lobos: Bachianas brasileiras No. 5 - Aria",
+   "canal": "Laurindo Almeida - Topic",
+   "dur": "5:57"
+  },
+  "Knoxville: Summer of 1915 Barber": {
+   "id": "I7vNI3UimM4",
+   "titulo": "Barber: Knoxville. Summer of 1915, Op. 24",
+   "canal": "Kathleen Battle - Topic",
+   "dur": "14:54"
+  }
  }
 }
