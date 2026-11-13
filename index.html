@@ -1442,6 +1442,7 @@ const minDia=c=>c<=3?30:c<=6?60:90;
 const fragTam=c=>c<=3?[4,8]:c<=6?[8,16]:[8,24];
 const limPB=c=>c<=3?1:c<=6?2:99;
 const totalRutina=c=>c<=3?40:c<=6?75:120;
+const esActiva=o=>(o.col>0&&o.col<5)||!!o.repaso;
 const nivelKey=c=>c<=3?'basico':c<=6?'intermedio':'avanzado';
 /* Recursos de la profesora: un documento dentro de «eventos», la única colección que todos pueden leer */
 const REC_PATH='eventos/recursos-octavia';
@@ -1996,7 +1997,7 @@ function cajonObras(){
     if(o.col===4&&o.tempoMeta)prog+='<span class="mono" style="font-size:.66rem;color:var(--muted)">♩ = '+(o.tempoActual||'—')+' de '+o.tempoMeta+'</span>';
     return '<article class="ob'+(on?' on':'')+'"><span class="band b'+o.col+'"><span>'+(o.repaso?'Repaso':COLS[o.col].n)+'</span><span class="mono">'+(o.col+1)+'/6</span></span><div class="body"><div><h4>'+esc(o.titulo)+'</h4><span class="by">'+esc(o.compositor||'')+'</span></div>'+prog+'<span class="stepdots" aria-hidden="true">'+COLS.map((x,i)=>'<i class="'+(i<=o.col?'on':'')+'"></i>').join('')+'</span></div><div class="foot"><button data-act="obra" data-id="'+o.id+'">Abrir</button>'+(on?'<span class="chip brand">En el atril</span>':'<button data-act="stand" data-id="'+o.id+'">Poner en el atril →</button>')+'</div></article>'}).join('')+
     '</div><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap"><span class="hint">'+(term?term+(term===1?' obra terminada':' obras terminadas')+' en tu historial.':'')+'</span><span style="display:flex;gap:8px"><button class="btn btn-sm" data-act="nueva-obra">'+ic('plus','sm')+' Agregar obra</button><a class="btn btn-sm btn-primary" href="#atril">Ver tablero completo</a></span></div></div>':'';
-  return '<section class="drawer'+(open?' open':'')+'"><button data-act="drawer" aria-expanded="'+!!open+'"><span style="display:flex;align-items:center;gap:12px"><span class="tile-ic" style="background:var(--brand-soft);color:var(--brand-text)">'+ic('board')+'</span><span><h3>Mis obras en el atril</h3><span class="muted" style="font-size:.8rem">'+obs.length+' activas'+(term?' · '+term+' terminada'+(term>1?'s':''):'')+'</span></span></span><span style="display:flex;align-items:center;gap:10px">'+(open?'':'<span class="pills">'+pills+'</span>')+'<span class="chev">'+ic('right','sm')+'</span></span></button>'+body+'</section>';
+  return '<section class="drawer'+(open?' open':'')+'"><button data-act="drawer" aria-expanded="'+!!open+'"><span style="display:flex;align-items:center;gap:12px"><span class="tile-ic" style="background:var(--brand-soft);color:var(--brand-text)">'+ic('board')+'</span><span><h3>Mis obras en el atril</h3><span class="muted" style="font-size:.8rem">'+(()=>{const n=obs.filter(esActiva).length,se=obs.filter(o=>!esActiva(o)).length;return n+(n===1?' activa':' activas')+(se?' · '+se+' sin empezar':'')})()+(term?' · '+term+' terminada'+(term>1?'s':''):'')+'</span></span></span><span style="display:flex;align-items:center;gap:10px">'+(open?'':'<span class="pills">'+pills+'</span>')+'<span class="chev">'+ic('right','sm')+'</span></span></button>'+body+'</section>';
 }
 function vProgreso(){
   const p=S.perfil,st=S.st,c=+p.ciclo,R=ROMAN[c-1];
@@ -2756,7 +2757,7 @@ async function doSync(extra){
   const dias={},cut=ymd(addDays(new Date(),-40)),d=diasDe(S.sesiones);for(const f in d)if(f>=cut)dias[f]=d[f];
   const term=S.obras.filter(o=>o.col===5&&(o.terminadaEn||'').startsWith(mk)).length;
   const fechas=Object.keys(S.sesiones).filter(f=>dayMin(S.sesiones[f])>0).sort();
-  const data={dias,racha:st.racha,minutosMes:st.minMes,semanasMes:st.semanasMes,terminadasMes:term,puntaje:st.minMes+60*st.semanasMes+100*term,mes:mk,ultimaSesion:fechas[fechas.length-1]||null,obrasActivas:S.obras.filter(o=>o.col<5).length,...extra};
+  const data={dias,racha:st.racha,minutosMes:st.minMes,semanasMes:st.semanasMes,terminadasMes:term,puntaje:st.minMes+60*st.semanasMes+100*term,mes:mk,ultimaSesion:fechas[fechas.length-1]||null,obrasActivas:S.obras.filter(esActiva).length,...extra};
   const path='alumnos/'+S.uid;
   try{await encolar(path,()=>S.db.doc(path).update(data))}catch(e){}
 }
