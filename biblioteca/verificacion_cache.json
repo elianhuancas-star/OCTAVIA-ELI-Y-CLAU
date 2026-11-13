@@ -1,0 +1,1203 @@
+{
+ "comp": {
+  "Tommaso Giordani": {
+   "ok": true,
+   "titulo": "Tommaso Giordani",
+   "desc": "Italian composer (c. 1730 – 1806)",
+   "url": "https://en.wikipedia.org/wiki/Tommaso_Giordani",
+   "qid": "Q718406",
+   "nace": 1730,
+   "muere": 1806
+  },
+  "Giovanni Paisiello": {
+   "ok": true,
+   "titulo": "Giovanni Paisiello",
+   "desc": "Italian Classical era composer (1740–1816)",
+   "url": "https://en.wikipedia.org/wiki/Giovanni_Paisiello",
+   "qid": "Q202303",
+   "nace": 1740,
+   "muere": 1816
+  },
+  "Giulio Caccini": {
+   "ok": true,
+   "titulo": "Giulio Caccini",
+   "desc": "Italian composer (1551–1618)",
+   "url": "https://en.wikipedia.org/wiki/Giulio_Caccini",
+   "qid": "Q215308",
+   "nace": 1551,
+   "muere": 1618
+  },
+  "Antonio Caldara": {
+   "ok": true,
+   "titulo": "Antonio Caldara",
+   "desc": "Italian composer (c.1670–1736)",
+   "url": "https://en.wikipedia.org/wiki/Antonio_Caldara",
+   "qid": "Q311571",
+   "nace": 1670,
+   "muere": 1736
+  },
+  "Giacomo Carissimi": {
+   "ok": true,
+   "titulo": "Giacomo Carissimi",
+   "desc": "Italian composer (1605–1674)",
+   "url": "https://en.wikipedia.org/wiki/Giacomo_Carissimi",
+   "qid": "Q312686",
+   "nace": 1605,
+   "muere": 1674
+  },
+  "Giovanni Bononcini": {
+   "ok": true,
+   "titulo": "Giovanni Bononcini",
+   "desc": "Italian composer (1670–1747)",
+   "url": "https://en.wikipedia.org/wiki/Giovanni_Bononcini",
+   "qid": "Q315241",
+   "nace": 1670,
+   "muere": 1747
+  },
+  "Alessandro Scarlatti": {
+   "ok": true,
+   "titulo": "Alessandro Scarlatti",
+   "desc": "Italian Baroque composer (1660–1725)",
+   "url": "https://en.wikipedia.org/wiki/Alessandro_Scarlatti",
+   "qid": "Q183087",
+   "nace": 1660,
+   "muere": 1725
+  },
+  "Alessandro Parisotti": {
+   "ok": true,
+   "titulo": "Alessandro Parisotti",
+   "desc": "Italian composer (1853–1913)",
+   "url": "https://en.wikipedia.org/wiki/Alessandro_Parisotti",
+   "qid": "Q1090996",
+   "nace": 1853,
+   "muere": 1913
+  },
+  "Vincenzo Legrenzio Ciampi": {
+   "ok": true,
+   "titulo": "Vincenzo Legrenzo Ciampi",
+   "desc": "Italian composer (1719–1762)",
+   "url": "https://en.wikipedia.org/wiki/Vincenzo_Legrenzo_Ciampi",
+   "qid": "Q589761",
+   "nace": 1719,
+   "muere": 1762
+  },
+  "Giuseppe Torelli": {
+   "ok": true,
+   "titulo": "Giuseppe Torelli",
+   "desc": "Italian Baroque violinist and composer (1658–1709)",
+   "url": "https://en.wikipedia.org/wiki/Giuseppe_Torelli",
+   "qid": "Q207532",
+   "nace": 1658,
+   "muere": 1709
+  },
+  "Salvator Rosa": {
+   "ok": true,
+   "titulo": "Salvator Rosa",
+   "desc": "Italian painter, poet and printmaker (1615–1673)",
+   "url": "https://en.wikipedia.org/wiki/Salvator_Rosa",
+   "qid": "Q359421",
+   "nace": 1615,
+   "muere": 1673
+  },
+  "Claudio Monteverdi": {
+   "ok": true,
+   "titulo": "Claudio Monteverdi",
+   "desc": "Italian composer (1567–1643)",
+   "url": "https://en.wikipedia.org/wiki/Claudio_Monteverdi",
+   "qid": "Q53068",
+   "nace": 1567,
+   "muere": 1643
+  },
+  "Christoph Willibald Gluck": {
+   "ok": true,
+   "titulo": "Christoph Willibald Gluck",
+   "desc": "Opera composer (1714–1787)",
+   "url": "https://en.wikipedia.org/wiki/Christoph_Willibald_Gluck",
+   "qid": "Q130759",
+   "nace": 1714,
+   "muere": 1787
+  },
+  "Francesco Durante": {
+   "ok": true,
+   "titulo": "Francesco Durante",
+   "desc": "Italian composer (1684–1755)",
+   "url": "https://en.wikipedia.org/wiki/Francesco_Durante",
+   "qid": "Q314221",
+   "nace": 1684,
+   "muere": 1755
+  },
+  "Antonio Lotti": {
+   "ok": true,
+   "titulo": "Antonio Lotti",
+   "desc": "Italian composer (1667–1740)",
+   "url": "https://en.wikipedia.org/wiki/Antonio_Lotti",
+   "qid": "Q168345",
+   "nace": 1667,
+   "muere": 1740
+  },
+  "Andrea Falconieri": {
+   "ok": true,
+   "titulo": "Andrea Falconieri",
+   "desc": "Italian composer and luternist",
+   "url": "https://en.wikipedia.org/wiki/Andrea_Falconieri",
+   "qid": "Q493861",
+   "nace": 1580,
+   "muere": 1656
+  },
+  "Franz Schubert": {
+   "ok": true,
+   "titulo": "Franz Schubert",
+   "desc": "Austrian composer (1797–1828)",
+   "url": "https://en.wikipedia.org/wiki/Franz_Schubert",
+   "qid": "Q7312",
+   "nace": 1797,
+   "muere": 1828
+  },
+  "Johannes Brahms": {
+   "ok": true,
+   "titulo": "Johannes Brahms",
+   "desc": "German composer and pianist (1833–1897)",
+   "url": "https://en.wikipedia.org/wiki/Johannes_Brahms",
+   "qid": "Q7294",
+   "nace": 1833,
+   "muere": 1897
+  },
+  "Wolfgang Amadeus Mozart": {
+   "ok": true,
+   "titulo": "Wolfgang Amadeus Mozart",
+   "desc": "Composer and musician (1756–1791)",
+   "url": "https://en.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart",
+   "qid": "Q254",
+   "nace": 1756,
+   "muere": 1791
+  },
+  "Ludwig van Beethoven": {
+   "ok": true,
+   "titulo": "Ludwig van Beethoven",
+   "desc": "German composer (1770–1827)",
+   "url": "https://en.wikipedia.org/wiki/Ludwig_van_Beethoven",
+   "qid": "Q255",
+   "nace": 1770,
+   "muere": 1827
+  },
+  "Felix Mendelssohn": {
+   "ok": true,
+   "titulo": "Felix Mendelssohn",
+   "desc": "German composer (1809–1847)",
+   "url": "https://en.wikipedia.org/wiki/Felix_Mendelssohn",
+   "qid": "Q46096",
+   "nace": 1809,
+   "muere": 1847
+  },
+  "Gottfried Heinrich Stölzel": {
+   "ok": true,
+   "titulo": "Gottfried Heinrich Stölzel",
+   "desc": "German composer (1690-1749)",
+   "url": "https://en.wikipedia.org/wiki/Gottfried_Heinrich_St%C3%B6lzel",
+   "qid": "Q544385",
+   "nace": 1690,
+   "muere": 1749
+  },
+  "Jean-Paul-Égide Martini": {
+   "ok": true,
+   "titulo": "Jean-Paul-Égide Martini",
+   "desc": "French composer of German birth (1741–1816)",
+   "url": "https://en.wikipedia.org/wiki/Jean-Paul-%C3%89gide_Martini",
+   "qid": "Q696034",
+   "nace": 1741,
+   "muere": 1816
+  },
+  "Gabriel Fauré": {
+   "ok": true,
+   "titulo": "Gabriel Fauré",
+   "desc": "French composer, organist, pianist and teacher (1845–1924)",
+   "url": "https://en.wikipedia.org/wiki/Gabriel_Faur%C3%A9",
+   "qid": "Q104919",
+   "nace": 1845,
+   "muere": 1924
+  },
+  "Reynaldo Hahn": {
+   "ok": true,
+   "titulo": "Reynaldo Hahn",
+   "desc": "Venezuelan-French composer (1874–1947)",
+   "url": "https://en.wikipedia.org/wiki/Reynaldo_Hahn",
+   "qid": "Q432938",
+   "nace": 1874,
+   "muere": 1947
+  },
+  "Claude Debussy": {
+   "ok": true,
+   "titulo": "Claude Debussy",
+   "desc": "French classical composer (1862–1918)",
+   "url": "https://en.wikipedia.org/wiki/Claude_Debussy",
+   "qid": "Q4700",
+   "nace": 1862,
+   "muere": 1918
+  },
+  "Fernando Obradors": {
+   "ok": true,
+   "titulo": "Fernando Obradors",
+   "desc": "Spanish composer (1897–1945)",
+   "url": "https://en.wikipedia.org/wiki/Fernando_Obradors",
+   "qid": "Q3026218",
+   "nace": 1897,
+   "muere": 1945
+  },
+  "Enrique Granados": {
+   "ok": true,
+   "titulo": "Enrique Granados",
+   "desc": "Spanish pianist and composer (1867–1916)",
+   "url": "https://en.wikipedia.org/wiki/Enrique_Granados",
+   "qid": "Q294225",
+   "nace": 1867,
+   "muere": 1916
+  },
+  "Manuel Ponce": {
+   "ok": true,
+   "titulo": "Manuel Ponce",
+   "desc": "Mexican composer (1882–1948)",
+   "url": "https://en.wikipedia.org/wiki/Manuel_Ponce",
+   "qid": "Q360206",
+   "nace": 1886,
+   "muere": 1948
+  },
+  "Carlos Guastavino": {
+   "ok": true,
+   "titulo": "Carlos Guastavino",
+   "desc": "Argentine composer",
+   "url": "https://en.wikipedia.org/wiki/Carlos_Guastavino",
+   "qid": "Q559847",
+   "nace": 1912,
+   "muere": 2000
+  },
+  "John Dowland": {
+   "ok": true,
+   "titulo": "John Dowland",
+   "desc": "English composer and lutenist (1563–1626)",
+   "url": "https://en.wikipedia.org/wiki/John_Dowland",
+   "qid": "Q207355",
+   "nace": 1563,
+   "muere": 1626
+  },
+  "Thomas Ford (composer)": {
+   "ok": true,
+   "titulo": "Thomas Ford (composer)",
+   "desc": "English composer (c1580-1648)",
+   "url": "https://en.wikipedia.org/wiki/Thomas_Ford_(composer)",
+   "qid": "Q354266",
+   "nace": 1580,
+   "muere": 1648
+  },
+  "Ralph Vaughan Williams": {
+   "ok": true,
+   "titulo": "Ralph Vaughan Williams",
+   "desc": "English composer (1872–1958)",
+   "url": "https://en.wikipedia.org/wiki/Ralph_Vaughan_Williams",
+   "qid": "Q207947",
+   "nace": 1872,
+   "muere": 1958
+  },
+  "Benjamin Britten": {
+   "ok": true,
+   "titulo": "Benjamin Britten",
+   "desc": "English composer and pianist (1913–1976)",
+   "url": "https://en.wikipedia.org/wiki/Benjamin_Britten",
+   "qid": "Q150767",
+   "nace": 1913,
+   "muere": 1976
+  },
+  "Aaron Copland": {
+   "ok": true,
+   "titulo": "Aaron Copland",
+   "desc": "American composer and conductor (1900–1990)",
+   "url": "https://en.wikipedia.org/wiki/Aaron_Copland",
+   "qid": "Q192185",
+   "nace": 1900,
+   "muere": 1990
+  },
+  "César Franck": {
+   "ok": true,
+   "titulo": "César Franck",
+   "desc": "Belgian-French composer and organist (1822–1890)",
+   "url": "https://en.wikipedia.org/wiki/C%C3%A9sar_Franck",
+   "qid": "Q50187",
+   "nace": 1822,
+   "muere": 1890
+  },
+  "George Frideric Handel": {
+   "ok": true,
+   "titulo": "George Frideric Handel",
+   "desc": "German-British composer (1685–1759)",
+   "url": "https://en.wikipedia.org/wiki/George_Frideric_Handel",
+   "qid": "Q7302",
+   "nace": 1685,
+   "muere": 1759
+  },
+  "Henry Purcell": {
+   "ok": true,
+   "titulo": "Henry Purcell",
+   "desc": "English composer (1659–1695)",
+   "url": "https://en.wikipedia.org/wiki/Henry_Purcell",
+   "qid": "Q9695",
+   "nace": 1659,
+   "muere": 1695
+  },
+  "Gaetano Donizetti": {
+   "ok": true,
+   "titulo": "Gaetano Donizetti",
+   "desc": "Italian opera composer (1797–1848)",
+   "url": "https://en.wikipedia.org/wiki/Gaetano_Donizetti",
+   "qid": "Q101698",
+   "nace": 1797,
+   "muere": 1848
+  },
+  "Giacomo Puccini": {
+   "ok": true,
+   "titulo": "Giacomo Puccini",
+   "desc": "Italian opera composer (1858–1924)",
+   "url": "https://en.wikipedia.org/wiki/Giacomo_Puccini",
+   "qid": "Q7311",
+   "nace": 1858,
+   "muere": 1924
+  },
+  "Georges Bizet": {
+   "ok": true,
+   "titulo": "Georges Bizet",
+   "desc": "French composer (1838–1875)",
+   "url": "https://en.wikipedia.org/wiki/Georges_Bizet",
+   "qid": "Q56158",
+   "nace": 1838,
+   "muere": 1875
+  },
+  "Camille Saint-Saëns": {
+   "ok": true,
+   "titulo": "Camille Saint-Saëns",
+   "desc": "French composer (1835–1921)",
+   "url": "https://en.wikipedia.org/wiki/Camille_Saint-Sa%C3%ABns",
+   "qid": "Q150445",
+   "nace": 1835,
+   "muere": 1921
+  },
+  "Richard Wagner": {
+   "ok": true,
+   "titulo": "Richard Wagner",
+   "desc": "German composer (1813–1883)",
+   "url": "https://en.wikipedia.org/wiki/Richard_Wagner",
+   "qid": "Q1511",
+   "nace": 1813,
+   "muere": 1883
+  },
+  "Johann Sebastian Bach": {
+   "ok": true,
+   "titulo": "Johann Sebastian Bach",
+   "desc": "German composer (1685–1750)",
+   "url": "https://en.wikipedia.org/wiki/Johann_Sebastian_Bach",
+   "qid": "Q1339",
+   "nace": 1685,
+   "muere": 1750
+  },
+  "Antonio Vivaldi": {
+   "ok": true,
+   "titulo": "Antonio Vivaldi",
+   "desc": "Italian composer and violinist (1678–1741)",
+   "url": "https://en.wikipedia.org/wiki/Antonio_Vivaldi",
+   "qid": "Q1340",
+   "nace": 1678,
+   "muere": 1741
+  },
+  "Robert Schumann": {
+   "ok": true,
+   "titulo": "Robert Schumann",
+   "desc": "German composer, pianist and critic (1810–1856)",
+   "url": "https://en.wikipedia.org/wiki/Robert_Schumann",
+   "qid": "Q7351",
+   "nace": 1810,
+   "muere": 1856
+  },
+  "Richard Strauss": {
+   "ok": true,
+   "titulo": "Richard Strauss",
+   "desc": "German composer and conductor (1864–1949)",
+   "url": "https://en.wikipedia.org/wiki/Richard_Strauss",
+   "qid": "Q13894",
+   "nace": 1864,
+   "muere": 1949
+  },
+  "Francis Poulenc": {
+   "ok": true,
+   "titulo": "Francis Poulenc",
+   "desc": "French composer and pianist (1899–1963)",
+   "url": "https://en.wikipedia.org/wiki/Francis_Poulenc",
+   "qid": "Q191408",
+   "nace": 1899,
+   "muere": 1963
+  },
+  "Manuel de Falla": {
+   "ok": true,
+   "titulo": "Manuel de Falla",
+   "desc": "Spanish composer (1876–1946)",
+   "url": "https://en.wikipedia.org/wiki/Manuel_de_Falla",
+   "qid": "Q193283",
+   "nace": 1876,
+   "muere": 1946
+  },
+  "Xavier Montsalvatge": {
+   "ok": true,
+   "titulo": "Xavier Montsalvatge",
+   "desc": "Spanish composer and music critic (1912–2002)",
+   "url": "https://en.wikipedia.org/wiki/Xavier_Montsalvatge",
+   "qid": "Q535320",
+   "nace": 1912,
+   "muere": 2002
+  },
+  "Pablo Luna": {
+   "ok": true,
+   "titulo": "Pablo Luna",
+   "desc": "Spanish composer (1879–1942)",
+   "url": "https://en.wikipedia.org/wiki/Pablo_Luna",
+   "qid": "Q2336713",
+   "nace": 1879,
+   "muere": 1942
+  },
+  "Alberto Ginastera": {
+   "ok": true,
+   "titulo": "Alberto Ginastera",
+   "desc": "Argentine composer (1916–1983)",
+   "url": "https://en.wikipedia.org/wiki/Alberto_Ginastera",
+   "qid": "Q311389",
+   "nace": 1916,
+   "muere": 1983
+  },
+  "Heitor Villa-Lobos": {
+   "ok": true,
+   "titulo": "Heitor Villa-Lobos",
+   "desc": "Brazilian composer (1887–1959)",
+   "url": "https://en.wikipedia.org/wiki/Heitor_Villa-Lobos",
+   "qid": "Q203514",
+   "nace": 1887,
+   "muere": 1959
+  },
+  "Samuel Barber": {
+   "ok": true,
+   "titulo": "Samuel Barber",
+   "desc": "American composer (1910–1981)",
+   "url": "https://en.wikipedia.org/wiki/Samuel_Barber",
+   "qid": "Q216870",
+   "nace": 1910,
+   "muere": 1981
+  },
+  "Gioachino Rossini": {
+   "ok": true,
+   "titulo": "Gioachino Rossini",
+   "desc": "Italian opera composer (1792–1868)",
+   "url": "https://en.wikipedia.org/wiki/Gioachino_Rossini",
+   "qid": "Q9726",
+   "nace": 1792,
+   "muere": 1868
+  },
+  "Vincenzo Bellini": {
+   "ok": true,
+   "titulo": "Vincenzo Bellini",
+   "desc": "Italian opera composer (1801–1835)",
+   "url": "https://en.wikipedia.org/wiki/Vincenzo_Bellini",
+   "qid": "Q170209",
+   "nace": 1801,
+   "muere": 1835
+  },
+  "Giuseppe Verdi": {
+   "ok": true,
+   "titulo": "Giuseppe Verdi",
+   "desc": "Italian composer (1813–1901)",
+   "url": "https://en.wikipedia.org/wiki/Giuseppe_Verdi",
+   "qid": "Q7317",
+   "nace": 1813,
+   "muere": 1901
+  },
+  "Charles Gounod": {
+   "ok": true,
+   "titulo": "Charles Gounod",
+   "desc": "French composer (1818–1893)",
+   "url": "https://en.wikipedia.org/wiki/Charles_Gounod",
+   "qid": "Q180278",
+   "nace": 1818,
+   "muere": 1893
+  },
+  "Léo Delibes": {
+   "ok": true,
+   "titulo": "Léo Delibes",
+   "desc": "French composer (1836–1891)",
+   "url": "https://en.wikipedia.org/wiki/L%C3%A9o_Delibes",
+   "qid": "Q207951",
+   "nace": 1836,
+   "muere": 1891
+  },
+  "Ruggero Leoncavallo": {
+   "ok": true,
+   "titulo": "Ruggero Leoncavallo",
+   "desc": "Italian composer (1857–1919)",
+   "url": "https://en.wikipedia.org/wiki/Ruggero_Leoncavallo",
+   "qid": "Q189015",
+   "nace": 1857,
+   "muere": 1919
+  },
+  "Pyotr Ilyich Tchaikovsky": {
+   "ok": true,
+   "titulo": "Pyotr Ilyich Tchaikovsky",
+   "desc": "Russian composer (1840–1893)",
+   "url": "https://en.wikipedia.org/wiki/Pyotr_Ilyich_Tchaikovsky",
+   "qid": "Q7315",
+   "nace": 1840,
+   "muere": 1893
+  },
+  "Antonín Dvořák": {
+   "ok": true,
+   "titulo": "Antonín Dvořák",
+   "desc": "Czech composer (1841–1904)",
+   "url": "https://en.wikipedia.org/wiki/Anton%C3%ADn_Dvo%C5%99%C3%A1k",
+   "qid": "Q7298",
+   "nace": 1841,
+   "muere": 1904
+  },
+  "Leonard Bernstein": {
+   "ok": true,
+   "titulo": "Leonard Bernstein",
+   "desc": "American conductor and composer (1918–1990)",
+   "url": "https://en.wikipedia.org/wiki/Leonard_Bernstein",
+   "qid": "Q152505",
+   "nace": 1918,
+   "muere": 1990
+  },
+  "Hugo Wolf": {
+   "ok": true,
+   "titulo": "Hugo Wolf",
+   "desc": "Austrian composer (1860–1903)",
+   "url": "https://en.wikipedia.org/wiki/Hugo_Wolf",
+   "qid": "Q215747",
+   "nace": 1860,
+   "muere": 1903
+  },
+  "Gustav Mahler": {
+   "ok": true,
+   "titulo": "Gustav Mahler",
+   "desc": "Composer and conductor (1860–1911)",
+   "url": "https://en.wikipedia.org/wiki/Gustav_Mahler",
+   "qid": "Q7304",
+   "nace": 1860,
+   "muere": 1911
+  },
+  "Pablo Sorozábal": {
+   "ok": true,
+   "titulo": "Pablo Sorozábal",
+   "desc": "Spanish composer",
+   "url": "https://en.wikipedia.org/wiki/Pablo_Soroz%C3%A1bal",
+   "qid": "Q2206252",
+   "nace": 1897,
+   "muere": 1988
+  },
+  "Amadeu Vives": {
+   "ok": true,
+   "titulo": "Amadeu Vives i Roig",
+   "desc": "Spanish-Catalan composer, writer and impresario (1871–1932)",
+   "url": "https://en.wikipedia.org/wiki/Amadeu_Vives_i_Roig",
+   "qid": "Q2648593",
+   "nace": 1871,
+   "muere": 1932
+  },
+  "Nicola Vaccai": {
+   "ok": true,
+   "titulo": "Nicola Vaccai",
+   "desc": "Italian composer and singing teacher",
+   "url": "https://en.wikipedia.org/wiki/Nicola_Vaccai",
+   "qid": "Q1353016",
+   "nace": 1790,
+   "muere": 1848
+  },
+  "Heinrich Panofka": {
+   "ok": true,
+   "titulo": "Heinrich Panofka",
+   "desc": "Musical artist",
+   "url": "https://en.wikipedia.org/wiki/Heinrich_Panofka",
+   "qid": "Q92158",
+   "nace": 1807,
+   "muere": 1887
+  },
+  "Franz Abt": {
+   "ok": true,
+   "titulo": "Franz Abt",
+   "desc": "German composer and conductor (1819–1885)",
+   "url": "https://en.wikipedia.org/wiki/Franz_Abt",
+   "qid": "Q174178",
+   "nace": 1819,
+   "muere": 1885
+  },
+  "Giuseppe Concone": {
+   "ok": true,
+   "titulo": "Giuseppe Concone",
+   "desc": "Italian composer",
+   "url": "https://en.wikipedia.org/wiki/Giuseppe_Concone",
+   "qid": "Q709173",
+   "nace": 1801,
+   "muere": 1861
+  },
+  "Marco Bordogni": {
+   "ok": true,
+   "titulo": "Marco Bordogni",
+   "desc": "Italian operatic tenor and singing teacher (1789–1856)",
+   "url": "https://en.wikipedia.org/wiki/Marco_Bordogni",
+   "qid": "Q466694",
+   "nace": 1789,
+   "muere": 1856
+  },
+  "Luigi Lablache": {
+   "ok": true,
+   "titulo": "Luigi Lablache",
+   "desc": "Italian opera singer (1794–1858)",
+   "url": "https://en.wikipedia.org/wiki/Luigi_Lablache",
+   "qid": "Q477681",
+   "nace": 1794,
+   "muere": 1858
+  },
+  "Francesco Lamperti": {
+   "ok": true,
+   "titulo": "Francesco Lamperti",
+   "desc": "Italian voice teacher",
+   "url": "https://en.wikipedia.org/wiki/Francesco_Lamperti",
+   "qid": "Q376597",
+   "nace": 1813,
+   "muere": 1892
+  },
+  "Mathilde Marchesi": {
+   "ok": true,
+   "titulo": "Mathilde Marchesi",
+   "desc": "German mezzo-soprano (1821–1913)",
+   "url": "https://en.wikipedia.org/wiki/Mathilde_Marchesi",
+   "qid": "Q437075",
+   "nace": 1821,
+   "muere": 1913
+  },
+  "Manuel García (baritone)": {
+   "ok": true,
+   "titulo": "Manuel García (baritone)",
+   "desc": "Spanish baritone and educator (1805–1906)",
+   "url": "https://en.wikipedia.org/wiki/Manuel_Garc%C3%ADa_(baritone)",
+   "qid": "Q333183",
+   "nace": 1805,
+   "muere": 1906
+  },
+  "Henri Duparc": {
+   "ok": true,
+   "titulo": "Henri Duparc",
+   "desc": "Topics referred to by the same term",
+   "url": "https://en.wikipedia.org/wiki/Henri_Duparc",
+   "qid": "Q3131017",
+   "nace": null,
+   "muere": null
+  },
+  "Ferdinand Sieber": {
+   "ok": false
+  },
+  "Bernhard Lütgen": {
+   "ok": false
+  },
+  "Henri Duparc (composer)": {
+   "ok": true,
+   "titulo": "Henri Duparc (composer)",
+   "desc": "French composer (1848–1933)",
+   "url": "https://en.wikipedia.org/wiki/Henri_Duparc_(composer)",
+   "qid": "Q364983",
+   "nace": 1848,
+   "muere": 1933
+  }
+ },
+ "imslp": {
+  "Caro mio ben Giordani": [
+   "Caro mio ben (Giordani, Tommaso)",
+   "Caro Mio Ben (Giordani, Tommaso)"
+  ],
+  "Nel cor piu non mi sento Paisiello": [
+   "Nel Cor Piu Non Mi Sento (Paisiello, Giovanni)"
+  ],
+  "Amarilli mia bella Caccini": [
+   "Amarilli, mia bella (Caccini, Giulio)"
+  ],
+  "Alma del core Caldara": [],
+  "Sebben crudele Caldara": [
+   "Sebben crudele (Caldara, Antonio)"
+  ],
+  "Come raggio di sol Caldara": [
+   "Come raggio di sol (Caldara, Antonio)"
+  ],
+  "Selve amiche Caldara": [],
+  "Vittoria mio core Carissimi": [
+   "Vittoria, mio core (Carissimi, Giacomo)"
+  ],
+  "Griselda Bononcini": [
+   "Griselda (Bononcini, Giovanni)"
+  ],
+  "L'honestà negli amori Scarlatti": [
+   "L'honestà negli amori (Scarlatti, Alessandro)"
+  ],
+  "Il Pompeo Scarlatti": [
+   "Il Pompeo (Scarlatti, Alessandro)"
+  ],
+  "Pirro e Demetrio Scarlatti": [
+   "Pirro e Demetrio, R.342.23 (Scarlatti, Alessandro)",
+   "Pirro e Demetrio (Scarlatti, Alessandro)",
+   "Pirro e Demetrio, RosS 342.23 (Scarlatti, Alessandro)"
+  ],
+  "Se tu m'ami Parisotti": [
+   "Se tu m'ami (Parisotti, Alessandro)"
+  ],
+  "Tre giorni son che Nina": [
+   "Tre giorni son che Nina (Pergolesi, Giovanni Battista)",
+   "Tre Giorni son che Nina (Pergolesi, Giovanni Battista)"
+  ],
+  "Tu lo sai Torelli": [],
+  "Star vicino Rosa": [],
+  "Lamento d'Arianna Monteverdi": [
+   "Lamento d'Arianna, SV 22 (Monteverdi, Claudio)",
+   "Lamento d'Arianna, SV 107 (Monteverdi, Claudio)"
+  ],
+  "Paride ed Elena Gluck": [
+   "Paride ed Elena, Wq.39 (Gluck, Christoph Willibald)"
+  ],
+  "Danza danza fanciulla Durante": [
+   "Danza, Danza Fanciulla Gentile (Durante, Francesco)",
+   "Danza fanciulla gentile (Durante, Francesco)",
+   "Danza, danza fanciulla gentile (Durante, Francesco)"
+  ],
+  "Vergin tutto amor Durante": [
+   "Vergin tutto amor (Durante, Francesco)"
+  ],
+  "Pur dicesti Lotti": [
+   "Pur dicesti, o bocca bella (Lotti, Antonio)",
+   "Pur Dicesti (Lotti, Antonio)"
+  ],
+  "Bella porta di rubini Falconieri": [
+   "Bella porta di rubini (Falconieri, Andrea)"
+  ],
+  "Heidenröslein D.257 Schubert": [
+   "Heidenröslein, D.257 (Schubert, Franz)",
+   "Heidenröslein, D.257 (Op.3, No.3) (Schubert, Franz)"
+  ],
+  "An die Musik D.547 Schubert": [
+   "An die Musik, D.547 (Schubert, Franz)"
+  ],
+  "5 Lieder Op.49 Brahms": [
+   "5 Lieder, Op.49 (Brahms, Johannes)"
+  ],
+  "Das Veilchen K.476 Mozart": [
+   "Das Veilchen, K.476 (Mozart, Wolfgang Amadeus)"
+  ],
+  "Sehnsucht nach dem Frühlinge K.596 Mozart": [
+   "Sehnsucht nach dem Frühlinge, K.596 (Mozart, Wolfgang Amadeus)"
+  ],
+  "Ich liebe dich WoO 123 Beethoven": [
+   "Ich liebe dich (Zärtliche Liebe), WoO 123 (Beethoven, Ludwig van)",
+   "Ich liebe dich, WoO 123 (Beethoven, Ludwig van)"
+  ],
+  "6 Lieder Op.34 Mendelssohn": [
+   "6 Lieder, Op.34 (Mendelssohn, Felix)"
+  ],
+  "Bist du bei mir BWV 508": [
+   "Bist du bei mir, BWV 508 (Bach, Johann Sebastian)"
+  ],
+  "Plaisir d'amour Martini": [
+   "Plaisir d'amour (Martini, Jean Paul Egide)",
+   "Plaisir d'Amour (Martini, Giovanni Battista)",
+   "Plaisir D'Amour (Martini, Giovanni Battista)",
+   "Plaisir d'Amour (Martini, Jean Paul Egide)"
+  ],
+  "Lydia Op.4 No.2 Fauré": [],
+  "Ici-bas Op.8 No.3 Fauré": [],
+  "Nell Op.18 No.1 Fauré": [],
+  "Si mes vers avaient des ailes Hahn": [
+   "Si mes vers avaient des ailes (Hahn, Reynaldo)"
+  ],
+  "Deux romances Debussy": [],
+  "Canciones clásicas españolas Obradors": [
+   "Canciones Clásicas Españolas (Obradors, Fernando)",
+   "Canciones Clásicas Españolas, Vol.1 (Obradors, Fernando)",
+   "Canciones Clásicas Españolas, Vol.3 (Obradors, Fernando)",
+   "Canciones Clásicas Españolas, Vol.4 (Obradors, Fernando)",
+   "Canciones Clásicas Españolas, Vol.2 (Obradors, Fernando)"
+  ],
+  "Tonadillas Granados": [
+   "12 Tonadillas en estilo antiguo (Granados, Enrique)"
+  ],
+  "Estrellita Ponce": [
+   "Estrellita (Ponce, Manuel)"
+  ],
+  "A la orilla de un palmar Ponce": [],
+  "La rosa y el sauce Guastavino": [],
+  "Se equivocó la paloma Guastavino": [],
+  "First Booke of Songes Dowland": [
+   "The Firste Booke of Songes (Dowland, John)",
+   "First Booke of Songes (Dowland, John)",
+   "The Third Booke of Songes (Dowland, John)"
+  ],
+  "Musicke of Sundrie Kindes Ford": [
+   "Musicke of Sundrie Kindes (Ford, Thomas)"
+  ],
+  "Linden Lea Vaughan Williams": [
+   "Linden Lea (Vaughan Williams, Ralph)"
+  ],
+  "Salley Gardens Britten": [],
+  "Old American Songs Copland": [],
+  "Messe a trois voix Franck": [],
+  "Requiem Op.48 Fauré": [
+   "Requiem, Op.48 (Fauré, Gabriel)"
+  ],
+  "Le nozze di Figaro K.492 Mozart": [
+   "Le nozze di Figaro, K.492 (Mozart, Wolfgang Amadeus)",
+   "Le Nozze di Figaro, K.492 (Mozart, Wolfgang Amadeus)"
+  ],
+  "Don Giovanni K.527 Mozart": [
+   "Don Giovanni, K.527 (Mozart, Wolfgang Amadeus)"
+  ],
+  "Così fan tutte K.588 Mozart": [
+   "Così fan tutte, K.588 (Mozart, Wolfgang Amadeus)"
+  ],
+  "Die Zauberflöte K.620 Mozart": [
+   "Die Zauberflöte, K.620 (Mozart, Wolfgang Amadeus)"
+  ],
+  "Rinaldo HWV 7 Handel": [],
+  "Serse HWV 40 Handel": [
+   "Serse, HWV 40 (Handel, George Frideric)",
+   "Serse (Xerxes), HWV 40 (Handel, George Frideric)"
+  ],
+  "Dido and Aeneas Purcell": [
+   "Dido and Aeneas, Z.626 (Purcell, Henry)",
+   "Dido and Aeneas (Purcell, Henry)"
+  ],
+  "Orfeo ed Euridice Gluck": [
+   "Orfeo ed Euridice (Gluck, Cristoph Willibald)",
+   "Orfeo ed Euridice, Wq.30 (Gluck, Christoph Willibald)",
+   "Orfeo ed Euridice (Gluck, Christoph Willibald)"
+  ],
+  "L'elisir d'amore Donizetti": [
+   "Variations on a Theme of Donizetti's 'L'elisir d'amore', Op.1 (Henselt, Adolf von)",
+   "L'elisir d'amore (Donizetti, Gaetano)",
+   "L'Elisir d'Amore (Donizetti, Domenico Gaetano Maria)",
+   "Fantasia per flauto con accompagnamento d'Orchestra o di Pianoforte sopra l'Opera La Figlia del Reggimento del M° Donizetti, op.27 (Briccialdi, Giulio)",
+   "Introduction and Variations on Barcarole from Donizetti's 'L'Elisire d'amore' Op.66 (Thalberg, Sigismond)"
+  ],
+  "Gianni Schicchi Puccini": [
+   "Gianni Schicchi, SC 88 (Puccini, Giacomo)",
+   "Gianni schicchi (Puccini, Giacomo)",
+   "Gianni Schicchi (Puccini, Giacomo)"
+  ],
+  "La bohème Puccini": [
+   "La bohème, SC 67 (Puccini, Giacomo)",
+   "La Bohème (Puccini, Giacomo)",
+   "La bohème (Puccini, Giacomo)",
+   "La bohème, S.67 (Puccini, Giacomo)",
+   "La Bohème, S.67 (Puccini, Giacomo)"
+  ],
+  "Carmen Bizet": [
+   "Carmen (Bizet, Georges)",
+   "Carmen Suite No.1 (Bizet, Georges)",
+   "Habanera (from Carmen) (Bizet, Georges)",
+   "Transcription of G. Bizet's 'Carmen' (Godowsky, Leopold)",
+   "Fantaisie Dramatique on Bizet's 'Carmen', Op.22 (Hackh, Otto Christoph)"
+  ],
+  "Samson et Dalila Saint-Saëns": [
+   "Samson et Dalila, Op.47 (Saint-Saëns, Camille)"
+  ],
+  "Tannhäuser Wagner": [
+   "Paraphrase on Wagner's 'Lohengrin' and 'Tannhäuser', Op.35 (Jaëll, Alfred)",
+   "Paraphrase on Wagner's 'Lohengrin' and 'Tannhäuser', Op.31 (Jaëll, Alfred)",
+   "Pilgerchor aus Wagner's oper Tannhäuser, S.443 (Liszt, Franz)",
+   "O du mein holder Abendstern aus Wagner's oper Tannhäuser, S.444 (Liszt, Franz)",
+   "Tannhäuser, WWV 70 (Wagner, Richard)"
+  ],
+  "Messiah HWV 56 Handel": [
+   "Messiah, HWV 56 (Handel, George Frideric)"
+  ],
+  "Semele HWV 58 Handel": [
+   "Semele, HWV 58 (Handel, George Frideric)"
+  ],
+  "Matthäus-Passion BWV 244 Bach": [],
+  "Gloria RV 589 Vivaldi": [
+   "Gloria in D major, RV 589 (Vivaldi, Antonio)",
+   "Gloria, RV 589 (Vivaldi, Antonio)"
+  ],
+  "Elijah Op.70 Mendelssohn": [
+   "Elijah, Op.70 (Mendelssohn, Felix)"
+  ],
+  "Du bist die Ruh D.776 Schubert": [
+   "Du bist die Ruh, D.776 (Schubert, Franz)",
+   "Du bist die Ruh, D.776 (Op.59 No.3) (Schubert, Franz)"
+  ],
+  "Schwanengesang D.957 Schubert": [
+   "Schwanengesang, D.957 (Schubert, Franz)",
+   "Schwanengesang, D.957 (Schubert, Franz) (Guide to Peters edition)"
+  ],
+  "Die Forelle D.550 Schubert": [
+   "Die Forelle, D.550 (Schubert, Franz)"
+  ],
+  "Myrthen Op.25 Schumann": [
+   "Myrthen, Op.25 (Schumann, Robert)"
+  ],
+  "Dichterliebe Op.48 Schumann": [
+   "Dichterliebe, Op.48 (Schumann, Robert)"
+  ],
+  "Liederkreis Op.39 Schumann": [
+   "Liederkreis, Op.39 (Schumann, Robert)"
+  ],
+  "Romanzen und Lieder Op.84 Brahms": [],
+  "4 Lieder Op.27 Strauss": [
+   "4 Lieder, Op.27 (Strauss, Richard)"
+  ],
+  "8 Gedichte aus Letzte Blätter Op.10 Strauss": [
+   "8 Gedichte aus 'Letzte Blätter', Op.10 (Strauss, Richard)",
+   "8 Gedichte aus \"Letzte Blätter\", Op.10 (Strauss, Richard)"
+  ],
+  "3 Songs Op.7 Fauré": [
+   "3 Songs, Op.7 (Fauré, Gabriel)"
+  ],
+  "Clair de lune Op.46 No.2 Fauré": [],
+  "Beau soir Debussy": [
+   "Beau soir, CD 84 (Debussy, Claude)",
+   "Beau Soir (Debussy, Claude)",
+   "Beau soir (Debussy, Claude)"
+  ],
+  "A Chloris Hahn": [
+   "A Chloris (Hahn, Reynaldo)"
+  ],
+  "Les chemins de l'amour Poulenc": [
+   "Les chemins de l'amour (Poulenc, Francis)"
+  ],
+  "Siete canciones populares españolas Falla": [
+   "Siete Canciones populares Españolas (De Falla, Manuel)",
+   "Siete Canciones populares Españolas (Falla, Manuel de)"
+  ],
+  "Cinco canciones negras Montsalvatge": [],
+  "El niño judío Luna": [],
+  "Cinco canciones populares argentinas Ginastera": [],
+  "Melodia sentimental Villa-Lobos": [],
+  "Oedipus Z.583 Purcell": [
+   "Oedipus, Z.583 (Purcell, Henry)"
+  ],
+  "Sure on this shining night Barber": [],
+  "Il barbiere di Siviglia Rossini": [
+   "Il barbiere di Siviglia (Rossini, Gioachino)",
+   "Il Barbiere di Siviglia (Rossini, Gioacchino)",
+   "Piano Duet No.3 on Themes from Rossini's 'Il barbiere di Siviglia' (Watts, William)",
+   "Piano Duet on Airs from Rossini's 'Il barbiere di Siviglia' (Osborne, George Alexander)",
+   "Il barbiere di Siviglia (Rossini, Gioacchino)"
+  ],
+  "La Cenerentola Rossini": [
+   "La cenerentola (Rossini, Gioacchino)",
+   "Variations sur une cavatine de 'La Cenerentola' de Rossini, Op.60 (Herz, Henri)",
+   "La Cenerentola (Rossini, Gioachino)",
+   "Variations sur un thème de la Cenerentola de Rossini, Op.11 (Lipiński, Karol Józef)",
+   "Variations brillantes sur un thème de la Cenerentola de Rossini, Op.5 (Farrenc, Louise)"
+  ],
+  "L'italiana in Algeri Rossini": [
+   "L'italiana in Algeri (Rossini, Gioachino)",
+   "L'Italiana in Algeri (Rossini, Gioacchino)",
+   "L'Italiana in Algeri (Rossini, Gioachino)",
+   "Cavatina 'Languir per una bella' nell' opera L'Italiana in Algeri del celebre Maestro rossini,Op.7 (Legnani, Luigi)",
+   "Cavatina 'Languir per una bella' nell' opera L'Italiana in Algeri del celebre Maestro Rossini, Op.7 (Legnani, Luigi)"
+  ],
+  "Norma Bellini": [
+   "Norma (Bellini, Vincenzo)",
+   "Réminiscences de Norma, by Bellini, S.394 (Liszt, Franz)",
+   "Casta Diva Che Inargenti from Bellini's Norma, Op.61 (Fumagalli, Adolfo)",
+   "Réminiscences de Norma, Bellini, S.394 (Liszt, Franz)",
+   "Norma (Bellini, Vincenzo Salvatore Carmelo Francesco)"
+  ],
+  "Lucia di Lammermoor Donizetti": [
+   "Lucia di Lammermoor (Donizetti, Gaetano)",
+   "Pot-Pourris on Donizetti's 'Lucia di Lammermoor' (Tonassi, Pietro)",
+   "Lucia di Lammermoor de Donizetti (Kunkel, Jacob)",
+   "Fantaisie de salon on Donizetti's Lucia di Lammermoor (Wallace, William Vincent)",
+   "Marche funèbre et cavatine de Lucia di Lammermoor de Donizetti, S.398 (Liszt, Franz)"
+  ],
+  "La fille du régiment Donizetti": [
+   "Fantasia on Donizetti's 'La Fille du Régiment', Op.68 (Thalberg, Sigismond)",
+   "La fille du régiment (Donizetti, Gaetano)",
+   "La Fille du Régiment (Donizetti, Domenico Gaetano Maria)",
+   "Fantasia on Donizetti's 'La Fille du Régiment' Op.68 (Thalberg, Sigismond)",
+   "La Fille du Régiment (Donizetti, Gaetano)"
+  ],
+  "Rigoletto Verdi": [
+   "Illustrations sur un Motiv de Verdi's 'Rigoletto', Op.18 (Jaëll, Alfred)",
+   "Quartet from Rigoletto (Verdi, Giuseppe)",
+   "Fantasia on Verdi's 'Rigoletto' Op.82 (Thalberg, Sigismond)",
+   "Transcription of La donna e mobile from Verdi's Rigoletto (Wallace, William Vincent)",
+   "Rigoletto (Verdi, Giuseppe)"
+  ],
+  "La traviata Verdi": [
+   "La traviata (Verdi, Giuseppe)",
+   "Traviata, La (Verdi, Giuseppe)",
+   "Melodia Variata on Verdi's La Traviata, Op.98 (Fumagalli, Adolfo)",
+   "Fantasia on Verdi's 'La Traviata' Op.78 (Thalberg, Sigismond)",
+   "Fantaisie Brillante on Verdi's La Traviata. (Smith, Sydney)"
+  ],
+  "Il trovatore Verdi": [
+   "Il trovatore (Verdi, Giuseppe)",
+   "Fantaisie brillante on Verdi's Il Trovatore, Op.129 (Smith, Sydney)",
+   "Il Trovatore (Verdi, Giuseppe)",
+   "Divertimento dell'Opera Il Trovatore del C. Verdi (Curti, Carlo)",
+   "Fantasia on Il trovatore de Verdi, Op.144 (Oberthür, Charles)"
+  ],
+  "Don Carlo Verdi": [],
+  "Simon Boccanegra Verdi": [
+   "Simon Boccanegra (Verdi, Giuseppe)"
+  ],
+  "Aida Verdi": [
+   "Aida - trascrizione per organo (Verdi, Giuseppe)",
+   "Aida (Verdi, Giuseppe)"
+  ],
+  "Faust Gounod": [
+   "Faust, CG 4 (Gounod, Charles)",
+   "Faust - Meditation (Gounod, Charles)",
+   "Fantaisie brillante dur l'Opera Faust de Gounod, Op.189 (Popp, Wilhelm)",
+   "Fantaisie brillante on Gounod's Faust, Op.117 (Smith, Sydney)",
+   "Fantasia on Gounod's 'Faust', Op.7 (Germano, Carlo)"
+  ],
+  "Roméo et Juliette Gounod": [
+   "Roméo et Juliette, CG 9 (Gounod, Charles)",
+   "Roméo et Juliette (Gounod, Charles)"
+  ],
+  "Lakmé Delibes": [
+   "Lakmé (Delibes, Léo)",
+   "2 Transcriptions sur 'Lakmé' de Delibes (Brémond, François)"
+  ],
+  "Tosca Puccini": [
+   "Tosca, SC 69 (Puccini, Giacomo)",
+   "Tosca, S.69 (Puccini, Giacomo)",
+   "Tosca (Puccini, Giacomo)",
+   "Pot-pourri of Puccini's 'Tosca' (Wolff, Bernhard)"
+  ],
+  "Turandot Puccini": [
+   "Turandot, SC 91 (Puccini, Giacomo)",
+   "Turandot (Puccini, Giacomo)"
+  ],
+  "Pagliacci Leoncavallo": [
+   "Pagliacci (Leoncavallo, Ruggiero)"
+  ],
+  "Das Rheingold Wagner": [
+   "Das Rheingold, WWV 86A (Wagner, Richard)",
+   "Das Rheingold (Wagner, Wilhelm Richard)",
+   "Das Rheingold, WWV86A (Wagner, Wilhelm Richard)",
+   "Das Rheingold, WWV86A (Wagner, Richard)"
+  ],
+  "Eugene Onegin Tchaikovsky": [
+   "Eugene Onegin, Op.24 (Tchaikovsky, Pyotr)",
+   "Eugene Onegin (Tchaikovsky, Pyotr Ilyich)",
+   "Polonaise from Tchaikovsky's Eugene Onegin, S.429 (Liszt, Franz)",
+   "Eugene Onegin, Op.24 (Tchaikovsky, Pyotr Ilyich)"
+  ],
+  "Rusalka Dvořák": [
+   "Rusalka, Op.114 (Dvořák, Antonín)",
+   "Rusalka, Op.114 (Dvořák, Antonín Leopold)"
+  ],
+  "Glitter and be gay Bernstein": [],
+  "Samson HWV 57 Handel": [
+   "Samson, HWV 57 (Handel, George Frideric)"
+  ],
+  "Exsultate jubilate K.165 Mozart": [
+   "Exsultate, jubilate, K.165/158a (Mozart, Wolfgang Amadeus)",
+   "Exsultate, Jubilate K.165 (Mozart, Wolfgang Amadeus)",
+   "Exsultate, Jubilate, K.165 (Mozart, Wolfgang Amadeus)"
+  ],
+  "Stabat Mater Rossini": [
+   "Stabat Mater (Rossini, Gioachino)",
+   "Aria From Stabat Mater (Rossini, Gioacchino)",
+   "Rossini's Stabat Mater, Paraphrase, Op.89 (Smith, Sydney)",
+   "Rossini's Stabat Mater Paraphrase (Smith, Sydney)",
+   "Fantaisie sur des motifs du Stabat Mater de Rossini, Op.134 (Singelée, Jean Baptiste)"
+  ],
+  "Erlkönig D.328 Schubert": [
+   "Erlkönig, D.328 (Schubert, Franz)",
+   "Erlkönig, D.328 (Op.1) (Schubert, Franz)",
+   "Erlkönig D.328 (Franz Schubert) (Berlioz, Hector)"
+  ],
+  "Gretchen am Spinnrade D.118 Schubert": [
+   "Gretchen am Spinnrade, D.118 (Schubert, Franz)",
+   "Gretchen am Spinnrade, D.118 (Op.2) (Schubert, Franz)"
+  ],
+  "Die junge Nonne D.828 Schubert": [
+   "Die junge Nonne, D.828 (Schubert, Franz)",
+   "Die junge Nonne, D.828 (Op.43 No.1) (Schubert, Franz)"
+  ],
+  "Goethe-Lieder Wolf": [
+   "Goethe-Lieder (Wolf, Hugo)",
+   "Goethe Lieder (Wolf, Hugo)"
+  ],
+  "Rückert-Lieder Mahler": [
+   "Rückert Lieder, GMW 39-43 (Mahler, Gustav)",
+   "Rückert Lieder (Mahler, Gustav)"
+  ],
+  "L'invitation au voyage Duparc": [
+   "L'invitation au voyage (Duparc, Henri)",
+   "L'Invitation au voyage (Duparc, Henri)"
+  ],
+  "Phidylé Duparc": [
+   "Phidylé (Duparc, Henri)"
+  ],
+  "No puede ser Sorozábal": [],
+  "Doña Francisquita Vives": [
+   "Doña Francisquita (Vives, Amadeo)"
+  ],
+  "Bachianas Brasileiras No.5 Villa-Lobos": [
+   "Bachianas brasileiras No.5, W389-391 (Villa-Lobos, Heitor)",
+   "Bachianas Brasileiras No.5 (Villa-Lobos, Heitor)",
+   "Bachianas Brasileiras No.5, W.389 (Villa-Lobos, Heitor)",
+   "Bachianas Brasileiras No.5, W.389-391 (Villa-Lobos, Heitor)",
+   "Bachianas Brasileiras No.5, W389-391 (Villa-Lobos, Heitor)"
+  ],
+  "Knoxville Summer of 1915 Barber": [],
+  "Metodo pratico di canto italiano Vaccai": [],
+  "Vocalises Op.85 Panofka": [
+   "24 Vocalises progressives, Op.85 (Panofka, Heinrich)",
+   "24 Progressive Vocalises, Op.85 (Panofka, Heinrich)",
+   "Vocalises progressives, Op.85 (Panofka, Heinrich)"
+  ],
+  "Practical Singing Tutor Abt": [],
+  "Sieber Eight Measure Vocalises": [
+   "Thirty-six eight-measure vocalises for mezzo-soprano (Sieber, Ferdinand)",
+   "36 Eight-measure Vocalises, Op.93 (Sieber, Ferdinand)"
+  ],
+  "50 Lessons Op.9 Concone": [
+   "50 Lessons, Op.9 (Concone, Giuseppe)"
+  ],
+  "25 Lessons Op.10 Concone": [
+   "25 Lessons for Medium Voice, Op.10 (Concone, Giuseppe)"
+  ],
+  "15 Vocalises Op.12 Concone": [
+   "15 Vocalises, Op.12 (Concone, Giuseppe)",
+   "15 Vocalises pour soprano ou mezzo-soprano, Op.12 (Concone, Giuseppe)"
+  ],
+  "40 Lessons Op.17 Concone": [
+   "40 Lessons for Contralto, Op.17 (Concone, Giuseppe)",
+   "40 Lessons for Contralto or Bass, Op.17 (Concone, Giuseppe)"
+  ],
+  "Vocalises Bordogni": [
+   "12 Nouvelle vocalises pour mezzo-soprano (Bordogni, Marco)",
+   "24 Vocalises faciles et progressives (Bordogni, Marco)",
+   "12 nouvelle vocalises pour mezzo-soprano (Bordogni, Marco)",
+   "24 vocalises faciles et progressives (Bordogni, Marco)",
+   "12 Nouvelle Vocalises pour Mezzo-Soprano (Bordogni, Marco)"
+  ],
+  "Méthode complète de chant Lablache": [
+   "Méthode complète de chant (Lablache, Luigi)"
+  ],
+  "Treatise on the Art of Singing Lamperti": [],
+  "Gorgheggi e solfeggi Rossini": [
+   "Gorgheggi e solfeggi (Rossini, Gioachino)",
+   "Gorgheggi e solfeggi (Rossini, Gioacchino)"
+  ],
+  "Kunst der Kehlfertigkeit Lütgen": [],
+  "Méthode de chant Op.31 Marchesi": [
+   "Méthode de chant théorique et pratique, Op.31 (Marchesi, Mathilde)"
+  ],
+  "Traité complet de l'art du chant Garcia": [
+   "Ecole de Garcia: traité complet de l'art du chant (Garcia Jr., Manuel)",
+   "Ecole de Garcia: traité complet de l'art du chant (Garcia, Manuel)"
+  ]
+ }
+}

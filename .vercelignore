@@ -10,3 +10,5 @@ ref
 package.json
 package-lock.json
 capacitor.config.json
+biblioteca/fuente_repertorio.js
+biblioteca/verificacion_cache.json
