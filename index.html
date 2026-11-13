@@ -1013,6 +1013,13 @@ thead th{background:transparent;color:var(--suave);font:700 12px/1.2 var(--f-bod
 .dup-op b{display:block;font-size:14px}
 .dup-op small{font-size:13px;color:var(--suave)}
 .dlg{width:min(460px,100%)}
+.nombre-ed{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.lapiz{appearance:none;width:32px;height:32px;border-radius:50%;border:1px solid var(--linea-campo);background:#fff;color:var(--suave);display:inline-grid;place-items:center;cursor:pointer;padding:0;flex:none}
+.lapiz:hover{color:var(--acento);border-color:var(--acento)}
+.lapiz.claro{width:26px;height:26px;background:transparent;border-color:rgba(255,255,255,.3);color:#C9D0DC}
+.lapiz.claro:hover{color:#fff;border-color:#fff}
+.me{align-items:center}
+.mi-nombre{align-self:flex-start;padding-left:0}
 .dlg-b{padding:22px;display:flex;flex-direction:column;gap:12px;background:#fff}
 .dlg-b .tile-ic{width:44px;height:44px;border-radius:12px;background:var(--aviso-suave);color:var(--aviso)}
 .dlg-b .tile-ic.peligro{background:#FDE2E1;color:var(--rojo)}
@@ -1383,6 +1390,7 @@ body.consola-oculta main{padding-bottom:96px!important}
 <div class="concentra" id="focus" role="dialog" aria-modal="true" aria-label="Modo concentración" hidden><div class="focus-doc" id="focus-doc"></div><div class="focus-ctl" id="focus-ctl"></div></div>
 <nav class="tabbar" id="tabbar" aria-label="Secciones"></nav>
 <div id="modal"></div>
+<div id="dlg"></div>
 <div id="toast" role="status" aria-live="polite"></div>
 <script>
 (function(){
@@ -1579,7 +1587,7 @@ function render(force){
   const m=$('#main');const y=window.scrollY;
   m.innerHTML=vista();
   if(force!=='keep')window.scrollTo(0,y);
-  despues();renderConsole();
+  despues();renderConsole();renderDlgNombre();
 }
 document.addEventListener('focusout',()=>setTimeout(()=>{if(S.pending&&!bloqueado())render();if(S.consolaPend&&!($('#console')||document.body).contains(document.activeElement))renderConsole()},0));
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.dataset&&e.target.dataset.bpm){e.preventDefault();e.target.blur()}});
@@ -1596,7 +1604,7 @@ function renderNav(){
   $('#tabbar').innerHTML=rutas().filter(r=>S.role==='prof'||r[0]!=='metodo').map(item).join('');
   const nombre=S.role==='alumno'&&S.perfil?S.perfil.nombre:'Profesora';
   const modo=S.isOwner?'<div class="mode"><small>Ver como</small><div class="seg" role="group" aria-label="Cambiar vista"><button data-act="modo" data-m="prof" aria-pressed="'+(S.role==='prof')+'">Profesora</button><button data-act="modo" data-m="alumno" aria-pressed="'+(S.role==='alumno')+'">Alumno</button></div>'+(S.role==='alumno'?'<button class="del" data-act="prueba-borrar">'+(S.confirmPrueba?'¿Borrar? Toca otra vez':'Borrar prueba')+'</button>':'')+'</div>':'';
-  $('#sidefoot').innerHTML='<button class="fork" data-act="fork" title="Toca un La de 440 Hz para afinar el oído">'+ic('note','sm')+'La 440</button>'+modo+'<div class="me"><span class="av">'+esc((nombre||'?').trim()[0]||'?').toUpperCase()+'</span><b>'+esc(nombre)+'</b></div>'+(S.sb&&!S.anon?'<button class="del salir" data-act="salir">Cerrar sesión</button>':'')+(S.sb&&!S.isOwner?'<a class="del salir" href="#profesora">Soy la profesora</a>':'');
+  $('#sidefoot').innerHTML='<button class="fork" data-act="fork" title="Toca un La de 440 Hz para afinar el oído">'+ic('note','sm')+'La 440</button>'+modo+'<div class="me"><span class="av">'+esc((nombre||'?').trim()[0]||'?').toUpperCase()+'</span><b>'+esc(nombre)+'</b>'+(S.role==='alumno'&&S.perfil?'<button class="lapiz claro" data-act="nombre-editar" data-id="'+S.uid+'" aria-label="Editar mi nombre" title="Editar mi nombre">'+ic('pen','sm')+'</button>':'')+'</div>'+(S.sb&&!S.anon?'<button class="del salir" data-act="salir">Cerrar sesión</button>':'')+(S.sb&&!S.isOwner?'<a class="del salir" href="#profesora">Soy la profesora</a>':'');
   $('#appbar-r').innerHTML='<button class="forkb" data-act="fork" aria-label="Tocar La 440">'+ic('note','sm')+'</button>'+(S.role==='alumno'?'<a class="forkb" href="#metodo" aria-label="Método">'+ic('book','sm')+'</a>':'')+(S.isOwner?'<button class="modeb" data-act="modo" data-m="'+(S.role==='prof'?'alumno':'prof')+'">'+(S.role==='prof'?'Ver alumno':'Ver profesora')+'</button>':'')+(S.sb&&!S.anon?'<button class="modeb" data-act="salir">Salir</button>':'');
 }
 function vista(){
@@ -1991,7 +1999,7 @@ function vProgreso(){
   const dias=diasDe(S.sesiones),min=st.min,hoy=new Date();const bars=[];let mx=min;
   for(let i=13;i>=0;i--){mx=Math.max(mx,dias[ymd(addDays(hoy,-i))]||0)}
   for(let i=13;i>=0;i--){const f=ymd(addDays(hoy,-i)),v=dias[f]||0;bars.push('<i class="'+(i===0?'today':v>=min?'met':'')+'" style="height:'+Math.max(5,Math.round(v/mx*100))+'%" title="'+fmtCorto(f)+': '+v+' min"></i>')}
-  return '<div class="page"><div class="page-head ph-green"><div class="t"><span class="eyebrow">Ciclo '+R+' · '+nivelDe(c)+'</span><h1>Tu progreso</h1><p class="muted">Racha, minutos, logros y el recorrido de tus obras.</p></div></div>'+
+  return '<div class="page"><div class="page-head ph-green"><div class="t"><span class="eyebrow">Ciclo '+R+' · '+nivelDe(c)+'</span><h1>Tu progreso</h1><button class="btn btn-sm btn-ghost mi-nombre" data-act="nombre-editar" data-id="'+S.uid+'">'+ic('pen','sm')+' Editar mi nombre</button><p class="muted">Racha, minutos, logros y el recorrido de tus obras.</p></div></div>'+
    '<div class="prog"><div class="col">'+
     resumenCard(resumenSemana(S.sesiones,S.obras,p,addDays(monday(hoy),S.ui.resPrev?-7:0),S.evidencias),{toggle:true,copiar:true,titulo:'Tu resumen semanal'})+
     '<section class="card"><div class="sec-h"><h3>'+ic('bolt')+'Minutos de '+hoy.toLocaleDateString('es-PE',{month:'long'})+'</h3><span class="chip brand">'+st.semanasMes+(st.semanasMes===1?' semana cumplida':' semanas cumplidas')+'</span></div><div class="bignum">'+st.minMes+'<small>min</small></div><div class="spark" aria-label="Minutos de los últimos 14 días">'+bars.join('')+'</div><div class="legend"><span><i style="background:var(--brand)"></i>Mínimo cumplido</span><span><i style="background:var(--tinta)"></i>Hoy</span></div></section>'+
@@ -2447,7 +2455,7 @@ function vAlumnoDetalle(){
   else if(t==='evidencias')body=S.t.evidencias.length?'<div class="evlist">'+S.t.evidencias.map(e=>evItem(e,true)).join('')+'</div>':'<div class="card"><p class="muted">Aún no envía grabaciones.</p></div>';
   else{const dias=diasDe(S.t.sesiones);const list=Object.keys(S.t.sesiones).sort().reverse().slice(0,10);const lun=monday(new Date());
     body='<div class="grid2">'+resumenCard(resumenSemana(S.t.sesiones,S.t.obras,a,lun,S.t.evidencias),{titulo:'Esta semana'})+resumenCard(resumenSemana(S.t.sesiones,S.t.obras,a,addDays(lun,-7),S.t.evidencias),{titulo:'Semana pasada'})+'</div><div class="grid2"><section class="card">'+calendario({dias,min:minDia(+a.ciclo),descanso:+a.descanso,eventos:S.eventos,evid:S.t.evidencias,sesiones:S.t.sesiones})+'</section><section class="plain"><h3>Sesiones recientes</h3>'+(list.length?'<div class="log">'+list.map(f=>{const s=S.t.sesiones[f];return '<div><span class="mono">'+dayMin(s)+' min</span><span><b>'+fmtDia(f)+'</b>'+planProf(s)+((s.entradas||[]).length?'<br><span class="muted">'+(s.entradas||[]).slice(-3).map(e=>esc(e.obraTitulo||'')+(e.frag?' c. '+esc(e.frag):'')+(e.meta?' — '+esc(e.meta):'')).join('<br>')+'</span>':'')+(s.nota?'<br>Diario: '+esc(s.nota):'')+'</span></div>'}).join('')+'</div>':'<p class="muted">Sin sesiones registradas.</p>')+'</section></div>'}
-  return '<div class="wrap page"><div class="page-head ph-green"><div class="t"><button class="btn btn-ghost btn-sm" data-act="volver-al" style="align-self:flex-start">'+ic('left','sm')+' Alumnos</button><span class="eyebrow">Ciclo '+ROMAN[(+a.ciclo||1)-1]+' · '+nivelDe(+a.ciclo)+' · descansa el '+DOW_L[+a.descanso]+'</span><h1>'+esc(a.nombre)+'</h1></div>'+
+  return '<div class="wrap page"><div class="page-head ph-green"><div class="t"><button class="btn btn-ghost btn-sm" data-act="volver-al" style="align-self:flex-start">'+ic('left','sm')+' Alumnos</button><span class="eyebrow">Ciclo '+ROMAN[(+a.ciclo||1)-1]+' · '+nivelDe(+a.ciclo)+' · descansa el '+DOW_L[+a.descanso]+'</span><h1 class="nombre-ed">'+esc(a.nombre)+'<button class="lapiz" data-act="nombre-editar" data-id="'+a.id+'" aria-label="Editar el nombre de '+esc(a.nombre)+'" title="Editar nombre">'+ic('pen','sm')+'</button></h1></div>'+
    '<div class="person" style="cursor:default;flex-direction:row;gap:22px;padding:14px 18px"><div class="nums"><div><b class="mono">'+r.racha+'</b><small>racha</small></div><div><b class="mono">'+r.minMes+'</b><small>min del mes</small></div><div><b class="mono">'+r.semanas+'</b><small>sem. cumplidas</small></div><div><b class="mono">'+r.puntaje+'</b><small>puntaje</small></div></div></div></div>'+
    '<div class="al-acts"><button class="btn btn-sm btn-ghost peligro-t" data-act="al-papelera" data-id="'+a.id+'">'+ic('trash','sm')+' Mover a la papelera</button></div>'+dlgClave()+'<div class="subnav" role="tablist">'+tabs.map(x=>'<button class="chip" role="tab" aria-pressed="'+(t===x[0])+'" data-act="t-tab" data-t="'+x[0]+'">'+x[1]+'</button>').join('')+'</div>'+body+'</div>';
 }
@@ -2657,6 +2665,19 @@ async function duplicarObra(){
   const partes=[];if(ok.length)partes.push('Duplicada a <b>'+ok.map(esc).join(', ')+'</b>.');if(ya.length)partes.push('Ya la tenía'+(ya.length>1?'n':'')+': '+ya.map(esc).join(', ')+' (no se duplicó).');if(mal.length)partes.push('No se pudo con: '+mal.map(esc).join(', ')+'.');
   D.res={err:!ok.length,txt:partes.join(' ')};renderModal();if(ok.length)toast('Obra duplicada a '+ok.length+(ok.length===1?' alumno':' alumnos'));
 }
+/* Editar el nombre: la profesora el de cualquier alumno; cada alumno el suyo */
+function renderDlgNombre(){
+  const box=$('#dlg');if(!box)return;const D=S.ui.nombreEd;
+  if(!D){if(box.innerHTML)box.innerHTML='';return}
+  if(box.querySelector('form'))return;   /* no repintar mientras se escribe */
+  const propio=D.id===S.uid;
+  box.innerHTML='<div class="modal-bg" data-act="nombre-fondo"><form class="modal dlg" data-form="nombre" role="dialog" aria-modal="true" aria-labelledby="nm-t" novalidate>'+
+   '<div class="dlg-b"><span class="tile-ic">'+ic('pen')+'</span><h2 id="nm-t">'+(propio?'Editar mi nombre':'Editar el nombre del alumno')+'</h2>'+
+   '<label class="f" for="nm-in">'+(propio?'Tu nombre':'Nombre')+'<input id="nm-in" name="nombre" maxlength="60" autocomplete="name" required value="'+esc(D.nombre||'')+'"></label>'+
+   '<p class="hint">'+(propio?'Así te verá tu profesora en su lista.':'El alumno lo verá cambiado al instante.')+'</p><span class="err" id="nm-err" role="alert"></span></div>'+
+   '<div class="modal-f"><span></span><div class="row-acts"><button type="button" class="btn" data-act="nombre-cerrar">Cancelar</button><button type="submit" class="btn btn-primary">'+ic('check','sm')+' Guardar nombre</button></div></div></form></div>';
+  const i=$('#nm-in');if(i){i.focus();i.select()}
+}
 function setPath(o,p,v){const k=p.split('.');let x=o;for(let i=0;i<k.length-1;i++){const n=k[i+1];if(x[k[i]]==null)x[k[i]]=/^\d+$/.test(n)&&k[i]!=='armonia'?[]:{};x=x[k[i]]}x[k[k.length-1]]=v}
 function obraBase(){return S.role==='prof'?'alumnos/'+S.tSel+'/obras':'alumnos/'+S.uid+'/obras'}
 async function guardarObra(){
@@ -2844,6 +2865,9 @@ const ACT={
    try{await navigator.clipboard.writeText(txt);toast('Resumen copiado. Pégalo en WhatsApp o en un correo para tu profesora.')}catch(e){try{window.prompt('Copia tu resumen:',txt)}catch(x){toast('Tu navegador no permitió copiar el resumen.','bad')}}},
  'prof-mostrar':()=>{S.ui.profForm=true;render(true);const i=$('#p-cod');if(i)i.focus()},
  'prof-ocultar':()=>{S.ui.profForm=false;if(location.hash==='#profesora'){location.hash='#inicio';return}render(true)},
+ 'nombre-editar':t=>{const id=t.dataset.id;const a=id===S.uid?S.perfil:[...(S.alumnos||[]),...(S.papelera||[]),...(S.solicitudes||[])].find(x=>x.id===id);S.ui.nombreEd={id,nombre:(a&&a.nombre)||''};renderDlgNombre()},
+ 'nombre-cerrar':()=>{S.ui.nombreEd=null;renderDlgNombre()},
+ 'nombre-fondo':(t,e)=>{if(e.target===t){S.ui.nombreEd=null;renderDlgNombre()}},
  'al-papelera':t=>{S.ui.borrar={id:t.dataset.id,accion:'papelera'};render(true);const i=$('#dlg-clave');if(i)i.focus()},
  'al-eliminar':t=>{S.ui.borrar={id:t.dataset.id,accion:'eliminar'};render(true);const i=$('#dlg-clave');if(i)i.focus()},
  'al-restaurar':async t=>{const id=t.dataset.id;const a=(S.papelera||[]).find(x=>x.id===id);const p='alumnos/'+id;
@@ -2867,7 +2891,7 @@ const ACT={
  'ir':(t,e)=>{e.preventDefault();const el=document.getElementById(t.dataset.to);if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
 };
 document.addEventListener('click',e=>{const t=e.target.closest('[data-act]');if(!t)return;if(t.tagName==='INPUT'&&t.type==='checkbox'){ACT[t.dataset.act]&&ACT[t.dataset.act](t,e);return}const f=ACT[t.dataset.act];if(f){if(t.tagName==='A'&&t.dataset.act!=='ir'){}f(t,e)}});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&S.ui.borrar){S.ui.borrar=null;render(true);return}if(e.key==='Escape'&&S.ui.focus&&!S.modal){focusCerrar();return}if(e.key==='Escape'&&S.modal){S.modal=null;renderModal()}if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('oc')&&e.target===document.activeElement){e.preventDefault();abrirObra(e.target.dataset.id)}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&S.ui.nombreEd){S.ui.nombreEd=null;renderDlgNombre();return}if(e.key==='Escape'&&S.ui.borrar){S.ui.borrar=null;render(true);return}if(e.key==='Escape'&&S.ui.focus&&!S.modal){focusCerrar();return}if(e.key==='Escape'&&S.modal){S.modal=null;renderModal()}if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('oc')&&e.target===document.activeElement){e.preventDefault();abrirObra(e.target.dataset.id)}});
 document.addEventListener('input',e=>{
   const t=e.target;
   if(t.dataset.bind&&S.modal){const v=t.type==='checkbox'?t.checked:t.value;setPath(S.modal.d,t.dataset.bind,v);if(t.dataset.bind==='titulo'){const h=$('#m-title');if(h)h.textContent=v||'Nueva obra'}}
@@ -2886,6 +2910,13 @@ document.addEventListener('change',e=>{const t=e.target;
   if(t.dataset.planAdd){const b=t.dataset.planAdd;if(!t.value)return;const f=diaSel(),ses=sesionDe(f);const ids=obrasDe(b,ses).map(o=>o.id);ids.push(t.value);S.ui.addRow=null;guardarPlan(f,{planObras:{...(ses.planObras||{}),[b]:ids}});return}if(t.dataset.actChange==='bloque-sel'){if(S.timer.acc>0&&S.timer.bloque!==t.value){toast('Guarda o descarta el bloque actual antes de cambiar.','bad');t.value=S.timer.bloque;return}S.timer.bloque=t.value;guardarTimer();return}if(t.dataset.bind&&S.modal&&(t.dataset.rerender||t.type==='checkbox'||/^mantener\.\d+\.min$/.test(t.dataset.bind)))renderModal();if(t.dataset.bind&&S.modal&&(t.dataset.bind.startsWith('mapa')&&t.dataset.bind.endsWith('tipo')))renderModal()});
 document.addEventListener('submit',async e=>{
   const f=e.target;const k=f.dataset.form;if(!k)return;e.preventDefault();const fd=new FormData(f);
+  if(k==='nombre'){const D=S.ui.nombreEd;if(!D)return;const nombre=String(fd.get('nombre')||'').replace(/\s+/g,' ').trim();
+    if(nombre.length<2){$('#nm-err').textContent='Escribe el nombre completo.';return}
+    const btn=f.querySelector('button[type=submit]');btn.disabled=true;const path='alumnos/'+D.id;
+    try{await encolar(path,()=>S.db.doc(path).update({nombre}));
+      if(D.id===S.uid&&S.perfil)S.perfil.nombre=nombre;const a=(S.alumnos||[]).find(x=>x.id===D.id);if(a)a.nombre=nombre;
+      S.ui.nombreEd=null;renderDlgNombre();render(true);toast('Nombre guardado: '+nombre)}
+    catch(x){btn.disabled=false;$('#nm-err').textContent=errMsg(x)}return}
   if(k==='clave-prof'){const D=S.ui.borrar;if(!D)return;const err=t=>{$('#dlg-err').textContent=t};const btn=f.querySelector('button[type=submit]');
     if(S.sb){const clave=String(fd.get('clave')||'');if(!clave)return err('Escribe tu contraseña.');btn.disabled=true;
       let r;try{r=await S.sb.auth.signInWithPassword({email:S.email,password:clave})}catch(x){r={error:x}}
