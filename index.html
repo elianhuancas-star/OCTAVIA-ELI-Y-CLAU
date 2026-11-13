@@ -1005,6 +1005,13 @@ thead th{background:transparent;color:var(--suave);font:700 12px/1.2 var(--f-bod
 .sol-link{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--linea);padding-top:12px}
 .sol-link .etq{color:var(--suave)}
 .sol-link code{background:var(--gris-claro);border-radius:8px;padding:8px 10px;font-size:13px;overflow-wrap:anywhere}
+.dup{display:flex;flex-direction:column;gap:16px}
+.dup-ops{display:flex;flex-direction:column;gap:8px}
+.dup-op{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;align-items:start;padding:12px;border-radius:14px;background:#fff;border:1px solid var(--linea);cursor:pointer}
+.dup-op.on{background:var(--gris-claro);cursor:default}
+.dup-op input{margin-top:1px}
+.dup-op b{display:block;font-size:14px}
+.dup-op small{font-size:13px;color:var(--suave)}
 .dlg{width:min(460px,100%)}
 .dlg-b{padding:22px;display:flex;flex-direction:column;gap:12px;background:#fff}
 .dlg-b .tile-ic{width:44px;height:44px;border-radius:12px;background:var(--aviso-suave);color:var(--aviso)}
@@ -2595,8 +2602,8 @@ function renderModal(){
   box.innerHTML='<div class="modal-bg" data-act="m-fondo"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">'+
    '<div class="modal-h"><div class="t"><span class="eyebrow">'+(M.nueva?'Nueva obra':COLS[cur].n)+'</span><h2 id="m-title">'+esc(o.titulo||'Nueva obra')+'</h2>'+(o.compositor?'<span class="muted">'+esc(o.compositor)+'</span>':'')+'</div><button class="icon-btn" data-act="m-cerrar" aria-label="Cerrar">'+ic('x','sm')+'</button></div>'+
    (M.nueva?'':'<div class="tabs" role="tablist">'+tabs.map(t=>'<button role="tab" aria-selected="'+(M.tab===t[0])+'" data-act="m-tab" data-t="'+t[0]+'">'+(tabCol[t[0]]===cur?'<span class="cur" aria-hidden="true"></span>':'')+t[1]+'</button>').join('')+'</div>')+
-   '<div class="modal-b">'+b+'</div>'+
-   '<div class="modal-f"><div>'+(M.nueva?'':(M.confirm?'<span class="inline-confirm">¿Borrar la obra? <button class="btn btn-sm btn-coral" data-act="m-borrar-si">Sí, borrar</button><button class="btn btn-sm btn-ghost" data-act="m-borrar-no">Cancelar</button></span>':'<button class="btn btn-ghost btn-sm" data-act="m-borrar">'+ic('trash','sm')+' Borrar obra</button>'))+'</div>'+
+   '<div class="modal-b">'+(M.dup?panelDuplicar(M):b)+'</div>'+
+   '<div class="modal-f"><div class="row-acts">'+(S.role==='prof'&&!M.nueva&&!M.dup?'<button class="btn btn-sm" data-act="m-duplicar">'+ic('copy','sm')+' Duplicar a otros alumnos</button>':'')+(M.nueva?'':(M.confirm?'<span class="inline-confirm">¿Borrar la obra? <button class="btn btn-sm btn-coral" data-act="m-borrar-si">Sí, borrar</button><button class="btn btn-sm btn-ghost" data-act="m-borrar-no">Cancelar</button></span>':'<button class="btn btn-ghost btn-sm" data-act="m-borrar">'+ic('trash','sm')+' Borrar obra</button>'))+'</div>'+
    '<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="err" role="alert">'+esc(M.err)+'</span><button class="btn" data-act="m-cerrar">Cancelar</button><button class="btn btn-primary" data-act="m-guardar">'+ic('check','sm')+(M.nueva?' Agregar al atril':' Guardar')+'</button></div></div></div></div>';
   const first=box.querySelector('.modal-b input, .modal-b select');if(M.nueva&&first&&!M.focused){first.focus();M.focused=true}
 }
@@ -2612,6 +2619,43 @@ function cierreObra(o){
      :'<p class="hint">Ejemplos: «c. 24–31, el pasaje de octavas» o «la cadenza del c. 40, solo la mano derecha». Elige lo que más se olvida o lo más difícil.</p>')+
    (tot>5?'<p class="err">Pasas de 5 minutos al día: deja solo lo esencial.</p>':'')+
    '<button class="btn btn-sm" data-act="m-agregar" data-k="mantener" style="align-self:flex-start">'+ic('plus','sm')+' Fragmento de mantenimiento</button></section>';
+}
+/* Duplicar una obra a otros alumnos: ficha siempre; análisis y fragmentos opcionales; sin avance personal */
+function panelDuplicar(M){
+  const D=M.dup,o=M.d;const lista=(S.alumnos||[]).filter(a=>a.id!==S.tSel);
+  const res=D.res?'<div class="status-banner '+(D.res.err?'warn':'ok')+'">'+ic(D.res.err?'x':'check','sm')+'<span>'+D.res.txt+'</span></div>':'';
+  return '<div class="dup">'+
+   '<div class="guide"><b>Duplicar «'+esc(o.titulo||'obra')+'»</b><span>Cada copia empieza en «Sin empezar», con su propio historial. No se copian el avance, las impresiones ni las grabaciones de este alumno.</span></div>'+res+
+   '<section class="plain"><div class="sec-h"><h3>'+ic('users')+'¿A qué alumnos?</h3>'+(lista.length?'<button class="btn btn-ghost btn-sm" data-act="dup-todos">'+(D.sel.length===lista.length?'Quitar todos':'Elegir todos')+'</button>':'')+'</div>'+
+   (lista.length?'<div class="chips">'+lista.map(a=>'<button class="chip" data-act="dup-al" data-id="'+a.id+'" aria-pressed="'+D.sel.includes(a.id)+'">'+esc(a.nombre)+' · '+ROMAN[(+a.ciclo||1)-1]+'</button>').join('')+'</div>':'<p class="vacio">No hay otros alumnos aprobados todavía.</p>')+'</section>'+
+   '<section class="plain"><h3>'+ic('note')+'¿Qué copiar?</h3><div class="dup-ops">'+
+    '<label class="dup-op on"><input type="checkbox" checked disabled><span><b>Ficha de la obra</b><small>Título, compositor, catálogo, compases, tonalidad, compás, enlace de la partitura y motivo.</small></span></label>'+
+    '<label class="dup-op"><input type="checkbox" data-act="dup-op" data-k="analisis"'+(D.analisis?' checked':'')+'><span><b>Análisis</b><small>Mapa de secciones (A, B, A′…) y armonía por compás'+((o.mapa||[]).length||Object.keys(o.armonia||{}).length?'':' · esta obra aún no tiene')+'.</small></span></label>'+
+    '<label class="dup-op"><input type="checkbox" data-act="dup-op" data-k="frag"'+(D.frag?' checked':'')+'><span><b>Fragmentos</b><small>Los mismos cortes por frase y su dificultad, todos «sin trabajar»'+((o.fragmentos||[]).length?' ('+o.fragmentos.length+')':' · esta obra aún no tiene')+'.</small></span></label>'+
+   '</div></section>'+
+   '<div class="row-acts"><button class="btn btn-primary" data-act="dup-hacer"'+(D.sel.length&&!D.busy?'':' disabled')+'>'+ic('copy','sm')+(D.busy?' Duplicando…':' Duplicar a '+D.sel.length+(D.sel.length===1?' alumno':' alumnos'))+'</button><button class="btn btn-ghost" data-act="dup-cerrar">Volver a la obra</button></div></div>';
+}
+function copiaObra(o,D){
+  const hoy=today();
+  const c={titulo:o.titulo||'',compositor:o.compositor||'',catalogo:o.catalogo||'',compases:o.compases||'',tonalidad:o.tonalidad||'',compas:o.compas||'',enlace:o.enlace||'',motivo:o.motivo||'',
+    col:0,creado:Date.now(),historial:[{col:0,fecha:hoy}],fragmentos:[],mapa:[],armonia:{},desafios:[],focos:[],copiaDe:o.id||null};
+  if(D.analisis){c.mapa=clone(o.mapa||[]);c.armonia=clone(o.armonia||{})}
+  if(D.frag)c.fragmentos=(o.fragmentos||[]).map(f=>({desde:f.desde,hasta:f.hasta,dif:f.dif||'a',estado:'sin',desafio:f.desafio||'',escalon:0}));
+  return c;
+}
+const normTit=t=>String(t||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,' ').trim();
+async function duplicarObra(){
+  const M=S.modal,D=M.dup,o=M.d;if(!D.sel.length)return;D.busy=true;D.res=null;renderModal();
+  const ok=[],ya=[],mal=[];
+  for(const id of D.sel){const a=S.alumnos.find(x=>x.id===id);const nom=a?a.nombre:id;
+    try{const snap=await S.db.collection('alumnos/'+id+'/obras').get();
+      if(snap.docs.some(d=>normTit(d.data().titulo)===normTit(o.titulo))){ya.push(nom);continue}
+      const nid=uidGen(),path='alumnos/'+id+'/obras/'+nid;
+      await encolar(path,()=>S.db.doc(path).set(copiaObra(o,D)));ok.push(nom)}
+    catch(e){mal.push(nom)}}
+  D.busy=false;D.sel=[];
+  const partes=[];if(ok.length)partes.push('Duplicada a <b>'+ok.map(esc).join(', ')+'</b>.');if(ya.length)partes.push('Ya la tenía'+(ya.length>1?'n':'')+': '+ya.map(esc).join(', ')+' (no se duplicó).');if(mal.length)partes.push('No se pudo con: '+mal.map(esc).join(', ')+'.');
+  D.res={err:!ok.length,txt:partes.join(' ')};renderModal();if(ok.length)toast('Obra duplicada a '+ok.length+(ok.length===1?' alumno':' alumnos'));
 }
 function setPath(o,p,v){const k=p.split('.');let x=o;for(let i=0;i<k.length-1;i++){const n=k[i+1];if(x[k[i]]==null)x[k[i]]=/^\d+$/.test(n)&&k[i]!=='armonia'?[]:{};x=x[k[i]]}x[k[k.length-1]]=v}
 function obraBase(){return S.role==='prof'?'alumnos/'+S.tSel+'/obras':'alumnos/'+S.uid+'/obras'}
@@ -2708,6 +2752,12 @@ const ACT={
  'escalon':t=>{const f=S.modal.d.fragmentos[+t.dataset.i];f.escalon=+t.dataset.k;renderModal()},
  'foco':t=>{const o=S.modal.d;o.focos=o.focos||[];const id=t.dataset.id;if(t.checked){if(o.focos.length<2)o.focos.push(id)}else o.focos=o.focos.filter(x=>x!==id);renderModal()},
  'desafio-agregar':()=>{const tp=$('#m-dt').value,ps=$('#m-dp').value.trim();if(!tp){S.modal.err='Elige un desafío.';renderModal();return}S.modal.d.desafios=(S.modal.d.desafios||[]).concat([{tipo:tp,pasaje:ps}]);S.modal.err='';renderModal()},
+ 'm-duplicar':()=>{S.modal.dup={sel:[],analisis:true,frag:true};renderModal();const mb=$('.modal-b');if(mb)mb.scrollTop=0},
+ 'dup-cerrar':()=>{S.modal.dup=null;renderModal()},
+ 'dup-al':t=>{const D=S.modal.dup,id=t.dataset.id;D.res=null;D.sel=D.sel.includes(id)?D.sel.filter(x=>x!==id):D.sel.concat([id]);renderModal()},
+ 'dup-todos':()=>{const D=S.modal.dup;const L=(S.alumnos||[]).filter(a=>a.id!==S.tSel).map(a=>a.id);D.res=null;D.sel=D.sel.length===L.length?[]:L;renderModal()},
+ 'dup-op':t=>{S.modal.dup[t.dataset.k]=t.checked;renderModal()},
+ 'dup-hacer':()=>duplicarObra(),
  'm-borrar':()=>{S.modal.confirm=true;renderModal()},
  'm-borrar-no':()=>{S.modal.confirm=false;renderModal()},
  'm-borrar-si':async()=>{const id=S.modal.d.id,path=obraBase()+'/'+id;try{await encolar(path,()=>S.db.doc(path).delete());S.modal=null;renderModal();toast('Obra borrada');if(S.role==='alumno')sincronizar()}catch(e){S.modal.err=errMsg(e);renderModal()}},
